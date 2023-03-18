@@ -11,6 +11,5 @@ int main() {
 	int n = 100;
 	bool validEnter = true;
 	ScreenStartGame(n, _A, _TURN, _COMMAND, _X, _Y, validEnter);
-	//commit
 	return 0;
 }
