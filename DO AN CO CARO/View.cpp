@@ -37,6 +37,7 @@ void DrawBoard(int pSize) {
 void DrawBoard_1(int m, int n)
 {
 	int i, j;
+	SetColor(1);
 	printf("%c", 218);
 	for (i = 0; i < n - 1; i++)
 		printf("%c%c%c%c",196,196, 196, 194);
@@ -89,19 +90,6 @@ int AskContinue(_POINT _A[][BOARD_SIZE])
 	printf("Nhan 'y/n' de tiep tuc/dung: ");
 	return toupper(_getch());
 }
-void SetColor(int color)
-{
-	HANDLE hConsole;
-
-	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, color);
-}
-void PrintText(string text, int color)
-{
-	SetColor(color);
-	cout << text;
-	SetColor(0);
-}
 void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter)
 {
 	PlayBackGroundMusic();
@@ -112,9 +100,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 	{
 		backToOriginalMenu = false;
 		x = 50, y = 20;
-		Textcolor(200);
+		SetColor(200);
 		GotoXY(50, 20); cout << "Player Vs Player";
-		Textcolor(7);
+		SetColor(7);
 		GotoXY(50, 21); cout << "Player Vs Computer";
 		GotoXY(50, 22); cout << "Load Game";
 		GotoXY(50, 23); cout << "Help";
@@ -140,9 +128,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 20)
 					{
-						Textcolor(200);
+						SetColor(200);
 						GotoXY(50, 20); cout << "Player Vs Player";
-						Textcolor(7);
+						SetColor(7);
 						GotoXY(50, 21); cout << "Player Vs Computer";
 						GotoXY(50, 22); cout << "Load Game";
 						GotoXY(50, 23); cout << "Help";
@@ -151,11 +139,11 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 21)
 					{
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 20); cout << "Player Vs Player";
-						Textcolor(200);
+						SetColor(200);
 						::GotoXY(50, 21); cout << "Player Vs Computer";
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
@@ -163,50 +151,50 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 22)
 					{
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
-						Textcolor(200);
+						SetColor(200);
 						::GotoXY(50, 22); cout << "Load Game";
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
 						::GotoXY(50, 25); cout << "Exit";
 					}
 					if (y == 23)
 					{
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
-						Textcolor(200);
+						SetColor(200);
 						::GotoXY(50, 23); cout << "Help";
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 24); cout << "About";
 						::GotoXY(50, 25); cout << "Exit";
 					}
 					if (y == 24)
 					{
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
-						Textcolor(200);
+						SetColor(200);
 						::GotoXY(50, 24); cout << "About";
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 25); cout << "Exit";
 					}
 					if (y == 25)
 					{
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
-						Textcolor(200);
+						SetColor(200);
 						::GotoXY(50, 24); cout << "About";
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 25); cout << "Exit";
 					}
 					break;
@@ -218,9 +206,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 20)
 					{
-						Textcolor(200);
+						SetColor(200);
 						::GotoXY(50, 20); cout << "Player Vs Player";
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
@@ -229,11 +217,11 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 21)
 					{
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 20); cout << "Player Vs Player";
-						Textcolor(200);
+						SetColor(200);
 						::GotoXY(50, 21); cout << "Player Vs Computer";
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
@@ -241,49 +229,49 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 22)
 					{
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
-						Textcolor(200);
+						SetColor(200);
 						::GotoXY(50, 22); cout << "Load Game";
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
 						::GotoXY(50, 25); cout << "Exit";
 					}
 					if (y == 23)
 					{
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
-						Textcolor(200);
+						SetColor(200);
 						::GotoXY(50, 23); cout << "Help";
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 24); cout << "About";
 						::GotoXY(50, 25); cout << "Exit";
 					}
 					if (y == 24)
 					{
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
-						Textcolor(200);
+						SetColor(200);
 						::GotoXY(50, 24); cout << "About";
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 25); cout << "Exit";
 					}
 					if (y == 25)
 					{
-						Textcolor(7);
+						SetColor(7);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
-						Textcolor(200);
+						SetColor(200);
 						::GotoXY(50, 25); cout << "Exit";
 					}
 					break;
@@ -292,6 +280,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					//PlaySoundEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
 					if (y == 20)
 					{
+						TextColor(255);
 						GamePlay(_A, _TURN, _COMMAND, _X, _Y, validEnter);
 					}
 					if (y == 21)
@@ -322,11 +311,23 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		}
 	}
 }
-void Textcolor(int color)
+void TextColor(int color)
 {
-	HANDLE hConsoleColor;
-	hConsoleColor = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsoleColor, color);
+	HANDLE hConsole;
+	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, color);
+}
+void SetColor(WORD color)
+{
+	HANDLE hConsoleOutput;
+	hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_SCREEN_BUFFER_INFO screen_buffer_info;
+	GetConsoleScreenBufferInfo(hConsoleOutput, &screen_buffer_info);
+	WORD wAttributes = screen_buffer_info.wAttributes;
+	color &= 0x000f;
+	wAttributes &= 0xfff0;
+	wAttributes |= color;
+	SetConsoleTextAttribute(hConsoleOutput, wAttributes);
 }
 
 
