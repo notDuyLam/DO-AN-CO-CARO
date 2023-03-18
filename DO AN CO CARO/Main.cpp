@@ -12,4 +12,5 @@ int main() {
 	bool validEnter = true;
 	ScreenStartGame(n, _A, _TURN, _COMMAND, _X, _Y, validEnter);
 	return 0;
+//12314
 }
