@@ -13,4 +13,5 @@ int main() {
 	ScreenStartGame(n, _A, _TURN, _COMMAND, _X, _Y, validEnter);
 	return 0;
 //12314
+//adf123
 }
