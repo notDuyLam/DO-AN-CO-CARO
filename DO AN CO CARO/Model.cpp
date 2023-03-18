@@ -358,7 +358,7 @@ void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothan
 
 		if (pWhoWin == -1)
 		{
-			Textcolor(372);
+			SetColor(372);
 			cout << " ";
 			Sleep(40);
 
@@ -368,7 +368,7 @@ void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothan
 		}
 		else if (pWhoWin == 1)
 		{
-			Textcolor(372);
+			SetColor(372);
 			cout << " ";
 			Sleep(40);
 
@@ -378,7 +378,7 @@ void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothan
 		}
 		ShowCur(1);
 	}
-	Textcolor(7);
+	SetColor(7);
 	Sleep(500);
 }
 
