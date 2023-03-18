@@ -30,12 +30,12 @@ bool CheckTie(_POINT _A[][BOARD_SIZE])
 	return true;
 }
 
-int TestBoard(_POINT _A[][BOARD_SIZE], bool _TURN, int cRow, int cCol)
+int TestBoard(_POINT _A[][BOARD_SIZE], bool _TURN, int cRow, int cCol,short int toadothang[24])
 {
 	if (CheckTie(_A)) return 0; //Hoa
 	else
 	{
-		if (CheckWin(_A, cRow, cCol))
+		if (CheckWin(_A, cRow, cCol,toadothang))
 			return (_TURN == FIRST ? P_X : P_O); //-1 nghia la luot 'true' thang
 		else
 			return 2;
@@ -55,257 +55,216 @@ int CheckBoard(int pX, int pY, _POINT _A[][BOARD_SIZE], bool& _TURN) {
 	return 0;
 }
 
-bool HorizontalCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol)
+bool HorizontalCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, short int toadothang[24])
 {
 	int countWin = 1;
-	bool blockRight = false;
-	bool blockLeft = false;
-	bool wall = false;
 	int count = 1;
-	bool keepCounting = true;
-
-	if (currentCol == 0 || currentCol == BOARD_SIZE - 1) wall = true;
-
+	unsigned short int id = 0;
+	int dem = 1;
+	toadothang[id] = currentRow;
+	id++;
+	toadothang[id] = currentCol;
+	id++;
 	while (currentCol + count < BOARD_SIZE)
 	{
-		if ((_A[currentRow][currentCol + count].c != 0) && (_A[currentRow][currentCol + count].c != _A[currentRow][currentCol].c))
+		if ((_A[currentRow][currentCol + count].c == _A[currentRow][currentCol].c))
 		{
-			blockRight = true;
-			break;
-		}
-		else if ((_A[currentRow][currentCol + count].c == _A[currentRow][currentCol].c) && keepCounting)
-		{
-			if (currentCol + count == BOARD_SIZE - 1) wall = true;
 			countWin++;
+			toadothang[id] = currentRow;
+			id++;
+			toadothang[id] = currentCol + dem;
+			id++;
+			dem++;
 			count++;
 		}
 		else
-		{
-			count++;
-			keepCounting = false;
-		}
+			break;
 	}
 
 	count = 1;
-	keepCounting = true;
-
+	dem = 1;
 	while (currentCol - count > -1)
 	{
-		if ((_A[currentRow][currentCol - count].c != 0) && (_A[currentRow][currentCol - count].c != _A[currentRow][currentCol].c))
+		if ((_A[currentRow][currentCol - count].c == _A[currentRow][currentCol].c))
 		{
-			blockLeft = true;
-			break;
-		}
-		else if ((_A[currentRow][currentCol - count].c == _A[currentRow][currentCol].c) && keepCounting)
-		{
-			if (currentCol - count == 0) wall = true;
 			countWin++;
+			toadothang[id] = currentRow;
+			id++;
+			toadothang[id] = currentCol - dem;
+			id++;
+			dem++;
 			count++;
 		}
 		else
-		{
-			count++;
-			keepCounting = false;
-		}
+			break;
 	}
 
-	if (!blockLeft && !blockRight && !wall && (countWin == 4))
+
+	if (countWin >= 5)
+	{
 		return true;
-	else if (countWin >= 5 && !(blockRight && blockLeft))
-		return true;
+	}
 	else
 		return false;
 }
 
-bool VerticalCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol)
+bool VerticalCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, short int toadothang[24])
 {
 	int countWin = 1;
-	bool blockUp = false;
-	bool blockDown = false;
-	bool wall = false;
 	int count = 1;
-	bool keepCounting = true;
-
-	if (currentRow == 0 || currentRow == BOARD_SIZE - 1) wall = true;
-
+	unsigned short int id = 0;
+	int dem = 1;
+	toadothang[id] = currentRow;
+	id++;
+	toadothang[id] = currentCol;
+	id++;
 	while (currentRow + count < BOARD_SIZE)
 	{
-		if ((_A[currentRow + count][currentCol].c != 0) && (_A[currentRow + count][currentCol].c != _A[currentRow][currentCol].c))
+		if ((_A[currentRow + count][currentCol].c == _A[currentRow][currentCol].c))
 		{
-			blockDown = true;
-			break;
-		}
-		else if ((_A[currentRow + count][currentCol].c == _A[currentRow][currentCol].c) && keepCounting)
-		{
-			if (currentRow + count == BOARD_SIZE - 1) wall = true;
+
 			countWin++;
+			toadothang[id] = currentRow + dem;
+			id++;
+			toadothang[id] = currentCol;
+			id++;
+			dem++;
 			count++;
 		}
 		else
-		{
-			count++;
-			keepCounting = false;
-		}
+			break;
 	}
 
 	count = 1;
-	keepCounting = true;
-
+	dem = 1;
 	while (currentRow - count > -1)
 	{
-		if ((_A[currentRow - count][currentCol].c != 0) && (_A[currentRow - count][currentCol].c != _A[currentRow][currentCol].c))
+		if (_A[currentRow - count][currentCol].c == _A[currentRow][currentCol].c)
 		{
-			blockUp = true;
-			break;
-		}
-		else if ((_A[currentRow - count][currentCol].c == _A[currentRow][currentCol].c) && keepCounting)
-		{
-			if (currentRow - count == 0) wall = true;
 			countWin++;
+			toadothang[id] = currentRow - dem;
+			id++;
+			toadothang[id] = currentCol;
+			id++;
+			dem++;
 			count++;
 		}
 		else
-		{
-			count++;
-			keepCounting = false;
-		}
+			break;
 	}
 
-	if (!blockUp && !blockDown && !wall && (countWin == 4))
-		return true;
-	else if (countWin >= 5 && !(blockUp && blockDown))
+	if (countWin >= 5)
 		return true;
 	else
 		return false;
 }
 
-bool ForwardSlashCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol)
+bool ForwardSlashCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, short int toadothang[24])
 {
 	int countWin = 1;
-	bool blockUp = false;
-	bool blockDown = false;
-	bool wall = false;
 	int count = 1;
-	bool keepCounting = true;
 
-	if (currentCol == 0 || currentCol == BOARD_SIZE - 1 || currentRow == 0 || currentRow == BOARD_SIZE - 1) wall = true;
-
+	unsigned short int id = 0;
+	int dem = 1;
+	toadothang[id] = currentRow;
+	id++;
+	toadothang[id] = currentCol;
+	id++;
 	while (currentRow + count < BOARD_SIZE && currentCol - count > -1)
 	{
-		if ((_A[currentRow + count][currentCol - count].c != 0) && (_A[currentRow + count][currentCol - count].c != _A[currentRow][currentCol].c))
+		if ((_A[currentRow + count][currentCol - count].c == _A[currentRow][currentCol].c))
 		{
-			blockDown = true;
-			break;
-		}
-		else if ((_A[currentRow + count][currentCol - count].c == _A[currentRow][currentCol].c) && keepCounting)
-		{
-			if (currentRow + count == BOARD_SIZE - 1 || currentCol - count == 0) wall = true;
+
 			countWin++;
+			toadothang[id] = currentRow + dem;
+			id++;
+			toadothang[id] = currentCol - dem;
+			id++;
+			dem++;
 			count++;
 		}
 		else
-		{
-			count++;
-			keepCounting = false;
-		}
+			break;
 	}
 
 	count = 1;
-	keepCounting = true;
-
+	dem = 1;
 	while (currentRow - count > -1 && currentCol + count < BOARD_SIZE)
 	{
-		if ((_A[currentRow - count][currentCol + count].c != 0) && (_A[currentRow - count][currentCol + count].c != _A[currentRow][currentCol].c))
+		if (_A[currentRow - count][currentCol + count].c == _A[currentRow][currentCol].c)
 		{
-			blockUp = true;
-			break;
-		}
-		else if ((_A[currentRow - count][currentCol + count].c == _A[currentRow][currentCol].c) && keepCounting)
-		{
-			if (currentCol + count == BOARD_SIZE - 1 || currentRow - count == 0) wall = true;
 			countWin++;
+			toadothang[id] = currentRow - dem;
+			id++;
+			toadothang[id] = currentCol + dem;
+			id++;
+			dem++;
 			count++;
 		}
 		else
-		{
-			count++;
-			keepCounting = false;
-		}
+			break;
 	}
 
-	if (!blockUp && !blockDown && !wall && (countWin == 4))
-		return true;
-	else if (countWin >= 5 && !(blockUp && blockDown))
+	if (countWin >= 5)
 		return true;
 	else
 		return false;
 }
 
-bool BackwardSlashCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol)
+bool BackwardSlashCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, short int toadothang[24])
 {
 	int countWin = 1;
-	bool blockUp = false;
-	bool blockDown = false;
-	bool wall = false;
 	int count = 1;
-	bool keepCounting = true;
-
-	if (currentCol == 0 || currentCol == BOARD_SIZE - 1 || currentRow == 0 || currentRow == BOARD_SIZE - 1) wall = true;
+	unsigned short int id = 0;
+	int dem = 1;
+	toadothang[id] = currentRow;
+	id++;
+	toadothang[id] = currentCol;
+	id++;
 
 	while (currentRow + count < BOARD_SIZE && currentCol + count < BOARD_SIZE)
 	{
-		if ((_A[currentRow + count][currentCol + count].c != 0) && (_A[currentRow + count][currentCol + count].c != _A[currentRow][currentCol].c))
+		if ((_A[currentRow + count][currentCol + count].c == _A[currentRow][currentCol].c))
 		{
-			blockDown = true;
-			break;
-		}
-		else if ((_A[currentRow + count][currentCol + count].c == _A[currentRow][currentCol].c) && keepCounting)
-		{
-			if (currentRow + count == BOARD_SIZE - 1 || currentCol + count == BOARD_SIZE - 1) wall = true;
 			countWin++;
+			toadothang[id] = currentRow + dem;
+			id++;
+			toadothang[id] = currentCol + dem;
+			id++;
+			dem++;
 			count++;
 		}
 		else
-		{
-			count++;
-			keepCounting = false;
-		}
+			break;
 	}
 
 	count = 1;
-	keepCounting = true;
+	dem = 1;
 
 	while (currentRow - count > -1 && currentCol - count > -1)
 	{
-		if ((_A[currentRow - count][currentCol - count].c != 0) && (_A[currentRow - count][currentCol - count].c != _A[currentRow][currentCol].c))
+		if ((_A[currentRow - count][currentCol - count].c == _A[currentRow][currentCol].c))
 		{
-			blockUp = true;
-			break;
-		}
-		else if ((_A[currentRow - count][currentCol - count].c == _A[currentRow][currentCol].c) && keepCounting)
-		{
-			if (currentRow - count == 0 || currentCol - count == 0) wall = true;
 			countWin++;
+			toadothang[id] = currentRow - dem;
+			id++;
+			toadothang[id] = currentCol - dem;
+			id++;
+			dem++;
 			count++;
 		}
 		else
-		{
-			count++;
-			keepCounting = false;
-		}
+			break;
 	}
-
-	if (!blockUp && !blockDown && !wall && (countWin == 4))
-		return true;
-	else if (countWin >= 5 && !(blockUp && blockDown))
+	if (countWin >= 5)
 		return true;
 	else
 		return false;
 }
 
-bool CheckWin(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol)
+bool CheckWin(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, short int toadothang[24])
 {
-	if (HorizontalCheck(_A, currentRow, currentCol) || VerticalCheck(_A, currentRow, currentCol) || BackwardSlashCheck(_A, currentRow, currentCol) || ForwardSlashCheck(_A, currentRow, currentCol))
+	if (HorizontalCheck(_A, currentRow, currentCol,toadothang) || VerticalCheck(_A, currentRow, currentCol,toadothang) || BackwardSlashCheck(_A, currentRow, currentCol,toadothang) || ForwardSlashCheck(_A, currentRow, currentCol,toadothang))
 		return true;
 	else return false;
 }
@@ -346,5 +305,80 @@ void PlaySoundEffect(string s)
 		PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC); // Dung de bat nhac khi di
 	else if (s == "win")
 		PlaySound(TEXT("win.wav"), NULL, SND_FILENAME | SND_ASYNC); // Bat nhac khi thang
+}
+
+void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothang[24], int pWhoWin)
+{
+	short int x, y;
+	ShowCur(0);
+
+	for (unsigned short int j = 1; j < 8; ++j)
+	{
+		for (int i = 0; i < 10; i += 2)
+		{
+			x = toadothang[i];
+			y = toadothang[i + 1];
+
+			int x2, y2;
+			x2 = 4 * y + 2;
+			y2 = 2 * x + 1;
+			GotoXY(x2, y2);
+
+			if (pWhoWin == -1)
+			{
+				cout << " ";
+				Sleep(40);
+				SetColor(2 + rand() % 14);
+				GotoXY(x2, y2);
+				cout << "X";
+				cout << " ";
+			}
+			else if (pWhoWin == 1)
+			{
+				cout << " ";
+				Sleep(40);
+				SetColor(2 + rand() % 14);
+				GotoXY(x2, y2);
+				cout << "O";
+				cout << " ";
+			}
+		}
+	}
+	Sleep(300);
+	ShowCur(1);
+	for (unsigned short int i = 0; i < 10; i += 2)
+	{
+		x = toadothang[i];
+		y = toadothang[i + 1];
+
+		int x2, y2;
+		x2 = 4 * y + 2;
+		y2 = 2 * x + 1;
+		GotoXY(x2, y2);
+
+		if (pWhoWin == -1)
+		{
+			Textcolor(372);
+			cout << " ";
+			Sleep(40);
+
+			GotoXY(x2, y2);
+			cout << "X";
+			cout << " ";
+		}
+		else if (pWhoWin == 1)
+		{
+			Textcolor(372);
+			cout << " ";
+			Sleep(40);
+
+			GotoXY(x2, y2);
+			cout << "O";
+			cout << " ";
+		}
+		ShowCur(1);
+	}
+	Textcolor(7);
+	Sleep(500);
 }
 

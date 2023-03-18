@@ -62,17 +62,21 @@ void DrawBoard_1(int m, int n)
 	printf("%c%c%c",196,196, 196);
 	printf("%c", 217);
 }
-int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, int& _Y)
+int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, int& _Y,short int toadothang[24])
 {
-	GotoXY(0, _A[BOARD_SIZE - 1][BOARD_SIZE - 1].y + 2); // Nhảy tới vị trí 
-	// thích hợp để in chuỗi thắng/thua/hòa
 	switch (pWhoWin) {
 	case -1:
 		PlaySoundEffect("win");
+		NhapNhayQuanCo(_A, toadothang, pWhoWin);
+		GotoXY(0, _A[BOARD_SIZE - 1][BOARD_SIZE - 1].y + 2); // Nhảy tới vị trí 
+		// thích hợp để in chuỗi thắng/thua/hòa
 		printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", true, false);
 		break;
 	case 1:
 		PlaySoundEffect("win");
+		NhapNhayQuanCo(_A, toadothang, pWhoWin);
+		GotoXY(0, _A[BOARD_SIZE - 1][BOARD_SIZE - 1].y + 2); // Nhảy tới vị trí 
+		// thích hợp để in chuỗi thắng/thua/hòa
 		printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", false, true);
 		break;
 	case 0:
@@ -330,4 +334,10 @@ void SetColor(WORD color)
 	SetConsoleTextAttribute(hConsoleOutput, wAttributes);
 }
 
+void ShowCur(bool CursorVisibility)
+{
+	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_CURSOR_INFO cursor = { 1, CursorVisibility };
+	SetConsoleCursorInfo(handle, &cursor);
+}
 
