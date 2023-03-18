@@ -39,6 +39,7 @@ void GamePlay(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y,
 	FixConsoleWindow();
 	StartGame(_A, _TURN, _COMMAND, _X, _Y);
 	StopMusic();
+	short int toadothang[24];
 	while (1)
 	{
 		_COMMAND = toupper(_getch());
@@ -67,7 +68,7 @@ void GamePlay(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y,
 				}
 				// Tiếp theo là kiểm tra và xử lý thắng/thua/hòa/tiếp tục
 				if (validEnter == true) {
-					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X)), _A, _TURN, _X, _Y)) {
+					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X),toadothang), _A, _TURN, _X, _Y,toadothang)) {
 					case -1: case 1: case 0:
 						if (AskContinue(_A) != 'Y') {
 							StopMusic();
