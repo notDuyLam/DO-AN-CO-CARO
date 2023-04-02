@@ -111,7 +111,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		GotoXY(50, 22); cout << "Load Game";
 		GotoXY(50, 23); cout << "Help";
 		GotoXY(50, 24); cout << "About";
-		GotoXY(50, 25); cout << "Exit";
+		GotoXY(50, 25); cout << "Sound";
+		GotoXY(50, 26); cout << "Exit";
 		GotoXY(50, 32); cout << "....... W - S : Move ( Off Unikey - Off Caps Lock ) ";
 		GotoXY(50, 33); cout << "....... Enter : Select ";
 		//if (n == 100)
@@ -139,7 +140,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						GotoXY(50, 22); cout << "Load Game";
 						GotoXY(50, 23); cout << "Help";
 						GotoXY(50, 24); cout << "About";
-						GotoXY(50, 25); cout << "Exit";
+						GotoXY(50, 25); cout << "Sound";
+						GotoXY(50, 26); cout << "Exit";
 					}
 					if (y == 21)
 					{
@@ -151,7 +153,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
-						::GotoXY(50, 25); cout << "Exit";
+						GotoXY(50, 25); cout << "Sound";
+						::GotoXY(50, 26); cout << "Exit";
 					}
 					if (y == 22)
 					{
@@ -163,7 +166,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(7);
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
-						::GotoXY(50, 25); cout << "Exit";
+						GotoXY(50, 25); cout << "Sound";
+						::GotoXY(50, 26); cout << "Exit";
 					}
 					if (y == 23)
 					{
@@ -175,7 +179,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						::GotoXY(50, 23); cout << "Help";
 						SetColor(7);
 						::GotoXY(50, 24); cout << "About";
-						::GotoXY(50, 25); cout << "Exit";
+						GotoXY(50, 25); cout << "Sound";
+						::GotoXY(50, 26); cout << "Exit";
 					}
 					if (y == 24)
 					{
@@ -187,7 +192,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(200);
 						::GotoXY(50, 24); cout << "About";
 						SetColor(7);
-						::GotoXY(50, 25); cout << "Exit";
+						GotoXY(50, 25); cout << "Sound";
+						::GotoXY(50, 26); cout << "Exit";
 					}
 					if (y == 25)
 					{
@@ -196,14 +202,29 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
+						::GotoXY(50, 24); cout << "About";
+						SetColor(200);
+						GotoXY(50, 25); cout << "Sound";
+						SetColor(7);
+						::GotoXY(50, 26); cout << "Exit";
+					}
+					if (y == 26)
+					{
+						SetColor(7);
+						::GotoXY(50, 20); cout << "Player Vs Player";
+						::GotoXY(50, 21); cout << "Player Vs Computer";
+						::GotoXY(50, 22); cout << "Load Game";
+						::GotoXY(50, 23); cout << "Help";
 						SetColor(200);
 						::GotoXY(50, 24); cout << "About";
+						GotoXY(50, 25); cout << "Sound";
 						SetColor(7);
-						::GotoXY(50, 25); cout << "Exit";
+						::GotoXY(50, 26); cout << "Exit";
 					}
+
 					break;
 				case 's':
-					if (y < 25)
+					if (y < 26)
 					{
 						y++;
 						::GotoXY(x, y);
@@ -211,13 +232,14 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					if (y == 20)
 					{
 						SetColor(200);
-						::GotoXY(50, 20); cout << "Player Vs Player";
+						GotoXY(50, 20); cout << "Player Vs Player";
 						SetColor(7);
-						::GotoXY(50, 21); cout << "Player Vs Computer";
-						::GotoXY(50, 22); cout << "Load Game";
-						::GotoXY(50, 23); cout << "Help";
-						::GotoXY(50, 24); cout << "About";
-						::GotoXY(50, 25); cout << "Exit";
+						GotoXY(50, 21); cout << "Player Vs Computer";
+						GotoXY(50, 22); cout << "Load Game";
+						GotoXY(50, 23); cout << "Help";
+						GotoXY(50, 24); cout << "About";
+						GotoXY(50, 25); cout << "Sound";
+						GotoXY(50, 26); cout << "Exit";
 					}
 					if (y == 21)
 					{
@@ -229,7 +251,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
-						::GotoXY(50, 25); cout << "Exit";
+						GotoXY(50, 25); cout << "Sound";
+						::GotoXY(50, 26); cout << "Exit";
 					}
 					if (y == 22)
 					{
@@ -241,7 +264,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(7);
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
-						::GotoXY(50, 25); cout << "Exit";
+						GotoXY(50, 25); cout << "Sound";
+						::GotoXY(50, 26); cout << "Exit";
 					}
 					if (y == 23)
 					{
@@ -253,7 +277,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						::GotoXY(50, 23); cout << "Help";
 						SetColor(7);
 						::GotoXY(50, 24); cout << "About";
-						::GotoXY(50, 25); cout << "Exit";
+						GotoXY(50, 25); cout << "Sound";
+						::GotoXY(50, 26); cout << "Exit";
 					}
 					if (y == 24)
 					{
@@ -265,7 +290,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(200);
 						::GotoXY(50, 24); cout << "About";
 						SetColor(7);
-						::GotoXY(50, 25); cout << "Exit";
+						GotoXY(50, 25); cout << "Sound";
+						::GotoXY(50, 26); cout << "Exit";
 					}
 					if (y == 25)
 					{
@@ -276,7 +302,23 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
 						SetColor(200);
-						::GotoXY(50, 25); cout << "Exit";
+						GotoXY(50, 25); cout << "Sound";
+						SetColor(7);
+						::GotoXY(50, 26); cout << "Exit";
+					}
+
+					if (y == 26)
+					{
+						SetColor(7);
+						::GotoXY(50, 20); cout << "Player Vs Player";
+						::GotoXY(50, 21); cout << "Player Vs Computer";
+						::GotoXY(50, 22); cout << "Load Game";
+						::GotoXY(50, 23); cout << "Help";
+						SetColor(200);
+						::GotoXY(50, 24); cout << "About";
+						GotoXY(50, 25); cout << "Sound";
+						SetColor(7);
+						::GotoXY(50, 26); cout << "Exit";
 					}
 					break;
 				case 13:
@@ -304,6 +346,10 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						//About
 					}
 					if (y == 25)
+					{
+						//Sound
+					}
+					if (y == 26)
 					{
 						exit(0);
 					}
