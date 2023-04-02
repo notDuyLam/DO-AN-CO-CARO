@@ -37,7 +37,7 @@ void DrawBoard(int pSize) {
 void DrawBoard_1(int m, int n)
 {
 	int i, j;
-	SetColor(1);
+	SetColor(0);
 	printf("%c", 218);
 	for (i = 0; i < n - 1; i++)
 		printf("%c%c%c%c",196,196, 196, 194);

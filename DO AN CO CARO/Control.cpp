@@ -61,9 +61,17 @@ void GamePlay(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y,
 				PlaySoundEffect("move");
 				switch (CheckBoard(_X, _Y, _A, _TURN)) {
 				case -1:
-					printf("X"); break;
+				{
+					SetColor(1);
+					printf("X"); 
+					break;
+				}
 				case 1:
-					printf("O"); break;
+				{
+					SetColor(2);
+					printf("O"); 
+					break;
+				}
 				case 0: validEnter = false; // Khi đánh vào ô đã đánh rồi
 				}
 				// Tiếp theo là kiểm tra và xử lý thắng/thua/hòa/tiếp tục
