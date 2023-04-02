@@ -215,8 +215,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
-						SetColor(200);
 						::GotoXY(50, 24); cout << "About";
+						SetColor(200);
 						GotoXY(50, 25); cout << "Sound";
 						SetColor(7);
 						::GotoXY(50, 26); cout << "Exit";
@@ -314,10 +314,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
-						SetColor(200);
 						::GotoXY(50, 24); cout << "About";
 						GotoXY(50, 25); cout << "Sound";
-						SetColor(7);
+						SetColor(200);
 						::GotoXY(50, 26); cout << "Exit";
 					}
 					break;
@@ -339,11 +338,13 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 23)
 					{
-						//Help
+						//Menu help trong game
+						Help();
 					}
 					if (y == 24)
 					{
 						//About
+						About();
 					}
 					if (y == 25)
 					{
@@ -386,4 +387,69 @@ void ShowCur(bool CursorVisibility)
 	CONSOLE_CURSOR_INFO cursor = { 1, CursorVisibility };
 	SetConsoleCursorInfo(handle, &cursor);
 }
-
+void Help()
+{
+	system("cls");
+	SetColor(245); //Day la mot mau ngau nhien, can chinh lai mau khac dep hon
+	GotoXY(60, 19);
+	cout << "HELP";
+	GotoXY(30, 21);
+	cout << "HUONG DAN" << endl;
+	GotoXY(30, 22);
+	cout << "1. Ban co gom 16x16 o vuong." << endl;
+	GotoXY(30, 23);
+	cout << "2. Su dung cac phim W A S D de di chuyen va Enter de danh." << endl;
+	GotoXY(30, 24);
+	cout << "3. Luat choi cu du 5 quan co X hoac O theo hang ngang, doc, cheo se chien thang." << endl;
+	GotoXY(30, 25);
+	cout << "4. Luat choi tuan theo quy dinh chan 2 dau " << endl;
+	GotoXY(30, 26);
+	cout << "-> Chuc moi nguoi choi game vui ve !!" << endl;
+	GotoXY(60, 30);
+	cout << "BACK";
+	char command = ' ';
+	command = _getch();
+	system("cls");
+}
+void About()
+{
+	system("cls");
+	SetColor(100);
+	GotoXY(60, 15);
+	cout << "ABOUT";
+	GotoXY(50, 18);
+	cout << "DO AN GAME CARO - LOP 22CTT4 - HCMUS" << endl;
+	GotoXY(50, 19);
+	cout << "-> MSSV   : 22120181." << endl;
+	GotoXY(50, 20);
+	cout << "-> Ho ten : NGUYEN DUY LAM." << endl;
+	GotoXY(50, 21);
+	cout << "-> Lop    : 22CTT4." << endl;
+	GotoXY(50, 22);
+	cout << "-> MSSV   : 22120213." << endl;
+	GotoXY(50, 23);
+	cout << "-> Ho ten : DOAN THI MINH ANH." << endl;
+	GotoXY(50, 24);
+	cout << "-> Lop    : 22CTT4." << endl;
+	GotoXY(50, 25);
+	cout << "-> MSSV   : 22120233." << endl;
+	GotoXY(50, 26);
+	cout << "-> Ho ten : NGUYEN THI TU NGOC." << endl;
+	GotoXY(50, 27);
+	cout << "-> Lop    : 22CTT4." << endl;
+	GotoXY(50, 28);
+	cout << "-> MSSV   : 22120202." << endl;
+	GotoXY(50, 29);
+	cout << "-> Ho ten : TANG SENH MANH." << endl;
+	GotoXY(50, 30);
+	cout << "-> Lop    : 22CTT4." << endl;
+	GotoXY(50, 31);
+	cout << "-> GV huong dan : Truong Toan Thinh " << endl;
+	GotoXY(50, 32);
+	cout << "-> Chuc moi nguoi choi game vui ve !!" << endl;
+	GotoXY(60, 33);
+	cout << "BACK";
+	char command = ' ';
+	command = _getch();
+	system("cls");
+}

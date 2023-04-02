@@ -15,3 +15,5 @@ void DrawBoard_1(int m, int n);
 void TextColor(int color);
 void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter);
 void ShowCur(bool CursorVisibility);
+void Help();
+void About();
