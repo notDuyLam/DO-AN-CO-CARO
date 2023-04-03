@@ -306,7 +306,6 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(7);
 						::GotoXY(50, 26); cout << "Exit";
 					}
-
 					if (y == 26)
 					{
 						SetColor(7);
@@ -349,6 +348,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					if (y == 25)
 					{
 						//Sound
+						Sound();
 					}
 					if (y == 26)
 					{
@@ -452,4 +452,152 @@ void About()
 	char command = ' ';
 	command = _getch();
 	system("cls");
+}
+
+void Sound()
+{
+	system("cls");
+	SetColor(100);
+	GotoXY(60, 15); cout << "SOUND";
+	int x = 0, y = 0;
+	int i;
+	bool backToOriginalMenu = false;
+	while (!backToOriginalMenu)
+	{
+		backToOriginalMenu = false;
+		x = 50, y = 20;
+		SetColor(200);
+		GotoXY(50, 20); cout << "Tat nhac nen" << endl;
+		SetColor(7);
+		GotoXY(50, 21); cout << "Bat nhac nen" << endl;
+		GotoXY(50, 22);	cout << "Doi bai" << endl;
+		GotoXY(50, 23); cout << "BACK";
+		GotoXY(50, 32); cout << "....... W - S : Move ( Off Unikey - Off Caps Lock ) ";
+		GotoXY(50, 33); cout << "....... Enter : Select ";
+		//if (n == 100)
+		//{
+		//	
+		//}
+		while (true)
+		{
+			if (_kbhit())
+			{
+				switch (_getch())
+				{
+				case 'w':
+					if (y > 20)
+					{
+						y--;
+						GotoXY(x, y);
+					}
+					if (y == 20)
+					{
+						SetColor(200);
+						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
+						SetColor(7);
+						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
+						GotoXY(50, 22);	cout << "Doi bai" << endl;
+						GotoXY(50, 23); cout << "BACK";
+					}
+					if (y == 21)
+					{
+						SetColor(7);
+						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
+						SetColor(200);
+						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
+						SetColor(7);
+						GotoXY(50, 22);	cout << "Doi bai" << endl;
+						GotoXY(50, 23); cout << "BACK";
+					}
+					if (y == 22)
+					{
+						SetColor(7);
+						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
+						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
+						SetColor(200);
+						GotoXY(50, 22);	cout << "Doi bai" << endl;
+						SetColor(7);
+						GotoXY(50, 23); cout << "BACK";
+					}
+					if (y == 23)
+					{
+						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
+						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
+						SetColor(200);
+						GotoXY(50, 22);	cout << "Doi bai" << endl;
+						SetColor(7);
+						GotoXY(50, 23); cout << "BACK";
+					}
+					break;
+				case 's':
+					if (y < 23)
+					{
+						y++;
+						GotoXY(x, y);
+					}
+					if (y == 20)
+					{
+						SetColor(200);
+						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
+						SetColor(7);
+						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
+						GotoXY(50, 22);	cout << "Doi bai" << endl;
+						GotoXY(50, 23); cout << "BACK";
+					}
+					if (y == 21)
+					{
+						SetColor(7);
+						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
+						SetColor(200);
+						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
+						SetColor(7);
+						GotoXY(50, 22);	cout << "Doi bai" << endl;
+						GotoXY(50, 23); cout << "BACK";
+					}
+					if (y == 22)
+					{
+						SetColor(7);
+						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
+						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
+						SetColor(200);
+						GotoXY(50, 22);	cout << "Doi bai" << endl;
+						SetColor(7);
+						GotoXY(50, 23); cout << "BACK";
+					}
+					if (y == 23)
+					{
+						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
+						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
+						GotoXY(50, 22);	cout << "Doi bai" << endl;
+						SetColor(200);
+						GotoXY(50, 23); cout << "BACK";
+					}
+					break;
+				case 13:
+					//PlaySoundEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
+					if (y == 20)
+					{
+						//TextColor(255);
+						// Tat nhac nen
+					}
+					if (y == 21)
+					{
+						//Bat nhac nen
+					}
+					if (y == 22)
+					{
+						//Doi bai
+					}
+					if (y == 23)
+					{
+						//Quay ve
+						backToOriginalMenu = true;
+					}
+					break;
+				}
+				if (backToOriginalMenu)
+					break;
+			}
+		}
+	}
 }

@@ -17,3 +17,4 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 void ShowCur(bool CursorVisibility);
 void Help();
 void About();
+void Sound();
