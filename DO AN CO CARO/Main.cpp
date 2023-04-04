@@ -10,6 +10,7 @@ int main() {
 	int _X{}, _Y{};
 	int n = 100;
 	bool validEnter = true;
-	ScreenStartGame(n, _A, _TURN, _COMMAND, _X, _Y, validEnter);
+	bool MO_NHAC = true;
+	ScreenStartGame(n, _A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC);
 	return 0;
 }
