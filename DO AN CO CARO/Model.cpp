@@ -381,4 +381,182 @@ void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothan
 	SetColor(7);
 	Sleep(500);
 }
+void LoadData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y)
+{
+	std::ifstream loadFile;
+	loadFile.open(filename.c_str());
 
+	getline(loadFile, _PLAYER1.name);
+	_PLAYER1 = LoadPlayer(_PLAYER1);
+
+	getline(loadFile, _PLAYER2.name);
+	_PLAYER2 = LoadPlayer(_PLAYER2);
+
+	loadFile >> _TURN;
+
+	for (int i = 0; i < BOARD_SIZE; i++)
+	{
+		for (int j = 0; j < BOARD_SIZE; j++)
+		{
+			_A[i][j].x = HORIZONTAL_DISTANCE * j + LEFT + 2; //Trung voi hoanh do ban co
+			_A[i][j].y = VERTICAL_DISTANCE * i + TOP + 1; //Trung voi tung do ban co
+			loadFile >> _A[i][j].c;
+		}
+	}
+	loadFile.close();
+
+	_COMMAND = -1;
+
+	//Thiet lap lai toa do ban dau
+	_X = _A[0][0].x;
+	_Y = _A[0][0].y;
+}
+
+std::vector<string> LoadFiles()
+{
+	std::vector<string> files;
+	string filename;
+
+	std::fstream savedFile;
+	savedFile.open(SAVED_LIST, std::fstream::in);
+
+	while (savedFile >> filename)
+	{
+		files.push_back(filename);
+	}
+	savedFile.close();
+
+	return files;
+}
+
+bool CheckFileExistence(string filename)
+{
+	string name; // filename cua cac file da luu trong savedlist.txt
+	std::fstream savedFile;
+	savedFile.open(SAVED_LIST, std::fstream::in);
+
+	while (savedFile >> name)
+	{
+		if (name == filename)
+		{
+			savedFile.close();
+			return true;
+		}
+	}
+
+	savedFile.close();
+	return false;
+}
+void SaveData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN)
+{
+	std::fstream saveFile;
+	saveFile.open(filename, std::fstream::out);
+
+	SavePlayer(_PLAYER1);
+	SavePlayer(_PLAYER2);
+
+	saveFile << _PLAYER1.name << "\n";
+	saveFile << _PLAYER2.name << "\n";
+
+	saveFile << _TURN << " \n";
+
+	for (int i = 0; i < BOARD_SIZE; i++)
+	{
+		for (int j = 0; j < BOARD_SIZE; j++)
+		{
+			saveFile << _A[i][j].c << " ";
+		}
+		saveFile << "\n";
+	}
+
+	saveFile.close();
+}
+void SavePlayer(_PLAYER player)
+{
+	int exist = CheckPlayerExistence(player);
+	std::vector<_PLAYER> players = GetPlayerList();
+	std::fstream playerList;
+	playerList.open(PLAYER_LIST, std::fstream::out);
+
+	if (exist == -1) players.push_back(player);
+	else players.at(exist).wins = player.wins;
+
+
+	SortPlayerList(players);
+	for (int i = 0; i < players.size(); i++)
+	{
+		playerList << players.at(i).name << "\n" << players.at(i).wins << "\n";
+	}
+
+	playerList.close();
+
+}
+
+_PLAYER LoadPlayer(_PLAYER player)
+{
+	std::vector<_PLAYER> players;
+	players = GetPlayerList();
+	int exist = CheckPlayerExistence(player);
+
+	if (exist == -1)
+	{
+		player.wins = 0;
+		SavePlayer(player);
+		return player;
+	}
+	else return players.at(exist);
+}
+
+void SetPlayerRank(_PLAYER& player)
+{
+	int exist = CheckPlayerExistence(player);
+	player.rank = exist + 1;
+}
+int CheckPlayerExistence(_PLAYER player)
+{
+	std::vector<_PLAYER> players = GetPlayerList();
+
+	for (int i = 0; i < players.size(); i++)
+	{
+		if (players.at(i) == player) return i;
+	}
+
+	return -1;
+}
+std::vector<_PLAYER> GetPlayerList()
+{
+	_PLAYER player;
+	std::vector<_PLAYER> players;
+	std::fstream playerList;
+	std::string clear;
+	std::string name;
+	playerList.open(PLAYER_LIST, std::fstream::in);
+
+	while (getline(playerList, player.name))
+	{
+		playerList >> player.wins;
+		getline(playerList, clear);
+		players.push_back(player);
+	}
+
+	playerList.close();
+
+	return players;
+}
+void SortPlayerList(std::vector<_PLAYER>& playerList)
+{
+	_PLAYER key;
+	int j;
+
+	for (int i = 1; i < playerList.size(); i++)
+	{
+		key = playerList.at(i);
+		j = i - 1;
+		while (j >= 0 && playerList.at(j) < key)
+		{
+			playerList.at(j + 1) = playerList.at(j);
+			j--;
+		}
+		playerList.at(j + 1) = key;
+	}
+}

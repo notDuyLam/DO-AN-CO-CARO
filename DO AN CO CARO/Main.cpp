@@ -7,6 +7,7 @@ int main() {
 	_POINT _A[BOARD_SIZE][BOARD_SIZE]; //Ma trận bàn cờ
 	bool _TURN{}; //true là lượt người thứ nhất và false là lượt người thứ hai
 	int _COMMAND{}; // Biến nhận giá trị phím người dùng nhập
+	_PLAYER _PLAYER1, _PLAYER2;
 	int _X{}, _Y{};
 	int n = 100;
 	bool validEnter = true;
