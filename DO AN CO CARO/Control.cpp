@@ -54,7 +54,7 @@ void GamePlay(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y,
 		if (_COMMAND == 'O')
 			StopMusic();
 		else if (_COMMAND == 'P')
-			PlayBackGroundMusic();*/
+			PlayBackGroundMusic(0);
 		if (_COMMAND == 27)
 		{
 			system("cls");
@@ -66,7 +66,7 @@ void GamePlay(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y,
 			else if (_COMMAND == 'S' || _COMMAND == ARROW_DOWN) MoveDown(_A, _X, _Y);
 			else if (_COMMAND == 'D' || _COMMAND == ARROW_RIGHT) MoveRight(_A, _X, _Y);
 			else if (_COMMAND == 13 || _COMMAND == SPACE) {// Người dùng đánh dấu trên màn hình bàn cờ
-				PlaySoundEffect("move");
+				PlaySoundEffect("move", MO_NHAC);
 				switch (CheckBoard(_X, _Y, _A, _TURN)) {
 				case -1:
 				{
@@ -99,7 +99,7 @@ void GamePlay(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y,
 		}
 	}
 }
-void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y)
+void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, bool& MO_NHAC)
 {
 	bool validEnter = true;
 	bool runGame = true;
@@ -144,7 +144,7 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 				}
 				// Tiếp theo là kiểm tra và xử lý thắng/thua/hòa/tiếp tục
 				if (validEnter == true) {
-					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang)) {
+					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, MO_NHAC)) {
 					case -1: case 1: case 0:
 						if (AskContinue(_A) != 'Y') {
 							StopMusic();
