@@ -319,8 +319,9 @@ void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothan
 	short int x, y;
 	ShowCur(0);
 
-	for (unsigned short int j = 1; j < 8; ++j)
+	for (unsigned short int j = 1; j < 11; ++j)
 	{
+		SetColor(2 + rand() % 14);
 		for (int i = 0; i < 10; i += 2)
 		{
 			x = toadothang[i];
@@ -335,7 +336,7 @@ void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothan
 			{
 				cout << " ";
 				Sleep(40);
-				SetColor(2 + rand() % 14);
+				
 				GotoXY(x2, y2);
 				cout << "X";
 				cout << " ";
