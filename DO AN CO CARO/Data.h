@@ -18,6 +18,7 @@ using namespace std;
 #define BOARD_SIZE 12 // Kích thức ma trận bàn cờ
 #define LEFT 0 // Tọa độ trái màn hình bàn cờ
 #define TOP 0 // Tọa độ trên màn hình bàn cờ
+#define MIDDLESCREEN //Tọa độ giữa màn hình hiển thị game theo trục x
 struct _POINT { 
 	int x, 
 		y, 
