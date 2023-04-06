@@ -438,7 +438,6 @@ _MENU EscMenu(_POINT _A[][BOARD_SIZE])
 	PrintText("    Continue    ", 0, menu.x-22, menu.y-9);
 	PrintText("    Save game   ", 0, menu.x-22, menu.y -8);
 	PrintText("    Exit game   ", 0, menu.x-22, menu.y -7);
-
 	return menu;
 }
 void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2)
