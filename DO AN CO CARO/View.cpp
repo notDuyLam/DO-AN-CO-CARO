@@ -103,6 +103,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 	bool backToOriginalMenu = false;
 	while (true)
 	{
+		TextColor(255);
 		backToOriginalMenu = false;
 		x = 50, y = 20;
 		SetColor(200);
