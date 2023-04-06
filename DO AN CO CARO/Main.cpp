@@ -12,6 +12,8 @@ int main() {
 	int n = 100;
 	bool validEnter = true;
 	TextColor(255);
-	ScreenStartGame(n, _A, _TURN, _COMMAND, _X, _Y, validEnter);
+	//ScreenStartGame(n, _A, _TURN, _COMMAND, _X, _Y, validEnter);
+	bool MO_NHAC = true;
+	ScreenStartGame(n, _A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC);
 	return 0;
 }

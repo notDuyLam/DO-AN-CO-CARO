@@ -287,10 +287,16 @@ int GetColIndex(int pX)
 	return colIndex;
 }
 
-void PlayBackGroundMusic()
+void PlayBackGroundMusic(int song)
 {
-	PlaySound(TEXT("nhacnen.wav"), NULL, SND_FILENAME | SND_LOOP | SND_ASYNC); // Bat nhac nen 
-
+	if (song % 4 == 0)
+		PlaySound(TEXT("nhacnen1.wav"), NULL, SND_FILENAME | SND_LOOP | SND_ASYNC);// Bat nhac nen 
+	else if(song % 4 == 1)
+		PlaySound(TEXT("nhacnen2.wav"), NULL, SND_FILENAME | SND_LOOP | SND_ASYNC);// Bat nhac nen
+	else if (song % 4 == 2)
+		PlaySound(TEXT("nhacnen3.wav"), NULL, SND_FILENAME | SND_LOOP | SND_ASYNC);// Bat nhac nen 
+	else if (song % 4 == 3)
+		PlaySound(TEXT("nhacnen4.wav"), NULL, SND_FILENAME | SND_LOOP | SND_ASYNC);// Bat nhac nen 
 }
 
 void StopMusic()
@@ -299,8 +305,10 @@ void StopMusic()
 
 }
 
-void PlaySoundEffect(string s)
+void PlaySoundEffect(string s, bool MO_NHAC)
 {
+	if (!MO_NHAC)
+		return;
 	if (s == "move")
 		PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC); // Dung de bat nhac khi di
 	else if (s == "win")
@@ -312,8 +320,9 @@ void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothan
 	short int x, y;
 	ShowCur(0);
 
-	for (unsigned short int j = 1; j < 8; ++j)
+	for (unsigned short int j = 1; j < 11; ++j)
 	{
+		SetColor(2 + rand() % 14);
 		for (int i = 0; i < 10; i += 2)
 		{
 			x = toadothang[i];
@@ -328,7 +337,7 @@ void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothan
 			{
 				cout << " ";
 				Sleep(40);
-				SetColor(2 + rand() % 14);
+				
 				GotoXY(x2, y2);
 				cout << "X";
 				cout << " ";

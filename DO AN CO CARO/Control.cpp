@@ -34,7 +34,7 @@ void MoveUp(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
 	}
 }
 
-void GamePlay(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter)
+void GamePlay(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC)
 {
 	_PLAYER _PLAYER1, _PLAYER2;
 	FixConsoleWindow();
@@ -54,7 +54,7 @@ void GamePlay(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y,
 		if (_COMMAND == 'O')
 			StopMusic();
 		else if (_COMMAND == 'P')
-			PlayBackGroundMusic();
+			PlayBackGroundMusic();*/
 		if (_COMMAND == 27)
 		{
 			system("cls");
@@ -84,7 +84,7 @@ void GamePlay(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y,
 				}
 				// Tiếp theo là kiểm tra và xử lý thắng/thua/hòa/tiếp tục
 				if (validEnter == true) {
-					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X),toadothang), _A, _TURN, _X, _Y,toadothang)) {
+					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X),toadothang), _A, _TURN, _X, _Y,toadothang, MO_NHAC)) {
 					case -1: case 1: case 0:
 						if (AskContinue(_A) != 'Y') {
 							StopMusic();

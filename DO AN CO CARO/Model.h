@@ -14,7 +14,7 @@ bool BackwardSlashCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol,
 bool CheckWin(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, short int toadothang[24]);
 int GetColIndex(int pX);
 int GetRowIndex(int pY);
-void PlayBackGroundMusic();
+void PlayBackGroundMusic(int song);
 void StopMusic();
 void PlaySoundEffect(string s);
 void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothang[24], int pWhoWin);
@@ -28,3 +28,5 @@ void SetPlayerRank(_PLAYER& player);
 int CheckPlayerExistence(_PLAYER player);
 std::vector<_PLAYER> GetPlayerList();
 void SortPlayerList(std::vector<_PLAYER>& playerList);
+void PlaySoundEffect(string s, bool MO_NHAC);
+void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothang[24], int pWhoWin);
