@@ -5,7 +5,6 @@ void CreateConsoleWindow(int pWidth, int pHeight)
 	HWND consoleWindow = GetConsoleWindow();
 	RECT r;
 	HANDLE hConsole;
-
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, 240);
 	GetWindowRect(consoleWindow, &r);

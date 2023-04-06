@@ -302,7 +302,6 @@ void PlayBackGroundMusic(int song)
 void StopMusic()
 {
 	PlaySound(0, 0, 0); // Tat nhac
-
 }
 
 void PlaySoundEffect(string s, bool MO_NHAC)
