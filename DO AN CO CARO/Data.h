@@ -7,8 +7,7 @@
 #include <conio.h>
 #include <vector>
 #include <string>
-#include <cstring>
-#include <string.h>
+#include<stack>
 using std::cout;
 using std::cin;
 using std::string;
@@ -48,5 +47,33 @@ struct _POINT {
 #define	LEFT_CROSS (char)195
 #define RIGHT_CROSS (char)180
 #define CROSS (char)197
+struct toado {
+	short int x, y;
+	char data;
+};
+typedef struct toado Toado;
+struct _MENU
+{
+	int options;	 //So chuc nang cua Menu
+	int x;			 // Toa do cua diem bat 
+	int y;			 //dau cua chuc nang dau tien
+	int cursorColor; //Mau con tro chon menu
+};
+struct _PLAYER
+{
+	string name; //Ten nguoi choi
+	int wins = 0;	 //Dem so tran thang
+	int rank; //Xep hang cua nguoi choi
 
+	bool operator>(_PLAYER other);
+	bool operator<(_PLAYER other);
+	bool operator==(_PLAYER other);
+};
+//File stuffs
+#define SAVED_LIST "savedlist.txt" //Ten cac file game duoc save
+#define PLAYER_LIST "PlayerList.txt" //Thong tin cac player da choi game
+#define WIDTH 1320
+#define HEIGHT 700
+#define X_CENTER WIDTH / 16 + 2
+#define Y_CENTER HEIGHT / 32
 #pragma comment (lib,"winmm.lib") //dung cho PlaySoundA()
