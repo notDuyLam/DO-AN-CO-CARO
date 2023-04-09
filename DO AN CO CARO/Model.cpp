@@ -302,7 +302,6 @@ void PlayBackGroundMusic(int song)
 void StopMusic()
 {
 	PlaySound(0, 0, 0); // Tat nhac
-
 }
 
 void PlaySoundEffect(string s, bool MO_NHAC)
@@ -346,7 +345,6 @@ void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothan
 			{
 				cout << " ";
 				Sleep(40);
-				SetColor(2 + rand() % 14);
 				GotoXY(x2, y2);
 				cout << "O";
 				cout << " ";

@@ -1,11 +1,17 @@
 ﻿#include "View.h"
 
+void resizeConsole(int width, int height)
+{
+	HWND console = GetConsoleWindow();
+	RECT r;
+	GetWindowRect(console, &r);
+	MoveWindow(console, r.left, r.top, width, height, TRUE);
+}
 void CreateConsoleWindow(int pWidth, int pHeight)
 {
 	HWND consoleWindow = GetConsoleWindow();
 	RECT r;
 	HANDLE hConsole;
-
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, 240);
 	GetWindowRect(consoleWindow, &r);
@@ -106,9 +112,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		TextColor(255);
 		backToOriginalMenu = false;
 		x = 50, y = 20;
-		SetColor(200);
+		SetColor(150);
 		GotoXY(50, 20); cout << "Player Vs Player";
-		SetColor(7);
+		SetColor(0);
 		GotoXY(50, 21); cout << "Player Vs Computer";
 		GotoXY(50, 22); cout << "Load Game";
 		GotoXY(50, 23); cout << "Help";
@@ -135,9 +141,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 20)
 					{
-						SetColor(200);
+						SetColor(150);
 						GotoXY(50, 20); cout << "Player Vs Player";
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 21); cout << "Player Vs Computer";
 						GotoXY(50, 22); cout << "Load Game";
 						GotoXY(50, 23); cout << "Help";
@@ -147,11 +153,11 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 21)
 					{
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 20); cout << "Player Vs Player";
-						SetColor(200);
+						SetColor(150);
 						::GotoXY(50, 21); cout << "Player Vs Computer";
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
@@ -160,12 +166,12 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 22)
 					{
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
-						SetColor(200);
+						SetColor(150);
 						::GotoXY(50, 22); cout << "Load Game";
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
 						GotoXY(50, 25); cout << "Sound";
@@ -173,54 +179,54 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 23)
 					{
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
-						SetColor(200);
+						SetColor(150);
 						::GotoXY(50, 23); cout << "Help";
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 24); cout << "About";
 						GotoXY(50, 25); cout << "Sound";
 						::GotoXY(50, 26); cout << "Exit";
 					}
 					if (y == 24)
 					{
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
-						SetColor(200);
+						SetColor(150);
 						::GotoXY(50, 24); cout << "About";
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 25); cout << "Sound";
 						::GotoXY(50, 26); cout << "Exit";
 					}
 					if (y == 25)
 					{
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
-						SetColor(200);
+						SetColor(150);
 						GotoXY(50, 25); cout << "Sound";
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 26); cout << "Exit";
 					}
 					if (y == 26)
 					{
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
-						SetColor(200);
+						SetColor(150);
 						GotoXY(50, 25); cout << "Sound";
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 26); cout << "Exit";
 					}
 					break;
@@ -232,9 +238,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 20)
 					{
-						SetColor(200);
+						SetColor(150);
 						GotoXY(50, 20); cout << "Player Vs Player";
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 21); cout << "Player Vs Computer";
 						GotoXY(50, 22); cout << "Load Game";
 						GotoXY(50, 23); cout << "Help";
@@ -244,11 +250,11 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 21)
 					{
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 20); cout << "Player Vs Player";
-						SetColor(200);
+						SetColor(150);
 						::GotoXY(50, 21); cout << "Player Vs Computer";
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
@@ -257,12 +263,12 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 22)
 					{
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
-						SetColor(200);
+						SetColor(150);
 						::GotoXY(50, 22); cout << "Load Game";
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
 						GotoXY(50, 25); cout << "Sound";
@@ -270,53 +276,53 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 23)
 					{
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
-						SetColor(200);
+						SetColor(150);
 						::GotoXY(50, 23); cout << "Help";
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 24); cout << "About";
 						GotoXY(50, 25); cout << "Sound";
 						::GotoXY(50, 26); cout << "Exit";
 					}
 					if (y == 24)
 					{
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
-						SetColor(200);
+						SetColor(150);
 						::GotoXY(50, 24); cout << "About";
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 25); cout << "Sound";
 						::GotoXY(50, 26); cout << "Exit";
 					}
 					if (y == 25)
 					{
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
-						SetColor(200);
+						SetColor(150);
 						GotoXY(50, 25); cout << "Sound";
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 26); cout << "Exit";
 					}
 					if (y == 26)
 					{
-						SetColor(7);
+						SetColor(0);
 						::GotoXY(50, 20); cout << "Player Vs Player";
 						::GotoXY(50, 21); cout << "Player Vs Computer";
 						::GotoXY(50, 22); cout << "Load Game";
 						::GotoXY(50, 23); cout << "Help";
 						::GotoXY(50, 24); cout << "About";
 						GotoXY(50, 25); cout << "Sound";
-						SetColor(200);
+						SetColor(150);
 						::GotoXY(50, 26); cout << "Exit";
 					}
 					break;
@@ -370,7 +376,10 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					break;
 				}
 				if (backToOriginalMenu)
-						break;
+				{
+					system("cls");
+					break;
+				}
 			}
 		}
 	}
@@ -468,7 +477,6 @@ _MENU LoadingMenu()
 		name = "         " + files.at(i);
 		PrintText(name, 1, menu.x-27, menu.y + i-9);
 	}
-
 	return menu;
 }
 _MENU EscMenu(_POINT _A[][BOARD_SIZE])
@@ -583,7 +591,7 @@ void Sound(bool& MO_NHAC)
 	{
 		backToOriginalMenu = false;
 		x = 50, y = 20;
-		SetColor(200);
+		SetColor(150);
 		GotoXY(50, 20); cout << "Tat nhac nen" << endl;
 		SetColor(7);
 		GotoXY(50, 21); cout << "Bat nhac nen" << endl;
@@ -610,7 +618,7 @@ void Sound(bool& MO_NHAC)
 					}
 					if (y == 20)
 					{
-						SetColor(200);
+						SetColor(150);
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
 						SetColor(7);
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
@@ -622,7 +630,7 @@ void Sound(bool& MO_NHAC)
 					{
 						SetColor(7);
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
-						SetColor(200);
+						SetColor(150);
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
 						SetColor(7);
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
@@ -634,7 +642,7 @@ void Sound(bool& MO_NHAC)
 						SetColor(7);
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
-						SetColor(200);
+						SetColor(150);
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
 						SetColor(7);
 						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
@@ -646,7 +654,7 @@ void Sound(bool& MO_NHAC)
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
-						SetColor(200);
+						SetColor(150);
 						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
 						SetColor(7);
 						GotoXY(50, 24); cout << "BACK";
@@ -655,7 +663,7 @@ void Sound(bool& MO_NHAC)
 					{
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
-						SetColor(200);
+						SetColor(150);
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
 						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
 						SetColor(7);
@@ -670,7 +678,7 @@ void Sound(bool& MO_NHAC)
 					}
 					if (y == 20)
 					{
-						SetColor(200);
+						SetColor(150);
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
 						SetColor(7);
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
@@ -682,7 +690,7 @@ void Sound(bool& MO_NHAC)
 					{
 						SetColor(7);
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
-						SetColor(200);
+						SetColor(150);
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
 						SetColor(7);
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
@@ -694,7 +702,7 @@ void Sound(bool& MO_NHAC)
 						SetColor(7);
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
-						SetColor(200);
+						SetColor(150);
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
 						SetColor(7);
 						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
@@ -706,7 +714,7 @@ void Sound(bool& MO_NHAC)
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
-						SetColor(200);
+						SetColor(150);
 						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
 						SetColor(7);
 						GotoXY(50, 24); cout << "BACK";
@@ -718,7 +726,7 @@ void Sound(bool& MO_NHAC)
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
 						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
-						SetColor(200);
+						SetColor(150);
 						GotoXY(50, 24); cout << "BACK";
 					}
 					break;
@@ -756,7 +764,10 @@ void Sound(bool& MO_NHAC)
 					break;
 				}
 				if (backToOriginalMenu)
+				{
+					system("cls");
 					break;
+				}
 			}
 		}
 	}
