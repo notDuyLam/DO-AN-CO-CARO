@@ -23,6 +23,10 @@ struct _POINT {
 		y, 
 		c; 
 }; // x: tọa độ dòng, y: tọa độ cột, c: đánh dấu
+struct MOVE {
+	int x;
+	int y;
+};
 #define FIRST true
 #define SECOND false
 #define P_X -1

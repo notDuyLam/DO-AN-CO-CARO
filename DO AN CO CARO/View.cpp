@@ -329,6 +329,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 21)
 					{
+						PlayWithComputer(_A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC);
 						//Danh voi may
 					}
 					if (y == 22)
