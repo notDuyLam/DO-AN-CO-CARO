@@ -113,16 +113,16 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		backToOriginalMenu = false;
 		x = 50, y = 20;
 		SetColor(150);
-		GotoXY(50, 20); cout << "Player Vs Player";
+		GotoXY(60, 20); cout << "Player Vs Player";
 		SetColor(0);
-		GotoXY(50, 21); cout << "Player Vs Computer";
-		GotoXY(50, 22); cout << "Load Game";
-		GotoXY(50, 23); cout << "Help";
-		GotoXY(50, 24); cout << "About";
-		GotoXY(50, 25); cout << "Sound";
-		GotoXY(50, 26); cout << "Exit";
-		GotoXY(50, 32); cout << "....... W - S : Move ( Off Unikey - Off Caps Lock ) ";
-		GotoXY(50, 33); cout << "....... Enter : Select ";
+		GotoXY(60, 21); cout << "Player Vs Computer";
+		GotoXY(60, 22); cout << "Load Game";
+		GotoXY(60, 23); cout << "Help";
+		GotoXY(60, 24); cout << "About";
+		GotoXY(60, 25); cout << "Sound";
+		GotoXY(60, 26); cout << "Exit";
+		GotoXY(60, 32); cout << "....... W - S : Move ( Off Unikey - Off Caps Lock ) ";
+		GotoXY(60, 33); cout << "....... Enter : Select ";
 		//if (n == 100)
 		//{
 		//	
@@ -142,92 +142,92 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					if (y == 20)
 					{
 						SetColor(150);
-						GotoXY(50, 20); cout << "Player Vs Player";
+						GotoXY(60, 20); cout << "Player Vs Player";
 						SetColor(0);
-						GotoXY(50, 21); cout << "Player Vs Computer";
-						GotoXY(50, 22); cout << "Load Game";
-						GotoXY(50, 23); cout << "Help";
-						GotoXY(50, 24); cout << "About";
-						GotoXY(50, 25); cout << "Sound";
-						GotoXY(50, 26); cout << "Exit";
+						GotoXY(60, 21); cout << "Player Vs Computer";
+						GotoXY(60, 22); cout << "Load Game";
+						GotoXY(60, 23); cout << "Help";
+						GotoXY(60, 24); cout << "About";
+						GotoXY(60, 25); cout << "Sound";
+						GotoXY(60, 26); cout << "Exit";
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						::GotoXY(50, 20); cout << "Player Vs Player";
+						::GotoXY(60, 20); cout << "Player Vs Player";
 						SetColor(150);
-						::GotoXY(50, 21); cout << "Player Vs Computer";
+						::GotoXY(60, 21); cout << "Player Vs Computer";
 						SetColor(0);
-						::GotoXY(50, 22); cout << "Load Game";
-						::GotoXY(50, 23); cout << "Help";
-						::GotoXY(50, 24); cout << "About";
-						GotoXY(50, 25); cout << "Sound";
-						::GotoXY(50, 26); cout << "Exit";
+						::GotoXY(60, 22); cout << "Load Game";
+						::GotoXY(60, 23); cout << "Help";
+						::GotoXY(60, 24); cout << "About";
+						GotoXY(60, 25); cout << "Sound";
+						::GotoXY(60, 26); cout << "Exit";
 					}
 					if (y == 22)
 					{
 						SetColor(0);
-						::GotoXY(50, 20); cout << "Player Vs Player";
-						::GotoXY(50, 21); cout << "Player Vs Computer";
+						::GotoXY(60, 20); cout << "Player Vs Player";
+						::GotoXY(60, 21); cout << "Player Vs Computer";
 						SetColor(150);
-						::GotoXY(50, 22); cout << "Load Game";
+						::GotoXY(60, 22); cout << "Load Game";
 						SetColor(0);
-						::GotoXY(50, 23); cout << "Help";
-						::GotoXY(50, 24); cout << "About";
-						GotoXY(50, 25); cout << "Sound";
-						::GotoXY(50, 26); cout << "Exit";
+						::GotoXY(60, 23); cout << "Help";
+						::GotoXY(60, 24); cout << "About";
+						GotoXY(60, 25); cout << "Sound";
+						::GotoXY(60, 26); cout << "Exit";
 					}
 					if (y == 23)
 					{
 						SetColor(0);
-						::GotoXY(50, 20); cout << "Player Vs Player";
-						::GotoXY(50, 21); cout << "Player Vs Computer";
-						::GotoXY(50, 22); cout << "Load Game";
+						::GotoXY(60, 20); cout << "Player Vs Player";
+						::GotoXY(60, 21); cout << "Player Vs Computer";
+						::GotoXY(60, 22); cout << "Load Game";
 						SetColor(150);
-						::GotoXY(50, 23); cout << "Help";
+						::GotoXY(60, 23); cout << "Help";
 						SetColor(0);
-						::GotoXY(50, 24); cout << "About";
-						GotoXY(50, 25); cout << "Sound";
-						::GotoXY(50, 26); cout << "Exit";
+						::GotoXY(60, 24); cout << "About";
+						GotoXY(60, 25); cout << "Sound";
+						::GotoXY(60, 26); cout << "Exit";
 					}
 					if (y == 24)
 					{
 						SetColor(0);
-						::GotoXY(50, 20); cout << "Player Vs Player";
-						::GotoXY(50, 21); cout << "Player Vs Computer";
-						::GotoXY(50, 22); cout << "Load Game";
-						::GotoXY(50, 23); cout << "Help";
+						::GotoXY(60, 20); cout << "Player Vs Player";
+						::GotoXY(60, 21); cout << "Player Vs Computer";
+						::GotoXY(60, 22); cout << "Load Game";
+						::GotoXY(60, 23); cout << "Help";
 						SetColor(150);
-						::GotoXY(50, 24); cout << "About";
+						::GotoXY(60, 24); cout << "About";
 						SetColor(0);
-						GotoXY(50, 25); cout << "Sound";
-						::GotoXY(50, 26); cout << "Exit";
+						GotoXY(60, 25); cout << "Sound";
+						::GotoXY(60, 26); cout << "Exit";
 					}
 					if (y == 25)
 					{
 						SetColor(0);
-						::GotoXY(50, 20); cout << "Player Vs Player";
-						::GotoXY(50, 21); cout << "Player Vs Computer";
-						::GotoXY(50, 22); cout << "Load Game";
-						::GotoXY(50, 23); cout << "Help";
-						::GotoXY(50, 24); cout << "About";
+						::GotoXY(60, 20); cout << "Player Vs Player";
+						::GotoXY(60, 21); cout << "Player Vs Computer";
+						::GotoXY(60, 22); cout << "Load Game";
+						::GotoXY(60, 23); cout << "Help";
+						::GotoXY(60, 24); cout << "About";
 						SetColor(150);
-						GotoXY(50, 25); cout << "Sound";
+						GotoXY(60, 25); cout << "Sound";
 						SetColor(0);
-						::GotoXY(50, 26); cout << "Exit";
+						::GotoXY(60, 26); cout << "Exit";
 					}
 					if (y == 26)
 					{
 						SetColor(0);
-						::GotoXY(50, 20); cout << "Player Vs Player";
-						::GotoXY(50, 21); cout << "Player Vs Computer";
-						::GotoXY(50, 22); cout << "Load Game";
-						::GotoXY(50, 23); cout << "Help";
-						::GotoXY(50, 24); cout << "About";
+						::GotoXY(60, 20); cout << "Player Vs Player";
+						::GotoXY(60, 21); cout << "Player Vs Computer";
+						::GotoXY(60, 22); cout << "Load Game";
+						::GotoXY(60, 23); cout << "Help";
+						::GotoXY(60, 24); cout << "About";
 						SetColor(150);
-						GotoXY(50, 25); cout << "Sound";
+						GotoXY(60, 25); cout << "Sound";
 						SetColor(0);
-						::GotoXY(50, 26); cout << "Exit";
+						::GotoXY(60, 26); cout << "Exit";
 					}
 					break;
 				case 's':
@@ -239,91 +239,91 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					if (y == 20)
 					{
 						SetColor(150);
-						GotoXY(50, 20); cout << "Player Vs Player";
+						GotoXY(60, 20); cout << "Player Vs Player";
 						SetColor(0);
-						GotoXY(50, 21); cout << "Player Vs Computer";
-						GotoXY(50, 22); cout << "Load Game";
-						GotoXY(50, 23); cout << "Help";
-						GotoXY(50, 24); cout << "About";
-						GotoXY(50, 25); cout << "Sound";
-						GotoXY(50, 26); cout << "Exit";
+						GotoXY(60, 21); cout << "Player Vs Computer";
+						GotoXY(60, 22); cout << "Load Game";
+						GotoXY(60, 23); cout << "Help";
+						GotoXY(60, 24); cout << "About";
+						GotoXY(60, 25); cout << "Sound";
+						GotoXY(60, 26); cout << "Exit";
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						::GotoXY(50, 20); cout << "Player Vs Player";
+						::GotoXY(60, 20); cout << "Player Vs Player";
 						SetColor(150);
-						::GotoXY(50, 21); cout << "Player Vs Computer";
+						::GotoXY(60, 21); cout << "Player Vs Computer";
 						SetColor(0);
-						::GotoXY(50, 22); cout << "Load Game";
-						::GotoXY(50, 23); cout << "Help";
-						::GotoXY(50, 24); cout << "About";
-						GotoXY(50, 25); cout << "Sound";
-						::GotoXY(50, 26); cout << "Exit";
+						::GotoXY(60, 22); cout << "Load Game";
+						::GotoXY(60, 23); cout << "Help";
+						::GotoXY(60, 24); cout << "About";
+						GotoXY(60, 25); cout << "Sound";
+						::GotoXY(60, 26); cout << "Exit";
 					}
 					if (y == 22)
 					{
 						SetColor(0);
-						::GotoXY(50, 20); cout << "Player Vs Player";
-						::GotoXY(50, 21); cout << "Player Vs Computer";
+						::GotoXY(60, 20); cout << "Player Vs Player";
+						::GotoXY(60, 21); cout << "Player Vs Computer";
 						SetColor(150);
-						::GotoXY(50, 22); cout << "Load Game";
+						::GotoXY(60, 22); cout << "Load Game";
 						SetColor(0);
-						::GotoXY(50, 23); cout << "Help";
-						::GotoXY(50, 24); cout << "About";
-						GotoXY(50, 25); cout << "Sound";
-						::GotoXY(50, 26); cout << "Exit";
+						::GotoXY(60, 23); cout << "Help";
+						::GotoXY(60, 24); cout << "About";
+						GotoXY(60, 25); cout << "Sound";
+						::GotoXY(60, 26); cout << "Exit";
 					}
 					if (y == 23)
 					{
 						SetColor(0);
-						::GotoXY(50, 20); cout << "Player Vs Player";
-						::GotoXY(50, 21); cout << "Player Vs Computer";
-						::GotoXY(50, 22); cout << "Load Game";
+						::GotoXY(60, 20); cout << "Player Vs Player";
+						::GotoXY(60, 21); cout << "Player Vs Computer";
+						::GotoXY(60, 22); cout << "Load Game";
 						SetColor(150);
-						::GotoXY(50, 23); cout << "Help";
+						::GotoXY(60, 23); cout << "Help";
 						SetColor(0);
-						::GotoXY(50, 24); cout << "About";
-						GotoXY(50, 25); cout << "Sound";
-						::GotoXY(50, 26); cout << "Exit";
+						::GotoXY(60, 24); cout << "About";
+						GotoXY(60, 25); cout << "Sound";
+						::GotoXY(60, 26); cout << "Exit";
 					}
 					if (y == 24)
 					{
 						SetColor(0);
-						::GotoXY(50, 20); cout << "Player Vs Player";
-						::GotoXY(50, 21); cout << "Player Vs Computer";
-						::GotoXY(50, 22); cout << "Load Game";
-						::GotoXY(50, 23); cout << "Help";
+						::GotoXY(60, 20); cout << "Player Vs Player";
+						::GotoXY(60, 21); cout << "Player Vs Computer";
+						::GotoXY(60, 22); cout << "Load Game";
+						::GotoXY(60, 23); cout << "Help";
 						SetColor(150);
-						::GotoXY(50, 24); cout << "About";
+						::GotoXY(60, 24); cout << "About";
 						SetColor(0);
-						GotoXY(50, 25); cout << "Sound";
-						::GotoXY(50, 26); cout << "Exit";
+						GotoXY(60, 25); cout << "Sound";
+						::GotoXY(60, 26); cout << "Exit";
 					}
 					if (y == 25)
 					{
 						SetColor(0);
-						::GotoXY(50, 20); cout << "Player Vs Player";
-						::GotoXY(50, 21); cout << "Player Vs Computer";
-						::GotoXY(50, 22); cout << "Load Game";
-						::GotoXY(50, 23); cout << "Help";
-						::GotoXY(50, 24); cout << "About";
+						::GotoXY(60, 20); cout << "Player Vs Player";
+						::GotoXY(60, 21); cout << "Player Vs Computer";
+						::GotoXY(60, 22); cout << "Load Game";
+						::GotoXY(60, 23); cout << "Help";
+						::GotoXY(60, 24); cout << "About";
 						SetColor(150);
-						GotoXY(50, 25); cout << "Sound";
+						GotoXY(60, 25); cout << "Sound";
 						SetColor(0);
-						::GotoXY(50, 26); cout << "Exit";
+						::GotoXY(60, 26); cout << "Exit";
 					}
 					if (y == 26)
 					{
 						SetColor(0);
-						::GotoXY(50, 20); cout << "Player Vs Player";
-						::GotoXY(50, 21); cout << "Player Vs Computer";
-						::GotoXY(50, 22); cout << "Load Game";
-						::GotoXY(50, 23); cout << "Help";
-						::GotoXY(50, 24); cout << "About";
-						GotoXY(50, 25); cout << "Sound";
+						::GotoXY(60, 20); cout << "Player Vs Player";
+						::GotoXY(60, 21); cout << "Player Vs Computer";
+						::GotoXY(60, 22); cout << "Load Game";
+						::GotoXY(60, 23); cout << "Help";
+						::GotoXY(60, 24); cout << "About";
+						GotoXY(60, 25); cout << "Sound";
 						SetColor(150);
-						::GotoXY(50, 26); cout << "Exit";
+						::GotoXY(60, 26); cout << "Exit";
 					}
 					break;
 				case 13:
