@@ -369,7 +369,10 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					break;
 				}
 				if (backToOriginalMenu)
-						break;
+				{
+					system("cls");
+					break;
+				}
 			}
 		}
 	}
@@ -467,7 +470,6 @@ _MENU LoadingMenu()
 		name = "         " + files.at(i);
 		PrintText(name, 1, menu.x-27, menu.y + i-9);
 	}
-
 	return menu;
 }
 _MENU EscMenu(_POINT _A[][BOARD_SIZE])
