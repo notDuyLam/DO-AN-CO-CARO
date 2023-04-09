@@ -20,14 +20,20 @@ void ResetData(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int
 //}
 bool CheckTie(_POINT _A[][BOARD_SIZE])
 {
+	int dem = 0;
 	for (int i = 0; i < BOARD_SIZE; i++)
 	{
 		for (int j = 0; j < BOARD_SIZE; j++)
 		{
-			if (_A[i][j].c == 0) return false;
+			if (_A[i][j].c == 0)
+			{
+				dem++;
+			}
 		}
 	}
-	return true;
+	if (dem <= 51)
+		return true;
+	return false;
 }
 
 int TestBoard(_POINT _A[][BOARD_SIZE], bool _TURN, int cRow, int cCol,short int toadothang[24])
