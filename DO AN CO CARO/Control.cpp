@@ -295,6 +295,20 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X,
 		if (_TURN == true)
 		{
 			_COMMAND = toupper(_getch());
+			if (_COMMAND == ESC)
+			{
+				escOption = SelectMenu(EscMenu(_A));
+				RunEscMenu(_A, _PLAYER1, _PLAYER2, _TURN, escOption, runGame);
+			}
+			if (_COMMAND == 'O')
+				StopMusic();
+			else if (_COMMAND == 'P')
+				PlayBackGroundMusic(0);
+			if (_COMMAND == 27)
+			{
+				system("cls");
+				return;
+			}
 			if (_COMMAND == 'A' || _COMMAND == ARROW_LEFT) MoveLeft(_A, _X, _Y);
 			else if (_COMMAND == 'W' || _COMMAND == ARROW_UP) MoveUp(_A, _X, _Y);
 			else if (_COMMAND == 'S' || _COMMAND == ARROW_DOWN) MoveDown(_A, _X, _Y);
@@ -330,7 +344,7 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X,
 			_X = timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC).x;
 			_Y = timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC).y;
 			GotoXY(_X, _Y);
-			Sleep(500);
+			Sleep(200);
 			switch (CheckBoard(_X, _Y, _A, _TURN)) {
 			case 1:
 			{
