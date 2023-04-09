@@ -1,5 +1,12 @@
 ﻿#include "View.h"
 
+void resizeConsole(int width, int height)
+{
+	HWND console = GetConsoleWindow();
+	RECT r;
+	GetWindowRect(console, &r);
+	MoveWindow(console, r.left, r.top, width, height, TRUE);
+}
 void CreateConsoleWindow(int pWidth, int pHeight)
 {
 	HWND consoleWindow = GetConsoleWindow();

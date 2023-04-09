@@ -11,6 +11,8 @@ int main() {
 	int _X{}, _Y{};
 	int n = 100;
 	bool validEnter = true;
+	resizeConsole(1080,720);
+	FixConsoleWindow();
 	TextColor(255);
 	for (int i = 0; i < 30; i++)
 		cout << "                                    ";

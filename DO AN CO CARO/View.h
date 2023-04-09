@@ -3,6 +3,7 @@
 #include "Model.h"
 #include "Control.h"
 
+void resizeConsole(int width, int height);
 void CreateConsoleWindow(int pWidth, int pHeight); //Tao console voi kich thuoc cho truoc
 void FixConsoleWindow(); //Co dinh console khong cho ng dung thay doi
 void GotoXY(int x, int y);
