@@ -608,8 +608,8 @@ MOVE timkiemnuocdi(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, in
 	}
 	return wayresult;
 }
-double mangdiemtancong[7] = { 0,16,100,1535,12287,15552 ,93312 };
-double mangdiemphongngu[7] = { 0, 8, 64, 512, 4096, 32768, 262144 };
+double mangdiemtancong[7] = { 0,8,100,1535,12287,15552 ,93312 };
+double mangdiemphongngu[7] = { 0, 1, 8, 64, 512, 4096, 32768 };
 double tancongdoc(_POINT _A[][BOARD_SIZE], int x, int y) {
 	int soquanta = 0;
 	int soquandich = 0;
