@@ -755,7 +755,10 @@ void Sound(bool& MO_NHAC)
 					break;
 				}
 				if (backToOriginalMenu)
+				{
+					system("cls");
 					break;
+				}
 			}
 		}
 	}
