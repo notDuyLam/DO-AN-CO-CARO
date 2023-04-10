@@ -26,3 +26,4 @@ void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2)
 void Help();
 void About();
 void Sound(bool& MO_NHAC);
+void DrawBigText(string filename, int color, int x, int y);

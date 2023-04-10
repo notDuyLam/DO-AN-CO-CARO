@@ -70,6 +70,7 @@ void DrawBoard_1(int m, int n)
 }
 int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, int& _Y,short int toadothang[24], bool& MO_NHAC)
 {
+	_PLAYER _PLAYER1, _PLAYER2;
 	switch (pWhoWin) {
 	case -1:
 		PlaySoundEffect("win", MO_NHAC);
@@ -90,6 +91,8 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 		break;
 	case 2:
 		_TURN = !_TURN; // Đổi lượt nếu không có gì xảy ra
+		ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
+		break;
 	}
 	GotoXY(_X, _Y); // Trả về vị trí hiện hành của con trỏ màn hình bàn cờ
 	return pWhoWin;
@@ -349,6 +352,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						{
 							TextColor(255);
 							LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y);
+							PlayWithComputerSave(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2,_X, _Y, validEnter, MO_NHAC);
 							RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC);
 							break;
 						}
@@ -414,11 +418,19 @@ void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 	int start = _A[0][BOARD_SIZE - 1].x + 12;
 
 	//DrawBox(255, 30, 10, start, 2);
-
-	//DrawBigText((_TURN) ? "X.txt" : "O.txt", (_TURN) ? 252 : 250, start, 2);
-
+	if ((_TURN) == 1)
+	{
+		DrawBigText("X.txt", 1, start, 3);
+		DrawBigText("O.txt", 0, start + 40, 3);
+	}
+	else if ((_TURN) == 0)
+	{
+		DrawBigText("O.txt", 2, start + 40, 3);
+		DrawBigText("X.txt", 0, start, 3);
+	}
+	//DrawBigText((_TURN) ? "X.txt" : "O.txt", (_TURN) ? 1 : 2, start, 2);
 	//DrawBox(255, 20, 1, start - 2, 14);
-	PrintText(((_TURN) ? _PLAYER1.name : _PLAYER2.name) + "'s turn!", (_TURN) ? 252 : 250, start - 2, 14);
+	//PrintText(((_TURN) ? _PLAYER1.name : _PLAYER2.name) + "'s turn!", (_TURN) ? 252 : 250, start - 2, 14);
 }
 void PrintText(string text, int color, int x, int y)
 {
@@ -771,4 +783,36 @@ void Sound(bool& MO_NHAC)
 			}
 		}
 	}
+}
+void DrawBigText(string filename, int color, int x, int y)
+{
+	std::fstream textFile;
+	textFile.open(filename.c_str(), std::fstream::in);
+	string line;
+	std::vector<std::string> line1;
+	int tempY = y;
+	while (getline(textFile, line)) line1.push_back(line);
+	if (filename == "XWin.txt" || filename == "OWin.txt" || filename == "Draw.txt")
+	{
+		int count = 0;
+		while (count <= 48)
+		{
+			for (int i = 0; i < line1.size(); i++)
+				PrintText(line1[i], color + count % 10, x, y++);
+			y = tempY;
+			Sleep(100);
+			for (int i = 0; i < line1.size(); i++)
+			{
+				string templine = "";
+				for (int j = 0; j < line1[i].length(); j++) templine += ' ';
+				PrintText(templine, 240, x, y++);
+			}
+			Sleep(100);
+			y = tempY;
+			count++;
+		}
+	}
+	for (int i = 0; i < line1.size(); i++)
+		PrintText(line1[i], color, x, y++);
+	textFile.close();
 }
