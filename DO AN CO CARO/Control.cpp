@@ -344,7 +344,7 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X,
 			_X = timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC).x;
 			_Y = timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC).y;
 			GotoXY(_X, _Y);
-			Sleep(500);
+			Sleep(200);
 			switch (CheckBoard(_X, _Y, _A, _TURN)) {
 			case 1:
 			{
