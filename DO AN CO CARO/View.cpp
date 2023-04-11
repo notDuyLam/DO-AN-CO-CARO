@@ -353,7 +353,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 							TextColor(255);
 							LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y);
 							PlayWithComputerSave(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2,_X, _Y, validEnter, MO_NHAC);
-							RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC);
+							//RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC);
 							break;
 						}
 					}
@@ -421,12 +421,12 @@ void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 	if ((_TURN) == 1)
 	{
 		DrawBigText("X.txt", 1, start, 3);
-		DrawBigText("O.txt", 0, start + 40, 3);
+		DrawBigText("O.txt", 255, start + 40, 3);
 	}
 	else if ((_TURN) == 0)
 	{
 		DrawBigText("O.txt", 2, start + 40, 3);
-		DrawBigText("X.txt", 0, start, 3);
+		DrawBigText("X.txt", 255, start, 3);
 	}
 	//DrawBigText((_TURN) ? "X.txt" : "O.txt", (_TURN) ? 1 : 2, start, 2);
 	//DrawBox(255, 20, 1, start - 2, 14);

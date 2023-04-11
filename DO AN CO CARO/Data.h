@@ -8,6 +8,7 @@
 #include <vector>
 #include <string>
 #include<stack>
+#include <thread>
 using std::cout;
 using std::cin;
 using std::string;
@@ -72,6 +73,11 @@ struct _PLAYER
 	bool operator>(_PLAYER other);
 	bool operator<(_PLAYER other);
 	bool operator==(_PLAYER other);
+};
+struct Hour {
+	int hour;
+	int minute;
+	int second;
 };
 //File stuffs
 #define SAVED_LIST "savedlist.txt" //Ten cac file game duoc save
