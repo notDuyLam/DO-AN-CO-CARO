@@ -335,11 +335,13 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					if (y == 20)
 					{
 						TextColor(255);
-						GamePlay(_A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC);
+						StartGame(_A, _TURN, _COMMAND, _X, _Y);
+						RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC);
 					}
 					if (y == 21)
 					{
-						PlayWithComputer(_A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC);
+						StartGame(_A, _TURN, _COMMAND, _X, _Y);
+						PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC);
 						//Danh voi may
 					}
 					if (y == 22)
@@ -352,7 +354,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						{
 							TextColor(255);
 							LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y);
-							PlayWithComputerSave(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2,_X, _Y, validEnter, MO_NHAC);
+							PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2,_X, _Y, validEnter, MO_NHAC);
 							//RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC);
 							break;
 						}
@@ -461,10 +463,10 @@ _MENU YesNoMenu(int x, int y)
 	menu.options = 2;
 	menu.x = x;
 	menu.y = y;
-	menu.cursorColor = 249;
+	menu.cursorColor = 0;
 
-	PrintText("Yes", 1, menu.x, menu.y);
-	PrintText("No", 1, menu.x, menu.y + 1);
+	PrintText("Yes", 0, menu.x-18, menu.y-9);
+	PrintText("No", 0, menu.x-18, menu.y -8);
 
 	return menu;
 }
@@ -483,11 +485,11 @@ _MENU LoadingMenu()
 	menu.cursorColor = 1;
 
 	//DrawBox(221, 100, menu.options + 10, X_CENTER - 50, Y_CENTER - 5);
-	PrintText("[==========Saved Games===========]", 1, menu.x-30, menu.y - 10);
+	PrintText("[==========Saved Games===========]", 0, menu.x-30, menu.y - 10);
 	for (int i = 0; i < files.size(); i++)
 	{
 		name = "         " + files.at(i);
-		PrintText(name, 1, menu.x-27, menu.y + i-9);
+		PrintText(name, 0, menu.x-27, menu.y + i-9);
 	}
 	return menu;
 }
@@ -495,7 +497,7 @@ _MENU EscMenu(_POINT _A[][BOARD_SIZE])
 {
 	_MENU menu;
 
-	menu.options = 4;
+	menu.options = 3;
 	menu.x = _A[0][BOARD_SIZE - 1].x +40;
 	menu.y = Y_CENTER ;
 	menu.cursorColor = 75;
@@ -505,8 +507,8 @@ _MENU EscMenu(_POINT _A[][BOARD_SIZE])
 	//DrawBigText("EscLogo.txt", 75, menu.x - 22, menu.y - 17);
 	PrintText("    Continue    ", 0, menu.x-22, menu.y-9);
 	PrintText("    Save game   ", 0, menu.x-22, menu.y -8);
-	PrintText("    Sound       ", 0, menu.x - 22, menu.y - 7);
-	PrintText("    Exit game   ", 0, menu.x-22, menu.y -6);
+	//PrintText("    Sound       ", 0, menu.x - 22, menu.y - 7);
+	PrintText("    Exit game   ", 0, menu.x-22, menu.y -7);
 	return menu;
 }
 void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2)
@@ -539,15 +541,6 @@ void Help()
 	command = _getch();
 	system("cls");
 }
-
-	/*PrintText(_PLAYER1.name, 253, start + 12, 18);
-	PrintText(_PLAYER2.name, 253, start + 23, 18);
-	PrintText("Win games", 253, start + 1, 20);
-	PrintText(std::to_string(_PLAYER1.wins), 253, start + 12, 20);
-	PrintText(std::to_string(_PLAYER2.wins), 253, start + 23, 20);
-	PrintText("Rank", 253, start + 1, 22);
-	PrintText(std::to_string(_PLAYER1.rank), 253, start + 12, 22);
-	PrintText(std::to_string(_PLAYER2.rank), 253, start + 23, 22);*/
 void About()
 {
 	system("cls");

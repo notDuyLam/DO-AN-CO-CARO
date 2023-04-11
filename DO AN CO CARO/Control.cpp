@@ -3,12 +3,11 @@
 
 void StartGame(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int& _Y)
 {
+	_PLAYER _PLAYER1, _PLAYER2;
 	system("cls");
 	ResetData(_A, _TURN, _COMMAND, _X, _Y); // Khởi tạo dữ liệu gốc
 	DrawBoard(BOARD_SIZE); // Vẽ màn hình game
-	int start = _A[0][BOARD_SIZE - 1].x + 12;
-	DrawBigText("X.txt", 1, start, 3);
-	DrawBigText("O.txt", 8, start + 40, 3);
+	ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
 	GotoXY(_X, _Y);
 }
 void MoveRight(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
@@ -128,6 +127,7 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 			else if (_COMMAND == 'D' || _COMMAND == ARROW_RIGHT) MoveRight(_A, _X, _Y);
 			else if (_COMMAND == ENTER || _COMMAND == SPACE)
 			{
+				PlaySoundEffect("move", MO_NHAC);
 				switch (CheckBoard(_X, _Y, _A, _TURN))
 				{
 				case P_X:
@@ -169,10 +169,10 @@ void LoadGame(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAY
 {
 	system("cls");
 	LoadData(filename, _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y);
-	SetPlayerRank(_PLAYER1);
-	SetPlayerRank(_PLAYER2);
+	//SetPlayerRank(_PLAYER1);
+	//SetPlayerRank(_PLAYER2);
 	DrawBoard(BOARD_SIZE);
-	//ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
+	ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
 	DrawLoaded(_A);
 	GotoXY(_X, _Y);
 }
@@ -193,8 +193,8 @@ void SaveGame(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 		if (CheckFileExistence(filename))
 		{
 			PrintText("Ten da ton tai", 0, X_CENTER - 40, Y_CENTER -8);
-			PrintText("Ban co muon luu de?", 0, X_CENTER - 40, Y_CENTER -6);
-			option = SelectMenu(YesNoMenu(X_CENTER - 35, Y_CENTER - 4));
+			PrintText("Ban co muon luu de?", 0, X_CENTER - 40, Y_CENTER -7);
+			option = SelectMenu(YesNoMenu(X_CENTER-15, Y_CENTER+3));
 			key = RunYesNoMenu(option);
 			if (key == 'Y')
 			{
@@ -271,12 +271,11 @@ void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, boo
 		SaveGame(_A, _PLAYER1, _PLAYER2, _TURN);
 		runGame = false;
 		break;
-
-	case 3:
+	/*case 3:
 		bool MO_NHAC;
 		Sound(MO_NHAC);
-		break;
-	case 4:
+		break;*/
+	case 3:
 		runGame = false;
 		break;
 	}
@@ -291,7 +290,7 @@ string RunLoadingMenu(int option)
 
 	return filename;
 }
-void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC) {
+/*void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC) {
 	FixConsoleWindow();
 	_PLAYER _PLAYER1, _PLAYER2;
 	StartGame(_A, _TURN, _COMMAND, _X, _Y);
@@ -377,8 +376,8 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X,
 			validEnter = true; // Mở khóa
 		}
 	}
-}
-void PlayWithComputerSave(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAYER &_PLAYER1, _PLAYER &_PLAYER2, int &_X, int &_Y, bool validEnter, bool& MO_NHAC) {
+}*/
+void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAYER &_PLAYER1, _PLAYER &_PLAYER2, int &_X, int &_Y, bool validEnter, bool& MO_NHAC) {
 	FixConsoleWindow();
 	//StartGame(_A, _TURN, _COMMAND, _X, _Y);
 	StopMusic();

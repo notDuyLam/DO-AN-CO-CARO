@@ -9,3 +9,4 @@ qwe.txt
 tre.txt
 tui.txt
 abs.txt
+.txt
