@@ -421,12 +421,12 @@ void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 	if ((_TURN) == 1)
 	{
 		DrawBigText("X.txt", 1, start, 3);
-		DrawBigText("O.txt", 255, start + 40, 3);
+		DrawBigText("O.txt", 8, start + 40, 3);
 	}
 	else if ((_TURN) == 0)
 	{
 		DrawBigText("O.txt", 2, start + 40, 3);
-		DrawBigText("X.txt", 255, start, 3);
+		DrawBigText("X.txt", 8, start, 3);
 	}
 	//DrawBigText((_TURN) ? "X.txt" : "O.txt", (_TURN) ? 1 : 2, start, 2);
 	//DrawBox(255, 20, 1, start - 2, 14);
@@ -495,7 +495,7 @@ _MENU EscMenu(_POINT _A[][BOARD_SIZE])
 {
 	_MENU menu;
 
-	menu.options = 3;
+	menu.options = 4;
 	menu.x = _A[0][BOARD_SIZE - 1].x +40;
 	menu.y = Y_CENTER ;
 	menu.cursorColor = 75;
@@ -505,7 +505,8 @@ _MENU EscMenu(_POINT _A[][BOARD_SIZE])
 	//DrawBigText("EscLogo.txt", 75, menu.x - 22, menu.y - 17);
 	PrintText("    Continue    ", 0, menu.x-22, menu.y-9);
 	PrintText("    Save game   ", 0, menu.x-22, menu.y -8);
-	PrintText("    Exit game   ", 0, menu.x-22, menu.y -7);
+	PrintText("    Sound       ", 0, menu.x - 22, menu.y - 7);
+	PrintText("    Exit game   ", 0, menu.x-22, menu.y -6);
 	return menu;
 }
 void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2)

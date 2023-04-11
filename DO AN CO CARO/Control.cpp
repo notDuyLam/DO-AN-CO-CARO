@@ -6,6 +6,9 @@ void StartGame(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int
 	system("cls");
 	ResetData(_A, _TURN, _COMMAND, _X, _Y); // Khởi tạo dữ liệu gốc
 	DrawBoard(BOARD_SIZE); // Vẽ màn hình game
+	int start = _A[0][BOARD_SIZE - 1].x + 12;
+	DrawBigText("X.txt", 1, start, 3);
+	DrawBigText("O.txt", 8, start + 40, 3);
 }
 void MoveRight(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
 	if (_X < _A[BOARD_SIZE - 1][BOARD_SIZE - 1].x)
@@ -267,7 +270,12 @@ void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, boo
 		SaveGame(_A, _PLAYER1, _PLAYER2, _TURN);
 		runGame = false;
 		break;
+
 	case 3:
+		bool MO_NHAC;
+		Sound(MO_NHAC);
+		break;
+	case 4:
 		runGame = false;
 		break;
 	}
