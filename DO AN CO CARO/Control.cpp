@@ -9,6 +9,7 @@ void StartGame(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int
 	int start = _A[0][BOARD_SIZE - 1].x + 12;
 	DrawBigText("X.txt", 1, start, 3);
 	DrawBigText("O.txt", 8, start + 40, 3);
+	GotoXY(_X, _Y);
 }
 void MoveRight(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
 	if (_X < _A[BOARD_SIZE - 1][BOARD_SIZE - 1].x)
