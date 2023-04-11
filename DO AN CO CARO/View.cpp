@@ -781,7 +781,8 @@ void Sound(bool& MO_NHAC)
 		}
 	}
 }
-void drawFrame(int x, int y, int width, int height) {
+void drawFrame(int x, int y, int width, int height) 
+{
 	const char topLeftCorner = 201;
 	const char topRightCorner = 187;
 	const char bottomLeftCorner = 200;
@@ -811,8 +812,6 @@ void drawFrame(int x, int y, int width, int height) {
 		cout << verticalLine;
 		GotoXY(x + width - 1, i);
 		cout << verticalLine;
-			}
-		}
 	}
 }
 void DrawBigText(string filename, int color, int x, int y)
@@ -845,7 +844,7 @@ void DrawBigText(string filename, int color, int x, int y)
 	}
 }
 
-	for (int i = 0; i < line1.size(); i++)
-		PrintText(line1[i], color, x, y++);
-	textFile.close();
-}
+//	for (int i = 0; i < line1.size(); i++)
+//		PrintText(line1[i], color, x, y++);
+//	textFile.close();
+//}
