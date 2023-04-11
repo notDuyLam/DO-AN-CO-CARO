@@ -3,9 +3,12 @@
 
 void StartGame(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int& _Y)
 {
+	_PLAYER _PLAYER1, _PLAYER2;
 	system("cls");
 	ResetData(_A, _TURN, _COMMAND, _X, _Y); // Khởi tạo dữ liệu gốc
 	DrawBoard(BOARD_SIZE); // Vẽ màn hình game
+	ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
+	GotoXY(_X, _Y);
 }
 void MoveRight(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
 	if (_X < _A[BOARD_SIZE - 1][BOARD_SIZE - 1].x)
@@ -124,6 +127,7 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 			else if (_COMMAND == 'D' || _COMMAND == ARROW_RIGHT) MoveRight(_A, _X, _Y);
 			else if (_COMMAND == ENTER || _COMMAND == SPACE)
 			{
+				PlaySoundEffect("move", MO_NHAC);
 				switch (CheckBoard(_X, _Y, _A, _TURN))
 				{
 				case P_X:
@@ -165,10 +169,10 @@ void LoadGame(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAY
 {
 	system("cls");
 	LoadData(filename, _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y);
-	SetPlayerRank(_PLAYER1);
-	SetPlayerRank(_PLAYER2);
+	//SetPlayerRank(_PLAYER1);
+	//SetPlayerRank(_PLAYER2);
 	DrawBoard(BOARD_SIZE);
-	//ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
+	ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
 	DrawLoaded(_A);
 	GotoXY(_X, _Y);
 }
@@ -189,8 +193,8 @@ void SaveGame(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 		if (CheckFileExistence(filename))
 		{
 			PrintText("Ten da ton tai", 0, X_CENTER - 40, Y_CENTER -8);
-			PrintText("Ban co muon luu de?", 0, X_CENTER - 40, Y_CENTER -6);
-			option = SelectMenu(YesNoMenu(X_CENTER - 35, Y_CENTER - 4));
+			PrintText("Ban co muon luu de?", 0, X_CENTER - 40, Y_CENTER -7);
+			option = SelectMenu(YesNoMenu(X_CENTER-15, Y_CENTER+3));
 			key = RunYesNoMenu(option);
 			if (key == 'Y')
 			{
@@ -267,6 +271,10 @@ void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, boo
 		SaveGame(_A, _PLAYER1, _PLAYER2, _TURN);
 		runGame = false;
 		break;
+	/*case 3:
+		bool MO_NHAC;
+		Sound(MO_NHAC);
+		break;*/
 	case 3:
 		runGame = false;
 		break;
@@ -282,11 +290,11 @@ string RunLoadingMenu(int option)
 
 	return filename;
 }
-void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC) {
+/*void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC) {
 	FixConsoleWindow();
+	_PLAYER _PLAYER1, _PLAYER2;
 	StartGame(_A, _TURN, _COMMAND, _X, _Y);
 	StopMusic();
-	_PLAYER _PLAYER1, _PLAYER2;
 	int escOption;
 	short int toadothang[24];
 	bool runGame = true;
@@ -295,6 +303,106 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X,
 		if (_TURN == true)
 		{
 			_COMMAND = toupper(_getch());
+			if (_COMMAND == ESC)
+			{
+				escOption = SelectMenu(EscMenu(_A));
+				RunEscMenu(_A, _PLAYER1, _PLAYER2, _TURN, escOption, runGame);
+			}
+			if (_COMMAND == 'O')
+				StopMusic();
+			else if (_COMMAND == 'P')
+				PlayBackGroundMusic(0);
+			if (_COMMAND == 27)
+			{
+				system("cls");
+				return;
+			}
+			if (_COMMAND == 'A' || _COMMAND == ARROW_LEFT) MoveLeft(_A, _X, _Y);
+			else if (_COMMAND == 'W' || _COMMAND == ARROW_UP) MoveUp(_A, _X, _Y);
+			else if (_COMMAND == 'S' || _COMMAND == ARROW_DOWN) MoveDown(_A, _X, _Y);
+			else if (_COMMAND == 'D' || _COMMAND == ARROW_RIGHT) MoveRight(_A, _X, _Y);
+			else if (_COMMAND == 13 || _COMMAND == SPACE) {// Người dùng đánh dấu trên màn hình bàn cờ
+				PlaySoundEffect("move", MO_NHAC);
+				switch (CheckBoard(_X, _Y, _A, _TURN)) {
+				case -1:
+				{
+					SetColor(1);
+					printf("X");
+					break;
+				}
+				case 0: validEnter = false;
+				}
+				if (validEnter == true) {
+					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, MO_NHAC)) {
+					case -1: case 1: case 0:
+						if (AskContinue(_A) != 'Y') {
+							StopMusic();
+							system("cls");
+							return;
+						}
+						else StartGame(_A, _TURN, _COMMAND, _X, _Y);
+					}
+				}
+				validEnter = true; // Mở khóa
+			}
+		}
+		else
+		{
+			timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC);
+			_X = timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC).x;
+			_Y = timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC).y;
+			GotoXY(_X, _Y);
+			Sleep(200);
+			switch (CheckBoard(_X, _Y, _A, _TURN)) {
+			case 1:
+			{
+				SetColor(2);
+				printf("O");
+				break;
+			}
+			case 0: validEnter = false;
+			}
+			if (validEnter == true) {
+				switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, MO_NHAC)) {
+				case -1: case 1: case 0:
+					if (AskContinue(_A) != 'Y') {
+						StopMusic();
+						system("cls");
+						return;
+					}
+					else StartGame(_A, _TURN, _COMMAND, _X, _Y);
+				}
+			}
+			validEnter = true; // Mở khóa
+		}
+	}
+}*/
+void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAYER &_PLAYER1, _PLAYER &_PLAYER2, int &_X, int &_Y, bool validEnter, bool& MO_NHAC) {
+	FixConsoleWindow();
+	//StartGame(_A, _TURN, _COMMAND, _X, _Y);
+	StopMusic();
+	int escOption;
+	short int toadothang[24];
+	bool runGame = true;
+	while (1)
+	{
+		if (_TURN == true)
+		{
+			_COMMAND = toupper(_getch());
+			if (_COMMAND == ESC)
+			{
+				escOption = SelectMenu(EscMenu(_A));
+				RunEscMenu(_A, _PLAYER1, _PLAYER2, _TURN, escOption, runGame);
+			}
+			if (_COMMAND == 'O')
+				StopMusic();
+			else if (_COMMAND == 'P')
+				PlayBackGroundMusic(0);
+			if (_COMMAND == 27)
+			{
+				system("cls");
+				return;
+			}
 			if (_COMMAND == 'A' || _COMMAND == ARROW_LEFT) MoveLeft(_A, _X, _Y);
 			else if (_COMMAND == 'W' || _COMMAND == ARROW_UP) MoveUp(_A, _X, _Y);
 			else if (_COMMAND == 'S' || _COMMAND == ARROW_DOWN) MoveDown(_A, _X, _Y);

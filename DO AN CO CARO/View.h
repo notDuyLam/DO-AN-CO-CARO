@@ -27,3 +27,4 @@ void Help();
 void About();
 void Sound(bool& MO_NHAC);
 void drawFrame(int x, int y, int width, int height);
+void DrawBigText(string filename, int color, int x, int y);
