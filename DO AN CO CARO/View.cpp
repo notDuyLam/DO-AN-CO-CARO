@@ -881,6 +881,9 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 		GotoXY(x + 34, y);
 		SetColor(rand() % 15 + 1);
 		cout << "	 _____";
+		GotoXY(x + 8, y + 7);
+		SetColor(rand() % 15 + 1);
+		cout << " __________________________";
 		Sleep(30);
 		GotoXY(x, y + 1);
 		SetColor(rand() % 15 + 1);
@@ -891,6 +894,9 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 		GotoXY(x + 34, y + 1);
 		SetColor(rand() % 15 + 1);
 		cout << "	|\\____\\";
+		GotoXY(x + 8, y + 8);
+		SetColor(rand() % 15 + 1);
+		cout << "|\\          Space          \\";
 		Sleep(30);
 		GotoXY(x, y + 2);
 		SetColor(rand() % 15 + 1);
@@ -901,6 +907,9 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 		GotoXY(x + 34, y + 2);
 		SetColor(rand() % 15 + 1);
 		cout << " _____||    |";
+		GotoXY(x + 8, y + 9);
+		SetColor(rand() % 15 + 1);
+		cout << "\\ \\_________________________\\";
 		Sleep(30);
 		GotoXY(x, y + 3);
 		SetColor(rand() % 15 + 1);
@@ -911,6 +920,9 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 		GotoXY(x + 34, y + 3);
 		SetColor(rand() % 15 + 1);
 		cout << "|\\ ___\\|    | ";
+		GotoXY(x + 8, y + 10);
+		SetColor(rand() % 15 + 1);
+		cout << " \\|_________________________|";
 		Sleep(30);
 		GotoXY(x, y + 4);
 		SetColor(rand() % 15 + 1);
@@ -971,6 +983,14 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 	cout << "| |  Enter  |";
 	GotoXY(x + 34, y + 5);
 	cout << " \\|_________|";
+	GotoXY(x + 8, y + 7);
+	cout << " __________________________";
+	GotoXY(x + 8, y + 8);
+	cout << "|\\          Space          \\";
+	GotoXY(x + 8, y + 9);
+	cout << "\\ \\_________________________\\";
+	GotoXY(x + 8, y + 10);
+	cout << " \\|_________________________|";
 	ShowCur(1);
 }
 void drawButton(int x, int y, string text)
