@@ -27,4 +27,10 @@ void Help();
 void About();
 void Sound(bool& MO_NHAC);
 void drawFrame(int x, int y, int width, int height);
+// Hàm này nhận vào x, y là tọa độ tại vị trí bắt đầu vẽ khung, width và height là độ dài và chiều cao của khung
+// (độ dài và chiều nó vẽ hên xui nên cứ nhập đại số nào vô rồi canh điều chỉnh cho nó hợp lý là được)
+// có thể thay đổi các giá trị topleft... để vẽ loại khung khác nếu cần
 void DrawBigText(string filename, int color, int x, int y);
+void drawButton(int x, int y, string text);
+void DrawBox(int color, int width, int height, int x, int y);
+

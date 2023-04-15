@@ -118,6 +118,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		TextColor(255);
 		backToOriginalMenu = false;
 		x = 50, y = 20;
+		// color, width, height, x, y
 		SetColor(150);
 		GotoXY(60, 20); cout << "Player Vs Player";
 		SetColor(0);
@@ -129,10 +130,6 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		GotoXY(60, 26); cout << "Exit";
 		GotoXY(60, 29); cout << "....... W - S : Move ( Off Unikey - Off Caps Lock ) ";
 		GotoXY(60, 30); cout << "....... Enter : Select ";
-		//if (n == 100)
-		//{
-		//	
-		//}
 		while (true)
 		{
 			if (_kbhit())
@@ -789,7 +786,7 @@ void drawFrame(int x, int y, int width, int height)
 	const char bottomRightCorner = 188;
 	const char horizontalLine = 205;
 	const char verticalLine = 186;
-
+	SetColor(170);
 	// Draw the top border
 	GotoXY(x, y);
 	cout << topLeftCorner;
@@ -843,8 +840,27 @@ void DrawBigText(string filename, int color, int x, int y)
 		}
 	}
 }
+void drawButton(int x, int y, string text) {
+	int width = text.length() + 2;
+	GotoXY(x, y); cout << "+";
+	for (int i = 0; i < width; i++) cout << "-";
+	cout << "+";
+	GotoXY(x, y + 1); cout << "| " << text << " |";
+	GotoXY(x, y + 2); cout << "+";
+	for (int i = 0; i < width; i++) cout << "-";
+	cout << "+";
+}
+void DrawBox(int color, int width, int height, int x, int y)
+{
+	SetColor(color);
+	for (int i = 0; i < height; i++)
+	{
+		GotoXY(x, y + i);
+		for (int j = 0; j < width; j++)
+		{
+			cout << " ";
+		}
+	}
+	SetColor(240);
+}
 
-//	for (int i = 0; i < line1.size(); i++)
-//		PrintText(line1[i], color, x, y++);
-//	textFile.close();
-//}
