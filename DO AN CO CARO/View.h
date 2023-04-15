@@ -26,5 +26,6 @@ void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2)
 void Help();
 void About();
 void Sound(bool& MO_NHAC);
+void drawFrame(int x, int y, int width, int height);
 void DrawBigText(string filename, int color, int x, int y);
 void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE], int color);
