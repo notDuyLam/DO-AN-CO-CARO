@@ -118,6 +118,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 	{
 		drawFrame(0, 0, 145, 33);
 		TextColor(255);
+		printCaro();
 		backToOriginalMenu = false;
 		x = 100, y = 20;
 		// color, width, height, x, y
@@ -132,8 +133,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		drawButton(100, 20, "Sound");
 		drawButton(100, 23, "Exit");
 		SetColor(8);
-		GotoXY(90, 29); cout << "_____ W A S D: MOVE _____";
-		GotoXY(90, 30); cout << "_____ Enter: Select _____" ;
+		GotoXY(95, 29); cout << "_____ W A S D: MOVE _____";
+		GotoXY(95, 30); cout << "_____ Enter: Select _____" ;
 		while (true)
 		{
 			if (_kbhit())
@@ -591,6 +592,7 @@ void About()
 void Sound(bool& MO_NHAC)
 {
 	system("cls");
+	drawFrame(0, 0, 145, 33);
 	SetColor(100);
 	GotoXY(60, 15); cout << "SOUND";
 	int x = 0, y = 0;
@@ -602,14 +604,14 @@ void Sound(bool& MO_NHAC)
 		backToOriginalMenu = false;
 		x = 50, y = 20;
 		SetColor(150);
-		GotoXY(50, 20); cout << "Tat nhac nen" << endl;
+		drawButton(100, 8, "Tat nhac nen");
 		SetColor(0);
-		GotoXY(50, 21); cout << "Bat nhac nen" << endl;
-		GotoXY(50, 22);	cout << "Doi bai" << endl;
-		GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
-		GotoXY(50, 24); cout << "BACK";
-		GotoXY(50, 32); cout << "....... W - S : Move ( Off Unikey - Off Caps Lock ) ";
-		GotoXY(50, 33); cout << "....... Enter : Select ";
+		drawButton(100, 11, "Bat nhac nen");
+		drawButton(100, 14, "Doi bai");
+		drawButton(100, 17, "Tat hieu ung am thanh");
+		drawButton(100, 20, "Back");
+		GotoXY(95, 29); cout << "_____ W A S D: MOVE _____";
+		GotoXY(95, 30); cout << "_____ Enter: Select _____";
 		//if (n == 100)
 		//{
 		//	
@@ -629,55 +631,55 @@ void Sound(bool& MO_NHAC)
 					if (y == 20)
 					{
 						SetColor(150);
-						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
+						drawButton(100, 8, "Tat nhac nen");
 						SetColor(0);
-						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
-						GotoXY(50, 22);	cout << "Doi bai" << endl;
-						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
-						GotoXY(50, 24); cout << "BACK";
+						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 14, "Doi bai");
+						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 20, "Back");
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
+						drawButton(100, 8, "Tat nhac nen");
 						SetColor(150);
-						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
+						drawButton(100, 11, "Bat nhac nen");
 						SetColor(0);
-						GotoXY(50, 22);	cout << "Doi bai" << endl;
-						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
-						GotoXY(50, 24); cout << "BACK";
+						drawButton(100, 14, "Doi bai");
+						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 20, "Back");
 					}
 					if (y == 22)
 					{
 						SetColor(0);
-						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
-						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
+						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 11, "Bat nhac nen");
 						SetColor(150);
-						GotoXY(50, 22);	cout << "Doi bai" << endl;
+						drawButton(100, 14, "Doi bai");
 						SetColor(0);
-						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
-						GotoXY(50, 24); cout << "BACK";
+						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 20, "Back");
 					}
 					if (y == 23)
 					{
 						SetColor(0);
-						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
-						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
-						GotoXY(50, 22);	cout << "Doi bai" << endl;
+						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 14, "Doi bai");
 						SetColor(150);
-						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
+						drawButton(100, 17, "Tat hieu ung am thanh");
 						SetColor(0);
-						GotoXY(50, 24); cout << "BACK";
+						drawButton(100, 20, "Back");
 					}
 					if (y == 24)
 					{
-						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
-						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
+						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 11, "Bat nhac nen");
 						SetColor(150);
-						GotoXY(50, 22);	cout << "Doi bai" << endl;
-						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
+						drawButton(100, 14, "Doi bai");
+						drawButton(100, 17, "Tat hieu ung am thanh");
 						SetColor(0);
-						GotoXY(50, 24); cout << "BACK";
+						drawButton(100, 20, "Back");
 					}
 					break;
 				case 's':
@@ -689,55 +691,55 @@ void Sound(bool& MO_NHAC)
 					if (y == 20)
 					{
 						SetColor(150);
-						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
+						drawButton(100, 8, "Tat nhac nen");
 						SetColor(0);
-						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
-						GotoXY(50, 22);	cout << "Doi bai" << endl;
-						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
-						GotoXY(50, 24); cout << "BACK";
+						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 14, "Doi bai");
+						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 20, "Back");
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
+						drawButton(100, 8, "Tat nhac nen");
 						SetColor(150);
-						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
+						drawButton(100, 11, "Bat nhac nen");
 						SetColor(0);
-						GotoXY(50, 22);	cout << "Doi bai" << endl;
-						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
-						GotoXY(50, 24); cout << "BACK";
+						drawButton(100, 14, "Doi bai");
+						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 20, "Back");
 					}
 					if (y == 22)
 					{
 						SetColor(0);
-						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
-						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
+						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 11, "Bat nhac nen");
 						SetColor(150);
-						GotoXY(50, 22);	cout << "Doi bai" << endl;
+						drawButton(100, 14, "Doi bai");
 						SetColor(0);
-						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
-						GotoXY(50, 24); cout << "BACK";
+						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 20, "Back");
 					}
 					if (y == 23)
 					{
 						SetColor(0);
-						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
-						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
-						GotoXY(50, 22);	cout << "Doi bai" << endl;
+						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 14, "Doi bai");
 						SetColor(150);
-						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
+						drawButton(100, 17, "Tat hieu ung am thanh");
 						SetColor(0);
-						GotoXY(50, 24); cout << "BACK";
+						drawButton(100, 20, "Back");
 					}
 					if (y == 24)
 					{
 						SetColor(0);
-						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
-						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
-						GotoXY(50, 22);	cout << "Doi bai" << endl;
-						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
+						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 14, "Doi bai");
+						drawButton(100, 17, "Tat hieu ung am thanh");
 						SetColor(150);
-						GotoXY(50, 24); cout << "BACK";
+						drawButton(100, 20, "Back");
 					}
 					break;
 				case 13:
@@ -790,7 +792,7 @@ void drawFrame(int x, int y, int width, int height)
 	const char bottomRightCorner = 188;
 	const char horizontalLine = 205;
 	const char verticalLine = 186;
-	SetColor(170);
+	SetColor(0);
 	// Draw the top border
 	GotoXY(x, y);
 	cout << topLeftCorner;
@@ -995,14 +997,36 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 }
 void drawButton(int x, int y, string text)
 {
-	int width = 19; // length of "Player VS Computer" + 2
+	int width = 21; // length of "Player VS Computer" + 2
 	GotoXY(x, y); cout << char(218);
 	for (int i = 0; i < width; i++) cout << char(196);
 	cout << char(191);
 	GotoXY(x, y + 1); cout << char(179) << setw((width - text.length()) / 2 + text.length()) << right << text;
 	if (text.length() % 2 == 0) cout << setw((width - text.length()) / 2 + 1) << right << " " << char(179);
-	else cout << setw((width - text.length()) / 2) << " " << right << char(179);
+	else cout << setw((width - text.length()) / 2) << "" << right << char(179);
 	GotoXY(x, y + 2); cout << char(192);
 	for (int i = 0; i < width; i++) cout << char(196);
 	cout << char(217);
 }
+void printCaro() {
+	SetColor(0);
+	GotoXY(20, 10);
+	cout << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187);
+	GotoXY(20, 11);
+	cout << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT);
+	GotoXY(20, 12);
+	cout << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(SPACE) << char(SPACE) << char(SPACE) << char(SPACE) << char(SPACE) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(SPACE) << char(SPACE) << char(SPACE) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL);
+	GotoXY(20, 13);
+	GotoXY(20, 14);
+	GotoXY(20, 15);
+	GotoXY(20, 16);
+	cout << "     ----  By Team 15  ----      ";
+}
+                                 
+// ██████╗ █████╗ ██████╗  ██████╗ 
+//██╔════╝██╔══██╗██╔══██╗██╔═══██╗
+//██║     ███████║██████╔╝██║   ██║
+//██║     ██╔══██║██╔══██╗██║   ██║
+//╚██████╗██║  ██║██║  ██║╚██████╔╝
+// ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ 
+

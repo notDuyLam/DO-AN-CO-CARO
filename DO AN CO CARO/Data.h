@@ -53,6 +53,13 @@ struct MOVE {
 #define	LEFT_CROSS (char)195
 #define RIGHT_CROSS (char)180
 #define CROSS (char)197
+#define FULL (char)219
+#define DOUBLE_TOP_RIGHT (char)187
+#define DOUBLE_TOP_LEFT (char)201
+#define DOUBLE_BOTTOM_LEFT (char)200
+#define DOUBLE_BOTTOM_RIGHT (char)188
+#define DOUBLE_HORIZONTAL (char)205
+#define DOUBLE_VERTICAL (char)186
 struct toado {
 	short int x, y;
 	char data;
