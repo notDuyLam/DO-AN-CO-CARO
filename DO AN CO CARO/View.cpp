@@ -39,6 +39,7 @@ void DrawBoard(int pSize) {
 			GotoXY(LEFT + 4 * i, TOP + 2 * j);
 		}
 	}
+	//DrawBoardGiaoDien(1, BOARD_SIZE + 40, BOARD_SIZE + 70);
 }
 void DrawBoard_1(int m, int n)
 {
@@ -816,3 +817,135 @@ void DrawBigText(string filename, int color, int x, int y)
 		PrintText(line1[i], color, x, y++);
 	textFile.close();
 }
+
+void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
+{
+	int x = _A[0][BOARD_SIZE].x + 75;
+	int y = _A[0][BOARD_SIZE].y + 14;
+	GotoXY(x, y);
+	SetColor(color);
+	cout << (char)201;
+	for (int i = 0;i < 51;i++)
+		cout << (char)205;
+	cout << (char)187;
+	for(int i=1;i<14;i++)
+	{
+		GotoXY(x, y + i);
+		cout << (char)186;
+		GotoXY(x + 52, y + i);
+		cout << (char)186;
+	}
+	GotoXY(x, y + 14);
+	cout << (char)200;
+	for (int i = 0;i < 51;i++)
+		cout << (char)205;
+	cout << (char)188;
+	x= _A[0][BOARD_SIZE].x + 78;
+	y= _A[0][BOARD_SIZE].y + 17;
+	ShowCur(0);
+	for (int i = 0;i < 8;i++)
+	{
+		GotoXY(x, y);
+		SetColor(rand() % 15 + 1);
+		cout << "     _____";
+		GotoXY(x+17, y);
+		SetColor(rand() % 15 + 1);
+		cout << "     _____";
+		GotoXY(x + 34, y);
+		SetColor(rand() % 15 + 1);
+		cout << "	 _____";
+		Sleep(30);
+		GotoXY(x, y + 1);
+		SetColor(rand() % 15 + 1);
+		cout << "    |\\ ___\\";
+		GotoXY(x + 17, y+1);
+		SetColor(rand() % 15 + 1);
+		cout << "    |\\ ___\\";
+		GotoXY(x + 34, y + 1);
+		SetColor(rand() % 15 + 1);
+		cout << "	|\\____\\";
+		Sleep(30);
+		GotoXY(x, y + 2);
+		SetColor(rand() % 15 + 1);
+		cout << " ___| | W |__";
+		GotoXY(x+17, y + 2);
+		SetColor(rand() % 15 + 1);
+		cout << " ___| | ^ |__";
+		GotoXY(x + 34, y + 2);
+		SetColor(rand() % 15 + 1);
+		cout << " _____||    |";
+		Sleep(30);
+		GotoXY(x, y + 3);
+		SetColor(rand() % 15 + 1);
+		cout << "|\\ __\\|___| _\\ ";
+		GotoXY(x+17, y + 3);
+		SetColor(rand() % 15 + 1);
+		cout << "|\\ __\\|___| _\\ ";
+		GotoXY(x + 34, y + 3);
+		SetColor(rand() % 15 + 1);
+		cout << "|\\ ___\\|    | ";
+		Sleep(30);
+		GotoXY(x, y + 4);
+		SetColor(rand() % 15 + 1);
+		cout << "| | A | S | D |";
+		GotoXY(x+17, y + 4);
+		SetColor(rand() % 15 + 1);
+		cout << "| | < | v | > |";
+		GotoXY(x + 34, y + 4);
+		SetColor(rand() % 15 + 1);
+		cout << "| |  Enter  |";
+		Sleep(30);
+		GotoXY(x, y + 5);
+		SetColor(rand() % 15 + 1);
+		cout << " \\|___|___|___|";
+		GotoXY(x+17, y + 5);
+		SetColor(rand() % 15 + 1);
+		cout << " \\|___|___|___|";
+		GotoXY(x + 34, y + 5);
+		SetColor(rand() % 15 + 1);
+		cout << " \\|_________|";
+		Sleep(30);
+
+	}
+	SetColor(240);
+	GotoXY(x, y);
+	cout << "     _____";
+	GotoXY(x, y + 1);
+	cout << "    |\\ ___\\";
+	GotoXY(x, y + 2);
+	cout << " ___| | W |__";
+	GotoXY(x, y + 3);
+	cout << "|\\ __\\|___| _\\ ";
+	GotoXY(x, y + 4);
+	cout << "| | A | S | D |";
+	GotoXY(x, y + 5);
+	cout << " \\|___|___|___|";
+	GotoXY(x+17, y);
+	cout << "     _____";
+	GotoXY(x+17, y + 1);
+	cout << "    |\\ ___\\";
+	GotoXY(x+17, y + 2);
+	cout << " ___| | ^ |__";
+	GotoXY(x+17, y + 3);
+	cout << "|\\ __\\|___| _\\ ";
+	GotoXY(x+17, y + 4);
+	cout << "| | < | v | > |";
+	GotoXY(x+17, y + 5);
+	cout << " \\|___|___|___|";
+	GotoXY(x + 34, y);
+	cout << "	 _____";
+	GotoXY(x + 34, y + 1);
+	cout << "	|\\____\\";
+	GotoXY(x + 34, y + 2);
+	cout << " _____||    |";
+	GotoXY(x + 34, y + 3);
+	cout << "|\\ ___\\|    | ";
+	GotoXY(x + 34, y + 4);
+	cout << "| |  Enter  |";
+	GotoXY(x + 34, y + 5);
+	cout << " \\|_________|";
+	ShowCur(1);
+}
+
+//void PhimTat()
+

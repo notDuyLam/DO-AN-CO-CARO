@@ -27,3 +27,4 @@ void Help();
 void About();
 void Sound(bool& MO_NHAC);
 void DrawBigText(string filename, int color, int x, int y);
+void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE], int color);
