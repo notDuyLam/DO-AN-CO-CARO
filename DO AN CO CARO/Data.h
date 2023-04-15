@@ -7,8 +7,9 @@
 #include <conio.h>
 #include <vector>
 #include <string>
-#include<stack>
+#include <stack>
 #include <thread>
+#include <iomanip>
 using std::cout;
 using std::cin;
 using std::string;

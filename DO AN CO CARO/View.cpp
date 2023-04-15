@@ -106,7 +106,8 @@ int AskContinue(_POINT _A[][BOARD_SIZE])
 }
 void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC)
 {
-	PlayBackGroundMusic(0);
+	int song = 0;
+	PlayBackGroundMusic(song);
 	int x = 0, y = 0;
 	drawFrame(0, 0, 145, 33);
 	int i;
@@ -118,19 +119,21 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		drawFrame(0, 0, 145, 33);
 		TextColor(255);
 		backToOriginalMenu = false;
-		x = 50, y = 20;
+		x = 100, y = 20;
 		// color, width, height, x, y
 		SetColor(150);
-		GotoXY(60, 20); cout << "Player Vs Player";
+		//GotoXY(100, 3); cout << "Player Vs Player";
+		drawButton(100, 5, "Player Vs Player");
 		SetColor(0);
-		GotoXY(60, 21); cout << "Player Vs Computer";
-		GotoXY(60, 22); cout << "Load Game";
-		GotoXY(60, 23); cout << "Help";
-		GotoXY(60, 24); cout << "About";
-		GotoXY(60, 25); cout << "Sound";
-		GotoXY(60, 26); cout << "Exit";
-		GotoXY(60, 29); cout << "....... W - S : Move ( Off Unikey - Off Caps Lock ) ";
-		GotoXY(60, 30); cout << "....... Enter : Select ";
+		drawButton(100, 8, "Player Vs Computer");
+		drawButton(100, 11, "Load Game");
+		drawButton(100, 14, "Help");
+		drawButton(100, 17, "About");
+		drawButton(100, 20, "Sound");
+		drawButton(100, 23, "Exit");
+		SetColor(8);
+		GotoXY(90, 29); cout << "_____ W A S D: MOVE _____";
+		GotoXY(90, 30); cout << "_____ Enter: Select _____" ;
 		while (true)
 		{
 			if (_kbhit())
@@ -146,92 +149,92 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					if (y == 20)
 					{
 						SetColor(150);
-						GotoXY(60, 20); cout << "Player Vs Player";
+						drawButton(100, 5, "Player Vs Player");
 						SetColor(0);
-						GotoXY(60, 21); cout << "Player Vs Computer";
-						GotoXY(60, 22); cout << "Load Game";
-						GotoXY(60, 23); cout << "Help";
-						GotoXY(60, 24); cout << "About";
-						GotoXY(60, 25); cout << "Sound";
-						GotoXY(60, 26); cout << "Exit";
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						GotoXY(60, 20); cout << "Player Vs Player";
+						drawButton(100, 5, "Player Vs Player");
 						SetColor(150);
-						GotoXY(60, 21); cout << "Player Vs Computer";
+						drawButton(100, 8, "Player Vs Computer");
 						SetColor(0);
-						GotoXY(60, 22); cout << "Load Game";
-						GotoXY(60, 23); cout << "Help";
-						GotoXY(60, 24); cout << "About";
-						GotoXY(60, 25); cout << "Sound";
-						GotoXY(60, 26); cout << "Exit";
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
 					}
-					if (y == 22)
+					if (y == 15)
 					{
 						SetColor(0);
-						GotoXY(60, 20); cout << "Player Vs Player";
-						GotoXY(60, 21); cout << "Player Vs Computer";
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
 						SetColor(150);
-						GotoXY(60, 22); cout << "Load Game";
+						drawButton(100, 11, "Load Game");
 						SetColor(0);
-						GotoXY(60, 23); cout << "Help";
-						GotoXY(60, 24); cout << "About";
-						GotoXY(60, 25); cout << "Sound";
-						GotoXY(60, 26); cout << "Exit";
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
 					}
 					if (y == 23)
 					{
 						SetColor(0);
-						GotoXY(60, 20); cout << "Player Vs Player";
-						GotoXY(60, 21); cout << "Player Vs Computer";
-						GotoXY(60, 22); cout << "Load Game";
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
 						SetColor(150);
-						GotoXY(60, 23); cout << "Help";
+						drawButton(100, 14, "Help");
 						SetColor(0);
-						GotoXY(60, 24); cout << "About";
-						GotoXY(60, 25); cout << "Sound";
-						GotoXY(60, 26); cout << "Exit";
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
 					}
 					if (y == 24)
 					{
 						SetColor(0);
-						GotoXY(60, 20); cout << "Player Vs Player";
-						GotoXY(60, 21); cout << "Player Vs Computer";
-						GotoXY(60, 22); cout << "Load Game";
-						GotoXY(60, 23); cout << "Help";
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
 						SetColor(150);
-						GotoXY(60, 24); cout << "About";
+						drawButton(100, 17, "About");
 						SetColor(0);
-						GotoXY(60, 25); cout << "Sound";
-						GotoXY(60, 26); cout << "Exit";
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
 					}
 					if (y == 25)
 					{
 						SetColor(0);
-						GotoXY(60, 20); cout << "Player Vs Player";
-						GotoXY(60, 21); cout << "Player Vs Computer";
-						GotoXY(60, 22); cout << "Load Game";
-						GotoXY(60, 23); cout << "Help";
-						GotoXY(60, 24); cout << "About";
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
 						SetColor(150);
-						GotoXY(60, 25); cout << "Sound";
+						drawButton(100, 20, "Sound");
 						SetColor(0);
-						GotoXY(60, 26); cout << "Exit";
+						drawButton(100, 23, "Exit");
 					}
 					if (y == 26)
 					{
 						SetColor(0);
-						GotoXY(60, 20); cout << "Player Vs Player";
-						GotoXY(60, 21); cout << "Player Vs Computer";
-						GotoXY(60, 22); cout << "Load Game";
-						GotoXY(60, 23); cout << "Help";
-						GotoXY(60, 24); cout << "About";
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
 						SetColor(150);
-						GotoXY(60, 25); cout << "Sound";
+						drawButton(100, 20, "Sound");
 						SetColor(0);
-						GotoXY(60, 26); cout << "Exit";
+						drawButton(100, 23, "Exit");
 					}
 					break;
 				case 's':
@@ -243,91 +246,91 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					if (y == 20)
 					{
 						SetColor(150);
-						GotoXY(60, 20); cout << "Player Vs Player";
+						drawButton(100, 5, "Player Vs Player");
 						SetColor(0);
-						GotoXY(60, 21); cout << "Player Vs Computer";
-						GotoXY(60, 22); cout << "Load Game";
-						GotoXY(60, 23); cout << "Help";
-						GotoXY(60, 24); cout << "About";
-						GotoXY(60, 25); cout << "Sound";
-						GotoXY(60, 26); cout << "Exit";
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						GotoXY(60, 20); cout << "Player Vs Player";
+						drawButton(100, 5, "Player Vs Player");
 						SetColor(150);
-						GotoXY(60, 21); cout << "Player Vs Computer";
+						drawButton(100, 8, "Player Vs Computer");
 						SetColor(0);
-						GotoXY(60, 22); cout << "Load Game";
-						GotoXY(60, 23); cout << "Help";
-						GotoXY(60, 24); cout << "About";
-						GotoXY(60, 25); cout << "Sound";
-						GotoXY(60, 26); cout << "Exit";
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
 					}
 					if (y == 22)
 					{
 						SetColor(0);
-						GotoXY(60, 20); cout << "Player Vs Player";
-						GotoXY(60, 21); cout << "Player Vs Computer";
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
 						SetColor(150);
-						GotoXY(60, 22); cout << "Load Game";
+						drawButton(100, 11, "Load Game");
 						SetColor(0);
-						GotoXY(60, 23); cout << "Help";
-						GotoXY(60, 24); cout << "About";
-						GotoXY(60, 25); cout << "Sound";
-						GotoXY(60, 26); cout << "Exit";
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
 					}
 					if (y == 23)
 					{
 						SetColor(0);
-						GotoXY(60, 20); cout << "Player Vs Player";
-						GotoXY(60, 21); cout << "Player Vs Computer";
-						GotoXY(60, 22); cout << "Load Game";
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
 						SetColor(150);
-						GotoXY(60, 23); cout << "Help";
+						drawButton(100, 14, "Help");
 						SetColor(0);
-						GotoXY(60, 24); cout << "About";
-						GotoXY(60, 25); cout << "Sound";
-						GotoXY(60, 26); cout << "Exit";
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
 					}
 					if (y == 24)
 					{
 						SetColor(0);
-						GotoXY(60, 20); cout << "Player Vs Player";
-						GotoXY(60, 21); cout << "Player Vs Computer";
-						GotoXY(60, 22); cout << "Load Game";
-						GotoXY(60, 23); cout << "Help";
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
 						SetColor(150);
-						GotoXY(60, 24); cout << "About";
+						drawButton(100, 17, "About");
 						SetColor(0);
-						GotoXY(60, 25); cout << "Sound";
-						GotoXY(60, 26); cout << "Exit";
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
 					}
 					if (y == 25)
 					{
 						SetColor(0);
-						GotoXY(60, 20); cout << "Player Vs Player";
-						GotoXY(60, 21); cout << "Player Vs Computer";
-						GotoXY(60, 22); cout << "Load Game";
-						GotoXY(60, 23); cout << "Help";
-						GotoXY(60, 24); cout << "About";
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
 						SetColor(150);
-						GotoXY(60, 25); cout << "Sound";
+						drawButton(100, 20, "Sound");
 						SetColor(0);
-						GotoXY(60, 26); cout << "Exit";
+						drawButton(100, 23, "Exit");
 					}
 					if (y == 26)
 					{
 						SetColor(0);
-						GotoXY(60, 20); cout << "Player Vs Player";
-						GotoXY(60, 21); cout << "Player Vs Computer";
-						GotoXY(60, 22); cout << "Load Game";
-						GotoXY(60, 23); cout << "Help";
-						GotoXY(60, 24); cout << "About";
-						GotoXY(60, 25); cout << "Sound";
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
 						SetColor(150);
-						GotoXY(60, 26); cout << "Exit";
+						drawButton(100, 23, "Exit");
 					}
 					break;
 				case 13:
@@ -600,7 +603,7 @@ void Sound(bool& MO_NHAC)
 		x = 50, y = 20;
 		SetColor(150);
 		GotoXY(50, 20); cout << "Tat nhac nen" << endl;
-		SetColor(7);
+		SetColor(0);
 		GotoXY(50, 21); cout << "Bat nhac nen" << endl;
 		GotoXY(50, 22);	cout << "Doi bai" << endl;
 		GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
@@ -627,7 +630,7 @@ void Sound(bool& MO_NHAC)
 					{
 						SetColor(150);
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
 						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
@@ -635,35 +638,35 @@ void Sound(bool& MO_NHAC)
 					}
 					if (y == 21)
 					{
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
 						SetColor(150);
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
 						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
 						GotoXY(50, 24); cout << "BACK";
 					}
 					if (y == 22)
 					{
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
 						SetColor(150);
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
 						GotoXY(50, 24); cout << "BACK";
 					}
 					if (y == 23)
 					{
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
 						SetColor(150);
 						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 24); cout << "BACK";
 					}
 					if (y == 24)
@@ -673,7 +676,7 @@ void Sound(bool& MO_NHAC)
 						SetColor(150);
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
 						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 24); cout << "BACK";
 					}
 					break;
@@ -687,7 +690,7 @@ void Sound(bool& MO_NHAC)
 					{
 						SetColor(150);
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
 						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
@@ -695,40 +698,40 @@ void Sound(bool& MO_NHAC)
 					}
 					if (y == 21)
 					{
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
 						SetColor(150);
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
 						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
 						GotoXY(50, 24); cout << "BACK";
 					}
 					if (y == 22)
 					{
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
 						SetColor(150);
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
 						GotoXY(50, 24); cout << "BACK";
 					}
 					if (y == 23)
 					{
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
 						SetColor(150);
 						GotoXY(50, 23);	cout << "Tat hieu ung am thanh" << endl;
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 24); cout << "BACK";
 					}
 					if (y == 24)
 					{
-						SetColor(7);
+						SetColor(0);
 						GotoXY(50, 20); cout << "Tat nhac nen" << endl;
 						GotoXY(50, 21); cout << "Bat nhac nen" << endl;
 						GotoXY(50, 22);	cout << "Doi bai" << endl;
@@ -970,14 +973,16 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 	cout << " \\|_________|";
 	ShowCur(1);
 }
-void drawButton(int x, int y, string text) {
-	int width = text.length() + 2;
-	GotoXY(x, y); cout << "+";
-	for (int i = 0; i < width; i++) cout << "-";
-	cout << "+";
-	GotoXY(x, y + 1); cout << "| " << text << " |";
-	GotoXY(x, y + 2); cout << "+";
-	for (int i = 0; i < width; i++) cout << "-";
-	cout << "+";
+void drawButton(int x, int y, string text)
+{
+	int width = 19; // length of "Player VS Computer" + 2
+	GotoXY(x, y); cout << char(218);
+	for (int i = 0; i < width; i++) cout << char(196);
+	cout << char(191);
+	GotoXY(x, y + 1); cout << char(179) << setw((width - text.length()) / 2 + text.length()) << right << text;
+	if (text.length() % 2 == 0) cout << setw((width - text.length()) / 2 + 1) << right << " " << char(179);
+	else cout << setw((width - text.length()) / 2) << " " << right << char(179);
+	GotoXY(x, y + 2); cout << char(192);
+	for (int i = 0; i < width; i++) cout << char(196);
+	cout << char(217);
 }
-
