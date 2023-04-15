@@ -107,7 +107,6 @@ int AskContinue(_POINT _A[][BOARD_SIZE])
 void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC)
 {
 	int song = 0;
-	printCaro();
 	PlayBackGroundMusic(song);
 	int x = 0, y = 0;
 	drawFrame(0, 0, 145, 33);
@@ -119,6 +118,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 	{
 		drawFrame(0, 0, 145, 33);
 		TextColor(255);
+		printCaro();
 		backToOriginalMenu = false;
 		x = 100, y = 20;
 		// color, width, height, x, y
