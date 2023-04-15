@@ -31,6 +31,7 @@ void drawFrame(int x, int y, int width, int height);
 // (độ dài và chiều nó vẽ hên xui nên cứ nhập đại số nào vô rồi canh điều chỉnh cho nó hợp lý là được)
 // có thể thay đổi các giá trị topleft... để vẽ loại khung khác nếu cần
 void DrawBigText(string filename, int color, int x, int y);
+void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE], int color);
 void drawButton(int x, int y, string text);
-void DrawBox(int color, int width, int height, int x, int y);
+
 
