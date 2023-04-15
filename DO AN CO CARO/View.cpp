@@ -850,17 +850,4 @@ void drawButton(int x, int y, string text) {
 	for (int i = 0; i < width; i++) cout << "-";
 	cout << "+";
 }
-void DrawBox(int color, int width, int height, int x, int y)
-{
-	SetColor(color);
-	for (int i = 0; i < height; i++)
-	{
-		GotoXY(x, y + i);
-		for (int j = 0; j < width; j++)
-		{
-			cout << " ";
-		}
-	}
-	SetColor(240);
-}
 
