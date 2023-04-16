@@ -7,12 +7,13 @@ void StartGame(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int
 	system("cls");
 	ResetData(_A, _TURN, _COMMAND, _X, _Y); // Khởi tạo dữ liệu gốc
 	DrawBoard(BOARD_SIZE); // Vẽ màn hình game
-	DrawBoardGiaoDien(_A, 240);
+	
 	/*int x = _A[0][0].x;
 	int y = _A[0][0].y;
 	GotoXY(x, y);*/
 	ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
 	GotoXY(_X, _Y);
+	DrawBoardGiaoDien(_A, 240);
 }
 void MoveRight(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
 	if (_X < _A[BOARD_SIZE - 1][BOARD_SIZE - 1].x)

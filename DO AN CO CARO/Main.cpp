@@ -17,7 +17,6 @@ int main() {
 	for (int i = 0; i < 30; i++)
 		cout << "                                    ";
 	system("cls");
-	//ScreenStartGame(n, _A, _TURN, _COMMAND, _X, _Y, validEnter);
 	bool MO_NHAC = true;
 	ScreenStartGame(n, _A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC);
 	return 0;
