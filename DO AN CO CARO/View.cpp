@@ -135,8 +135,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		drawButton(100, 20, "Sound");
 		drawButton(100, 23, "Exit");
 		SetColor(8);
-		GotoXY(95, 29); cout << "_____ W A S D: MOVE _____";
-		GotoXY(95, 30); cout << "_____ Enter: Select _____" ;
+		GotoXY(98, 29); cout << "_____ W A S D: MOVE _____";
+		GotoXY(98, 30); cout << "_____ Enter: Select _____" ;
 		while (true)
 		{
 			if (_kbhit())
