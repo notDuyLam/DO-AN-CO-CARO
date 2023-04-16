@@ -120,7 +120,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		drawFrame(0, 0, 145, 33);
 		drawFrame(5, 3, 80, 28);
 		TextColor(255);
-		printCaro(20,10);
+		printCaro(29,14);
 		backToOriginalMenu = false;
 		x = 100, y = 20;
 		// color, width, height, x, y
