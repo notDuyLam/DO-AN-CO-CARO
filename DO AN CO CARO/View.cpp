@@ -925,15 +925,19 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 	for (int i = 0;i < 51;i++)
 		cout << (char)205;
 	cout << (char)188;
-	x= _A[0][BOARD_SIZE].x + 78;
-	y= _A[0][BOARD_SIZE].y + 17;
+}
+
+void DrawPhimTat(_POINT _A[][BOARD_SIZE])
+{
+	int x = _A[0][BOARD_SIZE].x + 78;
+	int y = _A[0][BOARD_SIZE].y + 17;
 	ShowCur(0);
 	for (int i = 0;i < 8;i++)
 	{
 		GotoXY(x, y);
 		SetColor(rand() % 15 + 1);
 		cout << "     _____";
-		GotoXY(x+17, y);
+		GotoXY(x + 17, y);
 		SetColor(rand() % 15 + 1);
 		cout << "     _____";
 		GotoXY(x + 34, y);
@@ -946,7 +950,7 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 		GotoXY(x, y + 1);
 		SetColor(rand() % 15 + 1);
 		cout << "    |\\ ___\\";
-		GotoXY(x + 17, y+1);
+		GotoXY(x + 17, y + 1);
 		SetColor(rand() % 15 + 1);
 		cout << "    |\\ ___\\";
 		GotoXY(x + 34, y + 1);
@@ -959,7 +963,7 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 		GotoXY(x, y + 2);
 		SetColor(rand() % 15 + 1);
 		cout << " ___| | W |__";
-		GotoXY(x+17, y + 2);
+		GotoXY(x + 17, y + 2);
 		SetColor(rand() % 15 + 1);
 		cout << " ___| | ^ |__";
 		GotoXY(x + 34, y + 2);
@@ -972,7 +976,7 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 		GotoXY(x, y + 3);
 		SetColor(rand() % 15 + 1);
 		cout << "|\\ __\\|___| _\\ ";
-		GotoXY(x+17, y + 3);
+		GotoXY(x + 17, y + 3);
 		SetColor(rand() % 15 + 1);
 		cout << "|\\ __\\|___| _\\ ";
 		GotoXY(x + 34, y + 3);
@@ -985,7 +989,7 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 		GotoXY(x, y + 4);
 		SetColor(rand() % 15 + 1);
 		cout << "| | A | S | D |";
-		GotoXY(x+17, y + 4);
+		GotoXY(x + 17, y + 4);
 		SetColor(rand() % 15 + 1);
 		cout << "| | < | v | > |";
 		GotoXY(x + 34, y + 4);
@@ -995,7 +999,7 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 		GotoXY(x, y + 5);
 		SetColor(rand() % 15 + 1);
 		cout << " \\|___|___|___|";
-		GotoXY(x+17, y + 5);
+		GotoXY(x + 17, y + 5);
 		SetColor(rand() % 15 + 1);
 		cout << " \\|___|___|___|";
 		GotoXY(x + 34, y + 5);
@@ -1017,17 +1021,17 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 	cout << "| | A | S | D |";
 	GotoXY(x, y + 5);
 	cout << " \\|___|___|___|";
-	GotoXY(x+17, y);
+	GotoXY(x + 17, y);
 	cout << "     _____";
-	GotoXY(x+17, y + 1);
+	GotoXY(x + 17, y + 1);
 	cout << "    |\\ ___\\";
-	GotoXY(x+17, y + 2);
+	GotoXY(x + 17, y + 2);
 	cout << " ___| | ^ |__";
-	GotoXY(x+17, y + 3);
+	GotoXY(x + 17, y + 3);
 	cout << "|\\ __\\|___| _\\ ";
-	GotoXY(x+17, y + 4);
+	GotoXY(x + 17, y + 4);
 	cout << "| | < | v | > |";
-	GotoXY(x+17, y + 5);
+	GotoXY(x + 17, y + 5);
 	cout << " \\|___|___|___|";
 	GotoXY(x + 34, y);
 	cout << "	 _____";
@@ -1051,6 +1055,7 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 	cout << " \\|_________________________|";
 	ShowCur(1);
 }
+
 void drawButton(int x, int y, string text)
 {
 	int width = 21; // length of "Player VS Computer" + 2
