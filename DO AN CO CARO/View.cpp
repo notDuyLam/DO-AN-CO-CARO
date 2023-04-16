@@ -334,24 +334,30 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					//PlaySoundEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
 					if (y == 20)
 					{
+						//Loading();
 						TextColor(255);
 						StartGame(_A, _TURN, _COMMAND, _X, _Y);
 						RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC);
 					}
 					if (y == 21)
 					{
+						//Loading();
+						TextColor(255);
 						StartGame(_A, _TURN, _COMMAND, _X, _Y);
 						PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC);
 						//Danh voi may
 					}
 					if (y == 22)
 					{
+						//Loading();
+						TextColor(255);
 						int loadOption;
 						system("cls");
 						loadOption = SelectMenu(LoadingMenu());
 						if (loadOption == -1) break;
 						else
 						{
+							//Loading();
 							TextColor(255);
 							LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y);
 							PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2,_X, _Y, validEnter, MO_NHAC);
@@ -362,20 +368,27 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					if (y == 23)
 					{
 						//Menu help trong game
+						//Loading();
+						TextColor(255);
 						Help();
 					}
 					if (y == 24)
 					{
 						//About
+						//Loading();
 						About();
 					}
 					if (y == 25)
 					{
 						//Sound
+						//Loading();
+						TextColor(255);
 						Sound(MO_NHAC);
 					}
 					if (y == 26)
 					{
+						//Loading();
+						TextColor(255);
 						system("cls");
 						exit(0);
 					}
@@ -809,4 +822,32 @@ void DrawBigText(string filename, int color, int x, int y)
 	for (int i = 0; i < line1.size(); i++)
 		PrintText(line1[i], color, x, y++);
 	textFile.close();
+}
+void Loading()
+{
+	system("cls");
+	int y = 15;
+	int x = 10;
+	GotoXY(x+8, y);
+	cout << "Loading . . .";
+	TextColor(255);
+	for (unsigned short int i = 1; i <= 10; ++i)
+	{
+		//textcolor(111);
+		//SetColor(9);
+		PrintText("        ", 0, x += 8, y + 1);
+		//TextColor(0 +rand() % 100);
+		//textcolor(111);
+		//GotoXY(x+=8, y +1);
+		//cout << "     ";
+		TextColor(11);
+		GotoXY(x+7, y+1);
+		cout << i * 10 << "%";
+
+		Sleep(10 + rand() % 500);
+		GotoXY(x+7, y+1);
+		cout << "       ";
+	}
+	Sleep(90);
+	system("cls");
 }
