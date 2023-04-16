@@ -669,8 +669,8 @@ void Sound(bool& MO_NHAC)
 		drawButton(100, 17, "Tat hieu ung am thanh");
 		drawButton(100, 20, "Back");
 		SetColor(8);
-		GotoXY(95, 29); cout << "_____ W A S D: MOVE _____";
-		GotoXY(95, 30); cout << "_____ Enter: Select _____";
+		GotoXY(98, 29); cout << "_____ W A S D: MOVE _____";
+		GotoXY(98, 30); cout << "_____ Enter: Select _____";
 		//if (n == 100)
 		//{
 		//	
