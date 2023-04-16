@@ -348,7 +348,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 21)
 					{
-						//Loading();
+						Loading();
 						TextColor(255);
 						StartGame(_A, _TURN, _COMMAND, _X, _Y);
 						PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC);
@@ -382,7 +382,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						if (loadOption == -1) break;
 						else
 						{
-							//Loading();
+							Loading();
 							TextColor(255);
 							LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y);
 							PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2,_X, _Y, validEnter, MO_NHAC);
@@ -412,7 +412,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						GotoXY(6, 7);
 						GotoXY(6, 9);
 						GotoXY(10, 10);
-						//Loading();
+						Loading();
 						TextColor(255);
 						Help();
 					}
@@ -438,19 +438,19 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						GotoXY(6, 7);
 						GotoXY(6, 9);
 						GotoXY(10, 10);
-						//Loading();
+						Loading();
 						About();
 					}
 					if (y == 25)
 					{
 						//Sound
-						//Loading();
+						Loading();
 						TextColor(255);
 						Sound(MO_NHAC);
 					}
 					if (y == 26)
 					{
-						//Loading();
+						Loading();
 						TextColor(255);
 						system("cls");
 						exit(0);

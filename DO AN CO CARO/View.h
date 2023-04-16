@@ -34,5 +34,6 @@ void DrawBigText(string filename, int color, int x, int y);
 void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE], int color);
 void drawButton(int x, int y, string text);
 void printCaro();
+void Loading();
 
 
