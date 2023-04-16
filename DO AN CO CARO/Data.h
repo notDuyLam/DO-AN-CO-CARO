@@ -7,8 +7,9 @@
 #include <conio.h>
 #include <vector>
 #include <string>
-#include<stack>
+#include <stack>
 #include <thread>
+#include <iomanip>
 using std::cout;
 using std::cin;
 using std::string;
@@ -52,6 +53,13 @@ struct MOVE {
 #define	LEFT_CROSS (char)195
 #define RIGHT_CROSS (char)180
 #define CROSS (char)197
+#define FULL (char)219
+#define DOUBLE_TOP_RIGHT (char)187
+#define DOUBLE_TOP_LEFT (char)201
+#define DOUBLE_BOTTOM_LEFT (char)200
+#define DOUBLE_BOTTOM_RIGHT (char)188
+#define DOUBLE_HORIZONTAL (char)205
+#define DOUBLE_VERTICAL (char)186
 struct toado {
 	short int x, y;
 	char data;
@@ -82,8 +90,8 @@ struct Hour {
 //File stuffs
 #define SAVED_LIST "savedlist.txt" //Ten cac file game duoc save
 #define PLAYER_LIST "PlayerList.txt" //Thong tin cac player da choi game
-#define WIDTH 1320
-#define HEIGHT 700
+#define WIDTH 1080
+#define HEIGHT 580
 #define X_CENTER WIDTH / 16 + 2
-#define Y_CENTER HEIGHT / 32
+#define Y_CENTER HEIGHT / 32	
 #pragma comment (lib,"winmm.lib") //dung cho PlaySoundA()

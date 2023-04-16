@@ -26,5 +26,13 @@ void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2)
 void Help();
 void About();
 void Sound(bool& MO_NHAC);
+void drawFrame(int x, int y, int width, int height);
+// Hàm này nhận vào x, y là tọa độ tại vị trí bắt đầu vẽ khung, width và height là độ dài và chiều cao của khung
+// (độ dài và chiều nó vẽ hên xui nên cứ nhập đại số nào vô rồi canh điều chỉnh cho nó hợp lý là được)
+// có thể thay đổi các giá trị topleft... để vẽ loại khung khác nếu cần
 void DrawBigText(string filename, int color, int x, int y);
-void Loading();
+void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE], int color);
+void drawButton(int x, int y, string text);
+void printCaro();
+
+

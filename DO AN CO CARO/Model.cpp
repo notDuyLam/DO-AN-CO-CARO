@@ -358,7 +358,7 @@ void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothan
 		}
 	}
 	Sleep(300);
-	ShowCur(1);
+	ShowCur(0);
 	for (unsigned short int i = 0; i < 10; i += 2)
 	{
 		x = toadothang[i];
@@ -389,10 +389,11 @@ void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothan
 			cout << "O";
 			cout << " ";
 		}
-		ShowCur(1);
+		
 	}
-	SetColor(7);
+	SetColor(10);
 	Sleep(500);
+	ShowCur(1);
 }
 void LoadData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y)
 {
@@ -590,7 +591,7 @@ MOVE timkiemnuocdi(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, in
 	MOVE wayresult;
 	wayresult.x = -1;
 	wayresult.y = 1;
-	double diemMax = 0;
+	double diem = 0;
 	for (int i = 0; i < BOARD_SIZE; i++)
 	{
 		for (int j = 0; j < BOARD_SIZE; j++)
@@ -601,21 +602,32 @@ MOVE timkiemnuocdi(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, in
 				int y = getY(_A, i, j);
 				double diemtancong = tancongdoc(_A, x, y) + tancongngang(_A, x, y) + tancongcheoxuoi(_A, x, y) + tancongcheonguoc(_A, x, y);
 				double diemphongngu = phongngudoc(_A, x, y) + phongngungang(_A, x, y) + phongngucheoxuoi(_A, x, y) + phongngucheonguoc(_A, x, y);
-				double temp = diemtancong > diemphongngu ? diemtancong : diemphongngu;
-				if (diemMax < temp)
+
+				if (diemtancong > diemphongngu)
 				{
-					diemMax = temp;
-					wayresult.x = x;
-					wayresult.y = y;
-					//wayresult->setCheck(_pArr[i][j].GetCheck());
+					if (diem < diemtancong)
+					{
+						diem = diemtancong;
+						wayresult.x = x;
+						wayresult.y = y;
+					}
+				}
+				else
+				{
+					if (diem < diemphongngu)
+					{
+						diem = diemphongngu;
+						wayresult.x = x;
+						wayresult.y = y;
+					}
 				}
 			}
 		}
 	}
 	return wayresult;
 }
-double mangdiemtancong[7] = { 0,8,100,1535,12287,15552 ,93312 };
-double mangdiemphongngu[7] = { 0, 1, 8, 64, 512, 4096, 32768 };
+double mangdiemtancong[7] = { 0, 64, 4096, 262144, 16777216, 1073741824 };
+double mangdiemphongngu[7] = { 0, 8, 512, 32768, 2097152, 134217728 };
 double tancongdoc(_POINT _A[][BOARD_SIZE], int x, int y) {
 	int soquanta = 0;
 	int soquandich = 0;
