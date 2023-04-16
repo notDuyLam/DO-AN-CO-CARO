@@ -845,6 +845,9 @@ void DrawBigText(string filename, int color, int x, int y)
 			count++;
 		}
 	}
+	for (int i = 0;i < line1.size();i++)
+		PrintText(line1[i], color, x, y++);
+	textFile.close();
 }
 
 void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
