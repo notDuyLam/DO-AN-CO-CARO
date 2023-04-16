@@ -535,8 +535,8 @@ _MENU LoadingMenu()
 	files = LoadFiles();
 
 	menu.options = files.size();
-	menu.x = X_CENTER - 15;
-	menu.y = Y_CENTER + 7 - files.size() / 2;
+	menu.x = X_CENTER - 13;
+	menu.y = Y_CENTER + 11 - files.size() / 2;
 	menu.cursorColor = 1;
 
 	PrintText("Press ESC to return to MENU...", 8, 50, 28);
@@ -577,21 +577,19 @@ void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2)
 void Help()
 {
 	SetColor(245); //Day la mot mau ngau nhien, can chinh lai mau khac dep hon
-	GotoXY(60, 6);
-	cout << "HELP";
-	GotoXY(10, 11);
-	cout << "HUONG DAN" << endl;
-	GotoXY(10, 12);
-	cout << "1. Ban co gom 16x16 o vuong." << endl;
-	GotoXY(10, 13);
-	cout << "2. Su dung cac phim W A S D de di chuyen va Enter de danh." << endl;
 	GotoXY(10, 14);
-	cout << "3. Luat choi cu du 5 quan co X hoac O theo hang ngang, doc, cheo se " << endl;
+	cout << "HUONG DAN" << endl;
 	GotoXY(10, 15);
-	cout << "chien thang.";
+	cout << "1. Ban co gom 16x16 o vuong." << endl;
 	GotoXY(10, 16);
-	cout << "4. Luat choi tuan theo quy dinh chan 2 dau " << endl;
+	cout << "2. Su dung cac phim W A S D de di chuyen va Enter de danh." << endl;
 	GotoXY(10, 17);
+	cout << "3. Luat choi cu du 5 quan co X hoac O theo hang ngang, doc, cheo se " << endl;
+	GotoXY(10, 18);
+	cout << "chien thang.";
+	GotoXY(10, 19);
+	cout << "4. Luat choi tuan theo quy dinh chan 2 dau " << endl;
+	GotoXY(10, 20);
 	cout << "-> Chuc moi nguoi choi game vui ve !!" << endl;
 	PrintText("Press ESC to return to MENU...", 8, 50, 28);
 	char command = ' ';
@@ -600,37 +598,35 @@ void Help()
 void About()
 {
 	SetColor(100);
-	GotoXY(60, 6);
-	cout << "ABOUT";
-	GotoXY(20, 10);
+	GotoXY(20, 11);
 	cout << "DO AN GAME CARO - LOP 22CTT4 - HCMUS" << endl;
-	GotoXY(20, 12);
-	cout << "-> MSSV   : 22120181." << endl;
 	GotoXY(20, 13);
-	cout << "-> Ho ten : NGUYEN DUY LAM." << endl;
+	cout << "-> MSSV   : 22120181." << endl;
 	GotoXY(20, 14);
-	cout << "-> Lop    : 22CTT4." << endl;
+	cout << "-> Ho ten : NGUYEN DUY LAM." << endl;
 	GotoXY(20, 15);
-	cout << "-> MSSV   : 22120213." << endl;
+	cout << "-> Lop    : 22CTT4." << endl;
 	GotoXY(20, 16);
-	cout << "-> Ho ten : DOAN THI MINH ANH." << endl;
+	cout << "-> MSSV   : 22120213." << endl;
 	GotoXY(20, 17);
-	cout << "-> Lop    : 22CTT4." << endl;
+	cout << "-> Ho ten : DOAN THI MINH ANH." << endl;
 	GotoXY(20, 18);
-	cout << "-> MSSV   : 22120233." << endl;
+	cout << "-> Lop    : 22CTT4." << endl;
 	GotoXY(20, 19);
-	cout << "-> Ho ten : NGUYEN THI TU NGOC." << endl;
+	cout << "-> MSSV   : 22120233." << endl;
 	GotoXY(20, 20);
-	cout << "-> Lop    : 22CTT4." << endl;
+	cout << "-> Ho ten : NGUYEN THI TU NGOC." << endl;
 	GotoXY(20, 21);
-	cout << "-> MSSV   : 22120202." << endl;
-	GotoXY(20, 22);
-	cout << "-> Ho ten : TANG SENH MANH." << endl;
-	GotoXY(20, 23);
 	cout << "-> Lop    : 22CTT4." << endl;
+	GotoXY(20, 22);
+	cout << "-> MSSV   : 22120202." << endl;
+	GotoXY(20, 23);
+	cout << "-> Ho ten : TANG SENH MANH." << endl;
 	GotoXY(20, 24);
-	cout << "-> GV huong dan : Truong Toan Thinh " << endl;
+	cout << "-> Lop    : 22CTT4." << endl;
 	GotoXY(20, 25);
+	cout << "-> GV huong dan : Truong Toan Thinh " << endl;
+	GotoXY(20, 26);
 	cout << "-> Chuc moi nguoi choi game vui ve !!" << endl;
 	PrintText("Press ESC to return to MENU...", 8, 50, 28);
 	char command = ' ';
@@ -646,7 +642,6 @@ void Sound(bool& MO_NHAC)
 	GotoXY(10, 10);
 	drawFrame(0, 0, 145, 33);
 	SetColor(100);
-	GotoXY(60, 6); cout << "SOUND";
 	int x = 0, y = 0;
 	int i;
 	bool backToOriginalMenu = false;
@@ -925,15 +920,19 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 	for (int i = 0;i < 51;i++)
 		cout << (char)205;
 	cout << (char)188;
-	x= _A[0][BOARD_SIZE].x + 78;
-	y= _A[0][BOARD_SIZE].y + 17;
+}
+
+void DrawPhimTat(_POINT _A[][BOARD_SIZE])
+{
+	int x = _A[0][BOARD_SIZE].x + 78;
+	int y = _A[0][BOARD_SIZE].y + 17;
 	ShowCur(0);
 	for (int i = 0;i < 8;i++)
 	{
 		GotoXY(x, y);
 		SetColor(rand() % 15 + 1);
 		cout << "     _____";
-		GotoXY(x+17, y);
+		GotoXY(x + 17, y);
 		SetColor(rand() % 15 + 1);
 		cout << "     _____";
 		GotoXY(x + 34, y);
@@ -946,7 +945,7 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 		GotoXY(x, y + 1);
 		SetColor(rand() % 15 + 1);
 		cout << "    |\\ ___\\";
-		GotoXY(x + 17, y+1);
+		GotoXY(x + 17, y + 1);
 		SetColor(rand() % 15 + 1);
 		cout << "    |\\ ___\\";
 		GotoXY(x + 34, y + 1);
@@ -959,7 +958,7 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 		GotoXY(x, y + 2);
 		SetColor(rand() % 15 + 1);
 		cout << " ___| | W |__";
-		GotoXY(x+17, y + 2);
+		GotoXY(x + 17, y + 2);
 		SetColor(rand() % 15 + 1);
 		cout << " ___| | ^ |__";
 		GotoXY(x + 34, y + 2);
@@ -972,7 +971,7 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 		GotoXY(x, y + 3);
 		SetColor(rand() % 15 + 1);
 		cout << "|\\ __\\|___| _\\ ";
-		GotoXY(x+17, y + 3);
+		GotoXY(x + 17, y + 3);
 		SetColor(rand() % 15 + 1);
 		cout << "|\\ __\\|___| _\\ ";
 		GotoXY(x + 34, y + 3);
@@ -985,7 +984,7 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 		GotoXY(x, y + 4);
 		SetColor(rand() % 15 + 1);
 		cout << "| | A | S | D |";
-		GotoXY(x+17, y + 4);
+		GotoXY(x + 17, y + 4);
 		SetColor(rand() % 15 + 1);
 		cout << "| | < | v | > |";
 		GotoXY(x + 34, y + 4);
@@ -995,7 +994,7 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 		GotoXY(x, y + 5);
 		SetColor(rand() % 15 + 1);
 		cout << " \\|___|___|___|";
-		GotoXY(x+17, y + 5);
+		GotoXY(x + 17, y + 5);
 		SetColor(rand() % 15 + 1);
 		cout << " \\|___|___|___|";
 		GotoXY(x + 34, y + 5);
@@ -1017,17 +1016,17 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 	cout << "| | A | S | D |";
 	GotoXY(x, y + 5);
 	cout << " \\|___|___|___|";
-	GotoXY(x+17, y);
+	GotoXY(x + 17, y);
 	cout << "     _____";
-	GotoXY(x+17, y + 1);
+	GotoXY(x + 17, y + 1);
 	cout << "    |\\ ___\\";
-	GotoXY(x+17, y + 2);
+	GotoXY(x + 17, y + 2);
 	cout << " ___| | ^ |__";
-	GotoXY(x+17, y + 3);
+	GotoXY(x + 17, y + 3);
 	cout << "|\\ __\\|___| _\\ ";
-	GotoXY(x+17, y + 4);
+	GotoXY(x + 17, y + 4);
 	cout << "| | < | v | > |";
-	GotoXY(x+17, y + 5);
+	GotoXY(x + 17, y + 5);
 	cout << " \\|___|___|___|";
 	GotoXY(x + 34, y);
 	cout << "	 _____";
@@ -1051,6 +1050,7 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 	cout << " \\|_________________________|";
 	ShowCur(1);
 }
+
 void drawButton(int x, int y, string text)
 {
 	int width = 21; // length of "Player VS Computer" + 2
