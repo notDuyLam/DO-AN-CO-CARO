@@ -334,7 +334,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					//PlaySoundEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
 					if (y == 20)
 					{
-						//Loading();
+						Loading();
 						TextColor(255);
 						StartGame(_A, _TURN, _COMMAND, _X, _Y);
 						RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC);
