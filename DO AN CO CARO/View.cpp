@@ -553,19 +553,30 @@ _MENU LoadingMenu()
 _MENU EscMenu(_POINT _A[][BOARD_SIZE])
 {
 	_MENU menu;
-
 	menu.options = 3;
-	menu.x = _A[0][BOARD_SIZE - 1].x +40;
-	menu.y = Y_CENTER ;
+	//menu.x = _A[0][BOARD_SIZE - 1].x +40;
+	//menu.y = Y_CENTER;
+	menu.x = 117;
+	menu.y = 30;
+	// x = 74, y = 16 la toa do goc cua menu esc
+	// 60 la do rong, 17 la do dai menu
+	for (int i = 16; i <= 32; i++)
+	{
+		GotoXY(75, i);
+		cout << "                                                       ";
+	}
+	drawFrame(74, 16,60, 17);
 	menu.cursorColor = 75;
-
 	//DrawBoard(1, 1, 62, 25, menu.x - 23, menu.y - 19);
 	//DrawBox(75, 63, 25, menu.x - 23, menu.y - 19);
 	//DrawBigText("EscLogo.txt", 75, menu.x - 22, menu.y - 17);
-	PrintText("    Continue    ", 0, menu.x-22, menu.y-9);
-	PrintText("    Save game   ", 0, menu.x-22, menu.y -8);
+	drawButton((menu.x-23), (menu.y-10), "Continue");
+	//PrintText("    Continue    ", 0, menu.x-22, menu.y-9);
+	//PrintText("    Save game   ", 0, menu.x-22, menu.y -8);
+	drawButton((menu.x - 23), (menu.y - 7), "Save game");
 	//PrintText("    Sound       ", 0, menu.x - 22, menu.y - 7);
-	PrintText("    Exit game   ", 0, menu.x-22, menu.y -7);
+	//PrintText("    Exit game   ", 0, menu.x-22, menu.y -7);
+	drawButton((menu.x - 23), (menu.y - 4), "Exit game");
 	return menu;
 }
 void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2)
