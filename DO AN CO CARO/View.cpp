@@ -900,24 +900,24 @@ void DrawBigText(string filename, int color, int x, int y)
 
 void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 {
-	int x = _A[0][BOARD_SIZE].x + 75;
-	int y = _A[0][BOARD_SIZE].y + 14;
+	int x = _A[0][BOARD_SIZE].x + 72;
+	int y = _A[0][BOARD_SIZE].y + 13;
 	GotoXY(x, y);
 	SetColor(color);
 	cout << (char)201;
-	for (int i = 0;i < 51;i++)
+	for (int i = 0;i < 58;i++)
 		cout << (char)205;
 	cout << (char)187;
-	for(int i=1;i<14;i++)
+	for(int i=1;i<16;i++)
 	{
 		GotoXY(x, y + i);
 		cout << (char)186;
-		GotoXY(x + 52, y + i);
+		GotoXY(x + 59, y + i);
 		cout << (char)186;
 	}
-	GotoXY(x, y + 14);
+	GotoXY(x, y + 16);
 	cout << (char)200;
-	for (int i = 0;i < 51;i++)
+	for (int i = 0;i < 58;i++)
 		cout << (char)205;
 	cout << (char)188;
 }
