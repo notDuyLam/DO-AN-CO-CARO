@@ -110,6 +110,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 	PlayBackGroundMusic(song);
 	int x = 0, y = 0;
 	drawFrame(0, 0, 145, 33);
+	drawFrame(5, 3, 80, 28);
 	int i;
 	_PLAYER _PLAYER1, _PLAYER2;
 	bool backToOriginalMenu = false;
@@ -117,6 +118,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 	while (true)
 	{
 		drawFrame(0, 0, 145, 33);
+		drawFrame(5, 3, 80, 28);
 		TextColor(255);
 		printCaro();
 		backToOriginalMenu = false;
@@ -351,8 +353,26 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 22)
 					{
+						for (int i = 6; i < 28; i++)
+						{
+							for (int j = 6; j < 80; j++)
+							{
+								GotoXY(j, i);
+								cout << " ";
+
+							}
+						}
+						SetColor(0);
+						GotoXY(6, 4);
+						cout << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187);
+						GotoXY(6, 5);
+						cout << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT);
+						GotoXY(6, 6);
+						cout << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(SPACE) << char(SPACE) << char(SPACE) << char(SPACE) << char(SPACE) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(SPACE) << char(SPACE) << char(SPACE) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL);
+						GotoXY(6, 7);
+						GotoXY(6, 9);
+						GotoXY(10, 10);
 						int loadOption;
-						system("cls");
 						loadOption = SelectMenu(LoadingMenu());
 						if (loadOption == -1) break;
 						else
@@ -367,16 +387,53 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					if (y == 23)
 					{
 						//Menu help trong game
+						for (int i = 6; i < 28; i++)
+						{
+							for (int j = 6; j < 80; j++)
+							{
+								GotoXY(j, i);
+								cout << " ";
+
+							}
+						}
+						SetColor(0);
+						GotoXY(6, 4);
+						cout << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187);
+						GotoXY(6, 5);
+						cout << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT);
+						GotoXY(6, 6);
+						cout << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(SPACE) << char(SPACE) << char(SPACE) << char(SPACE) << char(SPACE) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(SPACE) << char(SPACE) << char(SPACE) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL);
+						GotoXY(6, 7);
+						GotoXY(6, 9);
+						GotoXY(10, 10);
 						Help();
 					}
 					if (y == 24)
 					{
 						//About
+						for (int i = 6; i < 28; i++)
+						{
+							for (int j = 6; j < 80; j++)
+							{
+								GotoXY(j, i);
+								cout << " ";
+
+							}
+						}
+						SetColor(0);
+						GotoXY(6, 4);
+						cout << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187);
+						GotoXY(6, 5);
+						cout << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT);
+						GotoXY(6, 6);
+						cout << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(SPACE) << char(SPACE) << char(SPACE) << char(SPACE) << char(SPACE) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(SPACE) << char(SPACE) << char(SPACE) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL);
+						GotoXY(6, 7);
+						GotoXY(6, 9);
+						GotoXY(10, 10);
 						About();
 					}
 					if (y == 25)
 					{
-						//Sound
 						Sound(MO_NHAC);
 					}
 					if (y == 26)
@@ -486,9 +543,10 @@ _MENU LoadingMenu()
 
 	menu.options = files.size();
 	menu.x = X_CENTER - 15;
-	menu.y = Y_CENTER - files.size() / 2;
+	menu.y = Y_CENTER + 7 - files.size() / 2;
 	menu.cursorColor = 1;
 
+	PrintText("Press ESC to return to MENU...", 8, 50, 28);
 	//DrawBox(221, 100, menu.options + 10, X_CENTER - 50, Y_CENTER - 5);
 	PrintText("[==========Saved Games===========]", 0, menu.x-30, menu.y - 10);
 	for (int i = 0; i < files.size(); i++)
@@ -496,6 +554,7 @@ _MENU LoadingMenu()
 		name = "         " + files.at(i);
 		PrintText(name, 0, menu.x-27, menu.y + i-9);
 	}
+	GotoXY(38, 27);
 	return menu;
 }
 _MENU EscMenu(_POINT _A[][BOARD_SIZE])
@@ -524,77 +583,84 @@ void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2)
 }
 void Help()
 {
-	system("cls");
 	SetColor(245); //Day la mot mau ngau nhien, can chinh lai mau khac dep hon
-	GotoXY(60, 19);
+	GotoXY(60, 6);
 	cout << "HELP";
-	GotoXY(30, 21);
+	GotoXY(10, 11);
 	cout << "HUONG DAN" << endl;
-	GotoXY(30, 22);
+	GotoXY(10, 12);
 	cout << "1. Ban co gom 16x16 o vuong." << endl;
-	GotoXY(30, 23);
+	GotoXY(10, 13);
 	cout << "2. Su dung cac phim W A S D de di chuyen va Enter de danh." << endl;
-	GotoXY(30, 24);
-	cout << "3. Luat choi cu du 5 quan co X hoac O theo hang ngang, doc, cheo se chien thang." << endl;
-	GotoXY(30, 25);
+	GotoXY(10, 14);
+	cout << "3. Luat choi cu du 5 quan co X hoac O theo hang ngang, doc, cheo se " << endl;
+	GotoXY(10, 15);
+	cout << "chien thang.";
+	GotoXY(10, 16);
 	cout << "4. Luat choi tuan theo quy dinh chan 2 dau " << endl;
-	GotoXY(30, 26);
+	GotoXY(10, 17);
 	cout << "-> Chuc moi nguoi choi game vui ve !!" << endl;
-	GotoXY(60, 30);
-	cout << "BACK";
+	PrintText("Press ESC to return to MENU...", 8, 50, 28);
 	char command = ' ';
 	command = _getch();
-	system("cls");
 }
 void About()
 {
-	system("cls");
 	SetColor(100);
-	GotoXY(60, 15);
+	GotoXY(60, 6);
 	cout << "ABOUT";
-	GotoXY(50, 18);
+	GotoXY(20, 10);
 	cout << "DO AN GAME CARO - LOP 22CTT4 - HCMUS" << endl;
-	GotoXY(50, 19);
+	GotoXY(20, 12);
 	cout << "-> MSSV   : 22120181." << endl;
-	GotoXY(50, 20);
+	GotoXY(20, 13);
 	cout << "-> Ho ten : NGUYEN DUY LAM." << endl;
-	GotoXY(50, 21);
+	GotoXY(20, 14);
 	cout << "-> Lop    : 22CTT4." << endl;
-	GotoXY(50, 22);
+	GotoXY(20, 15);
 	cout << "-> MSSV   : 22120213." << endl;
-	GotoXY(50, 23);
+	GotoXY(20, 16);
 	cout << "-> Ho ten : DOAN THI MINH ANH." << endl;
-	GotoXY(50, 24);
+	GotoXY(20, 17);
 	cout << "-> Lop    : 22CTT4." << endl;
-	GotoXY(50, 25);
+	GotoXY(20, 18);
 	cout << "-> MSSV   : 22120233." << endl;
-	GotoXY(50, 26);
+	GotoXY(20, 19);
 	cout << "-> Ho ten : NGUYEN THI TU NGOC." << endl;
-	GotoXY(50, 27);
+	GotoXY(20, 20);
 	cout << "-> Lop    : 22CTT4." << endl;
-	GotoXY(50, 28);
+	GotoXY(20, 21);
 	cout << "-> MSSV   : 22120202." << endl;
-	GotoXY(50, 29);
+	GotoXY(20, 22);
 	cout << "-> Ho ten : TANG SENH MANH." << endl;
-	GotoXY(50, 30);
+	GotoXY(20, 23);
 	cout << "-> Lop    : 22CTT4." << endl;
-	GotoXY(50, 31);
+	GotoXY(20, 24);
 	cout << "-> GV huong dan : Truong Toan Thinh " << endl;
-	GotoXY(50, 32);
+	GotoXY(20, 25);
 	cout << "-> Chuc moi nguoi choi game vui ve !!" << endl;
-	GotoXY(60, 33);
-	cout << "BACK";
+	PrintText("Press ESC to return to MENU...", 8, 50, 28);
 	char command = ' ';
 	command = _getch();
-	system("cls");
 }
 
 void Sound(bool& MO_NHAC)
 {
 	system("cls");
+	drawFrame(5, 3, 80, 28);
+	SetColor(0);
+	GotoXY(6, 4);
+	cout << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187);
+	GotoXY(6, 5);
+	cout << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT);
+	GotoXY(6, 6);
+	cout << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(SPACE) << char(SPACE) << char(SPACE) << char(SPACE) << char(SPACE) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(SPACE) << char(SPACE) << char(SPACE) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL);
+	GotoXY(6, 7);
+	GotoXY(6, 9);
+	GotoXY(10, 10);
 	drawFrame(0, 0, 145, 33);
 	SetColor(100);
-	GotoXY(60, 15); cout << "SOUND";
+	GotoXY(60, 6); cout << "SOUND";
 	int x = 0, y = 0;
 	int i;
 	bool backToOriginalMenu = false;
@@ -1024,8 +1090,8 @@ void printCaro() {
 	GotoXY(20, 15);
 	GotoXY(20, 16);
 	cout << "     ----  By Team 15  ----      ";
-}
-                                 
+}               
+
 // ██████╗ █████╗ ██████╗  ██████╗ 
 //██╔════╝██╔══██╗██╔══██╗██╔═══██╗
 //██║     ███████║██████╔╝██║   ██║
