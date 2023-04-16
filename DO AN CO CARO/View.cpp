@@ -558,7 +558,6 @@ _MENU EscMenu(_POINT _A[][BOARD_SIZE])
 	menu.x = _A[0][BOARD_SIZE - 1].x +40;
 	menu.y = Y_CENTER ;
 	menu.cursorColor = 75;
-
 	//DrawBoard(1, 1, 62, 25, menu.x - 23, menu.y - 19);
 	//DrawBox(75, 63, 25, menu.x - 23, menu.y - 19);
 	//DrawBigText("EscLogo.txt", 75, menu.x - 22, menu.y - 17);
