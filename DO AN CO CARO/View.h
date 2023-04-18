@@ -36,3 +36,4 @@ void drawButton(int x, int y, string text);
 void printCaro(int x, int y);
 void Loading();
 void DrawPhimTat(_POINT _A[][BOARD_SIZE]);
+void printBigCaro(int x, int y);
