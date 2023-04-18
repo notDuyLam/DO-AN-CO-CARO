@@ -14,7 +14,7 @@ int AskContinue(_POINT _A[][BOARD_SIZE]);
 void SetColor(WORD color);
 void DrawBoard_1(int m, int n);
 void TextColor(int color);
-void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC);
+void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC, int& chedo);
 void ShowCur(bool CursorVisibility);
 void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN);
 void PrintText(string text, int color, int x, int y);

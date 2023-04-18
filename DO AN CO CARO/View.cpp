@@ -104,7 +104,7 @@ int AskContinue(_POINT _A[][BOARD_SIZE])
 	printf("Nhan 'y/n' de tiep tuc/dung: ");
 	return toupper(_getch());
 }
-void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC)
+void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC, int& chedo)
 {
 	int song = 0;
 	PlayBackGroundMusic(song);
@@ -341,17 +341,17 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					//PlaySoundEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
 					if (y == 20)
 					{
-						//Loading();
+						Loading();
 						TextColor(255);
 						StartGame(_A, _TURN, _COMMAND, _X, _Y);
-						RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC);
+						RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
 					}
 					if (y == 21)
 					{
 						Loading();
 						TextColor(255);
 						StartGame(_A, _TURN, _COMMAND, _X, _Y);
-						PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC);
+						PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
 						//Danh voi may
 					}
 					if (y == 22)
@@ -377,9 +377,11 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						{
 							Loading();
 							TextColor(255);
-							LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y);
-							PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2,_X, _Y, validEnter, MO_NHAC);
-							//RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC);
+							LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, chedo);
+							if (chedo == 2)
+								RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
+							if(chedo == 3)
+								PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
 							break;
 						}
 					}
@@ -398,7 +400,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(0);
 						printCaro(6, 4);
 						GotoXY(10, 10);
-						Loading();
+						//Loading();
 						TextColor(255);
 						Help();
 					}
@@ -417,19 +419,19 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(0);
 						printCaro(20,10);
 						GotoXY(10, 10);
-						Loading();
+						//Loading();
 						About();
 					}
 					if (y == 25)
 					{
 						//Sound
-						Loading();
+						//Loading();
 						TextColor(255);
 						Sound(MO_NHAC);
 					}
 					if (y == 26)
 					{
-						Loading();
+						//Loading();
 						TextColor(255);
 						system("cls");
 						exit(0);
@@ -478,12 +480,12 @@ void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 	if ((_TURN) == 1)
 	{
 		DrawBigText("X.txt", 1, start, 3);
-		DrawBigText("O.txt", 8, start + 40, 3);
+		DrawBigText("O.txt", 255, start + 40, 3);
 	}
 	else if ((_TURN) == 0)
 	{
 		DrawBigText("O.txt", 2, start + 40, 3);
-		DrawBigText("X.txt", 8, start, 3);
+		DrawBigText("X.txt", 255, start, 3);
 	}
 	//DrawBigText((_TURN) ? "X.txt" : "O.txt", (_TURN) ? 1 : 2, start, 2);
 	//DrawBox(255, 20, 1, start - 2, 14);
@@ -1092,8 +1094,29 @@ void printCaro(int x, int y) {
 void Loading()
 {
 	system("cls");
-	int y = 15;
-	int x = 10;
+	int x = 25;
+	int y = 13;
+	GotoXY(x, y);
+	SetColor(0);
+	ShowCur(0);
+	cout << (char)201;
+	for (int i = 0; i < 95; i++)
+		cout << (char)205;
+	cout << (char)187;
+	for (int i = 1; i < 2; i++)
+	{
+		GotoXY(x, y + i);
+		cout << (char)186;
+		GotoXY(x + 96, y + i);
+		cout << (char)186;
+	}
+	GotoXY(x, y + 2);
+	cout << (char)200;
+	for (int i = 0; i < 95; i++)
+		cout << (char)205;
+	cout << (char)188;
+	y = 13;
+	x = 20;
 	GotoXY(x+8, y);
 	cout << "Loading . . .";
 	TextColor(255);
@@ -1114,6 +1137,6 @@ void Loading()
 		GotoXY(x+7, y+1);
 		cout << "       ";
 	}
-	Sleep(90);
+	Sleep(10);
 	system("cls");
 }

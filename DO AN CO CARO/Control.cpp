@@ -43,7 +43,7 @@ void MoveUp(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
 	}
 }
 
-void GamePlay(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC)
+/*void GamePlay(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC)
 {
 	_PLAYER _PLAYER1, _PLAYER2;
 	FixConsoleWindow();
@@ -108,8 +108,10 @@ void GamePlay(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y,
 		}
 	}
 }
-void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, bool& MO_NHAC)
+*/
+void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, bool& MO_NHAC, int& chedo)
 {
+	chedo = 2;
 	bool validEnter = true;
 	bool runGame = true;
 	int escOption;
@@ -123,7 +125,7 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 		if (_COMMAND == ESC)
 		{
 			escOption = SelectMenu(EscMenu(_A));
-			RunEscMenu(_A, _PLAYER1, _PLAYER2, _TURN, escOption, runGame);
+			RunEscMenu(_A, _PLAYER1, _PLAYER2, _TURN, escOption, runGame, chedo);
 		}
 		else
 		{
@@ -171,10 +173,10 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 	}
 	//PlaySoundA("NoSound.wav", NULL, SND_ASYNC);
 }
-void LoadGame(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y)
+void LoadGame(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, int& chedo)
 {
 	system("cls");
-	LoadData(filename, _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y);
+	LoadData(filename, _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, chedo);
 	//SetPlayerRank(_PLAYER1);
 	//SetPlayerRank(_PLAYER2);
 	DrawBoard(BOARD_SIZE);
@@ -184,7 +186,7 @@ void LoadGame(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAY
 	DrawBoardGiaoDien(_A, 240);
 	DrawPhimTat(_A);
 }
-void SaveGame(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN)
+void SaveGame(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN, int chedo)
 {
 	bool overwrite = false;
 	bool save = true;
@@ -213,7 +215,7 @@ void SaveGame(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 		else save = false;
 	} while (save);
 
-	SaveData(filename, _A, _PLAYER1, _PLAYER2, _TURN);
+	SaveData(filename, _A, _PLAYER1, _PLAYER2, _TURN, chedo);
 
 	if (!overwrite)
 	{
@@ -265,7 +267,7 @@ int SelectMenu(_MENU menu)
 
 	return cursor;
 }
-void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN, int option, bool& runGame)
+void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN, int option, bool& runGame, int chedo)
 {
 	switch (option)
 	{
@@ -278,7 +280,7 @@ void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, boo
 		DrawPhimTat(_A);
 		break;
 	case 2:
-		SaveGame(_A, _PLAYER1, _PLAYER2, _TURN);
+		SaveGame(_A, _PLAYER1, _PLAYER2, _TURN, chedo);
 		runGame = false;
 		break;
 	/*case 3:
@@ -387,10 +389,11 @@ string RunLoadingMenu(int option)
 		}
 	}
 }*/
-void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAYER &_PLAYER1, _PLAYER &_PLAYER2, int &_X, int &_Y, bool validEnter, bool& MO_NHAC) {
+void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAYER &_PLAYER1, _PLAYER &_PLAYER2, int &_X, int &_Y, bool validEnter, bool& MO_NHAC, int& chedo) {
 	FixConsoleWindow();
 	//StartGame(_A, _TURN, _COMMAND, _X, _Y);
 	StopMusic();
+	chedo = 3;
 	int escOption;
 	short int toadothang[24];
 	bool runGame = true;
@@ -402,7 +405,7 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 			if (_COMMAND == ESC)
 			{
 				escOption = SelectMenu(EscMenu(_A));
-				RunEscMenu(_A, _PLAYER1, _PLAYER2, _TURN, escOption, runGame);
+				RunEscMenu(_A, _PLAYER1, _PLAYER2, _TURN, escOption, runGame, chedo);
 			}
 			if (_COMMAND == 'O')
 				StopMusic();
@@ -473,3 +476,5 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 		}
 	}
 }
+
+
