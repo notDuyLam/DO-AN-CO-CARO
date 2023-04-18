@@ -120,7 +120,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		drawFrame(0, 0, 145, 33);
 		drawFrame(5, 3, 80, 28);
 		TextColor(255);
-		printCaro(29,14);
+		printBigCaro(10, 10);
+		//printCaro(29,14);
 		backToOriginalMenu = false;
 		x = 100, y = 20;
 		// color, width, height, x, y
@@ -1092,6 +1093,287 @@ void printCaro(int x, int y) {
 	GotoXY(x, y+6);
 	cout << "     ----  By Team 15  ----      ";
 }               
+
+void printBigCaro(int x, int y)
+{
+	SetColor(0);
+	GotoXY(x, y);
+	cout << char(32);
+	for (int i = 0;i < 15;i++)
+		cout << (char)219;
+	cout << char(187) << char(32) << char(32);
+	for (int i = 0;i < 14;i++)
+		cout << (char)219;
+	cout << char(187) << char(32) << char(32);
+	for (int i = 0;i < 14;i++)
+		cout << (char)219;
+	cout << char(187) << char(32) << char(32) << char(32) << char(32);
+	for (int i = 0;i < 14;i++)
+		cout << (char)219;
+	cout << char(187);
+	GotoXY(x, y + 1);
+	//cout << char(32) << char(32);
+	for (int i = 0;i < 16;i++)
+		cout << (char)219;
+	cout << char(186) << char(32);
+	for (int i = 0;i < 16;i++)
+		cout << (char)219;
+	cout << char(187) << char(32);
+	for (int i = 0;i < 16;i++)
+		cout << (char)219;
+	cout << char(187) << char(32);
+	for (int i = 0;i < 16;i++)
+		cout << (char)219;
+	cout << char(187);
+	GotoXY(x, y + 2);
+	//cout << char(32) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(201);
+	for (int i = 0;i < 10;i++)
+		cout << (char)205;
+	cout << char(188) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(201);
+	for (int i = 0;i < 5;i++)
+		cout << (char)205;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(201);
+	for (int i = 0;i < 5;i++)
+		cout << (char)205;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(201);
+	for (int i = 0;i < 5;i++)
+		cout << (char)205;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186) << char(32);
+	GotoXY(x, y + 3);
+	//cout << char(32) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 12;i++)
+		cout << (char)32;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 5;i++)
+		cout << (char)32;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 5;i++)
+		cout << (char)32;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 5;i++)
+		cout << (char)32;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	GotoXY(x, y + 4);
+	//cout << char(32) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 12;i++)
+		cout << (char)32;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 5;i++)
+		cout << (char)32;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 5;i++)
+		cout << (char)32;
+	for (int i = 0;i < 4;i++)
+		cout << (char)219;
+	cout << char(201) << char(188) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 5;i++)
+		cout << (char)32;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	GotoXY(x, y + 5);
+	//cout << char(32) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 12;i++)
+		cout << (char)32;
+	for (int i = 0;i < 16;i++)
+		cout << (char)219;
+	cout << char(186) << char(32);
+	for (int i = 0;i < 14;i++)
+		cout << (char)219;
+	cout << char(201) << char(188) << char(32) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 5;i++)
+		cout << (char)32;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	GotoXY(x, y + 6);
+	//cout << char(32) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 12;i++)
+		cout << (char)32;
+	for (int i = 0;i < 16;i++)
+		cout << (char)219;
+	cout << char(186) << char(32);
+	for (int i = 0;i < 15;i++)
+		cout << (char)219;
+	cout << char(187) << char(32) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 5;i++)
+		cout << (char)32;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	GotoXY(x, y + 7);
+	//cout << char(32) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 12;i++)
+		cout << (char)32;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(201);
+	for (int i = 0;i < 5;i++)
+		cout << (char)205;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(201);
+	for (int i = 0;i < 5;i++)
+		cout << (char)205;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(187) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 5;i++)
+		cout << (char)32;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	GotoXY(x, y + 8);
+	//cout << char(32) << char(32);
+	for (int i = 0;i < 16;i++)
+		cout << char(219);
+	cout << char(187) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 5;i++)
+		cout << (char)32;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 5;i++)
+		cout << (char)32;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186) << char(32);
+	for (int i = 0;i < 16;i++)
+		cout << char(219);
+	cout << char(186);
+	GotoXY(x, y + 9);
+	cout  << char(200);
+	for (int i = 0;i < 15;i++)
+		cout << char(219);
+	cout << char(186) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 5;i++)
+		cout << (char)32;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186) << char(32);
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186);
+	for (int i = 0;i < 5;i++)
+		cout << (char)32;
+	for (int i = 0;i < 5;i++)
+		cout << (char)219;
+	cout << char(186) << char(32) << char(200);
+	for (int i = 0;i < 14;i++)
+		cout << char(219);
+	cout << char(201) << char(188);
+	GotoXY(x, y + 10);
+	cout << char(32)<< char(200);
+	for (int i = 0;i < 14;i++)
+		cout << char(205);
+	cout << char(188) << char(32);
+	cout << char(200);
+	for (int i = 0;i < 4;i++)
+		cout << char(205);
+	cout << char(188);
+	for (int i = 0;i < 5;i++)
+		cout << char(32);
+	cout << char(200);
+	for (int i = 0;i < 4;i++)
+		cout << char(205);
+	cout << char(188);
+	cout << char(32);
+	cout << char(200);
+	for (int i = 0;i < 4;i++)
+		cout << char(205);
+	cout << char(188);
+	for (int i = 0;i < 5;i++)
+		cout << char(32);
+	cout << char(200);
+	for (int i = 0;i < 4;i++)
+		cout << char(205);
+	cout << char(188);
+	cout << char(32) << char(32);
+	cout << char(200);
+	for (int i = 0;i < 13;i++)
+		cout << char(205);
+	cout << char(188);
+	GotoXY(x, y + 11);
+	cout << "                        ----  By Team 15  ----";
+}
 
 // ██████╗ █████╗ ██████╗  ██████╗ 
 //██╔════╝██╔══██╗██╔══██╗██╔═══██╗
