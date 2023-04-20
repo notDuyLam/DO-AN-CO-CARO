@@ -125,7 +125,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		backToOriginalMenu = false;
 		x = 100, y = 20;
 		// color, width, height, x, y
-		SetColor(150);
+		SetColor(4);
 		//GotoXY(100, 3); cout << "Player Vs Player";
 		drawButton(100, 5, "Player Vs Player");
 		SetColor(0);
@@ -152,7 +152,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 20)
 					{
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 5, "Player Vs Player");
 						SetColor(0);
 						drawButton(100, 8, "Player Vs Computer");
@@ -166,7 +166,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					{
 						SetColor(0);
 						drawButton(100, 5, "Player Vs Player");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 8, "Player Vs Computer");
 						SetColor(0);
 						drawButton(100, 11, "Load Game");
@@ -180,7 +180,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(0);
 						drawButton(100, 5, "Player Vs Player");
 						drawButton(100, 8, "Player Vs Computer");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 11, "Load Game");
 						SetColor(0);
 						drawButton(100, 14, "Help");
@@ -194,7 +194,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 5, "Player Vs Player");
 						drawButton(100, 8, "Player Vs Computer");
 						drawButton(100, 11, "Load Game");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 14, "Help");
 						SetColor(0);
 						drawButton(100, 17, "About");
@@ -208,7 +208,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 8, "Player Vs Computer");
 						drawButton(100, 11, "Load Game");
 						drawButton(100, 14, "Help");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 17, "About");
 						SetColor(0);
 						drawButton(100, 20, "Sound");
@@ -222,7 +222,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 11, "Load Game");
 						drawButton(100, 14, "Help");
 						drawButton(100, 17, "About");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 20, "Sound");
 						SetColor(0);
 						drawButton(100, 23, "Exit");
@@ -235,7 +235,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 11, "Load Game");
 						drawButton(100, 14, "Help");
 						drawButton(100, 17, "About");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 20, "Sound");
 						SetColor(0);
 						drawButton(100, 23, "Exit");
@@ -249,7 +249,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 20)
 					{
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 5, "Player Vs Player");
 						SetColor(0);
 						drawButton(100, 8, "Player Vs Computer");
@@ -263,7 +263,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					{
 						SetColor(0);
 						drawButton(100, 5, "Player Vs Player");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 8, "Player Vs Computer");
 						SetColor(0);
 						drawButton(100, 11, "Load Game");
@@ -277,7 +277,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(0);
 						drawButton(100, 5, "Player Vs Player");
 						drawButton(100, 8, "Player Vs Computer");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 11, "Load Game");
 						SetColor(0);
 						drawButton(100, 14, "Help");
@@ -291,7 +291,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 5, "Player Vs Player");
 						drawButton(100, 8, "Player Vs Computer");
 						drawButton(100, 11, "Load Game");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 14, "Help");
 						SetColor(0);
 						drawButton(100, 17, "About");
@@ -305,7 +305,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 8, "Player Vs Computer");
 						drawButton(100, 11, "Load Game");
 						drawButton(100, 14, "Help");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 17, "About");
 						SetColor(0);
 						drawButton(100, 20, "Sound");
@@ -319,7 +319,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 11, "Load Game");
 						drawButton(100, 14, "Help");
 						drawButton(100, 17, "About");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 20, "Sound");
 						SetColor(0);
 						drawButton(100, 23, "Exit");
@@ -333,7 +333,200 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 14, "Help");
 						drawButton(100, 17, "About");
 						drawButton(100, 20, "Sound");
-						SetColor(150);
+						SetColor(4);
+						drawButton(100, 23, "Exit");
+					}
+					break;
+				case KEY_ARROW_UP:
+					if (y > 20)
+					{
+						y--;
+						GotoXY(x, y);
+					}
+					if (y == 20)
+					{
+						SetColor(4);
+						drawButton(100, 5, "Player Vs Player");
+						SetColor(0);
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
+					}
+					if (y == 21)
+					{
+						SetColor(0);
+						drawButton(100, 5, "Player Vs Player");
+						SetColor(4);
+						drawButton(100, 8, "Player Vs Computer");
+						SetColor(0);
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
+					}
+					if (y == 22)
+					{
+						SetColor(0);
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						SetColor(4);
+						drawButton(100, 11, "Load Game");
+						SetColor(0);
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
+					}
+					if (y == 23)
+					{
+						SetColor(0);
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						SetColor(4);
+						drawButton(100, 14, "Help");
+						SetColor(0);
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
+					}
+					if (y == 24)
+					{
+						SetColor(0);
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						SetColor(4);
+						drawButton(100, 17, "About");
+						SetColor(0);
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
+					}
+					if (y == 25)
+					{
+						SetColor(0);
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
+						SetColor(4);
+						drawButton(100, 20, "Sound");
+						SetColor(0);
+						drawButton(100, 23, "Exit");
+					}
+					if (y == 26)
+					{
+						SetColor(0);
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
+						SetColor(4);
+						drawButton(100, 20, "Sound");
+						SetColor(0);
+						drawButton(100, 23, "Exit");
+					}
+					break;
+				case KEY_ARROW_DOWN:
+					if (y < 26)
+					{
+						y++;
+						GotoXY(x, y);
+					}
+					if (y == 20)
+					{
+						SetColor(4);
+						drawButton(100, 5, "Player Vs Player");
+						SetColor(0);
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
+					}
+					if (y == 21)
+					{
+						SetColor(0);
+						drawButton(100, 5, "Player Vs Player");
+						SetColor(4);
+						drawButton(100, 8, "Player Vs Computer");
+						SetColor(0);
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
+					}
+					if (y == 22)
+					{
+						SetColor(0);
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						SetColor(4);
+						drawButton(100, 11, "Load Game");
+						SetColor(0);
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
+					}
+					if (y == 23)
+					{
+						SetColor(0);
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						SetColor(4);
+						drawButton(100, 14, "Help");
+						SetColor(0);
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
+					}
+					if (y == 24)
+					{
+						SetColor(0);
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						SetColor(4);
+						drawButton(100, 17, "About");
+						SetColor(0);
+						drawButton(100, 20, "Sound");
+						drawButton(100, 23, "Exit");
+					}
+					if (y == 25)
+					{
+						SetColor(0);
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
+						SetColor(4);
+						drawButton(100, 20, "Sound");
+						SetColor(0);
+						drawButton(100, 23, "Exit");
+					}
+					if (y == 26)
+					{
+						SetColor(0);
+						drawButton(100, 5, "Player Vs Player");
+						drawButton(100, 8, "Player Vs Computer");
+						drawButton(100, 11, "Load Game");
+						drawButton(100, 14, "Help");
+						drawButton(100, 17, "About");
+						drawButton(100, 20, "Sound");
+						SetColor(4);
 						drawButton(100, 23, "Exit");
 					}
 					break;
@@ -664,7 +857,7 @@ void Sound(bool& MO_NHAC)
 	{
 		backToOriginalMenu = false;
 		x = 50, y = 20;
-		SetColor(150);
+		SetColor(4);
 		drawButton(100, 8, "Tat nhac nen");
 		SetColor(0);
 		drawButton(100, 11, "Bat nhac nen");
@@ -692,7 +885,7 @@ void Sound(bool& MO_NHAC)
 					}
 					if (y == 20)
 					{
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 8, "Tat nhac nen");
 						SetColor(0);
 						drawButton(100, 11, "Bat nhac nen");
@@ -728,7 +921,7 @@ void Sound(bool& MO_NHAC)
 						drawButton(100, 8, "Tat nhac nen");
 						drawButton(100, 11, "Bat nhac nen");
 						drawButton(100, 14, "Doi bai");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 17, "Tat hieu ung am thanh");
 						SetColor(0);
 						drawButton(100, 20, "Back");
@@ -737,7 +930,7 @@ void Sound(bool& MO_NHAC)
 					{
 						drawButton(100, 8, "Tat nhac nen");
 						drawButton(100, 11, "Bat nhac nen");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 14, "Doi bai");
 						drawButton(100, 17, "Tat hieu ung am thanh");
 						SetColor(0);
@@ -752,7 +945,7 @@ void Sound(bool& MO_NHAC)
 					}
 					if (y == 20)
 					{
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 8, "Tat nhac nen");
 						SetColor(0);
 						drawButton(100, 11, "Bat nhac nen");
@@ -764,7 +957,7 @@ void Sound(bool& MO_NHAC)
 					{
 						SetColor(0);
 						drawButton(100, 8, "Tat nhac nen");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 11, "Bat nhac nen");
 						SetColor(0);
 						drawButton(100, 14, "Doi bai");
@@ -776,7 +969,7 @@ void Sound(bool& MO_NHAC)
 						SetColor(0);
 						drawButton(100, 8, "Tat nhac nen");
 						drawButton(100, 11, "Bat nhac nen");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 14, "Doi bai");
 						SetColor(0);
 						drawButton(100, 17, "Tat hieu ung am thanh");
@@ -788,7 +981,7 @@ void Sound(bool& MO_NHAC)
 						drawButton(100, 8, "Tat nhac nen");
 						drawButton(100, 11, "Bat nhac nen");
 						drawButton(100, 14, "Doi bai");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 17, "Tat hieu ung am thanh");
 						SetColor(0);
 						drawButton(100, 20, "Back");
@@ -800,7 +993,127 @@ void Sound(bool& MO_NHAC)
 						drawButton(100, 11, "Bat nhac nen");
 						drawButton(100, 14, "Doi bai");
 						drawButton(100, 17, "Tat hieu ung am thanh");
-						SetColor(150);
+						SetColor(4);
+						drawButton(100, 20, "Back");
+					}
+					break;
+				case KEY_ARROW_UP:
+					if (y > 20)
+					{
+						y--;
+						GotoXY(x, y);
+					}
+					if (y == 20)
+					{
+						SetColor(4);
+						drawButton(100, 8, "Tat nhac nen");
+						SetColor(0);
+						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 14, "Doi bai");
+						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 20, "Back");
+					}
+					if (y == 21)
+					{
+						SetColor(0);
+						drawButton(100, 8, "Tat nhac nen");
+						SetColor(4);
+						drawButton(100, 11, "Bat nhac nen");
+						SetColor(0);
+						drawButton(100, 14, "Doi bai");
+						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 20, "Back");
+					}
+					if (y == 22)
+					{
+						SetColor(0);
+						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 11, "Bat nhac nen");
+						SetColor(4);
+						drawButton(100, 14, "Doi bai");
+						SetColor(0);
+						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 20, "Back");
+					}
+					if (y == 23)
+					{
+						SetColor(0);
+						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 14, "Doi bai");
+						SetColor(4);
+						drawButton(100, 17, "Tat hieu ung am thanh");
+						SetColor(0);
+						drawButton(100, 20, "Back");
+					}
+					if (y == 24)
+					{
+						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 11, "Bat nhac nen");
+						SetColor(4);
+						drawButton(100, 14, "Doi bai");
+						drawButton(100, 17, "Tat hieu ung am thanh");
+						SetColor(0);
+						drawButton(100, 20, "Back");
+					}
+					break;
+				case KEY_ARROW_DOWN:
+					if (y < 24)
+					{
+						y++;
+						GotoXY(x, y);
+					}
+					if (y == 20)
+					{
+						SetColor(4);
+						drawButton(100, 8, "Tat nhac nen");
+						SetColor(0);
+						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 14, "Doi bai");
+						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 20, "Back");
+					}
+					if (y == 21)
+					{
+						SetColor(0);
+						drawButton(100, 8, "Tat nhac nen");
+						SetColor(4);
+						drawButton(100, 11, "Bat nhac nen");
+						SetColor(0);
+						drawButton(100, 14, "Doi bai");
+						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 20, "Back");
+					}
+					if (y == 22)
+					{
+						SetColor(0);
+						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 11, "Bat nhac nen");
+						SetColor(4);
+						drawButton(100, 14, "Doi bai");
+						SetColor(0);
+						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 20, "Back");
+					}
+					if (y == 23)
+					{
+						SetColor(0);
+						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 14, "Doi bai");
+						SetColor(4);
+						drawButton(100, 17, "Tat hieu ung am thanh");
+						SetColor(0);
+						drawButton(100, 20, "Back");
+					}
+					if (y == 24)
+					{
+						SetColor(0);
+						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 14, "Doi bai");
+						drawButton(100, 17, "Tat hieu ung am thanh");
+						SetColor(4);
 						drawButton(100, 20, "Back");
 					}
 					break;
@@ -1098,7 +1411,7 @@ void printCaro(int x, int y) {
 
 void printBigCaro(int x, int y)
 {
-	SetColor(0);
+	SetColor(1);
 	GotoXY(x, y);
 	cout << char(32);
 	for (int i = 0;i < 15;i++)
@@ -1433,3 +1746,18 @@ void Loading()
 	Sleep(10);
 	system("cls");
 }
+
+// ______     ______     __  __     __   __     _____    
+///\  ___\   /\  __ \   /\ \/\ \   /\ "-.\ \   /\  __-.  
+//\ \___  \  \ \ \/\ \  \ \ \_\ \  \ \ \-.  \  \ \ \/\ \ 
+// \/\_____\  \ \_____\  \ \_____\  \ \_\\"\_\  \ \____- 
+//  \/_____/   \/_____/   \/_____/   \/_/ \/_/   \/____/ 
+                                                       
+
+//███████╗ ██████╗ ██╗   ██╗███╗   ██╗██████╗ 
+//██╔════╝██╔═══██╗██║   ██║████╗  ██║██╔══██╗
+//███████╗██║   ██║██║   ██║██╔██╗ ██║██║  ██║
+//╚════██║██║   ██║██║   ██║██║╚██╗██║██║  ██║
+//███████║╚██████╔╝╚██████╔╝██║ ╚████║██████╔╝
+//╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚═════╝ 
+                                            

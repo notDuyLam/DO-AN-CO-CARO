@@ -60,6 +60,10 @@ struct MOVE {
 #define DOUBLE_BOTTOM_RIGHT (char)188
 #define DOUBLE_HORIZONTAL (char)205
 #define DOUBLE_VERTICAL (char)186
+const int KEY_ARROW_UP = 72;
+const int KEY_ARROW_DOWN = 80;
+const int KEY_ARROW_LEFT = 75;
+const int KEY_ARROW_RIGHT = 77;
 struct toado {
 	short int x, y;
 	char data;
