@@ -395,19 +395,16 @@ void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothan
 	Sleep(500);
 	ShowCur(1);
 }
-void LoadData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y)
+void LoadData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, int& chedo)
 {
 	std::ifstream loadFile;
 	loadFile.open(filename.c_str());
-
+	loadFile >> chedo;
 	getline(loadFile, _PLAYER1.name);
 	_PLAYER1 = LoadPlayer(_PLAYER1);
-
 	getline(loadFile, _PLAYER2.name);
 	_PLAYER2 = LoadPlayer(_PLAYER2);
-
 	loadFile >> _TURN;
-
 	for (int i = 0; i < BOARD_SIZE; i++)
 	{
 		for (int j = 0; j < BOARD_SIZE; j++)
@@ -461,17 +458,15 @@ bool CheckFileExistence(string filename)
 	savedFile.close();
 	return false;
 }
-void SaveData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN)
+void SaveData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN, int chedo)
 {
 	std::fstream saveFile;
 	saveFile.open(filename, std::fstream::out);
-
 	SavePlayer(_PLAYER1);
 	SavePlayer(_PLAYER2);
-
+	saveFile << chedo << "\n";
 	saveFile << _PLAYER1.name << "\n";
 	saveFile << _PLAYER2.name << "\n";
-
 	saveFile << _TURN << " \n";
 
 	for (int i = 0; i < BOARD_SIZE; i++)
@@ -626,8 +621,8 @@ MOVE timkiemnuocdi(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, in
 	}
 	return wayresult;
 }
-double mangdiemtancong[7] = { 0, 64, 4096, 262144, 16777216, 1073741824 };
-double mangdiemphongngu[7] = { 0, 8, 512, 32768, 2097152, 134217728 };
+double mangdiemtancong[7] = { 0,8, 16, 128,1024,8192,65536};
+double mangdiemphongngu[7] = { 0, 1, 8, 64, 512, 4096, 32768 };
 double tancongdoc(_POINT _A[][BOARD_SIZE], int x, int y) {
 	int soquanta = 0;
 	int soquandich = 0;
