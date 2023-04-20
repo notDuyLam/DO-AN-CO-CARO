@@ -100,7 +100,7 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 }
 int AskContinue(_POINT _A[][BOARD_SIZE])
 {
-	GotoXY(0, _A[BOARD_SIZE - 1][BOARD_SIZE - 1].y + 4);
+	GotoXY(80, 20);
 	printf("Nhan 'y/n' de tiep tuc/dung: ");
 	return toupper(_getch());
 }
