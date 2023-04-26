@@ -1,9 +1,13 @@
 ﻿#include "Control.h"
 
 
-void StartGame(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int& _Y)
+void StartGame(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int& _Y, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& vsComputer)
 {
-	_PLAYER _PLAYER1, _PLAYER2;
+	if(!vsComputer)
+	{
+		SetPlayerRank(_PLAYER1);
+		SetPlayerRank(_PLAYER2);
+	}
 	system("cls");
 	ResetData(_A, _TURN, _COMMAND, _X, _Y); // Khởi tạo dữ liệu gốc
 	DrawBoard(BOARD_SIZE); // Vẽ màn hình game
@@ -112,6 +116,7 @@ void MoveUp(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
 void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, bool& MO_NHAC, int& chedo)
 {
 	chedo = 2;
+	bool vsComputer = false;
 	bool validEnter = true;
 	bool runGame = true;
 	int escOption;
@@ -156,14 +161,14 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 				}
 				// Tiếp theo là kiểm tra và xử lý thắng/thua/hòa/tiếp tục
 				if (validEnter == true) {
-					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, MO_NHAC)) {
+					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, MO_NHAC, _PLAYER1, _PLAYER2)) {
 					case -1: case 1: case 0:
 						if (AskContinue(_A) != 'Y') {
 							StopMusic();
 							system("cls");
 							return;
 						}
-						else StartGame(_A, _TURN, _COMMAND, _X, _Y);
+						else StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2, vsComputer);
 					}
 				}
 				validEnter = true; // Mở khóa
@@ -393,6 +398,7 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 	FixConsoleWindow();
 	//StartGame(_A, _TURN, _COMMAND, _X, _Y);
 	StopMusic();
+	bool vsComputer = true;
 	chedo = 3;
 	int escOption;
 	short int toadothang[24];
@@ -432,14 +438,14 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 				case 0: validEnter = false;
 				}
 				if (validEnter == true) {
-					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, MO_NHAC)) {
+					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, MO_NHAC, _PLAYER1, _PLAYER2)) {
 					case -1: case 1: case 0:
 						if (AskContinue(_A) != 'Y') {
 							StopMusic();
 							system("cls");
 							return;
 						}
-						else StartGame(_A, _TURN, _COMMAND, _X, _Y);
+						else StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2, vsComputer);
 					}
 				}
 				validEnter = true; // Mở khóa
@@ -462,14 +468,14 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 			case 0: validEnter = false;
 			}
 			if (validEnter == true) {
-				switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, MO_NHAC)) {
+				switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, MO_NHAC, _PLAYER1, _PLAYER2)) {
 				case -1: case 1: case 0:
 					if (AskContinue(_A) != 'Y') {
 						StopMusic();
 						system("cls");
 						return;
 					}
-					else StartGame(_A, _TURN, _COMMAND, _X, _Y);
+					else StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2, vsComputer);
 				}
 			}
 			validEnter = true; // Mở khóa

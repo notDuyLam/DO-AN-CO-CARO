@@ -42,3 +42,4 @@ double phongngudoc(_POINT _A[][BOARD_SIZE], int x, int y);
 double phongngungang(_POINT _A[][BOARD_SIZE], int x, int y);
 double phongngucheoxuoi(_POINT _A[][BOARD_SIZE], int x, int y);
 double phongngucheonguoc(_POINT _A[][BOARD_SIZE], int x, int y);
+void SetPlayer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2);

@@ -69,26 +69,30 @@ void DrawBoard_1(int m, int n)
 	printf("%c%c%c",196,196, 196);
 	printf("%c", 217);
 }
-int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, int& _Y,short int toadothang[24], bool& MO_NHAC)
+int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, int& _Y,short int toadothang[24], bool& MO_NHAC, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 {
-	_PLAYER _PLAYER1, _PLAYER2;
 	switch (pWhoWin) {
 	case -1:
-		PlaySoundEffect("win", MO_NHAC);
+		PlaySoundEffect("win.wav", MO_NHAC);
 		NhapNhayQuanCo(_A, toadothang, pWhoWin);
 		GotoXY(0, _A[BOARD_SIZE - 1][BOARD_SIZE - 1].y + 2); // Nhảy tới vị trí 
 		// thích hợp để in chuỗi thắng/thua/hòa
-		printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", true, false);
+		//printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", true, false);
+		cout << "Nguoi choi " << _PLAYER1.name << " da thang va nguoi choi " << _PLAYER2.name << " da thua.";
+		SavePlayer(_PLAYER1);
 		break;
 	case 1:
 		PlaySoundEffect("win", MO_NHAC);
 		NhapNhayQuanCo(_A, toadothang, pWhoWin);
 		GotoXY(0, _A[BOARD_SIZE - 1][BOARD_SIZE - 1].y + 2); // Nhảy tới vị trí 
 		// thích hợp để in chuỗi thắng/thua/hòa
-		printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", false, true);
+		//printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", false, true);
+		cout << "Nguoi choi " << _PLAYER2.name << " da thang va nguoi choi " << _PLAYER1.name << " da thua.";
+		SavePlayer(_PLAYER2);
 		break;
 	case 0:
-		printf("Nguoi choi %d da hoa nguoi choi %d\n", false, true);
+		//printf("Nguoi choi %d da hoa nguoi choi %d\n", false, true);
+		cout << "Nguoi choi " << _PLAYER2.name << " da hoa nguoi choi " << _PLAYER1.name;
 		break;
 	case 2:
 		_TURN = !_TURN; // Đổi lượt nếu không có gì xảy ra
@@ -104,15 +108,15 @@ int AskContinue(_POINT _A[][BOARD_SIZE])
 	printf("Nhan 'y/n' de tiep tuc/dung: ");
 	return toupper(_getch());
 }
-void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC, int& chedo)
+void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC, int& chedo, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 {
 	int song = 0;
+	bool vsComputer;
 	PlayBackGroundMusic(song);
 	int x = 0, y = 0;
 	drawFrame(0, 0, 145, 33);
 	drawFrame(5, 3, 80, 28);
 	int i;
-	_PLAYER _PLAYER1, _PLAYER2;
 	bool backToOriginalMenu = false;
 	x = 0; y = 0;
 	while (true)
@@ -535,16 +539,19 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					//PlaySoundEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
 					if (y == 20)
 					{
+						vsComputer = false;
+						SetPlayer(_PLAYER1, _PLAYER2);
 						Loading();
 						TextColor(255);
-						StartGame(_A, _TURN, _COMMAND, _X, _Y);
+						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2, vsComputer);
 						RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
 					}
 					if (y == 21)
 					{
+						vsComputer = true;
 						Loading();
 						TextColor(255);
-						StartGame(_A, _TURN, _COMMAND, _X, _Y);
+						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2, vsComputer);
 						PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
 						//Danh voi may
 					}

@@ -3,7 +3,7 @@
 #include "View.h"
 #include "Model.h"
 
-void StartGame(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int& _Y);
+void StartGame(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int& _Y, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& vsComputer);
 void MoveLeft(_POINT _A[][BOARD_SIZE], int& _X, int& _Y);
 void MoveRight(_POINT _A[][BOARD_SIZE], int& _X, int& _Y);
 void MoveDown(_POINT _A[][BOARD_SIZE], int& _X, int& _Y);
