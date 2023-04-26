@@ -812,32 +812,16 @@ void Help()
 void About()
 {
 	SetColor(100);
-	GotoXY(20, 11);
-	cout << "DO AN GAME CARO - LOP 22CTT4 - HCMUS" << endl;
-	GotoXY(20, 13);
-	cout << "-> MSSV   : 22120181." << endl;
-	GotoXY(20, 14);
-	cout << "-> Ho ten : NGUYEN DUY LAM." << endl;
-	GotoXY(20, 15);
-	cout << "-> Lop    : 22CTT4." << endl;
-	GotoXY(20, 16);
-	cout << "-> MSSV   : 22120213." << endl;
-	GotoXY(20, 17);
-	cout << "-> Ho ten : DOAN THI MINH ANH." << endl;
 	GotoXY(20, 18);
-	cout << "-> Lop    : 22CTT4." << endl;
-	GotoXY(20, 19);
-	cout << "-> MSSV   : 22120233." << endl;
+	cout << "DO AN GAME CARO - LOP 22CTT4 - HCMUS" << endl;
 	GotoXY(20, 20);
-	cout << "-> Ho ten : NGUYEN THI TU NGOC." << endl;
+	cout << "-> Ho ten : NGUYEN DUY LAM " << "| 22120181 "<< "| 22CTT4"<< endl;
 	GotoXY(20, 21);
-	cout << "-> Lop    : 22CTT4." << endl;
+	cout << "-> Ho ten : DOAN THI MINH ANH " << "| 22120213 "<< "| 22CTT4"<< endl;
 	GotoXY(20, 22);
-	cout << "-> MSSV   : 22120202." << endl;
+	cout << "-> Ho ten : NGUYEN THI TU NGOC " << "| 22120233 "<< "| 22CTT4"<< endl;
 	GotoXY(20, 23);
-	cout << "-> Ho ten : TANG SENH MANH." << endl;
-	GotoXY(20, 24);
-	cout << "-> Lop    : 22CTT4." << endl;
+	cout << "-> Ho ten : TANG SENH MANH " << "| 22120202 " << "| 22CTT4"<< endl;
 	GotoXY(20, 25);
 	cout << "-> GV huong dan : Truong Toan Thinh " << endl;
 	GotoXY(20, 26);
