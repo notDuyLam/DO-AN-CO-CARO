@@ -13,7 +13,7 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 int AskContinue(_POINT _A[][BOARD_SIZE]);
 void XWin(_POINT _A[][BOARD_SIZE]);
 void OWin(_POINT _A[][BOARD_SIZE]);
-void Tied(_POINT _A[][BOARD_SIZE]);
+void Draw(_POINT _A[][BOARD_SIZE]);
 void ThongBaoWin(int pWhoWin, _POINT _A[][BOARD_SIZE]);
 void SetColor(WORD color);
 void DrawBoard_1(int m, int n);
