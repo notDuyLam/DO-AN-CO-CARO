@@ -911,11 +911,17 @@ void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 	{
 		DrawBigText("X.txt", 1, start, 3);
 		DrawBigText("O.txt", 255, start + 40, 3);
+		//Them ten
+		PrintText("PLAYER X: " + _PLAYER1.name, 1, start+3, 16);
+		PrintText("PLAYER O: "+ _PLAYER2.name, 255, start + 40 + 7, 16);
 	}
 	else if ((_TURN) == 0)
 	{
 		DrawBigText("O.txt", 2, start + 40, 3);
 		DrawBigText("X.txt", 255, start, 3);
+		//Them ten
+		PrintText("PLAYER X: " + _PLAYER1.name, 255, start+3, 16);
+		PrintText("PLAYER O: " + _PLAYER2.name, 2, start + 40+7, 16);
 	}
 	//DrawBigText((_TURN) ? "X.txt" : "O.txt", (_TURN) ? 1 : 2, start, 2);
 	//DrawBox(255, 20, 1, start - 2, 14);
