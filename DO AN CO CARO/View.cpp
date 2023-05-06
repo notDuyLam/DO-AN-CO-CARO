@@ -41,33 +41,61 @@ void DrawBoard(int pSize) {
 	}
 	//DrawBoardGiaoDien(1, BOARD_SIZE + 40, BOARD_SIZE + 70);
 }
+//void DrawBoard_1(int m, int n)
+//{
+//	int i, j;
+//	SetColor(0);
+//	printf("%c", 218);
+//	for (i = 0; i < n - 1; i++)
+//		printf("%c%c%c%c",196,196, 196, 194);
+//	printf("%c%c%c",196, 196, 196);
+//	printf("%c", 191);
+//	printf("\n");
+//	for (i = 0; i < m - 1; i++)
+//	{
+//		for (j = 0; j < n+ 1; j++)
+//			printf("%c   ", 179);
+//		printf("\n%c", 195);
+//		for (j = 0; j < n - 1; j++)
+//			printf("%c%c%c%c",196,196, 196, 197);
+//		printf("%c%c%c",196,196, 196);
+//		printf("%c\n", 180);
+//	}
+//	for (j = 0; j < n + 1; j++)
+//		printf("%c   ", 179);
+//	printf("\n%c", 192);
+//	for (i = 0; i < n - 1; i++)
+//		printf("%c%c%c%c",196,196, 196, 193);
+//	printf("%c%c%c",196,196, 196);
+//	printf("%c", 217);
+//}
 void DrawBoard_1(int m, int n)
 {
 	int i, j;
 	SetColor(0);
-	printf("%c", 218);
+	printf("%c", 201);
 	for (i = 0; i < n - 1; i++)
-		printf("%c%c%c%c",196,196, 196, 194);
-	printf("%c%c%c",196, 196, 196);
-	printf("%c", 191);
+		printf("%c%c%c%c", 205, 205, 205, 203);
+	printf("%c%c%c", 205, 205, 205);
+	printf("%c", 187);
 	printf("\n");
 	for (i = 0; i < m - 1; i++)
 	{
-		for (j = 0; j < n+ 1; j++)
-			printf("%c   ", 179);
-		printf("\n%c", 195);
+		for (j = 0; j < n + 1; j++)
+			printf("%c   ", 186);
+		printf("\n%c", 204);
 		for (j = 0; j < n - 1; j++)
-			printf("%c%c%c%c",196,196, 196, 197);
-		printf("%c%c%c",196,196, 196);
-		printf("%c\n", 180);
+			printf("%c%c%c%c", 205, 205, 205, 206);
+		printf("%c%c%c", 205, 205, 205);
+		printf("%c\n", 185);
 	}
 	for (j = 0; j < n + 1; j++)
-		printf("%c   ", 179);
-	printf("\n%c", 192);
+		printf("%c   ", 186);
+	printf("\n%c", 200);
 	for (i = 0; i < n - 1; i++)
-		printf("%c%c%c%c",196,196, 196, 193);
-	printf("%c%c%c",196,196, 196);
-	printf("%c", 217);
+		printf("%c%c%c%c", 205, 205, 205, 202);
+	printf("%c%c%c", 205, 205, 205);
+	printf("%c", 188);
 }
 int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, int& _Y,short int toadothang[24], bool& MO_NHAC, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 {
