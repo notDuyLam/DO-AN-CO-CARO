@@ -101,6 +101,7 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 	case 2:
 		_TURN = !_TURN; // Đổi lượt nếu không có gì xảy ra
 		ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
+		ShowCur(1);
 		break;
 	}
 	GotoXY(_X, _Y); // Trả về vị trí hiện hành của con trỏ màn hình bàn cờ
