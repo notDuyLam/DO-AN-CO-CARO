@@ -29,7 +29,6 @@ int CheckPlayerExistence(_PLAYER player);
 std::vector<_PLAYER> GetPlayerList();
 void SortPlayerList(std::vector<_PLAYER>& playerList);
 void PlaySoundEffect(string s, bool MO_NHAC);
-void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothang[24], int pWhoWin);
 int getX(_POINT _A[][BOARD_SIZE], int i, int j);
 int getY(_POINT _A[][BOARD_SIZE], int i, int j);
 int getCheck(_POINT _A[][BOARD_SIZE], int i, int j);
