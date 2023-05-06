@@ -75,7 +75,8 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 	case -1:
 		PlaySoundEffect("win.wav", MO_NHAC);
 		NhapNhayQuanCo(_A, toadothang, pWhoWin);
-		GotoXY(0, _A[BOARD_SIZE - 1][BOARD_SIZE - 1].y + 2); // Nhảy tới vị trí 
+		ThongBaoWin(pWhoWin, _A);
+		GotoXY(78,18); // Nhảy tới vị trí 
 		// thích hợp để in chuỗi thắng/thua/hòa
 		//printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", true, false);
 		cout << "Nguoi choi " << _PLAYER1.name << " da thang va nguoi choi " << _PLAYER2.name << " da thua.";
@@ -84,7 +85,8 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 	case 1:
 		PlaySoundEffect("win", MO_NHAC);
 		NhapNhayQuanCo(_A, toadothang, pWhoWin);
-		GotoXY(0, _A[BOARD_SIZE - 1][BOARD_SIZE - 1].y + 2); // Nhảy tới vị trí 
+		ThongBaoWin(pWhoWin, _A);
+		GotoXY(78,18); // Nhảy tới vị trí 
 		// thích hợp để in chuỗi thắng/thua/hòa
 		//printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", false, true);
 		cout << "Nguoi choi " << _PLAYER2.name << " da thang va nguoi choi " << _PLAYER1.name << " da thua.";
@@ -92,6 +94,8 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 		break;
 	case 0:
 		//printf("Nguoi choi %d da hoa nguoi choi %d\n", false, true);
+		ThongBaoWin(pWhoWin, _A);
+		GotoXY(78,18);
 		cout << "Nguoi choi " << _PLAYER2.name << " da hoa nguoi choi " << _PLAYER1.name;
 		break;
 	case 2:
@@ -102,9 +106,155 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 	GotoXY(_X, _Y); // Trả về vị trí hiện hành của con trỏ màn hình bàn cờ
 	return pWhoWin;
 }
+
+void XWin(_POINT _A[][BOARD_SIZE])
+{
+	GotoXY(72, 3);
+	cout << "                                                               ";
+	GotoXY(72, 4);
+	cout << " Y888b     d888P     8888         8888 88888888 888b      8888";
+	GotoXY(72, 5);
+	cout << "  Y888b   d888P      8888         8888   8888   8888b     8888";
+	GotoXY(72, 6);
+	cout << "   Y888b d888P       8888         8888   8888   88888b    8888";
+	GotoXY(72, 7);
+	cout << "    Y888o888P        8888    o    8888   8888   888888b   8888 ";
+	GotoXY(72, 8);
+	cout << "     Y88898P         8888   d8b   8888   8888   8888Y88b  8888 ";
+	GotoXY(72, 9);
+	cout << "     d88888b         8888  d888b  8888   8888   8888Y888b88888 ";
+	GotoXY(72, 10);
+	cout << "    d8888888b        8888 d8   8b 8888   8888   8888  Y888b888 ";
+	GotoXY(72, 11);
+	cout << "   d888P Y888b       88888d     b88888   8898   8888   Y888888 ";
+	GotoXY(72, 12);
+	cout << "  d888P   Y888b      8888P       Y8888   8888   8888    Y88888  ";
+	GotoXY(72, 13);
+	cout << " d888P     Y888b     888P         Y888 88888888 8888     Y8888  ";
+	GotoXY(72, 14);
+	cout << "                                                                  ";
+}
+
+void OWin(_POINT _A[][BOARD_SIZE])
+{
+	GotoXY(70, 3);
+	cout << "                                                               ";
+	GotoXY(70, 4);
+	cout << "    .d88888888b.        8888         8888 88888888 888b      8888 ";
+	GotoXY(70, 5);
+	cout << "   d888888888888b       8888         8888   8888   8888b     8888 ";
+	GotoXY(70, 6);
+	cout << "  d888P'    'Y888b      8888         8888   8888   88888b    8888 ";
+	GotoXY(70, 7);
+	cout << "  8888        8888      8888    o    8888   8888   888888b   8888 ";
+	GotoXY(70, 8);
+	cout << "  8888        8888      8888   d8b   8888   8888   8888Y88b  8888 ";
+	GotoXY(70, 9);
+	cout << "  8888        8888      8888  d888b  8888   8888   8888Y888b88888 ";
+	GotoXY(70, 10);
+	cout << "  8888        8888      8888 d8   8b 8888   8888   8888  Y888b888 ";
+	GotoXY(70, 11);
+	cout << "  Y888b.    .d886P      88888d     b88888   8898   8888   Y888888 ";
+	GotoXY(70, 12);
+	cout << "   Y888888888886P       8888P       Y8888   8888   8888    Y88888 ";
+	GotoXY(70, 13);
+	cout << "    'Y88888888P'        888P         Y888 88888888 8888     Y8888 ";
+	GotoXY(70, 14);
+	cout << "                                                                  ";
+
+}
+
+void Tied(_POINT _A[][BOARD_SIZE])
+{
+	GotoXY(72, 3);
+	cout << "                                                                  ";
+	GotoXY(72, 4);
+	cout << " 8888888888888  8888888888  88888888888  88888888b.     888       ";
+	GotoXY(72, 5);
+	cout << "     8888          8888     8888         8888888888b.   888       ";
+	GotoXY(72, 6);
+	cout << "     8888          8888     8888         8888   'Y888b  888       ";
+	GotoXY(72, 7);
+	cout << "     8888          8888     8888         8888     8888  888       ";
+	GotoXY(72, 8);
+	cout << "     8888          8888     88888888888  8888     8888  888       ";
+	GotoXY(72, 9);
+	cout << "     8888          8888     8888         8888     8888  888       ";
+	GotoXY(72, 10);
+	cout << "     8888          8888     8888         8888     8888  Y8P       ";
+	GotoXY(72, 11);
+	cout << "     8888          8888     8888         8888   .d888P   '        ";
+	GotoXY(72, 12);
+	cout << "     8888          8888     8888         8888888888P'   888       ";
+	GotoXY(72, 13);
+	cout << "     8888       8888888888  88888888888  88888888P'     888       ";
+	GotoXY(72, 14);
+	cout << "                                                                  ";
+
+}
+
+void ThongBaoWin(int pWhoWin, _POINT _A[][BOARD_SIZE])
+{
+	if (pWhoWin == -1) //X win
+	{
+		for(int i=0;i<5;i++)
+		{
+			SetColor(252);
+			XWin(_A);
+			Sleep(150);
+			SetColor(255);
+			XWin(_A);
+			Sleep(150);
+		}
+		SetColor(252);
+		XWin(_A);
+	}
+	else if (pWhoWin == 1) //O win
+	{
+		for (int i = 0;i < 5;i++)
+		{
+			SetColor(252);
+			OWin(_A);
+			Sleep(150);
+			SetColor(255);
+			OWin(_A);
+			Sleep(150);
+		}
+		SetColor(252);
+		OWin(_A);
+	}
+	else if (pWhoWin == 0)
+	{
+		for (int i = 0;i < 5;i++)
+		{
+			SetColor(252);
+			Tied(_A);
+			Sleep(150);
+			SetColor(255);
+			Tied(_A);
+			Sleep(150);
+		}
+		SetColor(252);
+		Tied(_A);
+	}
+	SetColor(240);
+}
+
+// 8888888888888  8888888888  88888888888  88888888b.     888 
+//     8888          8888     8888         8888888888b.   888 
+//     8888          8888     8888         8888   "Y888b  888 
+//     8888          8888     8888         8888     8888  888 
+//     8888          8888     88888888888  8888     8888  888 
+//     8888          8888     8888         8888     8888  888 
+//     8888          8888     8888         8888     8888  Y8P 
+//     8888          8888     8888         8888   .d888P   "  
+//     8888          8888     8888         8888888888P"   888 
+//     8888       8888888888  88888888888  88888888P"     888
+
+
 int AskContinue(_POINT _A[][BOARD_SIZE])
 {
-	GotoXY(80, 20);
+	GotoXY(78, 19);
 	printf("Nhan 'y/n' de tiep tuc/dung: ");
 	return toupper(_getch());
 }
@@ -1245,7 +1395,7 @@ void DrawPhimTat(_POINT _A[][BOARD_SIZE])
 	int x = _A[0][BOARD_SIZE].x + 78;
 	int y = _A[0][BOARD_SIZE].y + 17;
 	ShowCur(0);
-	for (int i = 0;i < 8;i++)
+	/*for (int i = 0;i < 8;i++)
 	{
 		GotoXY(x, y);
 		SetColor(rand() % 15 + 1);
@@ -1320,8 +1470,9 @@ void DrawPhimTat(_POINT _A[][BOARD_SIZE])
 		cout << " \\|_________|";
 		Sleep(30);
 
-	}
-	SetColor(240);
+	}*/
+	
+	SetColor(16);
 	GotoXY(x, y);
 	cout << "     _____";
 	GotoXY(x, y + 1);
@@ -1737,6 +1888,8 @@ void Loading()
 	Sleep(10);
 	system("cls");
 }
+
+
 
                                                        
 

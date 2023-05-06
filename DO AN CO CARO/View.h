@@ -11,6 +11,10 @@ void DrawBoard(int pSize);
 //Hàm xử lý khi người chơi thua
 int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, int& _Y,short int toadothang[24], bool& MO_NHAC, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2);
 int AskContinue(_POINT _A[][BOARD_SIZE]);
+void XWin(_POINT _A[][BOARD_SIZE]);
+void OWin(_POINT _A[][BOARD_SIZE]);
+void Tied(_POINT _A[][BOARD_SIZE]);
+void ThongBaoWin(int pWhoWin, _POINT _A[][BOARD_SIZE]);
 void SetColor(WORD color);
 void DrawBoard_1(int m, int n);
 void TextColor(int color);

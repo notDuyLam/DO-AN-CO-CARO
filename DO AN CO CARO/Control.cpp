@@ -403,6 +403,7 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 	int escOption;
 	short int toadothang[24];
 	bool runGame = true;
+	GotoXY(_X, _Y);
 	while (1)
 	{
 		if (_TURN == true)
