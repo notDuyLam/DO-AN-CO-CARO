@@ -247,22 +247,22 @@ int SelectMenu(_MENU menu)
 	int cursor = 1;
 	char key;
 
-	PrintText("", menu.cursorColor, menu.x - 18, menu.y-9);
+	PrintText("", menu.cursorColor, menu.x - 18, menu.y-7);
 
 	do
 	{
 		key = _getch();
 		if ((key == 'w'||key== ARROW_UP)&& cursor > 1)
 		{
-			PrintText("", menu.cursorColor, menu.x - 18, menu.y + cursor - 10);
+			PrintText("", menu.cursorColor, menu.x - 18, menu.y + cursor - 8);
 			cursor--;
-			PrintText("", menu.cursorColor, menu.x - 18, menu.y + cursor - 10);
+			PrintText("", menu.cursorColor, menu.x - 18, menu.y + cursor - 8);
 		}
 		else if ((key == 's'||key==ARROW_DOWN) && cursor < menu.options)
 		{
-			PrintText("", menu.cursorColor, menu.x - 18, menu.y + cursor - 10);
+			PrintText("", menu.cursorColor, menu.x - 18, menu.y + cursor - 8);
 			cursor++;
-			PrintText("", menu.cursorColor, menu.x - 18, menu.y + cursor - 10);
+			PrintText("", menu.cursorColor, menu.x - 18, menu.y + cursor - 8);
 		}
 		else if (key == ESC)
 		{

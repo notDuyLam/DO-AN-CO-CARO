@@ -741,14 +741,20 @@ _MENU LoadingMenu()
 	menu.x = X_CENTER - 13;
 	menu.y = Y_CENTER + 11 - files.size() / 2;
 	menu.cursorColor = 1;
-
-	PrintText("Press ESC to return to MENU...", 8, 50, 28);
+	system("cls");
+	drawFrame(5, 3, 80, 28);
+	SetColor(0);
+	printCaro(27, 7);
+	GotoXY(10, 10);
+	drawFrame(0, 0, 145, 33);
+	PrintText("Press ESC to return to MENU...", 8, 30, 28);
 	//DrawBox(221, 100, menu.options + 10, X_CENTER - 50, Y_CENTER - 5);
-	PrintText("[==========Saved Games===========]", 0, menu.x-30, menu.y - 10);
+	//PrintText("[==========Saved Games===========]", 0, menu.x-30, menu.y - 10);
+	drawButton(menu.x - 25, menu.y - 10, "Saved Games");
 	for (int i = 0; i < files.size(); i++)
 	{
 		name = "         " + files.at(i);
-		PrintText(name, 0, menu.x-27, menu.y + i-9);
+		PrintText(name, 0, menu.x-27, menu.y + i-7);
 	}
 	GotoXY(38, 27);
 	return menu;
@@ -852,7 +858,7 @@ void Sound(bool& MO_NHAC)
 	system("cls");
 	drawFrame(5, 3, 80, 28);
 	SetColor(0);
-	printCaro(20,10);
+	printCaro(27,10);
 	GotoXY(10, 10);
 	drawFrame(0, 0, 145, 33);
 	SetColor(100);
@@ -904,7 +910,7 @@ void Sound(bool& MO_NHAC)
 					{
 						SetColor(0);
 						drawButton(100, 8, "Tat nhac nen");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 11, "Bat nhac nen");
 						SetColor(0);
 						drawButton(100, 14, "Doi bai");
@@ -916,7 +922,7 @@ void Sound(bool& MO_NHAC)
 						SetColor(0);
 						drawButton(100, 8, "Tat nhac nen");
 						drawButton(100, 11, "Bat nhac nen");
-						SetColor(150);
+						SetColor(4);
 						drawButton(100, 14, "Doi bai");
 						SetColor(0);
 						drawButton(100, 17, "Tat hieu ung am thanh");
