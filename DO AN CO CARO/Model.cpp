@@ -31,7 +31,7 @@ bool CheckTie(_POINT _A[][BOARD_SIZE])
 			}
 		}
 	}
-	if (dem <= 251)
+	if (dem <= 51)
 		return true;
 	return false;
 }
