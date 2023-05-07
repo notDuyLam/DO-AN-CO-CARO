@@ -316,10 +316,10 @@ int AskContinue(_POINT _A[][BOARD_SIZE])
 		char key = _getch();
 
 		// Kiểm tra phím người dùng ấn
-		if (key == 'A' || key == 'a') {
+		if (key == 'A' || key == 'a' || key == KEY_ARROW_LEFT) {
 			choice = 0;
 		}
-		else if (key == 'D' || key == 'd') {
+		else if (key == 'D' || key == 'd' || key == KEY_ARROW_RIGHT) {
 			choice = 1;
 		}
 		else if (key == '\r') {
