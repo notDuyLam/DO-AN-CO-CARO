@@ -296,9 +296,63 @@ void ThongBaoWin(int pWhoWin, _POINT _A[][BOARD_SIZE])
 
 int AskContinue(_POINT _A[][BOARD_SIZE])
 {
-	GotoXY(78, 19);
-	printf("Nhan 'y/n' de tiep tuc/dung: ");
-	return toupper(_getch());
+	int x = 53;
+	//printf("Nhan 'y/n' de tiep tuc/dung: ");
+	GotoXY(x, 10+3); SetColor(3); for (int i = x; i <= x + 29; i++) cout << (char)178;
+	GotoXY(x, 11+3); cout << (char)178 << "                            " << (char)178;
+	GotoXY(x, 12+3); cout << (char)178 << "   Play again        Quit   " << (char)178;
+	GotoXY(x, 13+3); cout << (char)178 << "                            " << (char)178;
+	GotoXY(x, 14+3); SetColor(3); for (int i = x; i <= x + 29; i++) cout << (char)178;
+	int choice = 0;
+	int currentPos = 0;
+	GotoXY(x + 4, 12+3);
+	SetColor(4);
+	cout << "Play again";
+	SetColor(7);
+	ShowCur(0);
+	while (true) 
+	{
+		// Lấy phím người dùng ấn
+		char key = _getch();
+
+		// Kiểm tra phím người dùng ấn
+		if (key == 'A' || key == 'a') {
+			choice = 0;
+		}
+		else if (key == 'D' || key == 'd') {
+			choice = 1;
+		}
+		else if (key == '\r') {
+			break;
+		}
+
+		// Đổi màu chữ tùy theo lựa chọn
+		if (choice != currentPos) {
+			if (choice == 0) {
+				GotoXY(x + 4, 12+3);
+				SetColor(4);
+				cout << "Play again";
+				SetColor(7);
+				GotoXY(x + 22, 12+3);
+				cout << "Quit";
+				ShowCur(0);
+			}
+			else {
+				GotoXY(x + 4, 12+3);
+				cout << "Play again";
+				GotoXY(x + 22, 12+3);
+				SetColor(4);
+				cout << "Quit";
+				SetColor(7);
+				ShowCur(0);
+			}
+			currentPos = choice;
+		}
+	}
+	if (choice == 0)
+		return 'Y';
+	else
+		return 'N';
 }
 void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC, int& chedo, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 {
@@ -335,6 +389,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		SetColor(8);
 		GotoXY(98, 29); cout << "_____ W A S D: MOVE _____";
 		GotoXY(98, 30); cout << "_____ Enter: Select _____" ;
+		ShowCur(0);
 		while (true)
 		{
 			if (_kbhit())
@@ -359,6 +414,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 21)
 					{
@@ -373,6 +429,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 22)
 					{
@@ -387,6 +444,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 23)
 					{
@@ -401,6 +459,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 24)
 					{
@@ -415,6 +474,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 25)
 					{
@@ -429,6 +489,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(0);
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 26)
 					{
@@ -444,6 +505,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 23, "RANKING");
 						SetColor(0);
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 27)
 					{
@@ -458,6 +520,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 23, "RANKING");
 						SetColor(0);
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					break;
 				case 's':
@@ -478,6 +541,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 21)
 					{
@@ -492,6 +556,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 22)
 					{
@@ -506,6 +571,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 23)
 					{
@@ -520,6 +586,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 24)
 					{
@@ -534,6 +601,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 25)
 					{
@@ -548,6 +616,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(0);
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 26)
 					{
@@ -563,6 +632,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 23, "RANKING");
 						SetColor(0);
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 27)
 					{
@@ -576,6 +646,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 23, "RANKING");
 						SetColor(4);
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					break;
 				case KEY_ARROW_UP:
@@ -594,7 +665,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 14, "HELP");
 						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
+						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 21)
 					{
@@ -607,7 +680,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 14, "HELP");
 						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
+						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 22)
 					{
@@ -620,7 +695,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 14, "HELP");
 						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
+						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 23)
 					{
@@ -633,7 +710,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(0);
 						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
+						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 24)
 					{
@@ -646,7 +725,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 17, "ABOUT");
 						SetColor(0);
 						drawButton(100, 20, "SOUND");
+						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 25)
 					{
@@ -659,7 +740,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(4);
 						drawButton(100, 20, "SOUND");
 						SetColor(0);
+						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 26)
 					{
@@ -669,14 +752,32 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
 						drawButton(100, 17, "ABOUT");
-						SetColor(4);
+
 						drawButton(100, 20, "SOUND");
+						SetColor(4);
+						drawButton(100, 23, "RANKING");
 						SetColor(0);
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
+					}
+					if (y == 27)
+					{
+						SetColor(0);
+						drawButton(100, 5, "PLAYER VS PLAYER");
+						drawButton(100, 8, "PLAYER VS COMPUTER");
+						drawButton(100, 11, "LOAD GAME");
+						drawButton(100, 14, "HELP");
+						drawButton(100, 17, "ABOUT");
+						drawButton(100, 20, "SOUND");
+						SetColor(4);
+						drawButton(100, 23, "RANKING");
+						SetColor(0);
+						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					break;
 				case KEY_ARROW_DOWN:
-					if (y < 26)
+					if (y < 27)
 					{
 						y++;
 						GotoXY(x, y);
@@ -691,7 +792,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 14, "HELP");
 						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
+						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 21)
 					{
@@ -704,7 +807,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 14, "HELP");
 						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
+						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 22)
 					{
@@ -717,7 +822,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 14, "HELP");
 						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
+						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 23)
 					{
@@ -730,7 +837,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(0);
 						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
+						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 24)
 					{
@@ -743,7 +852,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 17, "ABOUT");
 						SetColor(0);
 						drawButton(100, 20, "SOUND");
+						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 25)
 					{
@@ -756,7 +867,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(4);
 						drawButton(100, 20, "SOUND");
 						SetColor(0);
+						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					if (y == 26)
 					{
@@ -766,9 +879,27 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
 						drawButton(100, 17, "ABOUT");
+
 						drawButton(100, 20, "SOUND");
 						SetColor(4);
+						drawButton(100, 23, "RANKING");
+						SetColor(0);
 						drawButton(100, 26, "EXIT");
+						ShowCur(0);
+					}
+					if (y == 27)
+					{
+						SetColor(0);
+						drawButton(100, 5, "PLAYER VS PLAYER");
+						drawButton(100, 8, "PLAYER VS COMPUTER");
+						drawButton(100, 11, "LOAD GAME");
+						drawButton(100, 14, "HELP");
+						drawButton(100, 17, "ABOUT");
+						drawButton(100, 20, "SOUND");
+						drawButton(100, 23, "RANKING");
+						SetColor(4);
+						drawButton(100, 26, "EXIT");
+						ShowCur(0);
 					}
 					break;
 				case 13:
@@ -776,6 +907,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					//PlaySOUNDEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
 					if (y == 20)
 					{
+						ShowCur(1);
 						vsComputer = false;
 						SetPlayer(_PLAYER1, _PLAYER2);
 						Loading();
@@ -785,6 +917,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 21)
 					{
+						ShowCur(1);
 						vsComputer = true;
 						Loading();
 						TextColor(255);
@@ -808,6 +941,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						GotoXY(10, 10);
 						//Loading();
 						TextColor(255);
+						ShowCur(1);
 						int loadOption;
 						loadOption = SelectMenu(LoadingMenu());
 						if (loadOption == -1) break;
@@ -1213,7 +1347,7 @@ void HELP()
 	cout << "The first player to align 5 of their pieces wins the ";
 	GotoXY(10, 23);
 	cout << "game, or if 80% of the board is filled, the game is declared a draw.";
-	PrintText("Press ESC to return to MENU...", 8, 30, 28);
+	PrintText("Press ESC to return to MENU...", 8, 30, 28); ShowCur(0);
 	char command = ' ';
 	command = _getch();
 }
@@ -1283,7 +1417,7 @@ void Sound(bool& MO_NHAC)
 		drawButton(100, 20, "Back");
 		SetColor(8);
 		GotoXY(98, 29); cout << "_____ W A S D: MOVE _____";
-		GotoXY(98, 30); cout << "_____ Enter: Select _____";
+		GotoXY(98, 30); cout << "_____ Enter: Select _____"; ShowCur(0);
 		//if (n == 100)
 		//{
 		//	
@@ -1307,8 +1441,8 @@ void Sound(bool& MO_NHAC)
 						SetColor(0);
 						drawButton(100, 11, "Turn ON music");
 						drawButton(100, 14, "Change song");
-						drawButton(100, 17, "Turn ON/OFF sound effects");
-						drawButton(100, 20, "Back");
+						drawButton(100, 17, "ON/OFF sound effects");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					if (y == 21)
 					{
@@ -1318,8 +1452,8 @@ void Sound(bool& MO_NHAC)
 						drawButton(100, 11, "Turn ON music");
 						SetColor(0);
 						drawButton(100, 14, "Change song");
-						drawButton(100, 17, "Turn ON/OFF sound effects");
-						drawButton(100, 20, "Back");
+						drawButton(100, 17, "ON/OFF sound effects");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					if (y == 22)
 					{
@@ -1329,8 +1463,8 @@ void Sound(bool& MO_NHAC)
 						SetColor(4);
 						drawButton(100, 14, "Change song");
 						SetColor(0);
-						drawButton(100, 17, "Turn ON/OFF sound effects");
-						drawButton(100, 20, "Back");
+						drawButton(100, 17, "ON/OFF sound effects");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					if (y == 23)
 					{
@@ -1339,9 +1473,9 @@ void Sound(bool& MO_NHAC)
 						drawButton(100, 11, "Turn ON music");
 						drawButton(100, 14, "Change song");
 						SetColor(4);
-						drawButton(100, 17, "Turn ON/OFF sound effects");
+						drawButton(100, 17, "ON/OFF sound effects");
 						SetColor(0);
-						drawButton(100, 20, "Back");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					if (y == 24)
 					{
@@ -1349,9 +1483,9 @@ void Sound(bool& MO_NHAC)
 						drawButton(100, 11, "Turn ON music");
 						SetColor(4);
 						drawButton(100, 14, "Change song");
-						drawButton(100, 17, "Turn ON/OFF sound effects");
+						drawButton(100, 17, "ON/OFF sound effects");
 						SetColor(0);
-						drawButton(100, 20, "Back");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					break;
 				case 's':
@@ -1367,8 +1501,8 @@ void Sound(bool& MO_NHAC)
 						SetColor(0);
 						drawButton(100, 11, "Turn ON music");
 						drawButton(100, 14, "Change song");
-						drawButton(100, 17, "Turn ON/OFF sound effects");
-						drawButton(100, 20, "Back");
+						drawButton(100, 17, "ON/OFF sound effects");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					if (y == 21)
 					{
@@ -1378,8 +1512,8 @@ void Sound(bool& MO_NHAC)
 						drawButton(100, 11, "Turn ON music");
 						SetColor(0);
 						drawButton(100, 14, "Change song");
-						drawButton(100, 17, "Turn ON/OFF sound effects");
-						drawButton(100, 20, "Back");
+						drawButton(100, 17, "ON/OFF sound effects");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					if (y == 22)
 					{
@@ -1389,8 +1523,8 @@ void Sound(bool& MO_NHAC)
 						SetColor(4);
 						drawButton(100, 14, "Change song");
 						SetColor(0);
-						drawButton(100, 17, "Turn ON/OFF sound effects");
-						drawButton(100, 20, "Back");
+						drawButton(100, 17, "ON/OFF sound effects");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					if (y == 23)
 					{
@@ -1399,9 +1533,9 @@ void Sound(bool& MO_NHAC)
 						drawButton(100, 11, "Turn ON music");
 						drawButton(100, 14, "Change song");
 						SetColor(4);
-						drawButton(100, 17, "Turn ON/OFF sound effects");
+						drawButton(100, 17, "ON/OFF sound effects");
 						SetColor(0);
-						drawButton(100, 20, "Back");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					if (y == 24)
 					{
@@ -1409,9 +1543,9 @@ void Sound(bool& MO_NHAC)
 						drawButton(100, 8, "Turn OFF music");
 						drawButton(100, 11, "Turn ON music");
 						drawButton(100, 14, "Change song");
-						drawButton(100, 17, "Turn ON/OFF sound effects");
+						drawButton(100, 17, "ON/OFF sound effects");
 						SetColor(4);
-						drawButton(100, 20, "Back");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					break;
 				case KEY_ARROW_UP:
@@ -1427,8 +1561,8 @@ void Sound(bool& MO_NHAC)
 						SetColor(0);
 						drawButton(100, 11, "Turn ON music");
 						drawButton(100, 14, "Change song");
-						drawButton(100, 17, "Turn ON/OFF sound effects");
-						drawButton(100, 20, "Back");
+						drawButton(100, 17, "ON/OFF sound effects");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					if (y == 21)
 					{
@@ -1438,8 +1572,8 @@ void Sound(bool& MO_NHAC)
 						drawButton(100, 11, "Turn ON music");
 						SetColor(0);
 						drawButton(100, 14, "Change song");
-						drawButton(100, 17, "Turn ON/OFF sound effects");
-						drawButton(100, 20, "Back");
+						drawButton(100, 17, "ON/OFF sound effects");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					if (y == 22)
 					{
@@ -1449,8 +1583,8 @@ void Sound(bool& MO_NHAC)
 						SetColor(4);
 						drawButton(100, 14, "Change song");
 						SetColor(0);
-						drawButton(100, 17, "Turn ON/OFF sound effects");
-						drawButton(100, 20, "Back");
+						drawButton(100, 17, "ON/OFF sound effects");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					if (y == 23)
 					{
@@ -1459,9 +1593,9 @@ void Sound(bool& MO_NHAC)
 						drawButton(100, 11, "Turn ON music");
 						drawButton(100, 14, "Change song");
 						SetColor(4);
-						drawButton(100, 17, "Turn ON/OFF sound effects");
+						drawButton(100, 17, "ON/OFF sound effects");
 						SetColor(0);
-						drawButton(100, 20, "Back");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					if (y == 24)
 					{
@@ -1469,9 +1603,9 @@ void Sound(bool& MO_NHAC)
 						drawButton(100, 11, "Turn ON music");
 						SetColor(4);
 						drawButton(100, 14, "Change song");
-						drawButton(100, 17, "Turn ON/OFF sound effects");
+						drawButton(100, 17, "ON/OFF sound effects");
 						SetColor(0);
-						drawButton(100, 20, "Back");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					break;
 				case KEY_ARROW_DOWN:
@@ -1487,8 +1621,8 @@ void Sound(bool& MO_NHAC)
 						SetColor(0);
 						drawButton(100, 11, "Turn ON music");
 						drawButton(100, 14, "Change song");
-						drawButton(100, 17, "Turn ON/OFF sound effects");
-						drawButton(100, 20, "Back");
+						drawButton(100, 17, "ON/OFF sound effects");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					if (y == 21)
 					{
@@ -1498,8 +1632,8 @@ void Sound(bool& MO_NHAC)
 						drawButton(100, 11, "Turn ON music");
 						SetColor(0);
 						drawButton(100, 14, "Change song");
-						drawButton(100, 17, "Turn ON/OFF sound effects");
-						drawButton(100, 20, "Back");
+						drawButton(100, 17, "ON/OFF sound effects");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					if (y == 22)
 					{
@@ -1509,8 +1643,8 @@ void Sound(bool& MO_NHAC)
 						SetColor(4);
 						drawButton(100, 14, "Change song");
 						SetColor(0);
-						drawButton(100, 17, "Turn ON/OFF sound effects");
-						drawButton(100, 20, "Back");
+						drawButton(100, 17, "ON/OFF sound effects");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					if (y == 23)
 					{
@@ -1519,9 +1653,9 @@ void Sound(bool& MO_NHAC)
 						drawButton(100, 11, "Turn ON music");
 						drawButton(100, 14, "Change song");
 						SetColor(4);
-						drawButton(100, 17, "Turn ON/OFF sound effects");
+						drawButton(100, 17, "ON/OFF sound effects");
 						SetColor(0);
-						drawButton(100, 20, "Back");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					if (y == 24)
 					{
@@ -1529,9 +1663,9 @@ void Sound(bool& MO_NHAC)
 						drawButton(100, 8, "Turn OFF music");
 						drawButton(100, 11, "Turn ON music");
 						drawButton(100, 14, "Change song");
-						drawButton(100, 17, "Turn ON/OFF sound effects");
+						drawButton(100, 17, "ON/OFF sound effects");
 						SetColor(4);
-						drawButton(100, 20, "Back");
+						drawButton(100, 20, "Back"); ShowCur(0);
 					}
 					break;
 				case 13:
