@@ -17,8 +17,9 @@ void StartGame(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int
 	GotoXY(x, y);*/
 	ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
 	GotoXY(_X, _Y);
-	ShowCur(1);
+	ShowCur(0);
 	DrawBoardGiaoDien(_A, 240);
+	ShowCur(1);
 	//DrawPhimTat(_A);
 }
 void MoveRight(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
