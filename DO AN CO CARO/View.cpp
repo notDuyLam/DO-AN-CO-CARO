@@ -104,27 +104,27 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 		PlaySoundEffect("win.wav", MO_NHAC);
 		NhapNhayQuanCo(_A, toadothang, pWhoWin);
 		ThongBaoWin(pWhoWin, _A);
-		GotoXY(78,18); // Nhảy tới vị trí 
-		// thích hợp để in chuỗi thắng/thua/hòa
-		//printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", true, false);
-		cout << "Nguoi choi " << _PLAYER1.name << " da thang va nguoi choi " << _PLAYER2.name << " da thua.";
+		//GotoXY(78,18); // Nhảy tới vị trí 
+		//// thích hợp để in chuỗi thắng/thua/hòa
+		////printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", true, false);
+		//cout << "Nguoi choi " << _PLAYER1.name << " da thang va nguoi choi " << _PLAYER2.name << " da thua.";
 		SavePlayer(_PLAYER1);
 		break;
 	case 1:
 		PlaySoundEffect("win", MO_NHAC);
 		NhapNhayQuanCo(_A, toadothang, pWhoWin);
 		ThongBaoWin(pWhoWin, _A);
-		GotoXY(78,18); // Nhảy tới vị trí 
-		// thích hợp để in chuỗi thắng/thua/hòa
-		//printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", false, true);
-		cout << "Nguoi choi " << _PLAYER2.name << " da thang va nguoi choi " << _PLAYER1.name << " da thua.";
+		//GotoXY(78,18); // Nhảy tới vị trí 
+		//// thích hợp để in chuỗi thắng/thua/hòa
+		////printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", false, true);
+		//cout << "Nguoi choi " << _PLAYER2.name << " da thang va nguoi choi " << _PLAYER1.name << " da thua.";
 		SavePlayer(_PLAYER2);
 		break;
 	case 0:
 		//printf("Nguoi choi %d da hoa nguoi choi %d\n", false, true);
 		ThongBaoWin(pWhoWin, _A);
-		GotoXY(78,18);
-		cout << "Nguoi choi " << _PLAYER2.name << " da hoa nguoi choi " << _PLAYER1.name;
+		/*GotoXY(78,18);
+		cout << "Nguoi choi " << _PLAYER2.name << " da hoa nguoi choi " << _PLAYER1.name;*/
 		break;
 	case 2:
 		_TURN = !_TURN; // Đổi lượt nếu không có gì xảy ra
@@ -138,65 +138,74 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 
 void XWin(_POINT _A[][BOARD_SIZE])
 {
+	GotoXY(72, 2);
+	cout << "                                                                    ";
 	GotoXY(72, 3);
-	cout << "                                                               ";
+	cout << "                                                                    ";
 	GotoXY(72, 4);
-	cout << " Y888b     d888P     8888         8888 88888888 888b      8888";
+	cout << " Y888b     d888P     8888         8888 88888888 888b      8888   ";
 	GotoXY(72, 5);
-	cout << "  Y888b   d888P      8888         8888   8888   8888b     8888";
+	cout << "  Y888b   d888P      8888         8888   8888   8888b     8888   ";
 	GotoXY(72, 6);
-	cout << "   Y888b d888P       8888         8888   8888   88888b    8888";
+	cout << "   Y888b d888P       8888         8888   8888   88888b    8888   ";
 	GotoXY(72, 7);
-	cout << "    Y888o888P        8888    o    8888   8888   888888b   8888 ";
+	cout << "    Y888o888P        8888    o    8888   8888   888888b   8888   ";
 	GotoXY(72, 8);
-	cout << "     Y88898P         8888   d8b   8888   8888   8888Y88b  8888 ";
+	cout << "     Y88888P         8888   d8b   8888   8888   8888Y88b  8888   ";
 	GotoXY(72, 9);
-	cout << "     d88888b         8888  d888b  8888   8888   8888Y888b88888 ";
+	cout << "     d88888b         8888  d888b  8888   8888   8888Y888b88888   ";
 	GotoXY(72, 10);
-	cout << "    d8888888b        8888 d8   8b 8888   8888   8888  Y888b888 ";
+	cout << "    d8888888b        8888 d8   8b 8888   8888   8888  Y888b888   ";
 	GotoXY(72, 11);
-	cout << "   d888P Y888b       88888d     b88888   8898   8888   Y888888 ";
+	cout << "   d888P Y888b       88888d     b88888   8898   8888   Y888888   ";
 	GotoXY(72, 12);
-	cout << "  d888P   Y888b      8888P       Y8888   8888   8888    Y88888  ";
+	cout << "  d888P   Y888b      8888P       Y8888   8888   8888    Y88888   ";
 	GotoXY(72, 13);
-	cout << " d888P     Y888b     888P         Y888 88888888 8888     Y8888  ";
+	cout << " d888P     Y888b     888P         Y888 88888888 8888     Y8888    ";
 	GotoXY(72, 14);
 	cout << "                                                                  ";
+	GotoXY(72, 15);
+	cout << "                                                                    ";
 }
 
 void OWin(_POINT _A[][BOARD_SIZE])
 {
+	GotoXY(70, 2);
+	cout << "                                                                    ";
 	GotoXY(70, 3);
-	cout << "                                                               ";
+	cout << "                                                                    ";
 	GotoXY(70, 4);
-	cout << "    .d88888888b.        8888         8888 88888888 888b      8888 ";
+	cout << "    .d88888888b.        8888         8888 88888888 888b      8888  ";
 	GotoXY(70, 5);
-	cout << "   d888888888888b       8888         8888   8888   8888b     8888 ";
+	cout << "   d888888888888b       8888         8888   8888   8888b     8888  ";
 	GotoXY(70, 6);
-	cout << "  d888P'    'Y888b      8888         8888   8888   88888b    8888 ";
+	cout << "  d888P'    'Y888b      8888         8888   8888   88888b    8888  ";
 	GotoXY(70, 7);
-	cout << "  8888        8888      8888    o    8888   8888   888888b   8888 ";
+	cout << "  8888        8888      8888    o    8888   8888   888888b   8888  ";
 	GotoXY(70, 8);
-	cout << "  8888        8888      8888   d8b   8888   8888   8888Y88b  8888 ";
+	cout << "  8888        8888      8888   d8b   8888   8888   8888Y88b  8888  ";
 	GotoXY(70, 9);
-	cout << "  8888        8888      8888  d888b  8888   8888   8888Y888b88888 ";
+	cout << "  8888        8888      8888  d888b  8888   8888   8888Y888b88888  ";
 	GotoXY(70, 10);
-	cout << "  8888        8888      8888 d8   8b 8888   8888   8888  Y888b888 ";
+	cout << "  8888        8888      8888 d8   8b 8888   8888   8888  Y888b888  ";
 	GotoXY(70, 11);
-	cout << "  Y888b.    .d886P      88888d     b88888   8898   8888   Y888888 ";
+	cout << "  Y888b.    .d886P      88888d     b88888   8898   8888   Y888888  ";
 	GotoXY(70, 12);
-	cout << "   Y888888888886P       8888P       Y8888   8888   8888    Y88888 ";
+	cout << "   Y888888888886P       8888P       Y8888   8888   8888    Y88888  ";
 	GotoXY(70, 13);
-	cout << "    'Y88888888P'        888P         Y888 88888888 8888     Y8888 ";
+	cout << "    'Y88888888P'        888P         Y888 88888888 8888     Y8888  ";
 	GotoXY(70, 14);
-	cout << "                                                                  ";
-
+	cout << "                                                                    ";
+	GotoXY(70, 15);
+	cout << "                                                                    ";
 }
 
 void Draw(_POINT _A[][BOARD_SIZE])
 {
+	GotoXY(70, 2);
+	cout << "                                                                      ";
 	GotoXY(70, 3);
-	cout << "                                                                  ";
+	cout << "                                                                       ";
 	GotoXY(70, 4);
 	cout << "  88888888b.     88888888b.              d8888888  8888         8888";
 	GotoXY(70, 5);
@@ -218,8 +227,9 @@ void Draw(_POINT _A[][BOARD_SIZE])
 	GotoXY(70, 13);
 	cout << "  88888888P'     8888     T888b d888P        8888  888P         Y888";
 	GotoXY(70, 14);
-	cout << "                                                                  ";
-
+	cout << "                                                                   ";
+	GotoXY(70, 15);
+	cout << "                                                                    ";
 }
 
 void ThongBaoWin(int pWhoWin, _POINT _A[][BOARD_SIZE])
@@ -343,7 +353,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 8, "PLAYER VS COMPUTER");
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
@@ -357,7 +367,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(0);
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
@@ -371,7 +381,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 11, "LOAD GAME");
 						SetColor(0);
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
@@ -385,7 +395,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(4);
 						drawButton(100, 14, "HELP");
 						SetColor(0);
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
@@ -398,7 +408,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
 						SetColor(4);
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						SetColor(0);
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
@@ -411,7 +421,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 8, "PLAYER VS COMPUTER");
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						SetColor(4);
 						drawButton(100, 20, "SOUND");
 						SetColor(0);
@@ -425,7 +435,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 8, "PLAYER VS COMPUTER");
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						
 						drawButton(100, 20, "SOUND");
 						SetColor(4);
@@ -440,7 +450,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 8, "PLAYER VS COMPUTER");
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						SetColor(4);
 						drawButton(100, 23, "RANKING");
@@ -462,7 +472,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 8, "PLAYER VS COMPUTER");
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
@@ -476,7 +486,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(0);
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
@@ -490,7 +500,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 11, "LOAD GAME");
 						SetColor(0);
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
@@ -504,7 +514,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(4);
 						drawButton(100, 14, "HELP");
 						SetColor(0);
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						drawButton(100, 26, "EXIT");
@@ -517,7 +527,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
 						SetColor(4);
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						SetColor(0);
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
@@ -530,7 +540,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 8, "PLAYER VS COMPUTER");
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						SetColor(4);
 						drawButton(100, 20, "SOUND");
 						SetColor(0);
@@ -544,7 +554,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 8, "PLAYER VS COMPUTER");
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						
 						drawButton(100, 20, "SOUND");
 						SetColor(4);
@@ -559,7 +569,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 8, "PLAYER VS COMPUTER");
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 23, "RANKING");
 						SetColor(4);
@@ -580,7 +590,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 8, "PLAYER VS COMPUTER");
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 26, "EXIT");
 					}
@@ -593,7 +603,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(0);
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 26, "EXIT");
 					}
@@ -606,7 +616,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 11, "LOAD GAME");
 						SetColor(0);
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 26, "EXIT");
 					}
@@ -619,7 +629,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(4);
 						drawButton(100, 14, "HELP");
 						SetColor(0);
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 26, "EXIT");
 					}
@@ -631,7 +641,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
 						SetColor(4);
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						SetColor(0);
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 26, "EXIT");
@@ -643,7 +653,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 8, "PLAYER VS COMPUTER");
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						SetColor(4);
 						drawButton(100, 20, "SOUND");
 						SetColor(0);
@@ -656,7 +666,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 8, "PLAYER VS COMPUTER");
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						SetColor(4);
 						drawButton(100, 20, "SOUND");
 						SetColor(0);
@@ -677,7 +687,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 8, "PLAYER VS COMPUTER");
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 26, "EXIT");
 					}
@@ -690,7 +700,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(0);
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 26, "EXIT");
 					}
@@ -703,7 +713,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 11, "LOAD GAME");
 						SetColor(0);
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 26, "EXIT");
 					}
@@ -716,7 +726,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(4);
 						drawButton(100, 14, "HELP");
 						SetColor(0);
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 26, "EXIT");
 					}
@@ -728,7 +738,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
 						SetColor(4);
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						SetColor(0);
 						drawButton(100, 20, "SOUND");
 						drawButton(100, 26, "EXIT");
@@ -740,7 +750,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 8, "PLAYER VS COMPUTER");
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						SetColor(4);
 						drawButton(100, 20, "SOUND");
 						SetColor(0);
@@ -753,7 +763,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						drawButton(100, 8, "PLAYER VS COMPUTER");
 						drawButton(100, 11, "LOAD GAME");
 						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "About");
+						drawButton(100, 17, "ABOUT");
 						drawButton(100, 20, "SOUND");
 						SetColor(4);
 						drawButton(100, 26, "EXIT");
@@ -824,7 +834,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 							}
 						}
 						SetColor(0);
-						printCaro(6, 4);
+						printCaro(27, 7);
 						GotoXY(10, 10);
 						//Loading();
 						TextColor(255);
@@ -843,7 +853,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 							}
 						}
 						SetColor(0);
-						printCaro(20,10);
+						printCaro(27,7);
 						GotoXY(10, 10);
 						//Loading();
 						About();
@@ -867,6 +877,114 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						exit(0);
 					}
 					break;
+					case 32:
+						backToOriginalMenu = true;
+						//PlaySOUNDEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
+						if (y == 20)
+						{
+							vsComputer = false;
+							SetPlayer(_PLAYER1, _PLAYER2);
+							Loading();
+							TextColor(255);
+							StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2, vsComputer);
+							RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
+						}
+						if (y == 21)
+						{
+							vsComputer = true;
+							Loading();
+							TextColor(255);
+							StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2, vsComputer);
+							PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
+							//Danh voi may
+						}
+						if (y == 22)
+						{
+							for (int i = 6; i < 28; i++)
+							{
+								for (int j = 6; j < 80; j++)
+								{
+									GotoXY(j, i);
+									cout << " ";
+
+								}
+							}
+							SetColor(0);
+							printCaro(6, 4);
+							GotoXY(10, 10);
+							//Loading();
+							TextColor(255);
+							int loadOption;
+							loadOption = SelectMenu(LoadingMenu());
+							if (loadOption == -1) break;
+							else
+							{
+								Loading();
+								TextColor(255);
+								LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, chedo);
+								if (chedo == 2)
+									RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
+								if (chedo == 3)
+									PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
+								break;
+							}
+						}
+						if (y == 23)
+						{
+							//Menu HELP trong game
+							for (int i = 6; i < 28; i++)
+							{
+								for (int j = 6; j < 80; j++)
+								{
+									GotoXY(j, i);
+									cout << " ";
+
+								}
+							}
+							SetColor(0);
+							printCaro(27, 7);
+							GotoXY(10, 10);
+							//Loading();
+							TextColor(255);
+							HELP();
+						}
+						if (y == 24)
+						{
+							//About
+							for (int i = 6; i < 28; i++)
+							{
+								for (int j = 6; j < 80; j++)
+								{
+									GotoXY(j, i);
+									cout << " ";
+
+								}
+							}
+							SetColor(0);
+							printCaro(27, 7);
+							GotoXY(10, 10);
+							//Loading();
+							About();
+						}
+						if (y == 25)
+						{
+							//SOUND
+							//Loading();
+							TextColor(255);
+							Sound(MO_NHAC);
+						}
+						if (y == 26)
+						{
+							// Hiện ranking ở đây
+						}
+						if (y == 27)
+						{
+							//Loading();
+							TextColor(255);
+							system("cls");
+							exit(0);
+						}
+						break;
 				}
 				if (backToOriginalMenu)
 				{
@@ -909,19 +1027,19 @@ void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 	//DrawBox(255, 30, 10, start, 2);
 	if ((_TURN) == 1)
 	{
-		DrawBigText("X.txt", 1, start, 3);
-		DrawBigText("O.txt", 255, start + 40, 3);
+		DrawBigText("X.txt", 1, start, 2);
+		DrawBigText("O.txt", 247, start + 40, 2);
 		//Them ten
-		PrintText("PLAYER X: " + _PLAYER1.name, 1, start+3, 16);
-		PrintText("PLAYER O: "+ _PLAYER2.name, 255, start + 40 + 7, 16);
+		PrintText("PLAYER X: " + _PLAYER1.name, 1, start+3, 15);
+		PrintText("PLAYER O: "+ _PLAYER2.name, 247, start + 40 + 7, 15);
 	}
 	else if ((_TURN) == 0)
 	{
-		DrawBigText("O.txt", 2, start + 40, 3);
-		DrawBigText("X.txt", 255, start, 3);
+		DrawBigText("O.txt", 2, start + 40, 2);
+		DrawBigText("X.txt", 247, start, 2);
 		//Them ten
-		PrintText("PLAYER X: " + _PLAYER1.name, 255, start+3, 16);
-		PrintText("PLAYER O: " + _PLAYER2.name, 2, start + 40+7, 16);
+		PrintText("PLAYER X: " + _PLAYER1.name, 247, start+3, 15);
+		PrintText("PLAYER O: " + _PLAYER2.name, 2, start + 40+7, 15);
 	}
 	//DrawBigText((_TURN) ? "X.txt" : "O.txt", (_TURN) ? 1 : 2, start, 2);
 	//DrawBox(255, 20, 1, start - 2, 14);
@@ -985,6 +1103,7 @@ _MENU LoadingMenu()
 	PrintText("Press ESC to return to MENU...", 8, 30, 28);
 	//DrawBox(221, 100, menu.options + 10, X_CENTER - 50, Y_CENTER - 5);
 	//PrintText("[==========Saved Games===========]", 0, menu.x-30, menu.y - 10);
+	SetColor(252);
 	drawButton(menu.x - 25, menu.y - 10, "Saved Games");
 	for (int i = 0; i < files.size(); i++)
 	{
@@ -1031,43 +1150,81 @@ void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2)
 }
 void HELP()
 {
-	SetColor(245); //Day la mot mau ngau nhien, can chinh lai mau khac dep hon
-	GotoXY(10, 14);
-	cout << "HUONG DAN" << endl;
+	GotoXY(80, 11);
+	cout << "   ";
+	GotoXY(80, 12);
+	cout << "   ";
+	GotoXY(80, 13);
+	cout << "   ";
+	GotoXY(80, 14);
+	cout << "   ";
+	GotoXY(80, 15);
+	cout << "   ";
+	GotoXY(80, 16);
+	cout << "   ";
+	GotoXY(80, 17);
+	cout << "   ";
+	GotoXY(80, 18);
+	cout << "   ";
+	GotoXY(80, 19);
+	cout << "   ";
+	SetColor(252); //Day la mot mau ngau nhien, can chinh lai mau khac dep hon
 	GotoXY(10, 15);
-	cout << "1. Ban co gom 16x16 o vuong." << endl;
+	cout << "HUONG DAN";
 	GotoXY(10, 16);
-	cout << "2. Su dung cac phim W A S D de di chuyen va Enter de danh." << endl;
+	cout << "1. Ban co gom 16x16 o vuong.";
 	GotoXY(10, 17);
-	cout << "3. Luat choi cu du 5 quan co X hoac O theo hang ngang, doc, cheo se " << endl;
+	cout << "2. Su dung cac phim W A S D hoac cac phim mui ten tren ban phim de";
 	GotoXY(10, 18);
-	cout << "chien thang.";
+	cout << "di chuyen va phim Space hoac Enter de danh.";
 	GotoXY(10, 19);
-	cout << "4. Luat choi tuan theo quy dinh chan 2 dau " << endl;
+	cout << "3. Luat choi cu du 5 quan co X hoac O theo hang ngang, doc, cheo se ";
 	GotoXY(10, 20);
-	cout << "-> Chuc moi nguoi choi game vui ve !!" << endl;
-	PrintText("Press ESC to return to MENU...", 8, 50, 28);
+	cout << "chien thang.";
+	GotoXY(10, 21);
+	cout << "4. Luat choi tuan theo quy dinh chan 2 dau.";
+	GotoXY(10, 22);
+	cout << "-> Chuc moi nguoi choi game vui ve !!";
+	PrintText("Press ESC to return to MENU...", 8, 30, 28);
 	char command = ' ';
 	command = _getch();
 }
 void About()
 {
-	SetColor(100);
-	GotoXY(20, 18);
+	GotoXY(80, 11);
+	cout << "   ";
+	GotoXY(80, 12);
+	cout << "   ";
+	GotoXY(80, 13);
+	cout << "   ";
+	GotoXY(80, 14);
+	cout << "   ";
+	GotoXY(80, 15);
+	cout << "   ";
+	GotoXY(80, 16);
+	cout << "   ";
+	GotoXY(80, 17);
+	cout << "   ";
+	GotoXY(80, 18);
+	cout << "   ";
+	GotoXY(80, 19);
+	cout << "   ";
+	SetColor(252);
+	GotoXY(20, 15);
 	cout << "DO AN GAME CARO - LOP 22CTT4 - HCMUS" << endl;
-	GotoXY(20, 20);
+	GotoXY(20, 17);
 	cout << "-> Ho ten : NGUYEN DUY LAM " << "| 22120181 "<< "| 22CTT4"<< endl;
-	GotoXY(20, 21);
+	GotoXY(20, 18);
 	cout << "-> Ho ten : DOAN THI MINH ANH " << "| 22120213 "<< "| 22CTT4"<< endl;
-	GotoXY(20, 22);
+	GotoXY(20, 19);
 	cout << "-> Ho ten : NGUYEN THI TU NGOC " << "| 22120233 "<< "| 22CTT4"<< endl;
-	GotoXY(20, 23);
+	GotoXY(20, 20);
 	cout << "-> Ho ten : TANG SENH MANH " << "| 22120202 " << "| 22CTT4"<< endl;
-	GotoXY(20, 25);
+	GotoXY(20, 22);
 	cout << "-> GV huong dan : Truong Toan Thinh " << endl;
-	GotoXY(20, 26);
+	GotoXY(20, 23);
 	cout << "-> Chuc moi nguoi choi game vui ve !!" << endl;
-	PrintText("Press ESC to return to MENU...", 8, 50, 28);
+	PrintText("Press ESC to return to MENU...", 8, 30, 28);
 	char command = ' ';
 	command = _getch();
 }
@@ -1077,7 +1234,7 @@ void Sound(bool& MO_NHAC)
 	system("cls");
 	drawFrame(5, 3, 80, 28);
 	SetColor(0);
-	printCaro(27,10);
+	printCaro(27,7);
 	GotoXY(10, 10);
 	drawFrame(0, 0, 145, 33);
 	SetColor(100);
@@ -1625,19 +1782,23 @@ void drawButton(int x, int y, string text)
 	cout << char(217);
 }
 void printCaro(int x, int y) {
-	SetColor(0);
+	SetColor(1);
 	GotoXY(x, y);
 	cout << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187) << char(32) << char(32) << char(219) << char(219) << char(219) << char(219) << char(219) << char(219) << char(187);
 	GotoXY(x, y+1);
 	cout << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT);
+	SetColor(9);
 	GotoXY(x, y+2);
 	cout << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(SPACE) << char(SPACE) << char(SPACE) << char(SPACE) << char(SPACE) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_BOTTOM_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(SPACE) << char(SPACE) << char(SPACE) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL);
 	GotoXY(x, y+3);
 	cout << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(SPACE) << char(SPACE) << char(SPACE) << char(SPACE) << char(SPACE) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(SPACE) << char(SPACE) << char(SPACE) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL);
+	SetColor(3);
 	GotoXY(x, y+4);
 	cout << char(DOUBLE_BOTTOM_LEFT) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_RIGHT) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(SPACE) << char(SPACE) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(SPACE) << char(SPACE) << char(FULL) << char(FULL) << char(DOUBLE_VERTICAL) << char(DOUBLE_BOTTOM_LEFT) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(FULL) << char(DOUBLE_TOP_LEFT) << char(DOUBLE_BOTTOM_RIGHT);
+	SetColor(11);
 	GotoXY(x, y+5);
 	cout << char(SPACE) << char(DOUBLE_BOTTOM_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(DOUBLE_BOTTOM_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(SPACE) << char(SPACE) << char(DOUBLE_BOTTOM_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(DOUBLE_BOTTOM_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(SPACE) << char(SPACE) << char(DOUBLE_BOTTOM_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(SPACE) << char(DOUBLE_BOTTOM_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(SPACE);
+	SetColor(1);
 	GotoXY(x, y+6);
 	cout << "     ----  By Team 15  ----      ";
 }               
@@ -1736,6 +1897,7 @@ void printBigCaro(int x, int y)
 	for (int i = 0;i < 5;i++)
 		cout << (char)219;
 	cout << char(186);
+	SetColor(249);
 	GotoXY(x, y + 4);
 	//cout << char(32) << char(32);
 	for (int i = 0;i < 5;i++)
@@ -1809,6 +1971,7 @@ void printBigCaro(int x, int y)
 	for (int i = 0;i < 5;i++)
 		cout << (char)219;
 	cout << char(186);
+	SetColor(243);
 	GotoXY(x, y + 7);
 	//cout << char(32) << char(32);
 	for (int i = 0;i < 5;i++)
@@ -1864,6 +2027,7 @@ void printBigCaro(int x, int y)
 	for (int i = 0;i < 16;i++)
 		cout << char(219);
 	cout << char(186);
+	SetColor(251);
 	GotoXY(x, y + 9);
 	cout  << char(200);
 	for (int i = 0;i < 15;i++)
@@ -1919,6 +2083,7 @@ void printBigCaro(int x, int y)
 	for (int i = 0;i < 13;i++)
 		cout << char(205);
 	cout << char(188);
+	SetColor(1);
 	GotoXY(x, y + 11);
 	cout << "                        ----  By Team 15  ----";
 }
@@ -1932,6 +2097,8 @@ void printBigCaro(int x, int y)
 
 void Loading()
 {
+	int a[10] = { 17,17,17,17,153,153,153,51,51,187 };
+	int b[10] = { 31,31,31,31,159,159,159,63,63,191 };
 	system("cls");
 	int x = 25;
 	int y = 13;
@@ -1963,12 +2130,12 @@ void Loading()
 	{
 		//textcolor(111);
 		//SetColor(9);
-		PrintText("        ", 0, x += 8, y + 1);
+		PrintText("        ", a[i-1], x += 8, y + 1);
 		//TextColor(0 +rand() % 100);
 		//textcolor(111);
 		//GotoXY(x+=8, y +1);
 		//cout << "     ";
-		TextColor(11);
+		TextColor(b[i-1]);
 		GotoXY(x+7, y+1);
 		cout << i * 10 << "%";
 

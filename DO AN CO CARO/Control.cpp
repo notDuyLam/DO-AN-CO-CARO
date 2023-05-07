@@ -17,8 +17,9 @@ void StartGame(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int
 	GotoXY(x, y);*/
 	ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
 	GotoXY(_X, _Y);
+	ShowCur(0);
+	DrawBoardGiaoDien(_A, 240);
 	ShowCur(1);
-	//DrawBoardGiaoDien(_A, 240);
 	//DrawPhimTat(_A);
 }
 void MoveRight(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
@@ -190,7 +191,7 @@ void LoadGame(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAY
 	DrawLoaded(_A);
 	GotoXY(_X, _Y);
 	ShowCur(1);
-	//DrawBoardGiaoDien(_A, 240);
+	DrawBoardGiaoDien(_A, 240);
 	//DrawPhimTat(_A);
 }
 void SaveGame(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN, int chedo)
@@ -270,7 +271,7 @@ int SelectMenu(_MENU menu)
 		{
 			return -1;
 		}
-	} while (key != ENTER);
+	} while (key != ENTER && key != 32);
 
 	return cursor;
 }
@@ -303,7 +304,7 @@ int SelectMenu1(_MENU menu)
 		{
 			return -1;
 		}
-	} while (key != ENTER);
+	} while (key != ENTER && key != 32);
 
 	return cursor2;
 }
@@ -317,7 +318,7 @@ void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, boo
 		DrawLoaded(_A);
 		ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
 		ShowCur(1);
-		//DrawBoardGiaoDien(_A, 240);
+		DrawBoardGiaoDien(_A, 240);
 		//DrawPhimTat(_A);
 		break;
 	case 2:
