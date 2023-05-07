@@ -694,6 +694,7 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 	GotoXY(_X, _Y);
 	while (1)
 	{
+		GotoXY(_X, _Y);
 		if (_TURN == true)
 		{
 			_COMMAND = toupper(_getch());
@@ -702,19 +703,171 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 				escOption = SelectMenu1(EscMenu(_A));
 				RunEscMenu(_A, _PLAYER1, _PLAYER2, _TURN, escOption, runGame, chedo);
 			}
-			if (_COMMAND == 'O')
-				StopMusic();
-			else if (_COMMAND == 'P')
-				PlayBackGroundMusic(0);
 			if (_COMMAND == 27)
 			{
 				system("cls");
 				return;
 			}
-			if (_COMMAND == 'A' || _COMMAND == ARROW_LEFT) MoveLeft(_A, _X, _Y);
-			else if (_COMMAND == 'W' || _COMMAND == ARROW_UP) MoveUp(_A, _X, _Y);
-			else if (_COMMAND == 'S' || _COMMAND == ARROW_DOWN) MoveDown(_A, _X, _Y);
-			else if (_COMMAND == 'D' || _COMMAND == ARROW_RIGHT) MoveRight(_A, _X, _Y);
+			if (_COMMAND == 'W' || _COMMAND == ARROW_UP) 
+			{
+				TextColor(2);
+				if (_COMMAND == 'W')
+				{
+					GotoXY(84, 21);
+					cout << "|\\ ___\\";
+					GotoXY(84, 22);
+					cout << "| | W |";
+					GotoXY(85, 23);
+					cout << "\\|___|";
+					MoveUp(_A, _X, _Y);
+					TextColor(255);
+					SetColor(0);
+					Sleep(50);
+					GotoXY(84, 21);
+					cout << "|\\ ___\\";
+					GotoXY(84, 22);
+					cout << "| | W |";
+					GotoXY(85, 23);
+					cout << "\\|___|";
+				}
+				else
+				{
+					GotoXY(84+17, 21);
+					cout << "|\\ ___\\";
+					GotoXY(84+17, 22);
+					cout << "| | ^ |";
+					GotoXY(85+17, 23);
+					cout << "\\|___|";
+					MoveUp(_A, _X, _Y);
+					TextColor(255);
+					SetColor(0);
+					Sleep(50);
+					GotoXY(84+17, 21);
+					cout << "|\\ ___\\";
+					GotoXY(84+17, 22);
+					cout << "| | ^ |";
+					GotoXY(85+17, 23);
+					cout << "\\|___|";
+				}
+			}
+			else if (_COMMAND == 'S' || _COMMAND == ARROW_DOWN) 
+			{
+				TextColor(2);
+				if(_COMMAND == 'S')
+				{
+					GotoXY(86, 24);
+					cout << "| S |";
+					GotoXY(86, 25);
+					cout << "|___|";
+					MoveDown(_A, _X, _Y);
+					TextColor(255);
+					SetColor(0);
+					Sleep(50);
+					GotoXY(86, 24);
+					cout << "| S |";
+					GotoXY(86, 25);
+					cout << "|___|";
+				}
+				else
+				{
+					GotoXY(86+17, 24);
+					cout << "| v |";
+					GotoXY(86+17, 25);
+					cout << "|___|";
+					MoveDown(_A, _X, _Y);
+					TextColor(255);
+					SetColor(0);
+					Sleep(50);
+					GotoXY(86+17, 24);
+					cout << "| v |";
+					GotoXY(86+17, 25);
+					cout << "|___|";
+				}
+			}
+			else if (_COMMAND == 'A' || _COMMAND == ARROW_LEFT)
+			{
+				TextColor(2);
+				if (_COMMAND == 'A')
+				{
+					GotoXY(80, 23);
+					cout << "|\\ __\\";
+					GotoXY(80, 24);
+					cout << "| | A ";
+					GotoXY(81, 25);
+					cout << "\\|___";
+					MoveLeft(_A, _X, _Y);
+					Sleep(50);
+					TextColor(255);
+					SetColor(0);
+					GotoXY(80, 23);
+					cout << "|\\ __\\";
+					GotoXY(80, 24);
+					cout << "| | A ";
+					GotoXY(81, 25);
+					cout << "\\|___";
+				}
+				else
+				{
+					GotoXY(80+17, 23);
+					cout << "|\\ __\\";
+					GotoXY(80+17, 24);
+					cout << "| | < ";
+					GotoXY(81+17, 25);
+					cout << "\\|___";
+					MoveLeft(_A, _X, _Y);
+					Sleep(50);
+					TextColor(255);
+					SetColor(0);
+					GotoXY(80+17, 23);
+					cout << "|\\ __\\";
+					GotoXY(80+17, 24);
+					cout << "| | < ";
+					GotoXY(81+17, 25);
+					cout << "\\|___";
+				}
+			}
+			else if (_COMMAND == 'D' || _COMMAND == ARROW_RIGHT) 
+			{
+				TextColor(2);
+				if(_COMMAND=='D')
+				{
+					GotoXY(90, 23);
+					cout << "| _\\";
+					GotoXY(90, 24);
+					cout << "| D |";
+					GotoXY(90, 25);
+					cout << "|___|";
+					MoveRight(_A, _X, _Y);
+					Sleep(50);
+					TextColor(255);
+					SetColor(0);
+					GotoXY(90, 23);
+					cout << "| _\\";
+					GotoXY(90, 24);
+					cout << "| D |";
+					GotoXY(90, 25);
+					cout << "|___|";
+				}
+				else
+				{
+					GotoXY(90+17, 23);
+					cout << "| _\\";
+					GotoXY(90+17, 24);
+					cout << "| > |";
+					GotoXY(90+17, 25);
+					cout << "|___|";
+					MoveRight(_A, _X, _Y);
+					Sleep(50);
+					TextColor(255);
+					SetColor(0);
+					GotoXY(90+17, 23);
+					cout << "| _\\";
+					GotoXY(90+17, 24);
+					cout << "| > |";
+					GotoXY(90+17, 25);
+					cout << "|___|";
+				}
+			}
 			else if (_COMMAND == 13 || _COMMAND == SPACE) {// Người dùng đánh dấu trên màn hình bàn cờ
 				PlaySoundEffect("move", MO_NHAC);
 				switch (CheckBoard(_X, _Y, _A, _TURN)) {

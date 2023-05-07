@@ -26,3 +26,7 @@ lam
 0
 lma
 0
+feaw
+0
+afeg
+0
