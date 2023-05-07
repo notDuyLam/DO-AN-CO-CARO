@@ -271,7 +271,7 @@ int SelectMenu(_MENU menu)
 		{
 			return -1;
 		}
-	} while (key != ENTER);
+	} while (key != ENTER && key != 32);
 
 	return cursor;
 }
@@ -304,7 +304,7 @@ int SelectMenu1(_MENU menu)
 		{
 			return -1;
 		}
-	} while (key != ENTER);
+	} while (key != ENTER && key != 32);
 
 	return cursor2;
 }
