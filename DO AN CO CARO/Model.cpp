@@ -36,6 +36,38 @@ bool CheckTie(_POINT _A[][BOARD_SIZE])
 	return false;
 }
 
+int CountX(_POINT _A[][BOARD_SIZE])
+{
+	int dem = 0;
+	for (int i = 0; i < BOARD_SIZE; i++)
+	{
+		for (int j = 0; j < BOARD_SIZE; j++)
+		{
+			if (_A[i][j].c == -1)
+			{
+				dem++;
+			}
+		}
+	}
+	return dem;
+}
+
+int CountO(_POINT _A[][BOARD_SIZE])
+{
+	int dem = 0;
+	for (int i = 0; i < BOARD_SIZE; i++)
+	{
+		for (int j = 0; j < BOARD_SIZE; j++)
+		{
+			if (_A[i][j].c == 1)
+			{
+				dem++;
+			}
+		}
+	}
+	return dem;
+}
+
 int TestBoard(_POINT _A[][BOARD_SIZE], bool _TURN, int cRow, int cCol,short int toadothang[24])
 {
 	if (CheckTie(_A)) return 0; //Hoa
