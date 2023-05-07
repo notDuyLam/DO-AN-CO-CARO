@@ -1654,7 +1654,7 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 void DrawPhimTat(_POINT _A[][BOARD_SIZE])
 {
 	int x = _A[0][BOARD_SIZE].x + 78;
-	int y = _A[0][BOARD_SIZE].y + 17;
+	int y = _A[0][BOARD_SIZE].y + 16;
 	ShowCur(0);
 	/*for (int i = 0;i < 8;i++)
 	{
@@ -1734,49 +1734,49 @@ void DrawPhimTat(_POINT _A[][BOARD_SIZE])
 	}*/
 	
 	SetColor(16);
-	GotoXY(x, y);
+	GotoXY(x+3, y);
 	cout << "     _____";
-	GotoXY(x, y + 1);
+	GotoXY(x+3, y + 1);
 	cout << "    |\\ ___\\";
-	GotoXY(x, y + 2);
+	GotoXY(x+3, y + 2);
 	cout << " ___| | W |__";
-	GotoXY(x, y + 3);
+	GotoXY(x+3, y + 3);
 	cout << "|\\ __\\|___| _\\ ";
-	GotoXY(x, y + 4);
+	GotoXY(x+3, y + 4);
 	cout << "| | A | S | D |";
-	GotoXY(x, y + 5);
-	cout << " \\|___|___|___|";
-	GotoXY(x + 17, y);
-	cout << "     _____";
-	GotoXY(x + 17, y + 1);
-	cout << "    |\\ ___\\";
-	GotoXY(x + 17, y + 2);
-	cout << " ___| | ^ |__";
-	GotoXY(x + 17, y + 3);
-	cout << "|\\ __\\|___| _\\ ";
-	GotoXY(x + 17, y + 4);
-	cout << "| | < | v | > |";
-	GotoXY(x + 17, y + 5);
+	GotoXY(x+3, y + 5);
 	cout << " \\|___|___|___|";
 	GotoXY(x + 34, y);
-	cout << "	 _____";
+	cout << "     _____";
 	GotoXY(x + 34, y + 1);
-	cout << "	|\\____\\";
+	cout << "    |\\ ___\\";
 	GotoXY(x + 34, y + 2);
-	cout << " _____||    |";
+	cout << " ___| | ^ |__";
 	GotoXY(x + 34, y + 3);
-	cout << "|\\ ___\\|    | ";
+	cout << "|\\ __\\|___| _\\ ";
 	GotoXY(x + 34, y + 4);
-	cout << "| |  Enter  |";
+	cout << "| | < | v | > |";
 	GotoXY(x + 34, y + 5);
+	cout << " \\|___|___|___|";
+	GotoXY(x + 34, y+6);
+	cout << "	 _____";
+	GotoXY(x + 34, y + 7);
+	cout << "	|\\____\\";
+	GotoXY(x + 34, y + 8);
+	cout << " _____||    |";
+	GotoXY(x + 34, y + 9);
+	cout << "|\\ ___\\|    | ";
+	GotoXY(x + 34, y + 10);
+	cout << "| |  Enter  |";
+	GotoXY(x + 34, y + 11);
 	cout << " \\|_________|";
-	GotoXY(x + 8, y + 7);
+	GotoXY(x-1, y + 8);
 	cout << " __________________________";
-	GotoXY(x + 8, y + 8);
+	GotoXY(x-1, y + 9);
 	cout << "|\\          Space          \\";
-	GotoXY(x + 8, y + 9);
+	GotoXY(x-1, y + 10);
 	cout << "\\ \\_________________________\\";
-	GotoXY(x + 8, y + 10);
+	GotoXY(x-1, y + 11);
 	cout << " \\|_________________________|";
 	ShowCur(1);
 }
