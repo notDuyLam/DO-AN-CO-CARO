@@ -141,40 +141,40 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 				TextColor(2);
 				if (_COMMAND == 'W')
 				{
-					GotoXY(84, 21);
+					GotoXY(87, 20);
 					cout << "|\\ ___\\";
-					GotoXY(84, 22);
+					GotoXY(87, 21);
 					cout << "| | W |";
-					GotoXY(85, 23);
+					GotoXY(88, 22);
 					cout << "\\|___|";
 					MoveUp(_A, _X, _Y);
 					TextColor(255);
 					SetColor(0);
 					Sleep(50);
-					GotoXY(84, 21);
+					GotoXY(87, 20);
 					cout << "|\\ ___\\";
-					GotoXY(84, 22);
+					GotoXY(87, 21);
 					cout << "| | W |";
-					GotoXY(85, 23);
+					GotoXY(88, 22);
 					cout << "\\|___|";
 				}
 				else
 				{
-					GotoXY(84+17, 21);
+					GotoXY(84+34, 20);
 					cout << "|\\ ___\\";
-					GotoXY(84+17, 22);
+					GotoXY(84+34, 21);
 					cout << "| | ^ |";
-					GotoXY(85+17, 23);
+					GotoXY(85+34, 22);
 					cout << "\\|___|";
 					MoveUp(_A, _X, _Y);
 					TextColor(255);
 					SetColor(0);
 					Sleep(50);
-					GotoXY(84+17, 21);
+					GotoXY(84 + 34, 20);
 					cout << "|\\ ___\\";
-					GotoXY(84+17, 22);
+					GotoXY(84 + 34, 21);
 					cout << "| | ^ |";
-					GotoXY(85+17, 23);
+					GotoXY(85 + 34, 22);
 					cout << "\\|___|";
 				}
 			}
@@ -183,32 +183,32 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 				TextColor(2);
 				if(_COMMAND == 'S')
 				{
-					GotoXY(86, 24);
+					GotoXY(89, 23);
 					cout << "| S |";
-					GotoXY(86, 25);
+					GotoXY(89, 24);
 					cout << "|___|";
 					MoveDown(_A, _X, _Y);
 					TextColor(255);
 					SetColor(0);
 					Sleep(50);
-					GotoXY(86, 24);
+					GotoXY(89, 23);
 					cout << "| S |";
-					GotoXY(86, 25);
+					GotoXY(89, 24);
 					cout << "|___|";
 				}
 				else
 				{
-					GotoXY(86+17, 24);
+					GotoXY(86+34, 23);
 					cout << "| v |";
-					GotoXY(86+17, 25);
+					GotoXY(86+34, 24);
 					cout << "|___|";
 					MoveDown(_A, _X, _Y);
 					TextColor(255);
 					SetColor(0);
 					Sleep(50);
-					GotoXY(86+17, 24);
+					GotoXY(86+34, 23);
 					cout << "| v |";
-					GotoXY(86+17, 25);
+					GotoXY(86+34, 24);
 					cout << "|___|";
 				}
 			}
@@ -217,40 +217,40 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 				TextColor(2);
 				if (_COMMAND == 'A')
 				{
-					GotoXY(80, 23);
+					GotoXY(83, 22);
 					cout << "|\\ __\\";
-					GotoXY(80, 24);
+					GotoXY(83, 23);
 					cout << "| | A ";
-					GotoXY(81, 25);
+					GotoXY(84, 24);
 					cout << "\\|___";
 					MoveLeft(_A, _X, _Y);
 					Sleep(50);
 					TextColor(255);
 					SetColor(0);
-					GotoXY(80, 23);
+					GotoXY(83, 22);
 					cout << "|\\ __\\";
-					GotoXY(80, 24);
+					GotoXY(83, 23);
 					cout << "| | A ";
-					GotoXY(81, 25);
+					GotoXY(84, 24);
 					cout << "\\|___";
 				}
 				else
 				{
-					GotoXY(80+17, 23);
+					GotoXY(80+34, 22);
 					cout << "|\\ __\\";
-					GotoXY(80+17, 24);
+					GotoXY(80+34, 23);
 					cout << "| | < ";
-					GotoXY(81+17, 25);
+					GotoXY(81+34, 24);
 					cout << "\\|___";
 					MoveLeft(_A, _X, _Y);
 					Sleep(50);
 					TextColor(255);
 					SetColor(0);
-					GotoXY(80+17, 23);
+					GotoXY(80+34, 22);
 					cout << "|\\ __\\";
-					GotoXY(80+17, 24);
+					GotoXY(80+34, 23);
 					cout << "| | < ";
-					GotoXY(81+17, 25);
+					GotoXY(81+34, 24);
 					cout << "\\|___";
 				}
 			}
@@ -259,40 +259,40 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 				TextColor(2);
 				if(_COMMAND=='D')
 				{
-					GotoXY(90, 23);
+					GotoXY(93, 22);
 					cout << "| _\\";
-					GotoXY(90, 24);
+					GotoXY(93, 23);
 					cout << "| D |";
-					GotoXY(90, 25);
+					GotoXY(93, 24);
 					cout << "|___|";
 					MoveRight(_A, _X, _Y);
 					Sleep(50);
 					TextColor(255);
 					SetColor(0);
-					GotoXY(90, 23);
+					GotoXY(93, 22);
 					cout << "| _\\";
-					GotoXY(90, 24);
+					GotoXY(93, 23);
 					cout << "| D |";
-					GotoXY(90, 25);
+					GotoXY(93, 24);
 					cout << "|___|";
 				}
 				else
 				{
-					GotoXY(90+17, 23);
+					GotoXY(90+34, 22);
 					cout << "| _\\";
-					GotoXY(90+17, 24);
+					GotoXY(90+34, 23);
 					cout << "| > |";
-					GotoXY(90+17, 25);
+					GotoXY(90+34, 24);
 					cout << "|___|";
 					MoveRight(_A, _X, _Y);
 					Sleep(50);
 					TextColor(255);
 					SetColor(0);
-					GotoXY(90+17, 23);
+					GotoXY(90+34, 22);
 					cout << "| _\\";
-					GotoXY(90+17, 24);
+					GotoXY(90+34, 23);
 					cout << "| > |";
-					GotoXY(90+17, 25);
+					GotoXY(90+34, 24);
 					cout << "|___|";
 				}
 			}
@@ -309,24 +309,24 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 					TextColor(2);
 					if(_COMMAND == ENTER)
 					{
-						GotoXY(120, 21);
+						GotoXY(120, 26);
 						cout << "|\\____\\";
-						GotoXY(120, 22);
+						GotoXY(120, 27);
 						cout << "||    |";
-						GotoXY(114, 23);
+						GotoXY(114, 28);
 						cout << "|\\ ___\\|    |";
-						GotoXY(114, 24);
+						GotoXY(114, 29);
 						cout << "| |  Enter  |";
-						GotoXY(115, 25);
+						GotoXY(115, 30);
 						cout << "\\|_________|";
 					}
 					else
 					{
-						GotoXY(88, 28);
+						GotoXY(79, 28);
 						cout << "|\\          Space          \\";
-						GotoXY(88, 29);
+						GotoXY(79, 29);
 						cout << "\\ \\_________________________\\";
-						GotoXY(89, 30);
+						GotoXY(80, 30);
 						cout << "\\|_________________________|";
 					}
 					break;
@@ -338,24 +338,24 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 					TextColor(2);
 					if (_COMMAND == ENTER)
 					{
-						GotoXY(120, 21);
+						GotoXY(120, 26);
 						cout << "|\\____\\";
-						GotoXY(120, 22);
+						GotoXY(120, 27);
 						cout << "||    |";
-						GotoXY(114, 23);
+						GotoXY(114, 28);
 						cout << "|\\ ___\\|    |";
-						GotoXY(114, 24);
+						GotoXY(114, 29);
 						cout << "| |  Enter  |";
-						GotoXY(115, 25);
+						GotoXY(115, 30);
 						cout << "\\|_________|";
 					}
 					else
 					{
-						GotoXY(88, 28);
+						GotoXY(79, 28);
 						cout << "|\\          Space          \\";
-						GotoXY(88, 29);
+						GotoXY(79, 29);
 						cout << "\\ \\_________________________\\";
-						GotoXY(89, 30);
+						GotoXY(80, 30);
 						cout << "\\|_________________________|";
 					}
 					break;
@@ -364,24 +364,24 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 					TextColor(2);
 					if (_COMMAND == ENTER)
 					{
-						GotoXY(120, 21);
+						GotoXY(120, 26);
 						cout << "|\\____\\";
-						GotoXY(120, 22);
+						GotoXY(120, 27);
 						cout << "||    |";
-						GotoXY(114, 23);
+						GotoXY(114, 28);
 						cout << "|\\ ___\\|    |";
-						GotoXY(114, 24);
+						GotoXY(114, 29);
 						cout << "| |  Enter  |";
-						GotoXY(115, 25);
+						GotoXY(115, 30);
 						cout << "\\|_________|";
 					}
 					else
 					{
-						GotoXY(88, 28);
+						GotoXY(79, 28);
 						cout << "|\\          Space          \\";
-						GotoXY(88, 29);
+						GotoXY(79, 29);
 						cout << "\\ \\_________________________\\";
-						GotoXY(89, 30);
+						GotoXY(80, 30);
 						cout << "\\|_________________________|";
 					}
 					validEnter = false;
@@ -392,24 +392,24 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 				SetColor(0);
 				if (_COMMAND == ENTER)
 				{
-					GotoXY(120, 21);
+					GotoXY(120, 26);
 					cout << "|\\____\\";
-					GotoXY(120, 22);
+					GotoXY(120, 27);
 					cout << "||    |";
-					GotoXY(114, 23);
+					GotoXY(114, 28);
 					cout << "|\\ ___\\|    |";
-					GotoXY(114, 24);
+					GotoXY(114, 29);
 					cout << "| |  Enter  |";
-					GotoXY(115, 25);
+					GotoXY(115, 30);
 					cout << "\\|_________|";
 				}
 				else
 				{
-					GotoXY(88, 28);
+					GotoXY(79, 28);
 					cout << "|\\          Space          \\";
-					GotoXY(88, 29);
+					GotoXY(79, 29);
 					cout << "\\ \\_________________________\\";
-					GotoXY(89, 30);
+					GotoXY(80, 30);
 					cout << "\\|_________________________|";
 				}
 				// Tiếp theo là kiểm tra và xử lý thắng/thua/hòa/tiếp tục
@@ -713,74 +713,74 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 				TextColor(2);
 				if (_COMMAND == 'W')
 				{
-					GotoXY(84, 21);
+					GotoXY(87, 20);
 					cout << "|\\ ___\\";
-					GotoXY(84, 22);
+					GotoXY(87, 21);
 					cout << "| | W |";
-					GotoXY(85, 23);
+					GotoXY(88, 22);
 					cout << "\\|___|";
 					MoveUp(_A, _X, _Y);
 					TextColor(255);
 					SetColor(0);
 					Sleep(50);
-					GotoXY(84, 21);
+					GotoXY(87, 20);
 					cout << "|\\ ___\\";
-					GotoXY(84, 22);
+					GotoXY(87, 21);
 					cout << "| | W |";
-					GotoXY(85, 23);
+					GotoXY(88, 22);
 					cout << "\\|___|";
 				}
 				else
 				{
-					GotoXY(84+17, 21);
+					GotoXY(84 + 34, 20);
 					cout << "|\\ ___\\";
-					GotoXY(84+17, 22);
+					GotoXY(84 + 34, 21);
 					cout << "| | ^ |";
-					GotoXY(85+17, 23);
+					GotoXY(85 + 34, 22);
 					cout << "\\|___|";
 					MoveUp(_A, _X, _Y);
 					TextColor(255);
 					SetColor(0);
 					Sleep(50);
-					GotoXY(84+17, 21);
+					GotoXY(84 + 34, 20);
 					cout << "|\\ ___\\";
-					GotoXY(84+17, 22);
+					GotoXY(84 + 34, 21);
 					cout << "| | ^ |";
-					GotoXY(85+17, 23);
+					GotoXY(85 + 34, 22);
 					cout << "\\|___|";
 				}
 			}
-			else if (_COMMAND == 'S' || _COMMAND == ARROW_DOWN) 
+			else if (_COMMAND == 'S' || _COMMAND == ARROW_DOWN)
 			{
 				TextColor(2);
-				if(_COMMAND == 'S')
+				if (_COMMAND == 'S')
 				{
-					GotoXY(86, 24);
+					GotoXY(89, 23);
 					cout << "| S |";
-					GotoXY(86, 25);
+					GotoXY(89, 24);
 					cout << "|___|";
 					MoveDown(_A, _X, _Y);
 					TextColor(255);
 					SetColor(0);
 					Sleep(50);
-					GotoXY(86, 24);
+					GotoXY(89, 23);
 					cout << "| S |";
-					GotoXY(86, 25);
+					GotoXY(89, 24);
 					cout << "|___|";
 				}
 				else
 				{
-					GotoXY(86+17, 24);
+					GotoXY(86 + 34, 23);
 					cout << "| v |";
-					GotoXY(86+17, 25);
+					GotoXY(86 + 34, 24);
 					cout << "|___|";
 					MoveDown(_A, _X, _Y);
 					TextColor(255);
 					SetColor(0);
 					Sleep(50);
-					GotoXY(86+17, 24);
+					GotoXY(86 + 34, 23);
 					cout << "| v |";
-					GotoXY(86+17, 25);
+					GotoXY(86 + 34, 24);
 					cout << "|___|";
 				}
 			}
@@ -789,82 +789,82 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 				TextColor(2);
 				if (_COMMAND == 'A')
 				{
-					GotoXY(80, 23);
+					GotoXY(83, 22);
 					cout << "|\\ __\\";
-					GotoXY(80, 24);
+					GotoXY(83, 23);
 					cout << "| | A ";
-					GotoXY(81, 25);
+					GotoXY(84, 24);
 					cout << "\\|___";
 					MoveLeft(_A, _X, _Y);
 					Sleep(50);
 					TextColor(255);
 					SetColor(0);
-					GotoXY(80, 23);
+					GotoXY(83, 22);
 					cout << "|\\ __\\";
-					GotoXY(80, 24);
+					GotoXY(83, 23);
 					cout << "| | A ";
-					GotoXY(81, 25);
+					GotoXY(84, 24);
 					cout << "\\|___";
 				}
 				else
 				{
-					GotoXY(80+17, 23);
+					GotoXY(80 + 34, 22);
 					cout << "|\\ __\\";
-					GotoXY(80+17, 24);
+					GotoXY(80 + 34, 23);
 					cout << "| | < ";
-					GotoXY(81+17, 25);
+					GotoXY(81 + 34, 24);
 					cout << "\\|___";
 					MoveLeft(_A, _X, _Y);
 					Sleep(50);
 					TextColor(255);
 					SetColor(0);
-					GotoXY(80+17, 23);
+					GotoXY(80 + 34, 22);
 					cout << "|\\ __\\";
-					GotoXY(80+17, 24);
+					GotoXY(80 + 34, 23);
 					cout << "| | < ";
-					GotoXY(81+17, 25);
+					GotoXY(81 + 34, 24);
 					cout << "\\|___";
 				}
 			}
-			else if (_COMMAND == 'D' || _COMMAND == ARROW_RIGHT) 
+			else if (_COMMAND == 'D' || _COMMAND == ARROW_RIGHT)
 			{
 				TextColor(2);
-				if(_COMMAND=='D')
+				if (_COMMAND == 'D')
 				{
-					GotoXY(90, 23);
+					GotoXY(93, 22);
 					cout << "| _\\";
-					GotoXY(90, 24);
+					GotoXY(93, 23);
 					cout << "| D |";
-					GotoXY(90, 25);
+					GotoXY(93, 24);
 					cout << "|___|";
 					MoveRight(_A, _X, _Y);
 					Sleep(50);
 					TextColor(255);
 					SetColor(0);
-					GotoXY(90, 23);
+					GotoXY(93, 22);
 					cout << "| _\\";
-					GotoXY(90, 24);
+					GotoXY(93, 23);
 					cout << "| D |";
-					GotoXY(90, 25);
+					GotoXY(93, 24);
 					cout << "|___|";
 				}
 				else
 				{
-					GotoXY(90+17, 23);
+					GotoXY(90 + 34, 22);
 					cout << "| _\\";
-					GotoXY(90+17, 24);
+					GotoXY(90 + 34, 23);
 					cout << "| > |";
-					GotoXY(90+17, 25);
+					GotoXY(90 + 34, 24);
 					cout << "|___|";
 					MoveRight(_A, _X, _Y);
 					Sleep(50);
 					TextColor(255);
 					SetColor(0);
-					GotoXY(90+17, 23);
+					GotoXY(90 + 34, 22);
 					cout << "| _\\";
-					GotoXY(90+17, 24);
+					GotoXY(90 + 34, 23);
 					cout << "| > |";
-					GotoXY(90+17, 25);
+					GotoXY(90 + 34, 24);
 					cout << "|___|";
 				}
 			}
@@ -875,6 +875,54 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 				{
 					SetColor(1);
 					printf("X");
+					TextColor(2);
+					if (_COMMAND == ENTER)
+					{
+						GotoXY(120, 26);
+						cout << "|\\____\\";
+						GotoXY(120, 27);
+						cout << "||    |";
+						GotoXY(114, 28);
+						cout << "|\\ ___\\|    |";
+						GotoXY(114, 29);
+						cout << "| |  Enter  |";
+						GotoXY(115, 30);
+						cout << "\\|_________|";
+					}
+					else
+					{
+						GotoXY(79, 28);
+						cout << "|\\          Space          \\";
+						GotoXY(79, 29);
+						cout << "\\ \\_________________________\\";
+						GotoXY(80, 30);
+						cout << "\\|_________________________|";
+					}
+					Sleep(50);
+					TextColor(255);
+					SetColor(0);
+					if (_COMMAND == ENTER)
+					{
+						GotoXY(120, 26);
+						cout << "|\\____\\";
+						GotoXY(120, 27);
+						cout << "||    |";
+						GotoXY(114, 28);
+						cout << "|\\ ___\\|    |";
+						GotoXY(114, 29);
+						cout << "| |  Enter  |";
+						GotoXY(115, 30);
+						cout << "\\|_________|";
+					}
+					else
+					{
+						GotoXY(79, 28);
+						cout << "|\\          Space          \\";
+						GotoXY(79, 29);
+						cout << "\\ \\_________________________\\";
+						GotoXY(80, 30);
+						cout << "\\|_________________________|";
+					}
 					break;
 				}
 				case 0: validEnter = false;
