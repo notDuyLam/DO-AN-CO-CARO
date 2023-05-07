@@ -877,6 +877,114 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						exit(0);
 					}
 					break;
+					case 32:
+						backToOriginalMenu = true;
+						//PlaySOUNDEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
+						if (y == 20)
+						{
+							vsComputer = false;
+							SetPlayer(_PLAYER1, _PLAYER2);
+							Loading();
+							TextColor(255);
+							StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2, vsComputer);
+							RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
+						}
+						if (y == 21)
+						{
+							vsComputer = true;
+							Loading();
+							TextColor(255);
+							StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2, vsComputer);
+							PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
+							//Danh voi may
+						}
+						if (y == 22)
+						{
+							for (int i = 6; i < 28; i++)
+							{
+								for (int j = 6; j < 80; j++)
+								{
+									GotoXY(j, i);
+									cout << " ";
+
+								}
+							}
+							SetColor(0);
+							printCaro(6, 4);
+							GotoXY(10, 10);
+							//Loading();
+							TextColor(255);
+							int loadOption;
+							loadOption = SelectMenu(LoadingMenu());
+							if (loadOption == -1) break;
+							else
+							{
+								Loading();
+								TextColor(255);
+								LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, chedo);
+								if (chedo == 2)
+									RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
+								if (chedo == 3)
+									PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
+								break;
+							}
+						}
+						if (y == 23)
+						{
+							//Menu HELP trong game
+							for (int i = 6; i < 28; i++)
+							{
+								for (int j = 6; j < 80; j++)
+								{
+									GotoXY(j, i);
+									cout << " ";
+
+								}
+							}
+							SetColor(0);
+							printCaro(27, 7);
+							GotoXY(10, 10);
+							//Loading();
+							TextColor(255);
+							HELP();
+						}
+						if (y == 24)
+						{
+							//About
+							for (int i = 6; i < 28; i++)
+							{
+								for (int j = 6; j < 80; j++)
+								{
+									GotoXY(j, i);
+									cout << " ";
+
+								}
+							}
+							SetColor(0);
+							printCaro(27, 7);
+							GotoXY(10, 10);
+							//Loading();
+							About();
+						}
+						if (y == 25)
+						{
+							//SOUND
+							//Loading();
+							TextColor(255);
+							Sound(MO_NHAC);
+						}
+						if (y == 26)
+						{
+							// Hiện ranking ở đây
+						}
+						if (y == 27)
+						{
+							//Loading();
+							TextColor(255);
+							system("cls");
+							exit(0);
+						}
+						break;
 				}
 				if (backToOriginalMenu)
 				{
