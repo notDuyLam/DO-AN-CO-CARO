@@ -101,6 +101,7 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 {
 	switch (pWhoWin) {
 	case -1:
+		_PLAYER1.wins++;
 		PlaySoundEffect("win.wav", MO_NHAC);
 		NhapNhayQuanCo(_A, toadothang, pWhoWin);
 		ThongBaoWin(pWhoWin, _A);
@@ -111,6 +112,7 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 		SavePlayer(_PLAYER1);
 		break;
 	case 1:
+		_PLAYER2.wins++;
 		PlaySoundEffect("win", MO_NHAC);
 		NhapNhayQuanCo(_A, toadothang, pWhoWin);
 		ThongBaoWin(pWhoWin, _A);
@@ -855,7 +857,6 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(0);
 						printCaro(27,7);
 						GotoXY(10, 10);
-						//Loading();
 						About();
 					}
 					if (y == 25)
@@ -867,7 +868,19 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 26)
 					{
+						for (int i = 6; i < 28; i++)
+						{
+							for (int j = 6; j < 83; j++)
+							{
+								GotoXY(j, i);
+								cout << " ";
+
+							}
+						}
+						SetColor(0);
+						printCaro(27, 7);
 						// Hiện ranking ở đây
+						ShowRank();
 					}
 					if (y == 27)
 					{
@@ -1226,17 +1239,17 @@ void About()
 	GotoXY(20, 15);
 	cout << "DO AN GAME CARO - LOP 22CTT4 - HCMUS" << endl;
 	GotoXY(20, 17);
-	cout << "-> Ho ten : NGUYEN DUY LAM " << "| 22120181 "<< "| 22CTT4"<< endl;
+	cout << "Ho ten: NGUYEN DUY LAM     " << "| 22120181 " << "| 22CTT4"<< endl;
 	GotoXY(20, 18);
-	cout << "-> Ho ten : DOAN THI MINH ANH " << "| 22120213 "<< "| 22CTT4"<< endl;
+	cout << "Ho ten: DOAN THI MINH ANH  " << "| 22120213 " << "| 22CTT4"<< endl;
 	GotoXY(20, 19);
-	cout << "-> Ho ten : NGUYEN THI TU NGOC " << "| 22120233 "<< "| 22CTT4"<< endl;
+	cout << "Ho ten: NGUYEN THI TU NGOC " << "| 22120233 " << "| 22CTT4"<< endl;
 	GotoXY(20, 20);
-	cout << "-> Ho ten : TANG SENH MANH " << "| 22120202 " << "| 22CTT4"<< endl;
+	cout << "Ho ten: TANG SENH MANH     " << "| 22120202 " << "| 22CTT4"<< endl;
 	GotoXY(20, 22);
-	cout << "-> GV huong dan : Truong Toan Thinh " << endl;
+	cout << "__GV huong dan: Truong Toan Thinh__" << endl;
 	GotoXY(20, 23);
-	cout << "-> Chuc moi nguoi choi game vui ve !!" << endl;
+	cout << "Chuc moi nguoi choi game vui ve!!" << endl;
 	PrintText("Press ESC to return to MENU...", 8, 30, 28);
 	char command = ' ';
 	command = _getch();
@@ -2158,6 +2171,28 @@ void Loading()
 	}
 	Sleep(10);
 	system("cls");
+}
+void ShowRank()
+{
+	int x = 35;
+	int y = 13;
+	std::vector<_PLAYER> players = GetPlayerList();
+
+	PrintText("+------------------+", 253, x-2, y + 2);
+	PrintText("| ~TOP 10 PLAYERS~ |", 253, x-2, y + 3);
+	PrintText("+------------------+", 253, x-2, y + 4);
+	PrintText("[Master King] " + players.at(0).name, 252, x - 2, y + 6);
+	PrintText("[King] " + players.at(1).name, 251, x - 2, y + 7);
+	for (int i = 2; i < 10; i++)
+	{
+		PrintText("[Master] " + players.at(i).name, 249, x - 2, y + 6 + i);
+	}
+	SetColor(8);
+	GotoXY(30, 29);
+	cout << "Press any key to continue";
+	SetColor(0);
+	char command = ' ';
+	command = _getch();
 }
 
 

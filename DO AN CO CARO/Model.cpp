@@ -512,6 +512,7 @@ void SaveData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYE
 
 	saveFile.close();
 }
+
 void SavePlayer(_PLAYER player)
 {
 	int exist = CheckPlayerExistence(player);
