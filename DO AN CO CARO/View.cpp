@@ -104,27 +104,27 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 		PlaySoundEffect("win.wav", MO_NHAC);
 		NhapNhayQuanCo(_A, toadothang, pWhoWin);
 		ThongBaoWin(pWhoWin, _A);
-		GotoXY(78,18); // Nhảy tới vị trí 
-		// thích hợp để in chuỗi thắng/thua/hòa
-		//printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", true, false);
-		cout << "Nguoi choi " << _PLAYER1.name << " da thang va nguoi choi " << _PLAYER2.name << " da thua.";
+		//GotoXY(78,18); // Nhảy tới vị trí 
+		//// thích hợp để in chuỗi thắng/thua/hòa
+		////printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", true, false);
+		//cout << "Nguoi choi " << _PLAYER1.name << " da thang va nguoi choi " << _PLAYER2.name << " da thua.";
 		SavePlayer(_PLAYER1);
 		break;
 	case 1:
 		PlaySoundEffect("win", MO_NHAC);
 		NhapNhayQuanCo(_A, toadothang, pWhoWin);
 		ThongBaoWin(pWhoWin, _A);
-		GotoXY(78,18); // Nhảy tới vị trí 
-		// thích hợp để in chuỗi thắng/thua/hòa
-		//printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", false, true);
-		cout << "Nguoi choi " << _PLAYER2.name << " da thang va nguoi choi " << _PLAYER1.name << " da thua.";
+		//GotoXY(78,18); // Nhảy tới vị trí 
+		//// thích hợp để in chuỗi thắng/thua/hòa
+		////printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", false, true);
+		//cout << "Nguoi choi " << _PLAYER2.name << " da thang va nguoi choi " << _PLAYER1.name << " da thua.";
 		SavePlayer(_PLAYER2);
 		break;
 	case 0:
 		//printf("Nguoi choi %d da hoa nguoi choi %d\n", false, true);
 		ThongBaoWin(pWhoWin, _A);
-		GotoXY(78,18);
-		cout << "Nguoi choi " << _PLAYER2.name << " da hoa nguoi choi " << _PLAYER1.name;
+		/*GotoXY(78,18);
+		cout << "Nguoi choi " << _PLAYER2.name << " da hoa nguoi choi " << _PLAYER1.name;*/
 		break;
 	case 2:
 		_TURN = !_TURN; // Đổi lượt nếu không có gì xảy ra
@@ -138,65 +138,74 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 
 void XWin(_POINT _A[][BOARD_SIZE])
 {
+	GotoXY(72, 2);
+	cout << "                                                                    ";
 	GotoXY(72, 3);
-	cout << "                                                               ";
+	cout << "                                                                    ";
 	GotoXY(72, 4);
-	cout << " Y888b     d888P     8888         8888 88888888 888b      8888";
+	cout << " Y888b     d888P     8888         8888 88888888 888b      8888   ";
 	GotoXY(72, 5);
-	cout << "  Y888b   d888P      8888         8888   8888   8888b     8888";
+	cout << "  Y888b   d888P      8888         8888   8888   8888b     8888   ";
 	GotoXY(72, 6);
-	cout << "   Y888b d888P       8888         8888   8888   88888b    8888";
+	cout << "   Y888b d888P       8888         8888   8888   88888b    8888   ";
 	GotoXY(72, 7);
-	cout << "    Y888o888P        8888    o    8888   8888   888888b   8888 ";
+	cout << "    Y888o888P        8888    o    8888   8888   888888b   8888   ";
 	GotoXY(72, 8);
-	cout << "     Y88898P         8888   d8b   8888   8888   8888Y88b  8888 ";
+	cout << "     Y88888P         8888   d8b   8888   8888   8888Y88b  8888   ";
 	GotoXY(72, 9);
-	cout << "     d88888b         8888  d888b  8888   8888   8888Y888b88888 ";
+	cout << "     d88888b         8888  d888b  8888   8888   8888Y888b88888   ";
 	GotoXY(72, 10);
-	cout << "    d8888888b        8888 d8   8b 8888   8888   8888  Y888b888 ";
+	cout << "    d8888888b        8888 d8   8b 8888   8888   8888  Y888b888   ";
 	GotoXY(72, 11);
-	cout << "   d888P Y888b       88888d     b88888   8898   8888   Y888888 ";
+	cout << "   d888P Y888b       88888d     b88888   8898   8888   Y888888   ";
 	GotoXY(72, 12);
-	cout << "  d888P   Y888b      8888P       Y8888   8888   8888    Y88888  ";
+	cout << "  d888P   Y888b      8888P       Y8888   8888   8888    Y88888   ";
 	GotoXY(72, 13);
-	cout << " d888P     Y888b     888P         Y888 88888888 8888     Y8888  ";
+	cout << " d888P     Y888b     888P         Y888 88888888 8888     Y8888    ";
 	GotoXY(72, 14);
 	cout << "                                                                  ";
+	GotoXY(72, 15);
+	cout << "                                                                    ";
 }
 
 void OWin(_POINT _A[][BOARD_SIZE])
 {
+	GotoXY(70, 2);
+	cout << "                                                                    ";
 	GotoXY(70, 3);
-	cout << "                                                               ";
+	cout << "                                                                    ";
 	GotoXY(70, 4);
-	cout << "    .d88888888b.        8888         8888 88888888 888b      8888 ";
+	cout << "    .d88888888b.        8888         8888 88888888 888b      8888  ";
 	GotoXY(70, 5);
-	cout << "   d888888888888b       8888         8888   8888   8888b     8888 ";
+	cout << "   d888888888888b       8888         8888   8888   8888b     8888  ";
 	GotoXY(70, 6);
-	cout << "  d888P'    'Y888b      8888         8888   8888   88888b    8888 ";
+	cout << "  d888P'    'Y888b      8888         8888   8888   88888b    8888  ";
 	GotoXY(70, 7);
-	cout << "  8888        8888      8888    o    8888   8888   888888b   8888 ";
+	cout << "  8888        8888      8888    o    8888   8888   888888b   8888  ";
 	GotoXY(70, 8);
-	cout << "  8888        8888      8888   d8b   8888   8888   8888Y88b  8888 ";
+	cout << "  8888        8888      8888   d8b   8888   8888   8888Y88b  8888  ";
 	GotoXY(70, 9);
-	cout << "  8888        8888      8888  d888b  8888   8888   8888Y888b88888 ";
+	cout << "  8888        8888      8888  d888b  8888   8888   8888Y888b88888  ";
 	GotoXY(70, 10);
-	cout << "  8888        8888      8888 d8   8b 8888   8888   8888  Y888b888 ";
+	cout << "  8888        8888      8888 d8   8b 8888   8888   8888  Y888b888  ";
 	GotoXY(70, 11);
-	cout << "  Y888b.    .d886P      88888d     b88888   8898   8888   Y888888 ";
+	cout << "  Y888b.    .d886P      88888d     b88888   8898   8888   Y888888  ";
 	GotoXY(70, 12);
-	cout << "   Y888888888886P       8888P       Y8888   8888   8888    Y88888 ";
+	cout << "   Y888888888886P       8888P       Y8888   8888   8888    Y88888  ";
 	GotoXY(70, 13);
-	cout << "    'Y88888888P'        888P         Y888 88888888 8888     Y8888 ";
+	cout << "    'Y88888888P'        888P         Y888 88888888 8888     Y8888  ";
 	GotoXY(70, 14);
-	cout << "                                                                  ";
-
+	cout << "                                                                    ";
+	GotoXY(70, 15);
+	cout << "                                                                    ";
 }
 
 void Draw(_POINT _A[][BOARD_SIZE])
 {
+	GotoXY(70, 2);
+	cout << "                                                                      ";
 	GotoXY(70, 3);
-	cout << "                                                                  ";
+	cout << "                                                                       ";
 	GotoXY(70, 4);
 	cout << "  88888888b.     88888888b.              d8888888  8888         8888";
 	GotoXY(70, 5);
@@ -218,8 +227,9 @@ void Draw(_POINT _A[][BOARD_SIZE])
 	GotoXY(70, 13);
 	cout << "  88888888P'     8888     T888b d888P        8888  888P         Y888";
 	GotoXY(70, 14);
-	cout << "                                                                  ";
-
+	cout << "                                                                   ";
+	GotoXY(70, 15);
+	cout << "                                                                    ";
 }
 
 void ThongBaoWin(int pWhoWin, _POINT _A[][BOARD_SIZE])
@@ -909,19 +919,19 @@ void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 	//DrawBox(255, 30, 10, start, 2);
 	if ((_TURN) == 1)
 	{
-		DrawBigText("X.txt", 1, start, 3);
-		DrawBigText("O.txt", 255, start + 40, 3);
+		DrawBigText("X.txt", 1, start, 2);
+		DrawBigText("O.txt", 247, start + 40, 2);
 		//Them ten
-		PrintText("PLAYER X: " + _PLAYER1.name, 1, start+3, 16);
-		PrintText("PLAYER O: "+ _PLAYER2.name, 255, start + 40 + 7, 16);
+		PrintText("PLAYER X: " + _PLAYER1.name, 1, start+3, 15);
+		PrintText("PLAYER O: "+ _PLAYER2.name, 247, start + 40 + 7, 15);
 	}
 	else if ((_TURN) == 0)
 	{
-		DrawBigText("O.txt", 2, start + 40, 3);
-		DrawBigText("X.txt", 255, start, 3);
+		DrawBigText("O.txt", 2, start + 40, 2);
+		DrawBigText("X.txt", 247, start, 2);
 		//Them ten
-		PrintText("PLAYER X: " + _PLAYER1.name, 255, start+3, 16);
-		PrintText("PLAYER O: " + _PLAYER2.name, 2, start + 40+7, 16);
+		PrintText("PLAYER X: " + _PLAYER1.name, 247, start+3, 15);
+		PrintText("PLAYER O: " + _PLAYER2.name, 2, start + 40+7, 15);
 	}
 	//DrawBigText((_TURN) ? "X.txt" : "O.txt", (_TURN) ? 1 : 2, start, 2);
 	//DrawBox(255, 20, 1, start - 2, 14);
@@ -1736,6 +1746,7 @@ void printBigCaro(int x, int y)
 	for (int i = 0;i < 5;i++)
 		cout << (char)219;
 	cout << char(186);
+	SetColor(249);
 	GotoXY(x, y + 4);
 	//cout << char(32) << char(32);
 	for (int i = 0;i < 5;i++)
@@ -1809,6 +1820,7 @@ void printBigCaro(int x, int y)
 	for (int i = 0;i < 5;i++)
 		cout << (char)219;
 	cout << char(186);
+	SetColor(243);
 	GotoXY(x, y + 7);
 	//cout << char(32) << char(32);
 	for (int i = 0;i < 5;i++)
@@ -1864,6 +1876,7 @@ void printBigCaro(int x, int y)
 	for (int i = 0;i < 16;i++)
 		cout << char(219);
 	cout << char(186);
+	SetColor(251);
 	GotoXY(x, y + 9);
 	cout  << char(200);
 	for (int i = 0;i < 15;i++)
@@ -1919,6 +1932,7 @@ void printBigCaro(int x, int y)
 	for (int i = 0;i < 13;i++)
 		cout << char(205);
 	cout << char(188);
+	SetColor(1);
 	GotoXY(x, y + 11);
 	cout << "                        ----  By Team 15  ----";
 }
@@ -1932,6 +1946,8 @@ void printBigCaro(int x, int y)
 
 void Loading()
 {
+	int a[10] = { 17,17,17,17,153,153,153,51,51,187 };
+	int b[10] = { 31,31,31,31,159,159,159,63,63,191 };
 	system("cls");
 	int x = 25;
 	int y = 13;
@@ -1963,12 +1979,12 @@ void Loading()
 	{
 		//textcolor(111);
 		//SetColor(9);
-		PrintText("        ", 0, x += 8, y + 1);
+		PrintText("        ", a[i-1], x += 8, y + 1);
 		//TextColor(0 +rand() % 100);
 		//textcolor(111);
 		//GotoXY(x+=8, y +1);
 		//cout << "     ";
-		TextColor(11);
+		TextColor(b[i-1]);
 		GotoXY(x+7, y+1);
 		cout << i * 10 << "%";
 
