@@ -1027,19 +1027,32 @@ void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 	//DrawBox(255, 30, 10, start, 2);
 	if ((_TURN) == 1)
 	{
+		SetColor(1);
+		GotoXY(start+5, 15);
+		cout << "So quan X: " << CountX(_A);
+		SetColor(247);
+		GotoXY(start+46, 15);
+		cout << "So quan O: " << CountO(_A);
 		DrawBigText("X.txt", 1, start, 2);
 		DrawBigText("O.txt", 247, start + 40, 2);
 		//Them ten
-		PrintText("PLAYER X: " + _PLAYER1.name, 1, start+3, 15);
-		PrintText("PLAYER O: "+ _PLAYER2.name, 247, start + 40 + 7, 15);
+		PrintText("PLAYER X: " + _PLAYER1.name, 1, start, 1);
+		PrintText("PLAYER O: "+ _PLAYER2.name, 247, start + 42, 1);
+		
 	}
 	else if ((_TURN) == 0)
 	{
+		SetColor(247);
+		GotoXY(start+5, 15);
+		cout << "So quan X: " << CountX(_A);
+		SetColor(2);
+		GotoXY(start + 46, 15);
+		cout << "So quan O: " << CountO(_A);
 		DrawBigText("O.txt", 2, start + 40, 2);
 		DrawBigText("X.txt", 247, start, 2);
 		//Them ten
-		PrintText("PLAYER X: " + _PLAYER1.name, 247, start+3, 15);
-		PrintText("PLAYER O: " + _PLAYER2.name, 2, start + 40+7, 15);
+		PrintText("PLAYER X: " + _PLAYER1.name, 247, start, 1);
+		PrintText("PLAYER O: " + _PLAYER2.name, 2, start +42, 1);
 	}
 	//DrawBigText((_TURN) ? "X.txt" : "O.txt", (_TURN) ? 1 : 2, start, 2);
 	//DrawBox(255, 20, 1, start - 2, 14);
