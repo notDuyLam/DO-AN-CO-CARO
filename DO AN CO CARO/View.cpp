@@ -1275,11 +1275,11 @@ void Sound(bool& MO_NHAC)
 		backToOriginalMenu = false;
 		x = 50, y = 20;
 		SetColor(4);
-		drawButton(100, 8, "Tat nhac nen");
+		drawButton(100, 8, "Turn OFF music");
 		SetColor(0);
-		drawButton(100, 11, "Bat nhac nen");
-		drawButton(100, 14, "Doi bai");
-		drawButton(100, 17, "Tat hieu ung am thanh");
+		drawButton(100, 11, "Turn ON music");
+		drawButton(100, 14, "Change song");
+		drawButton(100, 17, "ON/OFF sound effects");
 		drawButton(100, 20, "Back");
 		SetColor(8);
 		GotoXY(98, 29); cout << "_____ W A S D: MOVE _____";
@@ -1303,53 +1303,53 @@ void Sound(bool& MO_NHAC)
 					if (y == 20)
 					{
 						SetColor(4);
-						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 8, "Turn OFF music");
 						SetColor(0);
-						drawButton(100, 11, "Bat nhac nen");
-						drawButton(100, 14, "Doi bai");
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 11, "Turn ON music");
+						drawButton(100, 14, "Change song");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						drawButton(100, 20, "Back");
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 8, "Turn OFF music");
 						SetColor(4);
-						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 11, "Turn ON music");
 						SetColor(0);
-						drawButton(100, 14, "Doi bai");
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 14, "Change song");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						drawButton(100, 20, "Back");
 					}
 					if (y == 22)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Tat nhac nen");
-						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 8, "Turn OFF music");
+						drawButton(100, 11, "Turn ON music");
 						SetColor(4);
-						drawButton(100, 14, "Doi bai");
+						drawButton(100, 14, "Change song");
 						SetColor(0);
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						drawButton(100, 20, "Back");
 					}
 					if (y == 23)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Tat nhac nen");
-						drawButton(100, 11, "Bat nhac nen");
-						drawButton(100, 14, "Doi bai");
+						drawButton(100, 8, "Turn OFF music");
+						drawButton(100, 11, "Turn ON music");
+						drawButton(100, 14, "Change song");
 						SetColor(4);
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						SetColor(0);
 						drawButton(100, 20, "Back");
 					}
 					if (y == 24)
 					{
-						drawButton(100, 8, "Tat nhac nen");
-						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 8, "Turn OFF music");
+						drawButton(100, 11, "Turn ON music");
 						SetColor(4);
-						drawButton(100, 14, "Doi bai");
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 14, "Change song");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						SetColor(0);
 						drawButton(100, 20, "Back");
 					}
@@ -1363,53 +1363,53 @@ void Sound(bool& MO_NHAC)
 					if (y == 20)
 					{
 						SetColor(4);
-						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 8, "Turn OFF music");
 						SetColor(0);
-						drawButton(100, 11, "Bat nhac nen");
-						drawButton(100, 14, "Doi bai");
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 11, "Turn ON music");
+						drawButton(100, 14, "Change song");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						drawButton(100, 20, "Back");
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 8, "Turn OFF music");
 						SetColor(4);
-						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 11, "Turn ON music");
 						SetColor(0);
-						drawButton(100, 14, "Doi bai");
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 14, "Change song");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						drawButton(100, 20, "Back");
 					}
 					if (y == 22)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Tat nhac nen");
-						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 8, "Turn OFF music");
+						drawButton(100, 11, "Turn ON music");
 						SetColor(4);
-						drawButton(100, 14, "Doi bai");
+						drawButton(100, 14, "Change song");
 						SetColor(0);
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						drawButton(100, 20, "Back");
 					}
 					if (y == 23)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Tat nhac nen");
-						drawButton(100, 11, "Bat nhac nen");
-						drawButton(100, 14, "Doi bai");
+						drawButton(100, 8, "Turn OFF music");
+						drawButton(100, 11, "Turn ON music");
+						drawButton(100, 14, "Change song");
 						SetColor(4);
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						SetColor(0);
 						drawButton(100, 20, "Back");
 					}
 					if (y == 24)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Tat nhac nen");
-						drawButton(100, 11, "Bat nhac nen");
-						drawButton(100, 14, "Doi bai");
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 8, "Turn OFF music");
+						drawButton(100, 11, "Turn ON music");
+						drawButton(100, 14, "Change song");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						SetColor(4);
 						drawButton(100, 20, "Back");
 					}
@@ -1423,53 +1423,53 @@ void Sound(bool& MO_NHAC)
 					if (y == 20)
 					{
 						SetColor(4);
-						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 8, "Turn OFF music");
 						SetColor(0);
-						drawButton(100, 11, "Bat nhac nen");
-						drawButton(100, 14, "Doi bai");
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 11, "Turn ON music");
+						drawButton(100, 14, "Change song");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						drawButton(100, 20, "Back");
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 8, "Turn OFF music");
 						SetColor(4);
-						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 11, "Turn ON music");
 						SetColor(0);
-						drawButton(100, 14, "Doi bai");
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 14, "Change song");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						drawButton(100, 20, "Back");
 					}
 					if (y == 22)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Tat nhac nen");
-						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 8, "Turn OFF music");
+						drawButton(100, 11, "Turn ON music");
 						SetColor(4);
-						drawButton(100, 14, "Doi bai");
+						drawButton(100, 14, "Change song");
 						SetColor(0);
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						drawButton(100, 20, "Back");
 					}
 					if (y == 23)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Tat nhac nen");
-						drawButton(100, 11, "Bat nhac nen");
-						drawButton(100, 14, "Doi bai");
+						drawButton(100, 8, "Turn OFF music");
+						drawButton(100, 11, "Turn ON music");
+						drawButton(100, 14, "Change song");
 						SetColor(4);
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						SetColor(0);
 						drawButton(100, 20, "Back");
 					}
 					if (y == 24)
 					{
-						drawButton(100, 8, "Tat nhac nen");
-						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 8, "Turn OFF music");
+						drawButton(100, 11, "Turn ON music");
 						SetColor(4);
-						drawButton(100, 14, "Doi bai");
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 14, "Change song");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						SetColor(0);
 						drawButton(100, 20, "Back");
 					}
@@ -1483,53 +1483,53 @@ void Sound(bool& MO_NHAC)
 					if (y == 20)
 					{
 						SetColor(4);
-						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 8, "Turn OFF music");
 						SetColor(0);
-						drawButton(100, 11, "Bat nhac nen");
-						drawButton(100, 14, "Doi bai");
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 11, "Turn ON music");
+						drawButton(100, 14, "Change song");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						drawButton(100, 20, "Back");
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Tat nhac nen");
+						drawButton(100, 8, "Turn OFF music");
 						SetColor(4);
-						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 11, "Turn ON music");
 						SetColor(0);
-						drawButton(100, 14, "Doi bai");
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 14, "Change song");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						drawButton(100, 20, "Back");
 					}
 					if (y == 22)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Tat nhac nen");
-						drawButton(100, 11, "Bat nhac nen");
+						drawButton(100, 8, "Turn OFF music");
+						drawButton(100, 11, "Turn ON music");
 						SetColor(4);
-						drawButton(100, 14, "Doi bai");
+						drawButton(100, 14, "Change song");
 						SetColor(0);
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						drawButton(100, 20, "Back");
 					}
 					if (y == 23)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Tat nhac nen");
-						drawButton(100, 11, "Bat nhac nen");
-						drawButton(100, 14, "Doi bai");
+						drawButton(100, 8, "Turn OFF music");
+						drawButton(100, 11, "Turn ON music");
+						drawButton(100, 14, "Change song");
 						SetColor(4);
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						SetColor(0);
 						drawButton(100, 20, "Back");
 					}
 					if (y == 24)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Tat nhac nen");
-						drawButton(100, 11, "Bat nhac nen");
-						drawButton(100, 14, "Doi bai");
-						drawButton(100, 17, "Tat hieu ung am thanh");
+						drawButton(100, 8, "Turn OFF music");
+						drawButton(100, 11, "Turn ON music");
+						drawButton(100, 14, "Change song");
+						drawButton(100, 17, "Turn ON/OFF sound effects");
 						SetColor(4);
 						drawButton(100, 20, "Back");
 					}
