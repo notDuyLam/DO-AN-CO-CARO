@@ -19,6 +19,7 @@ int main() {
 	system("cls");
 	int chedo;
 	bool MO_NHAC = true;
-	ScreenStartGame(n, _A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC, chedo, _PLAYER1, _PLAYER2);
+	int song = 0;
+	ScreenStartGame(n, _A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC, chedo, _PLAYER1, _PLAYER2, song);
 	return 0;
 }
