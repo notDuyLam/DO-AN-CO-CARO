@@ -357,7 +357,6 @@ int AskContinue(_POINT _A[][BOARD_SIZE])
 void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC, int& chedo, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 {
 	int song = 0;
-	bool vsComputer;
 	PlayBackGroundMusic(song);
 	int x = 0, y = 0;
 	drawFrame(0, 0, 145, 33);
@@ -908,20 +907,19 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					if (y == 20)
 					{
 						ShowCur(1);
-						vsComputer = false;
 						SetPlayer(_PLAYER1, _PLAYER2);
 						Loading();
 						TextColor(255);
-						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2, vsComputer);
+						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
 						RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
 					}
 					if (y == 21)
 					{
 						ShowCur(1);
-						vsComputer = true;
+						SetPlayerVsComputer(_PLAYER1, _PLAYER2);
 						Loading();
 						TextColor(255);
-						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2, vsComputer);
+						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
 						PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
 						//Danh voi may
 					}
@@ -1029,19 +1027,17 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						//PlaySOUNDEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
 						if (y == 20)
 						{
-							vsComputer = false;
 							SetPlayer(_PLAYER1, _PLAYER2);
 							Loading();
 							TextColor(255);
-							StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2, vsComputer);
+							StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
 							RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
 						}
 						if (y == 21)
 						{
-							vsComputer = true;
 							Loading();
 							TextColor(255);
-							StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2, vsComputer);
+							StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
 							PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
 							//Danh voi may
 						}
@@ -1301,12 +1297,6 @@ _MENU EscMenu(_POINT _A[][BOARD_SIZE])
 	//PrintText("    Exit game   ", 0, menu.x-22, menu.y -7);
 	drawButton((menu.x - 23), (menu.y - 4), "Exit game");
 	return menu;
-}
-void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2)
-{
-	int start = _A[0][BOARD_SIZE - 1].x + 4;
-
-	//DrawBoard(3, 3, 10, 1, start, 17);
 }
 void HELP()
 {
@@ -2333,7 +2323,18 @@ void ShowRank()
 	char command = ' ';
 	command = _getch();
 }
-
+void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2)
+{
+	int start = _A[0][BOARD_SIZE - 1].x + 4;
+	PrintText(_PLAYER1.name, 253, start + 12, 18);
+	PrintText("Win games", 253, start + 1, 20);
+	PrintText(std::to_string(_PLAYER1.wins), 253, start + 12, 20);
+	PrintText("Rank", 253, start + 1, 22);
+	PrintText(std::to_string(_PLAYER1.rank), 253, start + 12, 22);
+	PrintText(_PLAYER2.name, 253, start + 23, 18);
+	PrintText(std::to_string(_PLAYER2.wins), 253, start + 23, 20);
+	PrintText(std::to_string(_PLAYER2.rank), 253, start + 23, 22);
+}
 
 
                                                        

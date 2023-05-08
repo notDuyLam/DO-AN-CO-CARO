@@ -1,17 +1,13 @@
 ﻿#include "Control.h"
 
 
-void StartGame(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int& _Y, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& vsComputer)
+void StartGame(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int& _Y, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 {
-	if(!vsComputer)
-	{
-		SetPlayerRank(_PLAYER1);
-		SetPlayerRank(_PLAYER2);
-	}
+	SetPlayerRank(_PLAYER1);
+	SetPlayerRank(_PLAYER2);
 	system("cls");
 	ResetData(_A, _TURN, _COMMAND, _X, _Y); // Khởi tạo dữ liệu gốc
 	DrawBoard(BOARD_SIZE); // Vẽ màn hình game
-	
 	/*int x = _A[0][0].x;
 	int y = _A[0][0].y;
 	GotoXY(x, y);*/
@@ -118,7 +114,6 @@ void MoveUp(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
 void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, bool& MO_NHAC, int& chedo)
 {
 	chedo = 2;
-	bool vsComputer = false;
 	bool validEnter = true;
 	bool runGame = true;
 	int escOption;
@@ -126,7 +121,7 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 	//PlaySoundA("NhacGame.wav", NULL, SND_ASYNC | SND_LOOP);
 	while (runGame)
 	{
-		//ShowPlayerInfo(_A, _PLAYER1, _PLAYER2);
+		ShowPlayerInfo(_A, _PLAYER1, _PLAYER2);
 		GotoXY(_X, _Y);
 		_COMMAND = toupper(_getch());
 		if (_COMMAND == ESC)
@@ -421,7 +416,7 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 							system("cls");
 							return;
 						}
-						else StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2, vsComputer);
+						else StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
 					}
 				}
 				validEnter = true; // Mở khóa
@@ -760,7 +755,6 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 	FixConsoleWindow();
 	//StartGame(_A, _TURN, _COMMAND, _X, _Y);
 	StopMusic();
-	bool vsComputer = true;
 	chedo = 3;
 	int escOption;
 	short int toadothang[24];
@@ -768,6 +762,7 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 	GotoXY(_X, _Y);
 	while (runGame)
 	{
+		ShowPlayerInfo(_A, _PLAYER1, _PLAYER2);
 		GotoXY(_X, _Y);
 		if (_TURN == true)
 		{
@@ -1004,7 +999,7 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 							system("cls");
 							return;
 						}
-						else StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2, vsComputer);
+						else StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
 					}
 				}
 				validEnter = true; // Mở khóa
@@ -1034,7 +1029,7 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 						system("cls");
 						return;
 					}
-					else StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2, vsComputer);
+					else StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
 				}
 			}
 			validEnter = true; // Mở khóa

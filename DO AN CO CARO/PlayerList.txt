@@ -28,6 +28,8 @@ char
 1
 traibk
 1
+
+1
 who
 0
 conga
@@ -56,5 +58,7 @@ trap
 0
 uho
 0
-
+computer
+0
+CARO_AI
 0

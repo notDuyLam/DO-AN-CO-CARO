@@ -1140,3 +1140,19 @@ void SetPlayer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 	_PLAYER1 = LoadPlayer(_PLAYER1);
 	_PLAYER2 = LoadPlayer(_PLAYER2);
 }
+
+void SetPlayerVsComputer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
+{
+	system("cls");
+	do
+	{
+		//PrintText("Enter Player1's name (2-10 characters): ", 252, X_CENTER - 24, Y_CENTER);
+		GotoXY(X_CENTER - 24, Y_CENTER); cout << "Enter Player's name (2-10 characters): ";
+		std::getline(cin, _PLAYER1.name);
+		// ve khung o day
+	} while (_PLAYER1.name.length() < 2 || _PLAYER1.name.length() > 10);
+	_PLAYER2.name = "CARO_AI";
+	_PLAYER1 = LoadPlayer(_PLAYER1);
+	_PLAYER2 = LoadPlayer(_PLAYER2);
+}
+
