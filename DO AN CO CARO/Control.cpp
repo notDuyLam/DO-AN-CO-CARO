@@ -452,26 +452,90 @@ void SaveGame(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 	string filename;
 	char key;
 	int option;
-
+	int x = 53;
 	do
 	{
-		system("cls");
-		PrintText("Nhap ten muon luu game: ", 0, X_CENTER-40, Y_CENTER-10);
+		GotoXY(x, 10+3); SetColor(3); for (int i = x; i <= x + 50; i++) cout << (char)178;
+		GotoXY(x, 11 + 3); cout << (char)178 << "                                                 " << (char)178;
+		GotoXY(x, 12+3); cout << (char)178 << "                                                 " << (char)178;
+		GotoXY(x, 13+3); cout << (char)178 << "   Enter the name for your board:                " << (char)178;
+		GotoXY(x, 14 + 3); cout << (char)178 << "                                                 " << (char)178;
+		GotoXY(x, 15+3); cout << (char)178 << "                                                 " << (char)178;
+		GotoXY(x, 16+3); SetColor(3); for (int i = x; i <= x + 50; i++) cout << (char)178;
+		GotoXY(x + 35, 13 + 3);
+		SetColor(0);
 		std::getline(cin, filename);
 		filename += ".txt";
 		if (CheckFileExistence(filename))
 		{
-			PrintText("Ten da ton tai", 0, X_CENTER - 40, Y_CENTER -8);
-			PrintText("Ban co muon luu de?", 0, X_CENTER - 40, Y_CENTER -7);
-			option = SelectMenu(YesNoMenu(X_CENTER-15, Y_CENTER+3));
-			key = RunYesNoMenu(option);
-			if (key == 'Y')
+			SetColor(3);
+			GotoXY(x, 12 + 3); cout << (char)178 << "                                                 " << (char)178;
+			GotoXY(x + 4, 13 + 3); cout << "Already exist. Do you want to overwrite it?";
+			/*PrintText("Ten da ton tai", 0, X_CENTER - 40, Y_CENTER -8);
+			PrintText("Ban co muon luu de?", 0, X_CENTER - 40, Y_CENTER -7);*/
+			//option = SelectMenu(YesNoMenu(X_CENTER-15, Y_CENTER+3));
+			//key = RunYesNoMenu(option);
+			//if (key == 'Y')
+			//{
+			//	overwrite = true;
+			//	save = false;
+			//}
+			int choice = 0;
+			int currentPos = 0;
+			GotoXY(x + 18, 14 + 3);
+			SetColor(4);
+			cout << "Yes";
+			SetColor(7);
+			GotoXY(x + 30, 14 + 3);
+			cout << "No";
+			ShowCur(0);
+			while (true)
+			{
+				// Lấy phím người dùng ấn
+				char key = _getch();
+
+				// Kiểm tra phím người dùng ấn
+				if (key == 'A' || key == 'a' || key == KEY_ARROW_LEFT) {
+					choice = 0;
+				}
+				else if (key == 'D' || key == 'd' || key == KEY_ARROW_RIGHT) {
+					choice = 1;
+				}
+				else if (key == '\r') {
+					break;
+				}
+
+				// Đổi màu chữ tùy theo lựa chọn
+				if (choice != currentPos) {
+					if (choice == 0) {
+						GotoXY(x + 18, 14 + 3);
+						SetColor(4);
+						cout << "Yes";
+						SetColor(7);
+						GotoXY(x + 30, 14 + 3);
+						cout << "No";
+						ShowCur(0);
+					}
+					else {
+						GotoXY(x + 18, 14 + 3);
+						cout << "Yes";
+						GotoXY(x + 30, 14 + 3);
+						SetColor(4);
+						cout << "No";
+						SetColor(7);
+						ShowCur(0);
+					}
+					currentPos = choice;
+				}
+			}
+			if (choice == 0)
 			{
 				overwrite = true;
 				save = false;
 			}
 		}
 		else save = false;
+		ShowCur(1);
 	} while (save);
 
 	SaveData(filename, _A, _PLAYER1, _PLAYER2, _TURN, chedo);
