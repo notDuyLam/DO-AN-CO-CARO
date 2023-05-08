@@ -1171,11 +1171,11 @@ void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 	if ((_TURN) == 1)
 	{
 		SetColor(1);
-		GotoXY(start+5, 15);
-		cout << "So quan X: " << CountX(_A);
+		GotoXY(start+1, 15);
+		cout << "X's moves:  " << CountX(_A);
 		SetColor(247);
-		GotoXY(start+46, 15);
-		cout << "So quan O: " << CountO(_A);
+		GotoXY(start+46-3, 15);
+		cout << "O's moves:  " << CountO(_A);
 		DrawBigText("X.txt", 1, start, 2);
 		DrawBigText("O.txt", 247, start + 40, 2);
 		//Them ten
@@ -1186,11 +1186,11 @@ void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 	else if ((_TURN) == 0)
 	{
 		SetColor(247);
-		GotoXY(start+5, 15);
-		cout << "So quan X: " << CountX(_A);
+		GotoXY(start+1, 15);
+		cout << "X's moves: " << CountX(_A);
 		SetColor(2);
-		GotoXY(start + 46, 15);
-		cout << "So quan O: " << CountO(_A);
+		GotoXY(start + 46-3, 15);
+		cout << "O's moves: " << CountO(_A);
 		DrawBigText("O.txt", 2, start + 40, 2);
 		DrawBigText("X.txt", 247, start, 2);
 		//Them ten
@@ -1772,23 +1772,8 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 	int y = _A[0][BOARD_SIZE].y + 13;
 	GotoXY(x, y);
 	SetColor(color);
-	cout << (char)201;
-	for (int i = 0;i < 58;i++)
-		cout << (char)205;
-	cout << (char)187;
-	for(int i=1;i<16;i++)
-	{
-		GotoXY(x, y + i);
-		cout << (char)186;
-		GotoXY(x + 59, y + i);
-		cout << (char)186;
-	}
-	GotoXY(x, y + 16);
-	cout << (char)200;
-	for (int i = 0;i < 58;i++)
-		cout << (char)205;
-	cout << (char)188;
-	GotoXY(x + 10, y + 1);
+	drawFrame(74, 18, 60, 15);
+	GotoXY(x + 10, y + 15);
 	SetColor(8);
 	cout << "Press Esc to Save game or Back to menu...";
 }
@@ -2326,14 +2311,16 @@ void ShowRank()
 void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2)
 {
 	int start = _A[0][BOARD_SIZE - 1].x + 4;
-	PrintText(_PLAYER1.name, 253, start + 12, 18);
-	PrintText("Win games", 253, start + 1, 20);
-	PrintText(std::to_string(_PLAYER1.wins), 253, start + 12, 20);
-	PrintText("Rank", 253, start + 1, 22);
-	PrintText(std::to_string(_PLAYER1.rank), 253, start + 12, 22);
-	PrintText(_PLAYER2.name, 253, start + 23, 18);
-	PrintText(std::to_string(_PLAYER2.wins), 253, start + 23, 20);
-	PrintText(std::to_string(_PLAYER2.rank), 253, start + 23, 22);
+	//PrintText(_PLAYER1.name, 253, start + 12, 18);
+	PrintText("Wins:", 253, start + 14, 16);
+	PrintText(std::to_string(_PLAYER1.wins), 253, start + 21, 16);
+	PrintText("Rank:", 253, start + 14, 17);
+	PrintText(std::to_string(_PLAYER1.rank), 253, start + 21, 17);
+	//PrintText(_PLAYER2.name, 253, start + 23, 18);
+	PrintText("Wins:", 253, start + 23 + 32 + 8 - 7, 16);
+	PrintText("Rank:", 253, start + 23 + 32 + 8 - 7, 17);
+	PrintText(std::to_string(_PLAYER2.wins), 253, start + 23 + 32 + 8, 16);
+	PrintText(std::to_string(_PLAYER2.rank), 253, start + 23 + 32 + 8, 17);
 }
 
 
