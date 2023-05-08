@@ -560,6 +560,7 @@ char RunYesNoMenu(int option)
 		return 'N';
 	}
 }
+// Hàm này giờ không cần nữa (hàm runyesnomenu)
 int SelectMenu(_MENU menu)
 {
 	int cursor = 1;
@@ -628,11 +629,20 @@ void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, boo
 	switch (option)
 	{
 	case 1: case -1:
-		system("cls");
-		DrawBoard(BOARD_SIZE);
-		DrawLoaded(_A);
-		ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
-		ShowCur(1);
+		//system("cls");
+		//DrawBoard(BOARD_SIZE);
+		//DrawLoaded(_A);  // Hàm này vẽ lại chữ X O nên không cần
+		//ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
+		//ShowCur(1);
+		for (int i = 70; i < 120; i++)
+		{
+			for (int j = 20; j <= 30; j++)
+			{
+				GotoXY(i, j);
+				cout << " ";
+			}
+			
+		}
 		DrawBoardGiaoDien(_A, 240);
 		DrawPhimTat(_A);
 		break;
@@ -756,7 +766,7 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 	short int toadothang[24];
 	bool runGame = true;
 	GotoXY(_X, _Y);
-	while (1)
+	while (runGame)
 	{
 		GotoXY(_X, _Y);
 		if (_TURN == true)
@@ -766,11 +776,6 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 			{
 				escOption = SelectMenu1(EscMenu(_A));
 				RunEscMenu(_A, _PLAYER1, _PLAYER2, _TURN, escOption, runGame, chedo);
-			}
-			if (_COMMAND == 27)
-			{
-				system("cls");
-				return;
 			}
 			if (_COMMAND == 'W' || _COMMAND == ARROW_UP) 
 			{
