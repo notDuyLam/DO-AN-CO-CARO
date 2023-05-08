@@ -592,24 +592,24 @@ int SelectMenu1(_MENU menu)
 	int cursor2 = 1;
 	char key;
 
-	PrintText("", 4, menu.x - 16, menu.y - 9);
+	PrintText("", 4, menu.x - 18, menu.y - 8);
 
 	do
 	{
 		key = _getch();
 		if ((key == 'w' || key == ARROW_UP) && cursor2 > 1)
 		{
-			PrintText("", 4, menu.x - 16, menu.y + cursor1 - 10);
+			PrintText("", 4, menu.x - 18, menu.y + cursor1 - 9);
 			cursor1 = cursor1-3;
 			cursor2--;
-			PrintText("", 4, menu.x - 16, menu.y + cursor1 - 10);
+			PrintText("", 4, menu.x - 18, menu.y + cursor1 - 9);
 		}
 		else if ((key == 's' || key == ARROW_DOWN) && cursor2 < menu.options)
 		{
-			PrintText("", 4, menu.x - 16, menu.y + cursor1 - 10);
+			PrintText("", 4, menu.x - 18, menu.y + cursor1 - 9);
 			cursor1 = cursor1+3;
 			cursor2++;
-			PrintText("", 4, menu.x - 16, menu.y + cursor1 - 10);
+			PrintText("", 4, menu.x - 18, menu.y + cursor1 - 9);
 		}
 		else if (key == ESC)
 		{
