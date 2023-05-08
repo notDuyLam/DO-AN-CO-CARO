@@ -20,6 +20,7 @@ int main() {
 	int chedo;
 	bool MO_NHAC = true;
 	int song = 0;
+	ShowCur(0);
 	ScreenStartGame(n, _A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC, chedo, _PLAYER1, _PLAYER2, song);
 	return 0;
 }

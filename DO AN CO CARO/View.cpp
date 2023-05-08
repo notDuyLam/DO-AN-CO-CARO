@@ -140,6 +140,9 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 
 void XWin(_POINT _A[][BOARD_SIZE])
 {
+	ShowCur(0);
+	GotoXY(72, 1);
+	cout << "                                                                    ";
 	GotoXY(72, 2);
 	cout << "                                                                    ";
 	GotoXY(72, 3);
@@ -172,6 +175,9 @@ void XWin(_POINT _A[][BOARD_SIZE])
 
 void OWin(_POINT _A[][BOARD_SIZE])
 {
+	ShowCur(0);
+	GotoXY(70, 1);
+	cout << "                                                                    ";
 	GotoXY(70, 2);
 	cout << "                                                                    ";
 	GotoXY(70, 3);
@@ -204,6 +210,9 @@ void OWin(_POINT _A[][BOARD_SIZE])
 
 void Draw(_POINT _A[][BOARD_SIZE])
 {
+	ShowCur(0);
+	GotoXY(70, 1);
+	cout << "                                                                      ";
 	GotoXY(70, 2);
 	cout << "                                                                      ";
 	GotoXY(70, 3);
@@ -298,11 +307,19 @@ int AskContinue(_POINT _A[][BOARD_SIZE])
 {
 	int x = 53;
 	//printf("Nhan 'y/n' de tiep tuc/dung: ");
-	GotoXY(x, 10+3); SetColor(3); for (int i = x; i <= x + 29; i++) cout << (char)178;
+	/*GotoXY(x, 10+3); SetColor(3); for (int i = x; i <= x + 29; i++) cout << (char)178;
 	GotoXY(x, 11+3); cout << (char)178 << "                            " << (char)178;
-	GotoXY(x, 12+3); cout << (char)178 << "   Play again        Quit   " << (char)178;
+	GotoXY(x, 12 + 3); cout << (char)178; SetColor(7); cout << "   Play again        Quit   ";
+	SetColor(3);cout << (char)178;
 	GotoXY(x, 13+3); cout << (char)178 << "                            " << (char)178;
-	GotoXY(x, 14+3); SetColor(3); for (int i = x; i <= x + 29; i++) cout << (char)178;
+	GotoXY(x, 14+3); SetColor(3); for (int i = x; i <= x + 29; i++) cout << (char)178;*/
+	GotoXY(x, 10 + 3); TextColor(176); for (int i = x; i <= x + 29; i++) cout << " ";
+	GotoXY(x, 11 + 3); cout << " "; TextColor(240);cout << "                            "; TextColor(176);cout << " ";
+	GotoXY(x, 12 + 3); cout << " "; TextColor(240); SetColor(7); cout << "   Play again        Quit   ";
+	TextColor(176);cout << " ";
+	GotoXY(x, 13 + 3); cout << " ";TextColor(240);cout << "                            ";TextColor(176);cout << " ";
+	GotoXY(x, 14 + 3); TextColor(176); for (int i = x; i <= x + 29; i++) cout << " ";
+	TextColor(240);
 	int choice = 0;
 	int currentPos = 0;
 	GotoXY(x + 4, 12+3);
@@ -1296,6 +1313,7 @@ _MENU EscMenu(_POINT _A[][BOARD_SIZE])
 		cout << "                                                       ";
 	}
 	drawFrame(74, 18,60, 15);
+	/*drawBox(74, 18, 60, 15);*/
 	menu.cursorColor = 75;
 	//DrawBoard(1, 1, 62, 25, menu.x - 23, menu.y - 19);
 	//DrawBox(75, 63, 25, menu.x - 23, menu.y - 19);
@@ -1756,6 +1774,42 @@ void drawFrame(int x, int y, int width, int height)
 		cout << verticalLine;
 	}
 }
+
+void drawBox(int x, int y, int width, int height)
+{
+	/*const char topLeftCorner = 201;
+	const char topRightCorner = 187;
+	const char bottomLeftCorner = 200;
+	const char bottomRightCorner = 188;
+	const char horizontalLine = 205;
+	const char verticalLine = 186;*/
+	TextColor(176);
+	// Draw the top border
+	GotoXY(x, y);
+	cout << " ";
+	for (int i = 1; i < width - 1; i++) {
+		cout << " ";
+	}
+	cout << " ";
+
+	// Draw the bottom border
+	GotoXY(x, y + height - 1);
+	cout << " ";
+	for (int i = 1; i < width - 1; i++) {
+		cout << " ";
+	}
+	cout << " ";
+
+	// Draw the left and right borders
+	for (int i = y + 1; i < y + height - 1; i++) {
+		GotoXY(x, i);
+		cout << " ";
+		GotoXY(x + width - 1, i);
+		cout << " ";
+	}
+	TextColor(240);
+}
+
 void DrawBigText(string filename, int color, int x, int y)
 {
 	std::fstream textFile;
@@ -1796,6 +1850,7 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 	GotoXY(x, y);
 	SetColor(color);
 	drawFrame(74, 18, 60, 15);
+	/*drawBox(74, 18, 60, 15);*/
 	GotoXY(x + 10, y + 15);
 	SetColor(8);
 	cout << "Press Esc to Save game or Back to menu...";
@@ -1805,84 +1860,7 @@ void DrawPhimTat(_POINT _A[][BOARD_SIZE])
 {
 	int x = _A[0][BOARD_SIZE].x + 78;
 	int y = _A[0][BOARD_SIZE].y + 16;
-	ShowCur(0);
-	/*for (int i = 0;i < 8;i++)
-	{
-		GotoXY(x, y);
-		SetColor(rand() % 15 + 1);
-		cout << "     _____";
-		GotoXY(x + 17, y);
-		SetColor(rand() % 15 + 1);
-		cout << "     _____";
-		GotoXY(x + 34, y);
-		SetColor(rand() % 15 + 1);
-		cout << "	 _____";
-		GotoXY(x + 8, y + 7);
-		SetColor(rand() % 15 + 1);
-		cout << " __________________________";
-		Sleep(30);
-		GotoXY(x, y + 1);
-		SetColor(rand() % 15 + 1);
-		cout << "    |\\ ___\\";
-		GotoXY(x + 17, y + 1);
-		SetColor(rand() % 15 + 1);
-		cout << "    |\\ ___\\";
-		GotoXY(x + 34, y + 1);
-		SetColor(rand() % 15 + 1);
-		cout << "	|\\____\\";
-		GotoXY(x + 8, y + 8);
-		SetColor(rand() % 15 + 1);
-		cout << "|\\          Space          \\";
-		Sleep(30);
-		GotoXY(x, y + 2);
-		SetColor(rand() % 15 + 1);
-		cout << " ___| | W |__";
-		GotoXY(x + 17, y + 2);
-		SetColor(rand() % 15 + 1);
-		cout << " ___| | ^ |__";
-		GotoXY(x + 34, y + 2);
-		SetColor(rand() % 15 + 1);
-		cout << " _____||    |";
-		GotoXY(x + 8, y + 9);
-		SetColor(rand() % 15 + 1);
-		cout << "\\ \\_________________________\\";
-		Sleep(30);
-		GotoXY(x, y + 3);
-		SetColor(rand() % 15 + 1);
-		cout << "|\\ __\\|___| _\\ ";
-		GotoXY(x + 17, y + 3);
-		SetColor(rand() % 15 + 1);
-		cout << "|\\ __\\|___| _\\ ";
-		GotoXY(x + 34, y + 3);
-		SetColor(rand() % 15 + 1);
-		cout << "|\\ ___\\|    | ";
-		GotoXY(x + 8, y + 10);
-		SetColor(rand() % 15 + 1);
-		cout << " \\|_________________________|";
-		Sleep(30);
-		GotoXY(x, y + 4);
-		SetColor(rand() % 15 + 1);
-		cout << "| | A | S | D |";
-		GotoXY(x + 17, y + 4);
-		SetColor(rand() % 15 + 1);
-		cout << "| | < | v | > |";
-		GotoXY(x + 34, y + 4);
-		SetColor(rand() % 15 + 1);
-		cout << "| |  Enter  |";
-		Sleep(30);
-		GotoXY(x, y + 5);
-		SetColor(rand() % 15 + 1);
-		cout << " \\|___|___|___|";
-		GotoXY(x + 17, y + 5);
-		SetColor(rand() % 15 + 1);
-		cout << " \\|___|___|___|";
-		GotoXY(x + 34, y + 5);
-		SetColor(rand() % 15 + 1);
-		cout << " \\|_________|";
-		Sleep(30);
-
-	}*/
-	
+	ShowCur(0);	
 	SetColor(16);
 	GotoXY(x+3, y);
 	cout << "     _____";

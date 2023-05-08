@@ -1289,6 +1289,7 @@ void SetPlayerVsComputer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 	saved_attributes = consoleInfo.wAttributes;
 	do
 	{
+		
 		//PrintText("Enter Player1's name (2-10 characters): ", 252, X_CENTER - 24, Y_CENTER);
 		SetConsoleTextAttribute(hConsole, 48 | BACKGROUND_INTENSITY);
 		SetColor(15);
