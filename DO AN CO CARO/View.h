@@ -18,7 +18,7 @@ void ThongBaoWin(int pWhoWin, _POINT _A[][BOARD_SIZE]);
 void SetColor(WORD color);
 void DrawBoard_1(int m, int n);
 void TextColor(int color);
-void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC, int& chedo, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2);
+void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC, int& chedo, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, int& song);
 void ShowCur(bool CursorVisibility);
 void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN);
 void PrintText(string text, int color, int x, int y);
@@ -28,7 +28,7 @@ _MENU LoadingMenu();
 _MENU EscMenu(_POINT _A[][BOARD_SIZE]);
 void HELP();
 void About();
-void Sound(bool& MO_NHAC);
+void Sound(bool& MO_NHAC, int& song);
 void drawFrame(int x, int y, int width, int height);
 // Hàm này nhận vào x, y là tọa độ tại vị trí bắt đầu vẽ khung, width và height là độ dài và chiều cao của khung
 // (độ dài và chiều nó vẽ hên xui nên cứ nhập đại số nào vô rồi canh điều chỉnh cho nó hợp lý là được)

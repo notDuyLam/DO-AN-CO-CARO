@@ -368,15 +368,15 @@ int AskContinue(_POINT _A[][BOARD_SIZE])
 	else
 		return 'N';
 }
-void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC, int& chedo, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
+void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC, int& chedo, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, int& song)
 {
-	int song = 0;
-	PlayBackGroundMusic(song);
+	//PlayBackGroundMusic(song);
 	int x = 0, y = 0;
 	drawFrame(0, 0, 145, 33);
 	drawFrame(5, 3, 80, 28);
 	int i;
 	bool backToOriginalMenu = false;
+	bool afterPlay = true; // Biến này để phục vụ cho âm thanh, kiểm tra xem người chơi có vừa chơi xong không
 	x = 0; y = 0;
 	while (true)
 	{
@@ -390,6 +390,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		// color, width, height, x, y
 		SetColor(4);
 		//GotoXY(100, 3); cout << "PLAYER VS PLAYER";
+		if(afterPlay)
+			PlayBackGroundMusic(song);
 		drawButton(100, 5, "PLAYER VS PLAYER");
 		SetColor(0);
 		drawButton(100, 8, "PLAYER VS COMPUTER");
@@ -928,6 +930,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						TextColor(255);
 						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
 						RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
+						afterPlay = true;
 					}
 					if (y == 21)
 					{
@@ -937,6 +940,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						TextColor(255);
 						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
 						PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
+						afterPlay = true;
 						//Danh voi may
 					}
 					if (y == 22)
@@ -970,6 +974,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 								PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
 							break;
 						}
+						afterPlay = true;
 					}
 					if (y == 23)
 					{
@@ -989,6 +994,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						//Loading();
 						TextColor(255);
 						HELP();
+						afterPlay = false;
 					}
 					if (y == 24)
 					{
@@ -1006,13 +1012,15 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						printCaro(27,7);
 						GotoXY(10, 10);
 						About();
+						afterPlay = false;
 					}
 					if (y == 25)
 					{
 						//SOUND
 						//Loading();
 						TextColor(255);
-						Sound(MO_NHAC);
+						Sound(MO_NHAC, song);
+						afterPlay = false;
 					}
 					if (y == 26)
 					{
@@ -1029,6 +1037,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						printCaro(27, 7);
 						// Hiện ranking ở đây
 						ShowRank();
+						afterPlay = false;
 					}
 					if (y == 27)
 					{
@@ -1038,112 +1047,112 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						exit(0);
 					}
 					break;
-					case 32:
-						backToOriginalMenu = true;
-						//PlaySOUNDEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
-						if (y == 20)
-						{
-							SetPlayer(_PLAYER1, _PLAYER2);
-							Loading();
-							TextColor(255);
-							StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
-							RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
-						}
-						if (y == 21)
-						{
-							Loading();
-							TextColor(255);
-							StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
-							PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
-							//Danh voi may
-						}
-						if (y == 22)
-						{
-							for (int i = 6; i < 28; i++)
-							{
-								for (int j = 6; j < 80; j++)
-								{
-									GotoXY(j, i);
-									cout << " ";
+					//case 32:
+					//	backToOriginalMenu = true;
+					//	//PlaySOUNDEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
+					//	if (y == 20)
+					//	{
+					//		SetPlayer(_PLAYER1, _PLAYER2);
+					//		Loading();
+					//		TextColor(255);
+					//		StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
+					//		RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
+					//	}
+					//	if (y == 21)
+					//	{
+					//		Loading();
+					//		TextColor(255);
+					//		StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
+					//		PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
+					//		//Danh voi may
+					//	}
+					//	if (y == 22)
+					//	{
+					//		for (int i = 6; i < 28; i++)
+					//		{
+					//			for (int j = 6; j < 80; j++)
+					//			{
+					//				GotoXY(j, i);
+					//				cout << " ";
 
-								}
-							}
-							SetColor(0);
-							printCaro(6, 4);
-							GotoXY(10, 10);
-							//Loading();
-							TextColor(255);
-							int loadOption;
-							loadOption = SelectMenu(LoadingMenu());
-							if (loadOption == -1) break;
-							else
-							{
-								Loading();
-								TextColor(255);
-								LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, chedo);
-								if (chedo == 2)
-									RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
-								if (chedo == 3)
-									PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
-								break;
-							}
-						}
-						if (y == 23)
-						{
-							//Menu HELP trong game
-							for (int i = 6; i < 28; i++)
-							{
-								for (int j = 6; j < 80; j++)
-								{
-									GotoXY(j, i);
-									cout << " ";
+					//			}
+					//		}
+					//		SetColor(0);
+					//		printCaro(6, 4);
+					//		GotoXY(10, 10);
+					//		//Loading();
+					//		TextColor(255);
+					//		int loadOption;
+					//		loadOption = SelectMenu(LoadingMenu());
+					//		if (loadOption == -1) break;
+					//		else
+					//		{
+					//			Loading();
+					//			TextColor(255);
+					//			LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, chedo);
+					//			if (chedo == 2)
+					//				RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
+					//			if (chedo == 3)
+					//				PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
+					//			break;
+					//		}
+					//	}
+					//	if (y == 23)
+					//	{
+					//		//Menu HELP trong game
+					//		for (int i = 6; i < 28; i++)
+					//		{
+					//			for (int j = 6; j < 80; j++)
+					//			{
+					//				GotoXY(j, i);
+					//				cout << " ";
 
-								}
-							}
-							SetColor(0);
-							printCaro(27, 7);
-							GotoXY(10, 10);
-							//Loading();
-							TextColor(255);
-							HELP();
-						}
-						if (y == 24)
-						{
-							//About
-							for (int i = 6; i < 28; i++)
-							{
-								for (int j = 6; j < 80; j++)
-								{
-									GotoXY(j, i);
-									cout << " ";
+					//			}
+					//		}
+					//		SetColor(0);
+					//		printCaro(27, 7);
+					//		GotoXY(10, 10);
+					//		//Loading();
+					//		TextColor(255);
+					//		HELP();
+					//	}
+					//	if (y == 24)
+					//	{
+					//		//About
+					//		for (int i = 6; i < 28; i++)
+					//		{
+					//			for (int j = 6; j < 80; j++)
+					//			{
+					//				GotoXY(j, i);
+					//				cout << " ";
 
-								}
-							}
-							SetColor(0);
-							printCaro(27, 7);
-							GotoXY(10, 10);
-							//Loading();
-							About();
-						}
-						if (y == 25)
-						{
-							//SOUND
-							//Loading();
-							TextColor(255);
-							Sound(MO_NHAC);
-						}
-						if (y == 26)
-						{
-							// Hiện ranking ở đây
-						}
-						if (y == 27)
-						{
-							//Loading();
-							TextColor(255);
-							system("cls");
-							exit(0);
-						}
-						break;
+					//			}
+					//		}
+					//		SetColor(0);
+					//		printCaro(27, 7);
+					//		GotoXY(10, 10);
+					//		//Loading();
+					//		About();
+					//	}
+					//	if (y == 25)
+					//	{
+					//		//SOUND
+					//		//Loading();
+					//		TextColor(255);
+					//		Sound(MO_NHAC);
+					//	}
+					//	if (y == 26)
+					//	{
+					//		// Hiện ranking ở đây
+					//	}
+					//	if (y == 27)
+					//	{
+					//		//Loading();
+					//		TextColor(255);
+					//		system("cls");
+					//		exit(0);
+					//	}
+					//	break;
 				}
 				if (backToOriginalMenu)
 				{
@@ -1295,7 +1304,7 @@ _MENU EscMenu(_POINT _A[][BOARD_SIZE])
 	menu.y = 30;
 	// x = 74, y = 16 la toa do goc cua menu esc
 	// 60 la do rong, 17 la do dai menu
-	for (int i = 19; i <= 32; i++)
+	for (int i = 18; i <= 32; i++)
 	{
 		GotoXY(75, i);
 		cout << "                                                       ";
@@ -1398,7 +1407,7 @@ void About()
 	command = _getch();
 }
 
-void Sound(bool& MO_NHAC)
+void Sound(bool& MO_NHAC, int& song)
 {
 	system("cls");
 	drawFrame(5, 3, 80, 28);
@@ -1410,7 +1419,6 @@ void Sound(bool& MO_NHAC)
 	int x = 0, y = 0;
 	int i;
 	bool backToOriginalMenu = false;
-	int song = 0;
 	while (!backToOriginalMenu)
 	{
 		backToOriginalMenu = false;

@@ -5,7 +5,7 @@ bot1
 chienthan
 101
 lam
-14
+16
 thienthan
 8
 BOT3
@@ -33,7 +33,7 @@ traibk
 sefdsfjsdf
 1
 who
-0
+1
 conga
 0
 conmeo
@@ -77,4 +77,8 @@ manh
 ff
 0
 sfeiowfds
+0
+klam
+0
+faw
 0
