@@ -431,11 +431,11 @@ void LoadData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAY
 {
 	std::ifstream loadFile;
 	loadFile.open(filename.c_str());
-	loadFile >> chedo;
 	getline(loadFile, _PLAYER1.name);
 	_PLAYER1 = LoadPlayer(_PLAYER1);
 	getline(loadFile, _PLAYER2.name);
 	_PLAYER2 = LoadPlayer(_PLAYER2);
+	loadFile >> chedo;
 	loadFile >> _TURN;
 	for (int i = 0; i < BOARD_SIZE; i++)
 	{
@@ -496,10 +496,10 @@ void SaveData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYE
 	saveFile.open(filename, std::fstream::out);
 	SavePlayer(_PLAYER1);
 	SavePlayer(_PLAYER2);
-	saveFile << chedo << "\n";
 	saveFile << _PLAYER1.name << "\n";
 	saveFile << _PLAYER2.name << "\n";
-	saveFile << _TURN << " \n";
+	saveFile << chedo << "\n";
+	saveFile << _TURN << "\n";
 
 	for (int i = 0; i < BOARD_SIZE; i++)
 	{

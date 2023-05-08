@@ -1798,6 +1798,9 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 	for (int i = 0;i < 58;i++)
 		cout << (char)205;
 	cout << (char)188;
+	GotoXY(x + 10, y + 1);
+	SetColor(8);
+	cout << "Press Esc to Save game or Back to menu...";
 }
 
 void DrawPhimTat(_POINT _A[][BOARD_SIZE])
