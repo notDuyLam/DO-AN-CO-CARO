@@ -388,8 +388,10 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		drawButton(100, 23, "RANKING");
 		drawButton(100, 26, "EXIT");
 		SetColor(8);
-		GotoXY(98, 29); cout << "_____ W A S D: MOVE _____";
-		GotoXY(98, 30); cout << "_____ Enter: Select _____" ;
+		GotoXY(88, 29); cout << "___ W A S D: MOVE ___";
+		GotoXY(88, 30); cout << "___ Space: Select ___" ;
+		GotoXY(115, 29); cout << "___ ^ < v >: MOVE ___";
+		GotoXY(115, 30); cout << "___ Enter: Select ___";
 		ShowCur(0);
 		while (true)
 		{
@@ -1298,13 +1300,13 @@ _MENU EscMenu(_POINT _A[][BOARD_SIZE])
 	//DrawBoard(1, 1, 62, 25, menu.x - 23, menu.y - 19);
 	//DrawBox(75, 63, 25, menu.x - 23, menu.y - 19);
 	//DrawBigText("EscLogo.txt", 75, menu.x - 22, menu.y - 17);
-	drawButton((menu.x-23), (menu.y-10), "Continue");
+	drawButton((menu.x-23), (menu.y-9), "Continue");
 	//PrintText("    Continue    ", 0, menu.x-22, menu.y-9);
 	//PrintText("    Save game   ", 0, menu.x-22, menu.y -8);
-	drawButton((menu.x - 23), (menu.y - 7), "Save game");
+	drawButton((menu.x - 23), (menu.y - 6), "Save game");
 	//PrintText("    Sound       ", 0, menu.x - 22, menu.y - 7);
 	//PrintText("    Exit game   ", 0, menu.x-22, menu.y -7);
-	drawButton((menu.x - 23), (menu.y - 4), "Exit game");
+	drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
 	return menu;
 }
 void HELP()
