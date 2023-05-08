@@ -42,3 +42,4 @@ void DrawPhimTat(_POINT _A[][BOARD_SIZE]);
 void printBigCaro(int x, int y);
 void ShowRank();
 void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2);
+void drawBox(int x, int y, int width, int height);
