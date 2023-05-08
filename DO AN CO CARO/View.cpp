@@ -140,6 +140,7 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 
 void XWin(_POINT _A[][BOARD_SIZE])
 {
+	ShowCur(0);
 	GotoXY(72, 1);
 	cout << "                                                                    ";
 	GotoXY(72, 2);
@@ -174,6 +175,7 @@ void XWin(_POINT _A[][BOARD_SIZE])
 
 void OWin(_POINT _A[][BOARD_SIZE])
 {
+	ShowCur(0);
 	GotoXY(70, 1);
 	cout << "                                                                    ";
 	GotoXY(70, 2);
@@ -208,6 +210,7 @@ void OWin(_POINT _A[][BOARD_SIZE])
 
 void Draw(_POINT _A[][BOARD_SIZE])
 {
+	ShowCur(0);
 	GotoXY(70, 1);
 	cout << "                                                                      ";
 	GotoXY(70, 2);
