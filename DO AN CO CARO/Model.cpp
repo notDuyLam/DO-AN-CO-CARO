@@ -1120,8 +1120,6 @@ double phongngucheonguoc(_POINT _A[][BOARD_SIZE], int x, int y) {
 }
 void SetPlayer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 {
-
-	system("cls");
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	CONSOLE_SCREEN_BUFFER_INFO consoleInfo;
 	WORD saved_attributes;
@@ -1131,68 +1129,74 @@ void SetPlayer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 	{
 		SetConsoleTextAttribute(hConsole, 48 | BACKGROUND_INTENSITY);
 		SetColor(15);
-		for (int i = 8; i < 18; i++)
+		for (int i = 7; i < 17; i++)
 		{
-			for (int j = 30; j < 104; j++)
+			for (int j = 38; j < 112; j++)
 			{
 				GotoXY(j, i);
 				cout << " ";
 			}
 		}
-		for (int i = 19; i < 26; i++)
+		for (int i = 18; i < 25; i++)
 		{
-			for (int j = 30; j < 104; j++)
+			for (int j = 38; j < 112; j++)
 			{
 				GotoXY(j, i);
 				cout << " ";
 			}
 		}
-		for (int i = 30; i < 45; i++)
+		for (int i = 38; i < 53; i++)
 		{
-			GotoXY(i, 18);
+			GotoXY(i, 17);
 			cout << " ";
 		}
-		for (int i = 90; i < 104; i++)
+		for (int i = 98; i < 112; i++)
 		{
-			GotoXY(i, 18);
+			GotoXY(i, 17);
 			cout << " ";
 		}
 		SetColor(4);
-		GotoXY(X_CENTER - 38, Y_CENTER - 10); cout << "  .''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''.";
-		GotoXY(X_CENTER - 38, Y_CENTER - 9); cout << " / .. " << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92);
-		GotoXY(X_CENTER - 37, Y_CENTER - 8); cout << char(92) << "/ /" << char(92) << "/ /" << char(92) << " ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../" << char(92) << " /" << char(92) << "/ /" << char(92) << "/ ";
-		GotoXY(X_CENTER - 38, Y_CENTER - 7); cout << " / /" << char(92) << "/ / ";
-		GotoXY(X_CENTER + 26, Y_CENTER - 7); cout << " /" << char(92) << "/ /" << char(92);
-		GotoXY(X_CENTER - 38, Y_CENTER - 6); cout << "/ /" << char(92) << " " << char(92) << "/  ";
-		GotoXY(X_CENTER + 27, Y_CENTER - 6); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
-		GotoXY(X_CENTER - 38, Y_CENTER - 5); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
-		GotoXY(X_CENTER + 27, Y_CENTER - 5); cout << "/" << char(92) << " " << char(92) << "/ /";
-		GotoXY(X_CENTER - 38, Y_CENTER - 4); cout << " " << char(92) << "/ /" << char(92) << " " << char(92);
-		GotoXY(X_CENTER + 26, Y_CENTER - 4); cout << "/ /" << char(92) << "/ /";
-		GotoXY(X_CENTER - 38, Y_CENTER - 3); cout << " / /" << char(92) << "/ /";
-		GotoXY(X_CENTER + 26, Y_CENTER - 3); cout << char(92) << " " << char(92) << "/ /" << char(92);
-		GotoXY(X_CENTER - 38, Y_CENTER - 2); cout << "/ /" << char(92) << " " << char(92) << "/";
-		GotoXY(X_CENTER + 26, Y_CENTER - 2); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
-		GotoXY(X_CENTER - 38, Y_CENTER - 1); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
-		GotoXY(X_CENTER + 26, Y_CENTER - 1); cout << " /" << char(92) << " " << char(92) << "/ /";
-		GotoXY(X_CENTER - 38, Y_CENTER); cout << " " << char(92) << "/ /" << char(92) << " " << char(92);
-		GotoXY(X_CENTER + 26, Y_CENTER); cout << "/ /" << char(92) << "/ /";
-		GotoXY(X_CENTER - 38, Y_CENTER + 1); cout << " / /" << char(92) << "/ /";
-		GotoXY(X_CENTER + 26, Y_CENTER + 1); cout << char(92) << " " << char(92) << "/ /" << char(92);
-		GotoXY(X_CENTER - 38, Y_CENTER + 2); cout << "/ /" << char(92) << " " << char(92) << "/";
-		GotoXY(X_CENTER + 26, Y_CENTER + 2); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
-		GotoXY(X_CENTER - 38, Y_CENTER + 3); cout << "" << char(92) << " " << char(92) << "/ /" << char(92) << "";
-		GotoXY(X_CENTER + 26, Y_CENTER + 3); cout << "  " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
-		GotoXY(X_CENTER - 38, Y_CENTER + 4); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
-		GotoXY(X_CENTER + 26, Y_CENTER + 4); cout << "  /" << char(92) << " " << char(92) << "/ /";
-		GotoXY(X_CENTER - 38, Y_CENTER + 5); cout << " /" << char(92) << "/ /" << char(92) << "/ /../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /" << char(92) << "/ " << char(92) << "/";
-		GotoXY(X_CENTER - 38, Y_CENTER + 6); cout << " " << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " " << "" << "'''/";
-		GotoXY(X_CENTER - 38, Y_CENTER + 7); cout << "  '..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..'";
+		GotoXY(X_CENTER - 30, Y_CENTER - 11); cout << "  .''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''.";
+		GotoXY(X_CENTER - 30, Y_CENTER - 10); cout << " / .. " << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92);
+		GotoXY(X_CENTER - 29, Y_CENTER - 9); cout << char(92) << "/ /" << char(92) << "/ /" << char(92) << " ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../" << char(92) << " /" << char(92) << "/ /" << char(92) << "/ ";
+		GotoXY(X_CENTER - 30, Y_CENTER - 8); cout << " / /" << char(92) << "/ / ";
+		GotoXY(X_CENTER + 34, Y_CENTER - 8); cout << " /" << char(92) << "/ /" << char(92);
+		GotoXY(X_CENTER - 30, Y_CENTER - 7); cout << "/ /" << char(92) << " " << char(92) << "/  ";
+		GotoXY(X_CENTER + 35, Y_CENTER - 7); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
+		GotoXY(X_CENTER - 30, Y_CENTER - 6); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
+		GotoXY(X_CENTER + 35, Y_CENTER - 6); cout << "/" << char(92) << " " << char(92) << "/ /";
+		GotoXY(X_CENTER - 30, Y_CENTER - 5); cout << " " << char(92) << "/ /" << char(92) << " " << char(92);
+		GotoXY(X_CENTER + 34, Y_CENTER - 5); cout << "/ /" << char(92) << "/ /";
+		GotoXY(X_CENTER - 30, Y_CENTER - 4); cout << " / /" << char(92) << "/ /";
+		GotoXY(X_CENTER + 34, Y_CENTER - 4); cout << char(92) << " " << char(92) << "/ /" << char(92);
+		GotoXY(X_CENTER - 30, Y_CENTER - 3); cout << "/ /" << char(92) << " " << char(92) << "/";
+		GotoXY(X_CENTER + 34, Y_CENTER - 3); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
+		GotoXY(X_CENTER - 30, Y_CENTER - 2); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
+		GotoXY(X_CENTER + 34, Y_CENTER - 2); cout << " /" << char(92) << " " << char(92) << "/ /";
+		GotoXY(X_CENTER - 30, Y_CENTER - 1); cout << " " << char(92) << "/ /" << char(92) << " " << char(92);
+		GotoXY(X_CENTER + 34, Y_CENTER - 1); cout << "/ /" << char(92) << "/ /";
+		GotoXY(X_CENTER - 30, Y_CENTER); cout << " / /" << char(92) << "/ /";
+		GotoXY(X_CENTER + 34, Y_CENTER); cout << char(92) << " " << char(92) << "/ /" << char(92);
+		GotoXY(X_CENTER - 30, Y_CENTER + 1); cout << "/ /" << char(92) << " " << char(92) << "/";
+		GotoXY(X_CENTER + 34, Y_CENTER + 1); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
+		GotoXY(X_CENTER - 30, Y_CENTER + 2); cout << "" << char(92) << " " << char(92) << "/ /" << char(92) << "";
+		GotoXY(X_CENTER + 34, Y_CENTER + 2); cout << "  " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
+		GotoXY(X_CENTER - 30, Y_CENTER + 3); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
+		GotoXY(X_CENTER + 34, Y_CENTER + 3); cout << "  /" << char(92) << " " << char(92) << "/ /";
+		GotoXY(X_CENTER - 30, Y_CENTER + 4); cout << " /" << char(92) << "/ /" << char(92) << "/ /../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /" << char(92) << "/ " << char(92) << "/";
+		GotoXY(X_CENTER - 30, Y_CENTER + 5); cout << " " << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " " << "" << "'''/";
+		GotoXY(X_CENTER - 30, Y_CENTER + 6); cout << "  '..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..'";
 		SetColor(0);
 		//PrintText("Enter Player1's name (2-10 characters): ", 252, X_CENTER - 24, Y_CENTER);
-		GotoXY(X_CENTER - 22, Y_CENTER - 3); cout << "Enter PlayerX's name (2-10 characters): ";
+		GotoXY(X_CENTER - 14, Y_CENTER - 4); cout << "Enter PlayerX's name (2-10 characters): ";
 		SetConsoleTextAttribute(hConsole, saved_attributes);
-		GotoXY(X_CENTER - 24, Y_CENTER);
+		for (int i = 53; i < 98; i++)
+		{
+			GotoXY(i, Y_CENTER - 1);
+			cout << " ";
+		}
+		GotoXY(X_CENTER - 16, Y_CENTER - 1);
+		SetColor(0);
 		std::getline(cin, _PLAYER1.name);
 		// ve khung o day
 	} while (_PLAYER1.name.length() < 2 || _PLAYER1.name.length() > 10);
@@ -1201,72 +1205,73 @@ void SetPlayer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 		//PrintText("Enter Player2's name (2-10 characters): ", 250, X_CENTER - 24, Y_CENTER);
 		SetConsoleTextAttribute(hConsole, 48 | BACKGROUND_INTENSITY);
 		SetColor(15);
-		for (int i = 8; i < 18; i++)
+		for (int i = 7; i < 17; i++)
 		{
-			for (int j = 30; j < 104; j++)
+			for (int j = 38; j < 112; j++)
 			{
 				GotoXY(j, i);
 				cout << " ";
 			}
 		}
-		for (int i = 19; i < 26; i++)
+		for (int i = 18; i < 25; i++)
 		{
-			for (int j = 30; j < 104; j++)
+			for (int j = 38; j < 112; j++)
 			{
 				GotoXY(j, i);
 				cout << " ";
 			}
 		}
-		for (int i = 30; i < 45; i++)
+		for (int i = 38; i < 53; i++)
 		{
-			GotoXY(i, 18);
+			GotoXY(i, 17);
 			cout << " ";
 		}
-		for (int i = 90; i < 104; i++)
+		for (int i = 98; i < 112; i++)
 		{
-			GotoXY(i, 18);
+			GotoXY(i, 17);
 			cout << " ";
 		}
 		SetColor(4);
-		GotoXY(X_CENTER - 38, Y_CENTER - 10); cout << "  .''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''.";
-		GotoXY(X_CENTER - 38, Y_CENTER - 9); cout << " / .. " << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92);
-		GotoXY(X_CENTER - 37, Y_CENTER - 8); cout << char(92) << "/ /" << char(92) << "/ /" << char(92) << " ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../" << char(92) << " /" << char(92) << "/ /" << char(92) << "/ ";
-		GotoXY(X_CENTER - 38, Y_CENTER - 7); cout << " / /" << char(92) << "/ / ";
-		GotoXY(X_CENTER + 26, Y_CENTER - 7); cout << " /" << char(92) << "/ /" << char(92);
-		GotoXY(X_CENTER - 38, Y_CENTER - 6); cout << "/ /" << char(92) << " " << char(92) << "/  ";
-		GotoXY(X_CENTER + 27, Y_CENTER - 6); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
-		GotoXY(X_CENTER - 38, Y_CENTER - 5); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
-		GotoXY(X_CENTER + 27, Y_CENTER - 5); cout << "/" << char(92) << " " << char(92) << "/ /";
-		GotoXY(X_CENTER - 38, Y_CENTER - 4); cout << " " << char(92) << "/ /" << char(92) << " " << char(92);
-		GotoXY(X_CENTER + 26, Y_CENTER - 4); cout << "/ /" << char(92) << "/ /";
-		GotoXY(X_CENTER - 38, Y_CENTER - 3); cout << " / /" << char(92) << "/ /";
-		GotoXY(X_CENTER + 26, Y_CENTER - 3); cout << char(92) << " " << char(92) << "/ /" << char(92);
-		GotoXY(X_CENTER - 38, Y_CENTER - 2); cout << "/ /" << char(92) << " " << char(92) << "/";
-		GotoXY(X_CENTER + 26, Y_CENTER - 2); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
-		GotoXY(X_CENTER - 38, Y_CENTER - 1); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
-		GotoXY(X_CENTER + 26, Y_CENTER - 1); cout << " /" << char(92) << " " << char(92) << "/ /";
-		GotoXY(X_CENTER - 38, Y_CENTER); cout << " " << char(92) << "/ /" << char(92) << " " << char(92);
-		GotoXY(X_CENTER + 26, Y_CENTER); cout << "/ /" << char(92) << "/ /";
-		GotoXY(X_CENTER - 38, Y_CENTER + 1); cout << " / /" << char(92) << "/ /";
-		GotoXY(X_CENTER + 26, Y_CENTER + 1); cout << char(92) << " " << char(92) << "/ /" << char(92);
-		GotoXY(X_CENTER - 38, Y_CENTER + 2); cout << "/ /" << char(92) << " " << char(92) << "/";
-		GotoXY(X_CENTER + 26, Y_CENTER + 2); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
-		GotoXY(X_CENTER - 38, Y_CENTER + 3); cout << "" << char(92) << " " << char(92) << "/ /" << char(92) << "";
-		GotoXY(X_CENTER + 26, Y_CENTER + 3); cout << "  " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
-		GotoXY(X_CENTER - 38, Y_CENTER + 4); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
-		GotoXY(X_CENTER + 26, Y_CENTER + 4); cout << "  /" << char(92) << " " << char(92) << "/ /";
-		GotoXY(X_CENTER - 38, Y_CENTER + 5); cout << " /" << char(92) << "/ /" << char(92) << "/ /../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /" << char(92) << "/ " << char(92) << "/";
-		GotoXY(X_CENTER - 38, Y_CENTER + 6); cout << " " << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " " << "" << "'''/";
-		GotoXY(X_CENTER - 38, Y_CENTER + 7); cout << "  '..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..'";
+		GotoXY(X_CENTER - 30, Y_CENTER - 11); cout << "  .''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''.";
+		GotoXY(X_CENTER - 30, Y_CENTER - 10); cout << " / .. " << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92);
+		GotoXY(X_CENTER - 29, Y_CENTER - 9); cout << char(92) << "/ /" << char(92) << "/ /" << char(92) << " ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../" << char(92) << " /" << char(92) << "/ /" << char(92) << "/ ";
+		GotoXY(X_CENTER - 30, Y_CENTER - 8); cout << " / /" << char(92) << "/ / ";
+		GotoXY(X_CENTER + 34, Y_CENTER - 8); cout << " /" << char(92) << "/ /" << char(92);
+		GotoXY(X_CENTER - 30, Y_CENTER - 7); cout << "/ /" << char(92) << " " << char(92) << "/  ";
+		GotoXY(X_CENTER + 35, Y_CENTER - 7); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
+		GotoXY(X_CENTER - 30, Y_CENTER - 6); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
+		GotoXY(X_CENTER + 35, Y_CENTER - 6); cout << "/" << char(92) << " " << char(92) << "/ /";
+		GotoXY(X_CENTER - 30, Y_CENTER - 5); cout << " " << char(92) << "/ /" << char(92) << " " << char(92);
+		GotoXY(X_CENTER + 34, Y_CENTER - 5); cout << "/ /" << char(92) << "/ /";
+		GotoXY(X_CENTER - 30, Y_CENTER - 4); cout << " / /" << char(92) << "/ /";
+		GotoXY(X_CENTER + 34, Y_CENTER - 4); cout << char(92) << " " << char(92) << "/ /" << char(92);
+		GotoXY(X_CENTER - 30, Y_CENTER - 3); cout << "/ /" << char(92) << " " << char(92) << "/";
+		GotoXY(X_CENTER + 34, Y_CENTER - 3); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
+		GotoXY(X_CENTER - 30, Y_CENTER - 2); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
+		GotoXY(X_CENTER + 34, Y_CENTER - 2); cout << " /" << char(92) << " " << char(92) << "/ /";
+		GotoXY(X_CENTER - 30, Y_CENTER - 1); cout << " " << char(92) << "/ /" << char(92) << " " << char(92);
+		GotoXY(X_CENTER + 34, Y_CENTER - 1); cout << "/ /" << char(92) << "/ /";
+		GotoXY(X_CENTER - 30, Y_CENTER); cout << " / /" << char(92) << "/ /";
+		GotoXY(X_CENTER + 34, Y_CENTER); cout << char(92) << " " << char(92) << "/ /" << char(92);
+		GotoXY(X_CENTER - 30, Y_CENTER + 1); cout << "/ /" << char(92) << " " << char(92) << "/";
+		GotoXY(X_CENTER + 34, Y_CENTER + 1); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
+		GotoXY(X_CENTER - 30, Y_CENTER + 2); cout << "" << char(92) << " " << char(92) << "/ /" << char(92) << "";
+		GotoXY(X_CENTER + 34, Y_CENTER + 2); cout << "  " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
+		GotoXY(X_CENTER - 30, Y_CENTER + 3); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
+		GotoXY(X_CENTER + 34, Y_CENTER + 3); cout << "  /" << char(92) << " " << char(92) << "/ /";
+		GotoXY(X_CENTER - 30, Y_CENTER + 4); cout << " /" << char(92) << "/ /" << char(92) << "/ /../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /" << char(92) << "/ " << char(92) << "/";
+		GotoXY(X_CENTER - 30, Y_CENTER + 5); cout << " " << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " " << "" << "'''/";
+		GotoXY(X_CENTER - 30, Y_CENTER + 6); cout << "  '..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..'";
 		SetColor(0);
-		GotoXY(X_CENTER - 22, Y_CENTER - 3); cout << "Enter PlayerO's name (2-10 characters): ";
+		GotoXY(X_CENTER - 14, Y_CENTER - 4); cout << "Enter PlayerO's name (2-10 characters): ";
 		SetConsoleTextAttribute(hConsole, saved_attributes);
-		for (int i = 45; i < 90; i++)
+		for (int i = 53; i < 98; i++)
 		{
-			GotoXY(i, 18);
+			GotoXY(i, Y_CENTER - 1);
 			cout << " ";
 		}
-		GotoXY(X_CENTER - 24, Y_CENTER);
+		GotoXY(X_CENTER - 16, Y_CENTER-1);
+		SetColor(0);
 		std::getline(cin, _PLAYER2.name);
 		// ve khung o day
 	} while (_PLAYER2.name.length() < 2 || _PLAYER2.name.length() > 10 || _PLAYER2 == _PLAYER1);
@@ -1277,7 +1282,6 @@ void SetPlayer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 
 void SetPlayerVsComputer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 {
-	system("cls");
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	CONSOLE_SCREEN_BUFFER_INFO consoleInfo;
 	WORD saved_attributes;
@@ -1288,66 +1292,72 @@ void SetPlayerVsComputer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 		//PrintText("Enter Player1's name (2-10 characters): ", 252, X_CENTER - 24, Y_CENTER);
 		SetConsoleTextAttribute(hConsole, 48 | BACKGROUND_INTENSITY);
 		SetColor(15);
-		for (int i = 8; i < 18; i++)
+		for (int i = 7; i < 17; i++)
 		{
-			for (int j = 30; j < 104; j++)
+			for (int j = 38; j < 112; j++)
 			{
 				GotoXY(j, i);
 				cout << " ";
 			}
 		}
-		for (int i = 19; i < 26; i++)
+		for (int i = 18; i < 25; i++)
 		{
-			for (int j = 30; j < 104; j++)
+			for (int j = 38; j < 112; j++)
 			{
 				GotoXY(j, i);
 				cout << " ";
 			}
 		}
-		for (int i = 30; i < 45; i++)
+		for (int i = 38; i < 53; i++)
 		{
-			GotoXY(i, 18);
+			GotoXY(i, 17);
 			cout << " ";
 		}
-		for (int i = 90; i < 104; i++)
+		for (int i = 98; i < 112; i++)
 		{
-			GotoXY(i, 18);
+			GotoXY(i, 17);
 			cout << " ";
 		}
 		SetColor(4);
-		GotoXY(X_CENTER - 38, Y_CENTER - 10); cout << "  .''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''.";
-		GotoXY(X_CENTER - 38, Y_CENTER - 9); cout << " / .. " << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92);
-		GotoXY(X_CENTER - 37, Y_CENTER - 8); cout << char(92) << "/ /" << char(92) << "/ /" << char(92) << " ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../" << char(92) << " /" << char(92) << "/ /" << char(92) << "/ ";
-		GotoXY(X_CENTER - 38, Y_CENTER - 7); cout << " / /" << char(92) << "/ / ";
-		GotoXY(X_CENTER + 26, Y_CENTER - 7); cout << " /" << char(92) << "/ /" << char(92);
-		GotoXY(X_CENTER - 38, Y_CENTER - 6); cout << "/ /" << char(92) << " " << char(92) << "/  ";
-		GotoXY(X_CENTER + 27, Y_CENTER - 6); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
-		GotoXY(X_CENTER - 38, Y_CENTER - 5); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
-		GotoXY(X_CENTER + 27, Y_CENTER - 5); cout << "/" << char(92) << " " << char(92) << "/ /";
-		GotoXY(X_CENTER - 38, Y_CENTER - 4); cout << " " << char(92) << "/ /" << char(92) << " " << char(92);
-		GotoXY(X_CENTER + 26, Y_CENTER - 4); cout << "/ /" << char(92) << "/ /";
-		GotoXY(X_CENTER - 38, Y_CENTER - 3); cout << " / /" << char(92) << "/ /";
-		GotoXY(X_CENTER + 26, Y_CENTER - 3); cout << char(92) << " " << char(92) << "/ /" << char(92);
-		GotoXY(X_CENTER - 38, Y_CENTER - 2); cout << "/ /" << char(92) << " " << char(92) << "/";
-		GotoXY(X_CENTER + 26, Y_CENTER - 2); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
-		GotoXY(X_CENTER - 38, Y_CENTER - 1); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
-		GotoXY(X_CENTER + 26, Y_CENTER - 1); cout << " /" << char(92) << " " << char(92) << "/ /";
-		GotoXY(X_CENTER - 38, Y_CENTER); cout << " " << char(92) << "/ /" << char(92) << " " << char(92);
-		GotoXY(X_CENTER + 26, Y_CENTER); cout << "/ /" << char(92) << "/ /";
-		GotoXY(X_CENTER - 38, Y_CENTER + 1); cout << " / /" << char(92) << "/ /";
-		GotoXY(X_CENTER + 26, Y_CENTER + 1); cout << char(92) << " " << char(92) << "/ /" << char(92);
-		GotoXY(X_CENTER - 38, Y_CENTER + 2); cout << "/ /" << char(92) << " " << char(92) << "/";
-		GotoXY(X_CENTER + 26, Y_CENTER + 2); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
-		GotoXY(X_CENTER - 38, Y_CENTER + 3); cout << "" << char(92) << " " << char(92) << "/ /" << char(92) << "";
-		GotoXY(X_CENTER + 26, Y_CENTER + 3); cout << "  " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
-		GotoXY(X_CENTER - 38, Y_CENTER + 4); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
-		GotoXY(X_CENTER + 26, Y_CENTER + 4); cout << "  /" << char(92) << " " << char(92) << "/ /";
-		GotoXY(X_CENTER - 38, Y_CENTER + 5); cout << " /" << char(92) << "/ /" << char(92) << "/ /../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /" << char(92) << "/ " << char(92) << "/";
-		GotoXY(X_CENTER - 38, Y_CENTER + 6); cout << " " << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " " << "" << "'''/";
-		GotoXY(X_CENTER - 38, Y_CENTER + 7); cout << "  '..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..'";
-		GotoXY(X_CENTER - 22, Y_CENTER - 3); cout << "Enter Player's name (2-10 characters): ";
+		GotoXY(X_CENTER - 30, Y_CENTER - 11); cout << "  .''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''.";
+		GotoXY(X_CENTER - 30, Y_CENTER - 10); cout << " / .. " << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92) << " .." << char(92);
+		GotoXY(X_CENTER - 29, Y_CENTER - 9); cout << char(92) << "/ /" << char(92) << "/ /" << char(92) << " ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../" << char(92) << " /" << char(92) << "/ /" << char(92) << "/ ";
+		GotoXY(X_CENTER - 30, Y_CENTER - 8); cout << " / /" << char(92) << "/ / ";
+		GotoXY(X_CENTER + 34, Y_CENTER - 8); cout << " /" << char(92) << "/ /" << char(92);
+		GotoXY(X_CENTER - 30, Y_CENTER - 7); cout << "/ /" << char(92) << " " << char(92) << "/  ";
+		GotoXY(X_CENTER + 35, Y_CENTER - 7); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
+		GotoXY(X_CENTER - 30, Y_CENTER - 6); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
+		GotoXY(X_CENTER + 35, Y_CENTER - 6); cout << "/" << char(92) << " " << char(92) << "/ /";
+		GotoXY(X_CENTER - 30, Y_CENTER - 5); cout << " " << char(92) << "/ /" << char(92) << " " << char(92);
+		GotoXY(X_CENTER + 34, Y_CENTER - 5); cout << "/ /" << char(92) << "/ /";
+		GotoXY(X_CENTER - 30, Y_CENTER - 4); cout << " / /" << char(92) << "/ /";
+		GotoXY(X_CENTER + 34, Y_CENTER - 4); cout << char(92) << " " << char(92) << "/ /" << char(92);
+		GotoXY(X_CENTER - 30, Y_CENTER - 3); cout << "/ /" << char(92) << " " << char(92) << "/";
+		GotoXY(X_CENTER + 34, Y_CENTER - 3); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
+		GotoXY(X_CENTER - 30, Y_CENTER - 2); cout << char(92) << " " << char(92) << "/" << char(92) << " " << char(92);
+		GotoXY(X_CENTER + 34, Y_CENTER - 2); cout << " /" << char(92) << " " << char(92) << "/ /";
+		GotoXY(X_CENTER - 30, Y_CENTER-1); cout << " " << char(92) << "/ /" << char(92) << " " << char(92);
+		GotoXY(X_CENTER + 34, Y_CENTER-1); cout << "/ /" << char(92) << "/ /";
+		GotoXY(X_CENTER - 30, Y_CENTER ); cout << " / /" << char(92) << "/ /";
+		GotoXY(X_CENTER + 34, Y_CENTER ); cout << char(92) << " " << char(92) << "/ /" << char(92);
+		GotoXY(X_CENTER - 30, Y_CENTER + 1); cout << "/ /" << char(92) << " " << char(92) << "/";
+		GotoXY(X_CENTER + 34, Y_CENTER + 1); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
+		GotoXY(X_CENTER - 30, Y_CENTER + 2); cout << "" << char(92) << " " << char(92) << "/ /" << char(92) << "";
+		GotoXY(X_CENTER + 34, Y_CENTER + 2); cout << "  " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
+		GotoXY(X_CENTER - 30, Y_CENTER + 3); cout << " " << char(92) << " " << char(92) << "/" << char(92) << " " << char(92) << "";
+		GotoXY(X_CENTER + 34, Y_CENTER + 3); cout << "  /" << char(92) << " " << char(92) << "/ /";
+		GotoXY(X_CENTER - 30, Y_CENTER + 4); cout << " /" << char(92) << "/ /" << char(92) << "/ /../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /" << char(92) << "/ " << char(92) << "/";
+		GotoXY(X_CENTER - 30, Y_CENTER + 5); cout << " " << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " " << "" << "'''/";
+		GotoXY(X_CENTER - 30, Y_CENTER + 6); cout << "  '..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..'";
+		SetColor(0);
+		GotoXY(X_CENTER - 14, Y_CENTER - 4); cout << "Enter Player's name (2-10 characters): ";
 		SetConsoleTextAttribute(hConsole, saved_attributes);
-		GotoXY(X_CENTER - 24, Y_CENTER);
+		for (int i = 53; i < 98; i++)
+		{
+			GotoXY(i, Y_CENTER - 1);
+			cout << " ";
+		}
+		GotoXY(X_CENTER - 16, Y_CENTER-1);
 		std::getline(cin, _PLAYER1.name);
 		// ve khung o day
 	} while (_PLAYER1.name.length() < 2 || _PLAYER1.name.length() > 10);
