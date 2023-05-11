@@ -14,6 +14,8 @@ BOT4
 3
 cuu
 2
+who
+2
 huhu
 1
 thachotoi
@@ -31,8 +33,6 @@ traibk
 
 1
 sefdsfjsdf
-1
-who
 1
 Lam Lon
 1
@@ -87,4 +87,6 @@ klam
 faw
 0
 Tiendepgai
+0
+lan
 0

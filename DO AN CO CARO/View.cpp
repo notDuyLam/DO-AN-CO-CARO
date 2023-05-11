@@ -339,7 +339,7 @@ int AskContinue(_POINT _A[][BOARD_SIZE])
 		else if (key == 'D' || key == 'd' || key == KEY_ARROW_RIGHT) {
 			choice = 1;
 		}
-		else if (key == '\r') {
+		else if (key == '\r' || key == SPACE) {
 			break;
 		}
 

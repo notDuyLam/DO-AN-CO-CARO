@@ -461,20 +461,21 @@ void SaveGame(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 		GotoXY(x, 10 + 3); TextColor(176); for (int i = x; i <= x + 50; i++) cout << " ";
 		GotoXY(x, 11 + 3); cout << " ";TextColor(240);cout << "                                                 ";TextColor(176);cout << " ";
 		GotoXY(x, 12 + 3); cout << " ";TextColor(240);cout << "                                                 ";TextColor(176);cout << " ";
-		GotoXY(x, 13 + 3); cout << " ";TextColor(240);cout << "   Enter the name for your board:                ";TextColor(176);cout << " ";
+		GotoXY(x, 13 + 3); cout << " "; TextColor(240); SetColor(77); cout << "   Enter the name for your board:                "; SetColor(0); TextColor(176); cout << " ";
 		GotoXY(x, 14 + 3); cout << " ";TextColor(240);cout << "                                                 ";TextColor(176);cout << " ";
 		GotoXY(x, 15 + 3); cout << " ";TextColor(240);cout << "                                                 ";TextColor(176);cout << " ";
 		GotoXY(x, 16 + 3); for (int i = x; i <= x + 50; i++) cout << " ";
 		TextColor(240);
 		GotoXY(x + 35, 13 + 3);
 		SetColor(0);
+		ShowCur(1);
 		std::getline(cin, filename);
 		filename += ".txt";
 		if (CheckFileExistence(filename))
 		{
 			SetColor(3);
 			GotoXY(x, 12 + 3); TextColor(176);cout << " ";TextColor(240);cout << "                                                 ";;TextColor(176);cout << " ";
-			GotoXY(x + 4, 13 + 3); TextColor(240); cout << "Already exist. Do you want to overwrite it?";
+			GotoXY(x + 4, 13 + 3); TextColor(240); SetColor(77); cout << "Already exist. Do you want to overwrite it?"; SetColor(0);
 			/*PrintText("Ten da ton tai", 0, X_CENTER - 40, Y_CENTER -8);
 			PrintText("Ban co muon luu de?", 0, X_CENTER - 40, Y_CENTER -7);*/
 			//option = SelectMenu(YesNoMenu(X_CENTER-15, Y_CENTER+3));
@@ -505,7 +506,7 @@ void SaveGame(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 				else if (key == 'D' || key == 'd' || key == KEY_ARROW_RIGHT) {
 					choice = 1;
 				}
-				else if (key == '\r') {
+				else if (key == '\r' || key == SPACE) {
 					break;
 				}
 
