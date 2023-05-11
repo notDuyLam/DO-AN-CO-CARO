@@ -45,7 +45,7 @@ void MoveUp(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
 	}
 }
 
-/*void GamePlay(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC)
+/*void GamePlay(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& SoundEffects)
 {
 	_PLAYER _PLAYER1, _PLAYER2;
 	FixConsoleWindow();
@@ -77,7 +77,7 @@ void MoveUp(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
 			else if (_COMMAND == 'S' || _COMMAND == ARROW_DOWN) MoveDown(_A, _X, _Y);
 			else if (_COMMAND == 'D' || _COMMAND == ARROW_RIGHT) MoveRight(_A, _X, _Y);
 			else if (_COMMAND == 13 || _COMMAND == SPACE) {// Người dùng đánh dấu trên màn hình bàn cờ
-				PlaySoundEffect("move", MO_NHAC);
+				PlaySoundEffect("move", SoundEffects);
 				switch (CheckBoard(_X, _Y, _A, _TURN)) {
 				case -1:
 				{
@@ -95,7 +95,7 @@ void MoveUp(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
 				}
 				// Tiếp theo là kiểm tra và xử lý thắng/thua/hòa/tiếp tục
 				if (validEnter == true) {
-					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X),toadothang), _A, _TURN, _X, _Y,toadothang, MO_NHAC)) {
+					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X),toadothang), _A, _TURN, _X, _Y,toadothang, SoundEffects)) {
 					case -1: case 1: case 0:
 						if (AskContinue(_A) != 'Y') {
 							StopMusic();
@@ -111,7 +111,7 @@ void MoveUp(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
 	}
 }
 */
-void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, bool& MO_NHAC, int& chedo)
+void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, bool& SoundEffects, int& chedo)
 {
 	chedo = 2;
 	bool validEnter = true;
@@ -293,7 +293,7 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 			}
 			else if (_COMMAND == ENTER || _COMMAND == SPACE)
 			{
-				PlaySoundEffect("move", MO_NHAC);
+				PlaySoundEffect("move", SoundEffects);
 
 				switch (CheckBoard(_X, _Y, _A, _TURN))
 				{
@@ -409,7 +409,7 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 				}
 				// Tiếp theo là kiểm tra và xử lý thắng/thua/hòa/tiếp tục
 				if (validEnter == true) {
-					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, MO_NHAC, _PLAYER1, _PLAYER2)) {
+					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, SoundEffects, _PLAYER1, _PLAYER2)) {
 					case -1: case 1: case 0:
 						if (AskContinue(_A) != 'Y') {
 							StopMusic();
@@ -430,8 +430,8 @@ void LoadGame(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAY
 {
 	system("cls");
 	LoadData(filename, _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, chedo);
-	//SetPlayerRank(_PLAYER1);
-	//SetPlayerRank(_PLAYER2);
+	SetPlayerRank(_PLAYER1);
+	SetPlayerRank(_PLAYER2);
 	DrawBoard(BOARD_SIZE);
 	ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
 	DrawLoaded(_A);
@@ -655,8 +655,8 @@ void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, boo
 		runGame = false;
 		break;
 	/*case 3:
-		bool MO_NHAC;
-		Sound(MO_NHAC);
+		bool SoundEffects;
+		Sound(SoundEffects);
 		break;*/
 	case 3:
 		runGame = false;
@@ -673,7 +673,7 @@ string RunLoadingMenu(int option)
 
 	return filename;
 }
-/*void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC) {
+/*void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& SoundEffects) {
 	FixConsoleWindow();
 	_PLAYER _PLAYER1, _PLAYER2;
 	StartGame(_A, _TURN, _COMMAND, _X, _Y);
@@ -705,7 +705,7 @@ string RunLoadingMenu(int option)
 			else if (_COMMAND == 'S' || _COMMAND == ARROW_DOWN) MoveDown(_A, _X, _Y);
 			else if (_COMMAND == 'D' || _COMMAND == ARROW_RIGHT) MoveRight(_A, _X, _Y);
 			else if (_COMMAND == 13 || _COMMAND == SPACE) {// Người dùng đánh dấu trên màn hình bàn cờ
-				PlaySoundEffect("move", MO_NHAC);
+				PlaySoundEffect("move", SoundEffects);
 				switch (CheckBoard(_X, _Y, _A, _TURN)) {
 				case -1:
 				{
@@ -716,7 +716,7 @@ string RunLoadingMenu(int option)
 				case 0: validEnter = false;
 				}
 				if (validEnter == true) {
-					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, MO_NHAC)) {
+					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, SoundEffects)) {
 					case -1: case 1: case 0:
 						if (AskContinue(_A) != 'Y') {
 							StopMusic();
@@ -731,9 +731,9 @@ string RunLoadingMenu(int option)
 		}
 		else
 		{
-			timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC);
-			_X = timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC).x;
-			_Y = timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC).y;
+			timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, SoundEffects);
+			_X = timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, SoundEffects).x;
+			_Y = timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, SoundEffects).y;
 			GotoXY(_X, _Y);
 			Sleep(200);
 			switch (CheckBoard(_X, _Y, _A, _TURN)) {
@@ -746,7 +746,7 @@ string RunLoadingMenu(int option)
 			case 0: validEnter = false;
 			}
 			if (validEnter == true) {
-				switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, MO_NHAC)) {
+				switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, SoundEffects)) {
 				case -1: case 1: case 0:
 					if (AskContinue(_A) != 'Y') {
 						StopMusic();
@@ -760,7 +760,7 @@ string RunLoadingMenu(int option)
 		}
 	}
 }*/
-void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAYER &_PLAYER1, _PLAYER &_PLAYER2, int &_X, int &_Y, bool validEnter, bool& MO_NHAC, int& chedo) {
+void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAYER &_PLAYER1, _PLAYER &_PLAYER2, int &_X, int &_Y, bool validEnter, bool& SoundEffects, int& chedo) {
 	FixConsoleWindow();
 	//StartGame(_A, _TURN, _COMMAND, _X, _Y);
 	StopMusic();
@@ -942,7 +942,7 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 				}
 			}
 			else if (_COMMAND == 13 || _COMMAND == SPACE) {// Người dùng đánh dấu trên màn hình bàn cờ
-				PlaySoundEffect("move", MO_NHAC);
+				PlaySoundEffect("move", SoundEffects);
 				switch (CheckBoard(_X, _Y, _A, _TURN)) {
 				case -1:
 				{
@@ -1001,7 +1001,7 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 				case 0: validEnter = false;
 				}
 				if (validEnter == true) {
-					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, MO_NHAC, _PLAYER1, _PLAYER2)) {
+					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, SoundEffects, _PLAYER1, _PLAYER2)) {
 					case -1: case 1: case 0:
 						if (AskContinue(_A) != 'Y') {
 							StopMusic();
@@ -1016,9 +1016,9 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 		}
 		else
 		{
-			timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC);
-			_X = timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC).x;
-			_Y = timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC).y;
+			timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, SoundEffects);
+			_X = timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, SoundEffects).x;
+			_Y = timkiemnuocdi(_A, _TURN, _COMMAND, _X, _Y, validEnter, SoundEffects).y;
 			GotoXY(_X, _Y);
 			Sleep(500);
 			switch (CheckBoard(_X, _Y, _A, _TURN)) {
@@ -1031,7 +1031,7 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 			case 0: validEnter = false;
 			}
 			if (validEnter == true) {
-				switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, MO_NHAC, _PLAYER1, _PLAYER2)) {
+				switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X), toadothang), _A, _TURN, _X, _Y, toadothang, SoundEffects, _PLAYER1, _PLAYER2)) {
 				case -1: case 1: case 0:
 					if (AskContinue(_A) != 'Y') {
 						StopMusic();

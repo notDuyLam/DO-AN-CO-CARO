@@ -97,12 +97,12 @@ void DrawBoard_1(int m, int n)
 	printf("%c%c%c", 205, 205, 205);
 	printf("%c", 188);
 }
-int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, int& _Y,short int toadothang[24], bool& MO_NHAC, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
+int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, int& _Y,short int toadothang[24], bool& SoundEffects, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 {
 	switch (pWhoWin) {
 	case -1:
 		_PLAYER1.wins++;
-		PlaySoundEffect("win.wav", MO_NHAC);
+		PlaySoundEffect("win.wav", SoundEffects);
 		NhapNhayQuanCo(_A, toadothang, pWhoWin);
 		ThongBaoWin(pWhoWin, _A);
 		//GotoXY(78,18); // Nhảy tới vị trí 
@@ -113,7 +113,7 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 		break;
 	case 1:
 		_PLAYER2.wins++;
-		PlaySoundEffect("win", MO_NHAC);
+		PlaySoundEffect("win", SoundEffects);
 		NhapNhayQuanCo(_A, toadothang, pWhoWin);
 		ThongBaoWin(pWhoWin, _A);
 		//GotoXY(78,18); // Nhảy tới vị trí 
@@ -371,7 +371,7 @@ int AskContinue(_POINT _A[][BOARD_SIZE])
 	else
 		return 'N';
 }
-void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC, int& chedo, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, int& song)
+void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& SoundEffects, int& chedo, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, int& song, int& songtemp)
 {
 	//PlayBackGroundMusic(song);
 	int x = 0, y = 0;
@@ -931,7 +931,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						Loading();
 						TextColor(255);
 						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
-						RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
+						RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, SoundEffects, chedo);
 						afterPlay = true;
 					}
 					if (y == 21)
@@ -941,7 +941,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						Loading();
 						TextColor(255);
 						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
-						PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
+						PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, SoundEffects, chedo);
 						afterPlay = true;
 						//Danh voi may
 					}
@@ -971,9 +971,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 							TextColor(255);
 							LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, chedo);
 							if (chedo == 2)
-								RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
+								RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, SoundEffects, chedo);
 							if(chedo == 3)
-								PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
+								PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, SoundEffects, chedo);
 							break;
 						}
 						afterPlay = true;
@@ -1021,7 +1021,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						//SOUND
 						//Loading();
 						TextColor(255);
-						Sound(MO_NHAC, song);
+						Sound(SoundEffects, song, songtemp);
 						afterPlay = false;
 					}
 					if (y == 26)
@@ -1058,14 +1058,14 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					//		Loading();
 					//		TextColor(255);
 					//		StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
-					//		RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
+					//		RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, SoundEffects, chedo);
 					//	}
 					//	if (y == 21)
 					//	{
 					//		Loading();
 					//		TextColor(255);
 					//		StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
-					//		PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
+					//		PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, SoundEffects, chedo);
 					//		//Danh voi may
 					//	}
 					//	if (y == 22)
@@ -1093,9 +1093,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					//			TextColor(255);
 					//			LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, chedo);
 					//			if (chedo == 2)
-					//				RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, MO_NHAC, chedo);
+					//				RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, SoundEffects, chedo);
 					//			if (chedo == 3)
-					//				PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, MO_NHAC, chedo);
+					//				PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, SoundEffects, chedo);
 					//			break;
 					//		}
 					//	}
@@ -1141,7 +1141,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					//		//SOUND
 					//		//Loading();
 					//		TextColor(255);
-					//		Sound(MO_NHAC);
+					//		Sound(SoundEffects);
 					//	}
 					//	if (y == 26)
 					//	{
@@ -1582,7 +1582,7 @@ void About()
 	command = _getch();
 }
 
-void Sound(bool& MO_NHAC, int& song)
+void Sound(bool& SoundEffects, int& song, int& songtemp)
 {
 	system("cls");
 	drawFrame(5, 3, 80, 28);
@@ -1599,12 +1599,11 @@ void Sound(bool& MO_NHAC, int& song)
 		backToOriginalMenu = false;
 		x = 50, y = 20;
 		SetColor(4);
-		drawButton(100, 8, "Turn OFF music");
+		if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
 		SetColor(0);
-		drawButton(100, 11, "Turn ON music");
-		drawButton(100, 14, "Change song");
-		if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-		drawButton(100, 20, "Back");
+		drawButton(100, 11, "Change song");
+		if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
+		drawButton(100, 17, "Back");
 		GotoXY(100, 25); 
 		if (song % 4 == 0)
 			cout << "Song: Wallpaper";
@@ -1617,10 +1616,6 @@ void Sound(bool& MO_NHAC, int& song)
 		SetColor(8);
 		GotoXY(98, 29); cout << "_____ W A S D: MOVE _____";
 		GotoXY(98, 30); cout << "_____ Enter: Select _____"; ShowCur(0);
-		//if (n == 100)
-		//{
-		//	
-		//}
 		while (true)
 		{
 			if (_kbhit())
@@ -1636,59 +1631,44 @@ void Sound(bool& MO_NHAC, int& song)
 					if (y == 20)
 					{
 						SetColor(4);
-						drawButton(100, 8, "Turn OFF music");
+						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
 						SetColor(0);
-						drawButton(100, 11, "Turn ON music");
-						drawButton(100, 14, "Change song");
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawButton(100, 11, "Change song");
+						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
+						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Turn OFF music");
+						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
 						SetColor(4);
-						drawButton(100, 11, "Turn ON music");
+						drawButton(100, 11, "Change song");
 						SetColor(0);
-						drawButton(100, 14, "Change song");
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
+						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					if (y == 22)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Turn OFF music");
-						drawButton(100, 11, "Turn ON music");
+						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+						drawButton(100, 11, "Change song");
 						SetColor(4);
-						drawButton(100, 14, "Change song");
+						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
 						SetColor(0);
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					if (y == 23)
 					{
-						SetColor(0);
-						drawButton(100, 8, "Turn OFF music");
-						drawButton(100, 11, "Turn ON music");
-						drawButton(100, 14, "Change song");
+						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
 						SetColor(4);
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
+						drawButton(100, 11, "Change song");
+						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
 						SetColor(0);
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					if (y == 24)
-					{
-						drawButton(100, 8, "Turn OFF music");
-						drawButton(100, 11, "Turn ON music");
-						SetColor(4);
-						drawButton(100, 14, "Change song");
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						SetColor(0);
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					break;
 				case 's':
-					if (y < 24)
+					if (y < 23)
 					{
 						y++;
 						GotoXY(x, y);
@@ -1696,56 +1676,41 @@ void Sound(bool& MO_NHAC, int& song)
 					if (y == 20)
 					{
 						SetColor(4);
-						drawButton(100, 8, "Turn OFF music");
+						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
 						SetColor(0);
-						drawButton(100, 11, "Turn ON music");
-						drawButton(100, 14, "Change song");
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawButton(100, 11, "Change song");
+						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
+						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Turn OFF music");
+						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
 						SetColor(4);
-						drawButton(100, 11, "Turn ON music");
+						drawButton(100, 11, "Change song");
 						SetColor(0);
-						drawButton(100, 14, "Change song");
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
+						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					if (y == 22)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Turn OFF music");
-						drawButton(100, 11, "Turn ON music");
+						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+						
+						drawButton(100, 11, "Change song");
 						SetColor(4);
-						drawButton(100, 14, "Change song");
+						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
 						SetColor(0);
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					if (y == 23)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Turn OFF music");
-						drawButton(100, 11, "Turn ON music");
-						drawButton(100, 14, "Change song");
+						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+						drawButton(100, 11, "Change song");
+						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
 						SetColor(4);
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						SetColor(0);
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					if (y == 24)
-					{
-						SetColor(0);
-						drawButton(100, 8, "Turn OFF music");
-						drawButton(100, 11, "Turn ON music");
-						drawButton(100, 14, "Change song");
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						SetColor(4);
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-						SetColor(0);
+						drawButton(100, 17, "Back"); GotoXY(100, 25); SetColor(0); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					break;
 				case KEY_ARROW_UP:
@@ -1757,59 +1722,44 @@ void Sound(bool& MO_NHAC, int& song)
 					if (y == 20)
 					{
 						SetColor(4);
-						drawButton(100, 8, "Turn OFF music");
+						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
 						SetColor(0);
-						drawButton(100, 11, "Turn ON music");
-						drawButton(100, 14, "Change song");
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawButton(100, 11, "Change song");
+						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
+						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Turn OFF music");
+						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
 						SetColor(4);
-						drawButton(100, 11, "Turn ON music");
+						drawButton(100, 11, "Change song");
 						SetColor(0);
-						drawButton(100, 14, "Change song");
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
+						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					if (y == 22)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Turn OFF music");
-						drawButton(100, 11, "Turn ON music");
+						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+						drawButton(100, 11, "Change song");
 						SetColor(4);
-						drawButton(100, 14, "Change song");
+						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
 						SetColor(0);
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					if (y == 23)
 					{
-						SetColor(0);
-						drawButton(100, 8, "Turn OFF music");
-						drawButton(100, 11, "Turn ON music");
-						drawButton(100, 14, "Change song");
+						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
 						SetColor(4);
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
+						drawButton(100, 11, "Change song");
+						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
 						SetColor(0);
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					if (y == 24)
-					{
-						drawButton(100, 8, "Turn OFF music");
-						drawButton(100, 11, "Turn ON music");
-						SetColor(4);
-						drawButton(100, 14, "Change song");
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						SetColor(0);
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					break;
 				case KEY_ARROW_DOWN:
-					if (y < 24)
+					if (y < 23)
 					{
 						y++;
 						GotoXY(x, y);
@@ -1817,89 +1767,82 @@ void Sound(bool& MO_NHAC, int& song)
 					if (y == 20)
 					{
 						SetColor(4);
-						drawButton(100, 8, "Turn OFF music");
+						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
 						SetColor(0);
-						drawButton(100, 11, "Turn ON music");
-						drawButton(100, 14, "Change song");
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawButton(100, 11, "Change song");
+						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
+						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Turn OFF music");
+						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
 						SetColor(4);
-						drawButton(100, 11, "Turn ON music");
+						drawButton(100, 11, "Change song");
 						SetColor(0);
-						drawButton(100, 14, "Change song");
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
+						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					if (y == 22)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Turn OFF music");
-						drawButton(100, 11, "Turn ON music");
+						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+
+						drawButton(100, 11, "Change song");
 						SetColor(4);
-						drawButton(100, 14, "Change song");
+						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
 						SetColor(0);
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					if (y == 23)
 					{
 						SetColor(0);
-						drawButton(100, 8, "Turn OFF music");
-						drawButton(100, 11, "Turn ON music");
-						drawButton(100, 14, "Change song");
+						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+						drawButton(100, 11, "Change song");
+						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
 						SetColor(4);
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						SetColor(0);
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					if (y == 24)
-					{
-						SetColor(0);
-						drawButton(100, 8, "Turn OFF music");
-						drawButton(100, 11, "Turn ON music");
-						drawButton(100, 14, "Change song");
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
-						SetColor(4);
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-						SetColor(0);
+						drawButton(100, 17, "Back"); GotoXY(100, 25); SetColor(0); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					break;
 				case 13:
 					//PlaySoundEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
 					if (y == 20)
 					{
-						StopMusic();
-						// Tat nhac nen
+						if (song != -1)
+						{
+							songtemp = song;
+							song = -1;
+							StopMusic();
+						}
+						else
+						{
+							song = songtemp;
+							PlayBackGroundMusic(song);
+						}
+						SetColor(4);
+						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+						SetColor(0);
+						// Tat/Bat nhac nen
 					}
 					if (y == 21)
 					{
-						//Bat nhac nen
+						song++;
 						PlayBackGroundMusic(song);
+						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						//Doi bai
 					}
 					if (y == 22)
 					{
-						song++;
-						PlayBackGroundMusic(song);
-						drawButton(100, 20, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-						//Doi bai
-					}
-					if (y == 23)
-					{
-						if (MO_NHAC)
-							MO_NHAC = false;
+						if (SoundEffects)
+							SoundEffects = false;
 						else
-							MO_NHAC = true;
+							SoundEffects = true;
 						SetColor(4);
-						if (MO_NHAC) drawButton(100, 17, "Sound effects:  ON"); else drawButton(100, 17, "Sound effects: OFF");
+						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
 						SetColor(0);
 						//Doi bai
 					}
-					if (y == 24)
+					if (y == 23)
 					{
 						//Quay ve
 						backToOriginalMenu = true;

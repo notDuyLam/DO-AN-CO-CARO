@@ -327,14 +327,16 @@ int GetColIndex(int pX)
 
 void PlayBackGroundMusic(int song)
 {
-	if (song % 4 == 0)
-		PlaySound(TEXT("nhacnen1.wav"), NULL, SND_FILENAME | SND_LOOP | SND_ASYNC);// Bat nhac nen 
+	if (song == -1)
+		StopMusic();
+	else if (song % 4 == 0)
+		PlaySound(TEXT("nhacnen1.wav"), NULL, SND_FILENAME | SND_LOOP | SND_ASYNC);
 	else if(song % 4 == 1)
-		PlaySound(TEXT("nhacnen2.wav"), NULL, SND_FILENAME | SND_LOOP | SND_ASYNC);// Bat nhac nen
+		PlaySound(TEXT("nhacnen2.wav"), NULL, SND_FILENAME | SND_LOOP | SND_ASYNC);
 	else if (song % 4 == 2)
-		PlaySound(TEXT("nhacnen3.wav"), NULL, SND_FILENAME | SND_LOOP | SND_ASYNC);// Bat nhac nen 
+		PlaySound(TEXT("nhacnen3.wav"), NULL, SND_FILENAME | SND_LOOP | SND_ASYNC);
 	else if (song % 4 == 3)
-		PlaySound(TEXT("nhacnen4.wav"), NULL, SND_FILENAME | SND_LOOP | SND_ASYNC);// Bat nhac nen 
+		PlaySound(TEXT("nhacnen4.wav"), NULL, SND_FILENAME | SND_LOOP | SND_ASYNC);
 }
 
 void StopMusic()
@@ -342,9 +344,9 @@ void StopMusic()
 	PlaySound(0, 0, 0); // Tat nhac
 }
 
-void PlaySoundEffect(string s, bool MO_NHAC)
+void PlaySoundEffect(string s, bool SoundEffects)
 {
-	if (!MO_NHAC)
+	if (!SoundEffects)
 		return;
 	if (s == "move")
 		PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC); // Dung de bat nhac khi di
@@ -614,7 +616,7 @@ int getCheck(_POINT _A[][BOARD_SIZE], int i, int j)
 {
 	return  _A[i][j].c;
 }
-MOVE timkiemnuocdi(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& MO_NHAC)
+MOVE timkiemnuocdi(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& SoundEffects)
 {
 	MOVE wayresult;
 	wayresult.x = -1;

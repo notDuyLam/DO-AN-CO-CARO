@@ -18,9 +18,11 @@ int main() {
 		cout << "                                    ";
 	system("cls");
 	int chedo;
-	bool MO_NHAC = true;
+	bool SoundEffects = true;
 	int song = 0;
+	int songtemp = 0;
+	bool Music = true;
 	ShowCur(0);
-	ScreenStartGame(n, _A, _TURN, _COMMAND, _X, _Y, validEnter, MO_NHAC, chedo, _PLAYER1, _PLAYER2, song);
+	ScreenStartGame(n, _A, _TURN, _COMMAND, _X, _Y, validEnter, SoundEffects, chedo, _PLAYER1, _PLAYER2, song, songtemp);
 	return 0;
 }
