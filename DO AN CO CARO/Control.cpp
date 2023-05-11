@@ -126,7 +126,7 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 		_COMMAND = toupper(_getch());
 		if (_COMMAND == ESC)
 		{
-			escOption = SelectMenu1(EscMenu(_A));
+			escOption = EscMenu(_A);
 			RunEscMenu(_A, _PLAYER1, _PLAYER2, _TURN, escOption, runGame, chedo);
 		}
 		else
@@ -778,7 +778,7 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 			_COMMAND = toupper(_getch());
 			if (_COMMAND == ESC)
 			{
-				escOption = SelectMenu1(EscMenu(_A));
+				escOption = EscMenu(_A);
 				RunEscMenu(_A, _PLAYER1, _PLAYER2, _TURN, escOption, runGame, chedo);
 			}
 			if (_COMMAND == 'W' || _COMMAND == ARROW_UP) 

@@ -8,3 +8,4 @@ who.txt
 walfkl.txt
 ai.txt
 lam.txt
+test.txt

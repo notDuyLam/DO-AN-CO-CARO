@@ -25,7 +25,7 @@ void PrintText(string text, int color, int x, int y);
 void DrawLoaded(_POINT _A[][BOARD_SIZE]);
 _MENU YesNoMenu(int x, int y);
 _MENU LoadingMenu();
-_MENU EscMenu(_POINT _A[][BOARD_SIZE]);
+int EscMenu(_POINT _A[][BOARD_SIZE]);
 void HELP();
 void About();
 void Sound(bool& MO_NHAC, int& song);

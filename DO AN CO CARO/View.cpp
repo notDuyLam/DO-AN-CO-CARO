@@ -380,7 +380,6 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 	int i;
 	bool backToOriginalMenu = false;
 	bool afterPlay = true; // Biến này để phục vụ cho âm thanh, kiểm tra xem người chơi có vừa chơi xong không
-	x = 0; y = 0;
 	while (true)
 	{
 		drawFrame(0, 0, 145, 33);
@@ -1297,7 +1296,7 @@ _MENU LoadingMenu()
 	GotoXY(38, 27);
 	return menu;
 }
-_MENU EscMenu(_POINT _A[][BOARD_SIZE])
+int EscMenu(_POINT _A[][BOARD_SIZE])
 {
 	_MENU menu;
 	menu.options = 3;
@@ -1325,7 +1324,182 @@ _MENU EscMenu(_POINT _A[][BOARD_SIZE])
 	//PrintText("    Sound       ", 0, menu.x - 22, menu.y - 7);
 	//PrintText("    Exit game   ", 0, menu.x-22, menu.y -7);
 	drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
-	return menu;
+	int x = 0, y = 0;
+	while (true)
+	{
+		x = 100, y = 20;
+		SetColor(4);
+		drawButton((menu.x - 23), (menu.y - 9), "Continue");
+		SetColor(0);
+		drawButton((menu.x - 23), (menu.y - 6), "Save game");
+		drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+		ShowCur(0);
+		while (true)
+		{
+			if (_kbhit())
+			{
+				switch (_getch())
+				{
+				case 'w':
+					if (y > 20)
+					{
+						y--;
+					}
+					if (y == 20)
+					{
+						SetColor(4);
+						drawButton((menu.x - 23), (menu.y - 9), "Continue");
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 6), "Save game");
+						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						ShowCur(0);
+					}
+					if (y == 21)
+					{
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 9), "Continue");
+						SetColor(4);
+						drawButton((menu.x - 23), (menu.y - 6), "Save game");
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						ShowCur(0);
+					}
+					if (y == 22)
+					{
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 9), "Continue");
+						SetColor(4);
+						drawButton((menu.x - 23), (menu.y - 6), "Save game");
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						ShowCur(0);
+					}
+					break;
+				case 's':
+					if (y < 22)
+					{
+						y++;
+					}
+					if (y == 20)
+					{
+						SetColor(4);
+						drawButton((menu.x - 23), (menu.y - 9), "Continue");
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 6), "Save game");
+						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						ShowCur(0);
+					}
+					if (y == 21)
+					{
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 9), "Continue");
+						SetColor(4);
+						drawButton((menu.x - 23), (menu.y - 6), "Save game");
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						ShowCur(0);
+					}
+					if (y == 22)
+					{
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 9), "Continue");
+						drawButton((menu.x - 23), (menu.y - 6), "Save game");
+						SetColor(4);
+						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						ShowCur(0);
+					}
+					break;
+				case KEY_ARROW_UP:
+					if (y > 20)
+					{
+						y--;
+					}
+					if (y == 20)
+					{
+						SetColor(4);
+						drawButton((menu.x - 23), (menu.y - 9), "Continue");
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 6), "Save game");
+						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						ShowCur(0);
+					}
+					if (y == 21)
+					{
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 9), "Continue");
+						SetColor(4);
+						drawButton((menu.x - 23), (menu.y - 6), "Save game");
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						ShowCur(0);
+					}
+					if (y == 22)
+					{
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 9), "Continue");
+						SetColor(4);
+						drawButton((menu.x - 23), (menu.y - 6), "Save game");
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						ShowCur(0);
+					}
+					break;
+				case KEY_ARROW_DOWN:
+					if (y < 22)
+					{
+						y++;
+					}
+					if (y == 20)
+					{
+						SetColor(4);
+						drawButton((menu.x - 23), (menu.y - 9), "Continue");
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 6), "Save game");
+						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						ShowCur(0);
+					}
+					if (y == 21)
+					{
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 9), "Continue");
+						SetColor(4);
+						drawButton((menu.x - 23), (menu.y - 6), "Save game");
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						ShowCur(0);
+					}
+					if (y == 22)
+					{
+						SetColor(0);
+						drawButton((menu.x - 23), (menu.y - 9), "Continue");
+						drawButton((menu.x - 23), (menu.y - 6), "Save game");
+						SetColor(4);
+						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						ShowCur(0);
+					}
+					break;
+				case 13:
+					if (y == 20)
+					{
+						//Continue
+						return 1; 
+					}
+					if (y == 21)
+					{
+						// Save 
+						return 2; 
+					}
+					if (y == 22)
+					{
+						// Back to menu
+						return 3;
+					}
+					break;
+				}
+			}
+		}
+	}
+	return -1;
 }
 void HELP()
 {
