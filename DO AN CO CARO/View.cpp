@@ -172,6 +172,10 @@ void XWin(_POINT _A[][BOARD_SIZE])
 	cout << "                                                                  ";
 	GotoXY(72, 15);
 	cout << "                                                                    ";
+	GotoXY(72, 16);
+	cout << "                                                                    ";
+	GotoXY(72, 17);
+	cout << "                                                                    ";
 }
 
 void OWin(_POINT _A[][BOARD_SIZE])
@@ -207,6 +211,10 @@ void OWin(_POINT _A[][BOARD_SIZE])
 	cout << "                                                                    ";
 	GotoXY(70, 15);
 	cout << "                                                                    ";
+	GotoXY(70, 16);
+	cout << "                                                                    ";
+	GotoXY(70, 17);
+	cout << "                                                                    ";
 }
 
 void Draw(_POINT _A[][BOARD_SIZE])
@@ -241,6 +249,10 @@ void Draw(_POINT _A[][BOARD_SIZE])
 	GotoXY(70, 14);
 	cout << "                                                                   ";
 	GotoXY(70, 15);
+	cout << "                                                                    ";
+	GotoXY(70, 16);
+	cout << "                                                                    ";
+	GotoXY(70, 17);
 	cout << "                                                                    ";
 }
 
