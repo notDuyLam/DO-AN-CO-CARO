@@ -1,12 +1,3 @@
-nguoi.txt
-may.txt
+who.txt
 nguoi1.txt
 may1.txt
-nguoi2.txt
-may2.txt
-who.txt
-walfkl.txt
-ai.txt
-lam.txt
-test.txt
- a.txt
