@@ -2425,18 +2425,6 @@ void ShowRank()
 	int x = 35;
 	int y = 11;
 	std::vector<_PLAYER> players = GetPlayerList();
-	
-	//PrintText("+------------------+", 253, x-2, y + 2);
-	//PrintText("|  TOP 10 PLAYERS  |", 253, x-2, y + 3);
-	//PrintText("+------------------+", 253, x-2, y + 4);
-	//
-                                
-// _____ _____ _____    ___   ___ 
-//|_   _|     |  _  |  |_  | |   |
-//  | | |  |  |   __|   _| |_| | |
-//  |_| |_____|__|     |_____|___|
-                                
-
 	GotoXY(x - 2, y + 4); cout << char(4) << " TOP 10 PLAYERS " << char(4);
 	PrintText("[Challenger] " + players.at(0).name, 209, x - 2, y + 6); // Xanh trời
 	PrintText("[Grandmaster] " + players.at(1).name, 196, x - 2, y + 7); // Đỏ tươi
