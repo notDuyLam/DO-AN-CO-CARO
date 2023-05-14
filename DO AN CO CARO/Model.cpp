@@ -352,6 +352,10 @@ void PlaySoundEffect(string s, bool SoundEffects)
 		PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC); // Dung de bat nhac khi di
 	else if (s == "win")
 		PlaySound(TEXT("win.wav"), NULL, SND_FILENAME | SND_ASYNC); // Bat nhac khi thang
+	else if (s == "draw")
+		PlaySound(TEXT("draw.wav"), NULL, SND_FILENAME | SND_ASYNC); // Bat nhac hoa
+	else if (s == "choose")
+		PlaySound(TEXT("choose.wav"), NULL, SND_FILENAME | SND_ASYNC); // Bat nhac khi lua chon
 }
 
 void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothang[24], int pWhoWin)

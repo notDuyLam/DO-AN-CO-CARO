@@ -102,7 +102,7 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 	switch (pWhoWin) {
 	case -1:
 		_PLAYER1.wins++;
-		PlaySoundEffect("win.wav", SoundEffects);
+		PlaySoundEffect("win", SoundEffects);
 		NhapNhayQuanCo(_A, toadothang, pWhoWin);
 		ThongBaoWin(pWhoWin, _A);
 		//GotoXY(78,18); // Nhảy tới vị trí 
@@ -125,6 +125,7 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 	case 0:
 		//printf("Nguoi choi %d da hoa nguoi choi %d\n", false, true);
 		ThongBaoWin(pWhoWin, _A);
+		PlaySoundEffect("draw", SoundEffects);
 		/*GotoXY(78,18);
 		cout << "Nguoi choi " << _PLAYER2.name << " da hoa nguoi choi " << _PLAYER1.name;*/
 		break;
@@ -928,6 +929,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					{
 						ShowCur(1);
 						SetPlayer(_PLAYER1, _PLAYER2);
+						PlaySoundEffect("choose", SoundEffects);
 						Loading();
 						TextColor(255);
 						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
@@ -938,6 +940,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					{
 						ShowCur(1);
 						SetPlayerVsComputer(_PLAYER1, _PLAYER2);
+						PlaySoundEffect("choose", SoundEffects);
 						Loading();
 						TextColor(255);
 						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
@@ -980,7 +983,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 23)
 					{
-						//Menu HELP trong game
+						//Menu Help trong game
 						for (int i = 6; i < 28; i++)
 						{
 							for (int j = 6; j < 80; j++)
@@ -1026,6 +1029,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 26)
 					{
+						PlaySoundEffect("choose", SoundEffects);
 						for (int i = 6; i < 28; i++)
 						{
 							for (int j = 6; j < 83; j++)

@@ -5,7 +5,7 @@ bot1
 chienthan
 101
 lam
-16
+21
 thienthan
 8
 BOT3
@@ -89,4 +89,10 @@ faw
 Tiendepgai
 0
 lan
+0
+2
+0
+2	1 
+0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 0
