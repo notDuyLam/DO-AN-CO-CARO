@@ -5,9 +5,11 @@ bot1
 chienthan
 101
 lam
-21
+24
 thienthan
 8
+who
+7
 BOT3
 6
 BOT4

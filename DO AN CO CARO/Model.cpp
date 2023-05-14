@@ -349,7 +349,7 @@ void PlaySoundEffect(string s, bool SoundEffects)
 	if (!SoundEffects)
 		return;
 	if (s == "move")
-		PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC); // Dung de bat nhac khi di
+		PlaySound(TEXT("move.wav"), NULL, SND_FILENAME | SND_ASYNC); // Dung de bat nhac khi di
 	else if (s == "win")
 		PlaySound(TEXT("win.wav"), NULL, SND_FILENAME | SND_ASYNC); // Bat nhac khi thang
 	else if (s == "draw")
