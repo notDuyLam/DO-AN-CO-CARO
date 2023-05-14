@@ -5,7 +5,7 @@ bot1
 chienthan
 101
 lam
-24
+25
 thienthan
 8
 who

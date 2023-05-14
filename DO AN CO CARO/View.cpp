@@ -934,7 +934,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						ShowCur(0);
 					}
 					break;
-				case 13:
+				case SPACE:
+				case ENTER:
 					backToOriginalMenu = true;
 					//PlaySOUNDEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
 					if (y == 20)
@@ -1041,7 +1042,6 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					}
 					if (y == 26)
 					{
-						PlaySoundEffect("choose", SoundEffects);
 						for (int i = 6; i < 28; i++)
 						{
 							for (int j = 6; j < 83; j++)
@@ -1494,7 +1494,8 @@ int EscMenu(_POINT _A[][BOARD_SIZE])
 						ShowCur(0);
 					}
 					break;
-				case 13:
+				case SPACE:
+				case ENTER:
 					if (y == 20)
 					{
 						//Continue
