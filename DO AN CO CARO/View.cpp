@@ -942,7 +942,6 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					{
 						ShowCur(1);
 						SetPlayer(_PLAYER1, _PLAYER2);
-						
 						Loading();
 						TextColor(255);
 						PlaySoundEffect("choose", SoundEffects);
