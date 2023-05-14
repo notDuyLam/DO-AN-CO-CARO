@@ -44,6 +44,10 @@ lamdeptrai
 1
 ad
 1
+phuga
+1
+CARO_AI
+1
 conga
 0
 conmeo
@@ -72,8 +76,6 @@ uho
 0
 computer
 0
-CARO_AI
-0
 wwho
 0
 fdsfs
@@ -101,4 +103,6 @@ lan
 2	1 
 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0
+phu
 0

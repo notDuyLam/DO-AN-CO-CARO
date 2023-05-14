@@ -386,7 +386,6 @@ int AskContinue(_POINT _A[][BOARD_SIZE])
 }
 void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& SoundEffects, int& chedo, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, int& song, int& songtemp)
 {
-	//PlayBackGroundMusic(song);
 	int x = 0, y = 0;
 	drawFrame(0, 0, 145, 33);
 	drawFrame(5, 3, 80, 28);
@@ -2424,18 +2423,32 @@ void Loading()
 void ShowRank()
 {
 	int x = 35;
-	int y = 13;
+	int y = 11;
 	std::vector<_PLAYER> players = GetPlayerList();
+	
+	//PrintText("+------------------+", 253, x-2, y + 2);
+	//PrintText("|  TOP 10 PLAYERS  |", 253, x-2, y + 3);
+	//PrintText("+------------------+", 253, x-2, y + 4);
+	//
+                                
+// _____ _____ _____    ___   ___ 
+//|_   _|     |  _  |  |_  | |   |
+//  | | |  |  |   __|   _| |_| | |
+//  |_| |_____|__|     |_____|___|
+                                
 
-	PrintText("+------------------+", 253, x-2, y + 2);
-	PrintText("| ~TOP 10 PLAYERS~ |", 253, x-2, y + 3);
-	PrintText("+------------------+", 253, x-2, y + 4);
-	PrintText("[Master King] " + players.at(0).name, 252, x - 2, y + 6);
-	PrintText("[King] " + players.at(1).name, 251, x - 2, y + 7);
-	for (int i = 2; i < 10; i++)
-	{
-		PrintText("[Master] " + players.at(i).name, 249, x - 2, y + 6 + i);
-	}
+	GotoXY(x - 2, y + 4); cout << char(4) << " TOP 10 PLAYERS " << char(4);
+	PrintText("[Challenger] " + players.at(0).name, 209, x - 2, y + 6); // Xanh trời
+	PrintText("[Grandmaster] " + players.at(1).name, 196, x - 2, y + 7); // Đỏ tươi
+	PrintText("[Master] " + players.at(2).name, 253, x - 2, y + 6 + 2); // Tím đậm
+	PrintText("[Diamond] " + players.at(3).name, 219, x - 2, y + 6 + 3); // Xanh ngọc
+	PrintText("[Diamond] " + players.at(4).name, 219, x - 2, y + 6 + 4); // Xanh ngọc
+	PrintText("[Platinum] " + players.at(5).name, 234, x - 2, y + 6 + 5); // Xanh lá
+	PrintText("[Platinum] " + players.at(6).name, 234, x - 2, y + 6 + 6); // Xanh lá
+	PrintText("[Gold] " + players.at(7).name, 70, x - 2, y + 6 + 7); // Vàng
+	PrintText("[Gold] " + players.at(8).name, 70, x - 2, y + 6 + 8); // Vàng
+	PrintText("[Silver] " + players.at(9).name, 71, x - 2, y + 6 + 9); // Xám bạc
+	PrintText("[Silver] " + players.at(10).name, 71, x - 2, y + 6 +10); // Xác bạc
 	SetColor(8);
 	GotoXY(30, 29);
 	cout << "Press any key to continue";
