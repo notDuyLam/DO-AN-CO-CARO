@@ -124,8 +124,8 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 		break;
 	case 0:
 		//printf("Nguoi choi %d da hoa nguoi choi %d\n", false, true);
-		ThongBaoWin(pWhoWin, _A);
 		PlaySoundEffect("draw", SoundEffects);
+		ThongBaoWin(pWhoWin, _A);
 		/*GotoXY(78,18);
 		cout << "Nguoi choi " << _PLAYER2.name << " da hoa nguoi choi " << _PLAYER1.name;*/
 		break;
