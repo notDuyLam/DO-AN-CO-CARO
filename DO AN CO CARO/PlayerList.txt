@@ -16,6 +16,8 @@ cuu
 2
 who
 2
+as
+2
 huhu
 1
 thachotoi
@@ -37,6 +39,8 @@ sefdsfjsdf
 Lam Lon
 1
 lamdeptrai
+1
+ad
 1
 conga
 0
