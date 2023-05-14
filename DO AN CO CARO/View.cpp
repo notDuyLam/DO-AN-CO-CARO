@@ -2375,8 +2375,9 @@ void Loading()
 	int a[10] = { 17,17,17,17,153,153,153,51,51,187 };
 	int b[10] = { 31,31,31,31,159,159,159,63,63,191 };
 	system("cls");
+	printBigCaro(35, 3);
 	int x = 25;
-	int y = 13;
+	int y = 16;
 	GotoXY(x, y);
 	SetColor(0);
 	ShowCur(0);
@@ -2396,7 +2397,7 @@ void Loading()
 	for (int i = 0; i < 95; i++)
 		cout << (char)205;
 	cout << (char)188;
-	y = 13;
+	y = 16;
 	x = 20;
 	GotoXY(x+8, y);
 	cout << "Loading . . .";
