@@ -938,30 +938,30 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 				case ENTER:
 					backToOriginalMenu = true;
 					//PlaySOUNDEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
-					if (y == 20)
+					if (y == 20) // Danh voi nguoi
 					{
 						ShowCur(1);
 						SetPlayer(_PLAYER1, _PLAYER2);
-						PlaySoundEffect("choose", SoundEffects);
+						
 						Loading();
 						TextColor(255);
+						PlaySoundEffect("choose", SoundEffects);
 						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
 						RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, SoundEffects, chedo);
 						afterPlay = true;
 					}
-					if (y == 21)
+					if (y == 21) //Danh voi may
 					{
 						ShowCur(1);
 						SetPlayerVsComputer(_PLAYER1, _PLAYER2);
-						PlaySoundEffect("choose", SoundEffects);
 						Loading();
 						TextColor(255);
+						PlaySoundEffect("choose", SoundEffects);
 						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
 						PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, SoundEffects, chedo);
 						afterPlay = true;
-						//Danh voi may
 					}
-					if (y == 22)
+					if (y == 22)//Loading();
 					{
 						for (int i = 6; i < 28; i++)
 						{
@@ -975,7 +975,6 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(0);
 						printCaro(6, 4);
 						GotoXY(10, 10);
-						//Loading();
 						TextColor(255);
 						ShowCur(1);
 						int loadOption;
@@ -986,6 +985,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 							Loading();
 							TextColor(255);
 							LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, chedo);
+							PlaySoundEffect("choose", SoundEffects);
 							if (chedo == 2)
 								RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, SoundEffects, chedo);
 							if(chedo == 3)

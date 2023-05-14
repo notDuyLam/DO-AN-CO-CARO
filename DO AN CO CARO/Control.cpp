@@ -764,7 +764,6 @@ string RunLoadingMenu(int option)
 void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAYER &_PLAYER1, _PLAYER &_PLAYER2, int &_X, int &_Y, bool validEnter, bool& SoundEffects, int& chedo) {
 	FixConsoleWindow();
 	//StartGame(_A, _TURN, _COMMAND, _X, _Y);
-	StopMusic();
 	chedo = 3;
 	int escOption;
 	short int toadothang[24];
