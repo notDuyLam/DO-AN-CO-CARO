@@ -24,5 +24,4 @@ int main() {
 	bool Music = true;
 	ShowCur(0);
 	ScreenStartGame(n, _A, _TURN, _COMMAND, _X, _Y, validEnter, SoundEffects, chedo, _PLAYER1, _PLAYER2, song, songtemp);
-	return 0;
 }

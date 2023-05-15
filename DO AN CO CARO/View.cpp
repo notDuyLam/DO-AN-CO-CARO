@@ -1060,6 +1060,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						//Loading();
 						TextColor(255);
 						system("cls");
+						Sleep(100);
+						//return;
 						exit(0);
 					}
 					break;
