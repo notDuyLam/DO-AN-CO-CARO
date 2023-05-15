@@ -1061,7 +1061,8 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						TextColor(255);
 						system("cls");
 						Sleep(100);
-						exit(0);
+						PostMessage(GetConsoleWindow(), WM_CLOSE, 0, 0);
+						//exit(0);
 					}
 					break;
 					//case 32:
