@@ -1716,6 +1716,18 @@ void DrawPhimTat(_POINT _A[][BOARD_SIZE])
 
 void drawButton(int x, int y, string text)
 {
+	GotoXY(x - 2, y);
+	cout << "  ";
+	GotoXY(x - 2, y + 1);
+	cout << "  ";
+	GotoXY(x - 2, y + 2);
+	cout << "  ";
+	GotoXY(x +23, y);
+	cout << "  ";
+	GotoXY(x +23, y + 1);
+	cout << "  ";
+	GotoXY(x +23, y + 2);
+	cout << "  ";
 	int width = 21; // length of "PLAYER VS COMPUTER" + 2
 	GotoXY(x, y); cout << char(218);
 	for (int i = 0; i < width; i++) cout << char(196);
@@ -1731,14 +1743,14 @@ void drawButton(int x, int y, string text)
 void drawSelectedButton(int x, int y, string text)
 {
 	TextColor(79);
-	int width = 21; // length of "PLAYER VS COMPUTER" + 2
-	GotoXY(x, y); cout << char(218);
+	int width = 25; // length of "PLAYER VS COMPUTER" + 2
+	GotoXY(x-2, y); cout << char(218);
 	for (int i = 0; i < width; i++) cout << char(196);
 	cout << char(191);
-	GotoXY(x, y + 1); cout << char(179) << setw((width - text.length()) / 2 + text.length()) << right << text;
+	GotoXY(x-2, y + 1); cout << char(179) << setw((width - text.length()) / 2 + text.length()) << right << text;
 	if (text.length() % 2 == 0) cout << setw((width - text.length()) / 2 + 1) << right << " " << char(179);
 	else cout << setw((width - text.length()) / 2) << "" << right << char(179);
-	GotoXY(x, y + 2); cout << char(192);
+	GotoXY(x-2, y + 2); cout << char(192);
 	for (int i = 0; i < width; i++) cout << char(196);
 	cout << char(217);
 	TextColor(240);
@@ -2118,14 +2130,14 @@ void ShowRank()
 	PrintText("[Challenger] " + players.at(0).name, 209, x - 2, y + 6); // Xanh trời
 	PrintText("[Grandmaster] " + players.at(1).name, 196, x - 2, y + 7); // Đỏ tươi
 	PrintText("[Master] " + players.at(2).name, 253, x - 2, y + 6 + 2); // Tím đậm
-	PrintText("[Diamond] " + players.at(3).name, 219, x - 2, y + 6 + 3); // Xanh ngọc
-	PrintText("[Diamond] " + players.at(4).name, 219, x - 2, y + 6 + 4); // Xanh ngọc
+	PrintText("[Diamond] " + players.at(3).name, 249, x - 2, y + 6 + 3); // Xanh ngọc
+	PrintText("[Diamond] " + players.at(4).name, 249, x - 2, y + 6 + 4); // Xanh ngọc
 	PrintText("[Platinum] " + players.at(5).name, 234, x - 2, y + 6 + 5); // Xanh lá
 	PrintText("[Platinum] " + players.at(6).name, 234, x - 2, y + 6 + 6); // Xanh lá
 	PrintText("[Gold] " + players.at(7).name, 70, x - 2, y + 6 + 7); // Vàng
 	PrintText("[Gold] " + players.at(8).name, 70, x - 2, y + 6 + 8); // Vàng
-	PrintText("[Silver] " + players.at(9).name, 71, x - 2, y + 6 + 9); // Xám bạc
-	PrintText("[Silver] " + players.at(10).name, 71, x - 2, y + 6 +10); // Xác bạc
+	PrintText("[Silver] " + players.at(9).name, 240, x - 2, y + 6 + 9); // Xám bạc
+	PrintText("[Silver] " + players.at(10).name, 240, x - 2, y + 6 +10); // Xác bạc
 	SetColor(8);
 	GotoXY(30, 29);
 	cout << "Press any key to continue";
@@ -2137,15 +2149,15 @@ void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2)
 {
 	int start = _A[0][BOARD_SIZE - 1].x + 4;
 	//PrintText(_PLAYER1.name, 253, start + 12, 18);
-	PrintText("Wins:", 253, start + 14, 16);
-	PrintText(std::to_string(_PLAYER1.wins), 253, start + 21, 16);
-	PrintText("Rank:", 253, start + 14, 17);
-	PrintText(std::to_string(_PLAYER1.rank), 253, start + 21, 17);
+	PrintText("Wins:", 1, start + 14, 16);
+	PrintText(std::to_string(_PLAYER1.wins), 1, start + 21, 16);
+	PrintText("Rank:", 1, start + 14, 17);
+	PrintText(std::to_string(_PLAYER1.rank), 1, start + 21, 17);
 	//PrintText(_PLAYER2.name, 253, start + 23, 18);
-	PrintText("Wins:", 253, start + 23 + 32 + 8 - 7, 16);
-	PrintText("Rank:", 253, start + 23 + 32 + 8 - 7, 17);
-	PrintText(std::to_string(_PLAYER2.wins), 253, start + 23 + 32 + 8, 16);
-	PrintText(std::to_string(_PLAYER2.rank), 253, start + 23 + 32 + 8, 17);
+	PrintText("Wins:", 2, start + 23 + 32 + 8 - 7, 16);
+	PrintText("Rank:", 2, start + 23 + 32 + 8 - 7, 17);
+	PrintText(std::to_string(_PLAYER2.wins), 2, start + 23 + 32 + 8, 16);
+	PrintText(std::to_string(_PLAYER2.rank), 2, start + 23 + 32 + 8, 17);
 }
 
 
