@@ -111,7 +111,7 @@ void MoveUp(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
 	}
 }
 */
-void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, bool& SoundEffects, int& chedo)
+void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, bool& SoundEffects, int& chedo, int& song, int& songtemp)
 {
 	chedo = 2;
 	bool validEnter = true;
@@ -126,8 +126,8 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 		_COMMAND = toupper(_getch());
 		if (_COMMAND == ESC)
 		{
-			escOption = EscMenu(_A);
-			RunEscMenu(_A, _PLAYER1, _PLAYER2, _TURN, escOption, runGame, chedo);
+			escOption = EscMenu(_A, SoundEffects, song, songtemp);
+			RunEscMenu(_A, _PLAYER1, _PLAYER2, _TURN, escOption, runGame, chedo, song, songtemp);
 		}
 		else
 		{
@@ -629,7 +629,7 @@ int SelectMenu1(_MENU menu)
 
 	return cursor2;
 }
-void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN, int option, bool& runGame, int chedo)
+void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN, int option, bool& runGame, int chedo, int& song, int& songtemp)
 {
 	switch (option)
 	{
@@ -641,7 +641,7 @@ void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, boo
 		//ShowCur(1);
 		for (int i = 70; i < 120; i++)
 		{
-			for (int j = 20; j <= 30; j++)
+			for (int j = 19; j <= 30; j++)
 			{
 				GotoXY(i, j);
 				cout << " ";
@@ -761,7 +761,7 @@ string RunLoadingMenu(int option)
 		}
 	}
 }*/
-void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAYER &_PLAYER1, _PLAYER &_PLAYER2, int &_X, int &_Y, bool validEnter, bool& SoundEffects, int& chedo) {
+void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAYER &_PLAYER1, _PLAYER &_PLAYER2, int &_X, int &_Y, bool validEnter, bool& SoundEffects, int& chedo, int& song, int& songtemp) {
 	FixConsoleWindow();
 	//StartGame(_A, _TURN, _COMMAND, _X, _Y);
 	chedo = 3;
@@ -778,8 +778,8 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAY
 			_COMMAND = toupper(_getch());
 			if (_COMMAND == ESC)
 			{
-				escOption = EscMenu(_A);
-				RunEscMenu(_A, _PLAYER1, _PLAYER2, _TURN, escOption, runGame, chedo);
+				escOption = EscMenu(_A, SoundEffects, song, songtemp);
+				RunEscMenu(_A, _PLAYER1, _PLAYER2, _TURN, escOption, runGame, chedo, song, songtemp);
 			}
 			if (_COMMAND == 'W' || _COMMAND == ARROW_UP) 
 			{

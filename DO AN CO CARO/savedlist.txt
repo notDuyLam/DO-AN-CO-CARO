@@ -3,3 +3,4 @@ nguoi1.txt
 may1.txt
 draw.txt
 saphoa.txt
+test.txt

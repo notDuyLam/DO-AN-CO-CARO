@@ -25,10 +25,11 @@ void PrintText(string text, int color, int x, int y);
 void DrawLoaded(_POINT _A[][BOARD_SIZE]);
 _MENU YesNoMenu(int x, int y);
 _MENU LoadingMenu();
-int EscMenu(_POINT _A[][BOARD_SIZE]);
+int EscMenu(_POINT _A[][BOARD_SIZE], bool& SoundEffects, int& song, int& songtemp);
 void HELP();
 void About();
 void Sound(bool& SoundEffects, int& song, int& songtemp);
+void SoundInGame(bool& SoundEffects, int& song, int& songtemp);
 void drawFrame(int x, int y, int width, int height);
 // Hàm này nhận vào x, y là tọa độ tại vị trí bắt đầu vẽ khung, width và height là độ dài và chiều cao của khung
 // (độ dài và chiều nó vẽ hên xui nên cứ nhập đại số nào vô rồi canh điều chỉnh cho nó hợp lý là được)
@@ -36,6 +37,7 @@ void drawFrame(int x, int y, int width, int height);
 void DrawBigText(string filename, int color, int x, int y);
 void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE], int color);
 void drawButton(int x, int y, string text);
+void drawSelectedButton(int x, int y, string text);
 void printCaro(int x, int y);
 void Loading();
 void DrawPhimTat(_POINT _A[][BOARD_SIZE]);

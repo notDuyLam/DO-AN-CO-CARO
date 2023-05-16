@@ -400,21 +400,21 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		printBigCaro(10, 10);
 		//printCaro(29,14);
 		backToOriginalMenu = false;
-		x = 100, y = 20;
+		x = 103, y = 20;
 		// color, width, height, x, y
-		SetColor(4);
-		//GotoXY(100, 3); cout << "PLAYER VS PLAYER";
+		//SetColor(4);
+		//GotoXY(103, 3); cout << "PLAYER VS PLAYER";
 		if(afterPlay)
 			PlayBackGroundMusic(song);
-		drawButton(100, 5, "PLAYER VS PLAYER");
-		SetColor(0);
-		drawButton(100, 8, "PLAYER VS COMPUTER");
-		drawButton(100, 11, "LOAD GAME");
-		drawButton(100, 14, "HELP");
-		drawButton(100, 17, "ABOUT");
-		drawButton(100, 20, "SOUND");
-		drawButton(100, 23, "RANKING");
-		drawButton(100, 26, "EXIT");
+		drawSelectedButton(103, 5, "PLAYER VS PLAYER");
+		//SetColor(0);
+		drawButton(103, 8, "PLAYER VS COMPUTER");
+		drawButton(103, 11, "LOAD GAME");
+		drawButton(103, 14, "HELP");
+		drawButton(103, 17, "ABOUT");
+		drawButton(103, 20, "SOUND");
+		drawButton(103, 23, "RANKING");
+		drawButton(103, 26, "EXIT");
 		SetColor(8);
 		GotoXY(88, 29); cout << "___ W A S D: MOVE ___";
 		GotoXY(88, 30); cout << "___ Space: Select ___" ;
@@ -427,6 +427,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 			{
 				switch (_getch())
 				{
+				case KEY_ARROW_UP:
 				case 'w':
 					if (y > 20)
 					{
@@ -436,124 +437,124 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					if (y == 20)
 					{
 						SetColor(4);
-						drawButton(100, 5, "PLAYER VS PLAYER");
+						drawSelectedButton(103, 5, "PLAYER VS PLAYER");
 						SetColor(0);
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
+						drawButton(103, 8, "PLAYER VS COMPUTER");
+						drawButton(103, 11, "LOAD GAME");
+						drawButton(103, 14, "HELP");
+						drawButton(103, 17, "ABOUT");
+						drawButton(103, 20, "SOUND");
+						drawButton(103, 23, "RANKING");
+						drawButton(103, 26, "EXIT");
 						ShowCur(0);
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
+						drawButton(103, 5, "PLAYER VS PLAYER");
 						SetColor(4);
-						drawButton(100, 8, "PLAYER VS COMPUTER");
+						drawSelectedButton(103, 8, "PLAYER VS COMPUTER");
 						SetColor(0);
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
+						drawButton(103, 11, "LOAD GAME");
+						drawButton(103, 14, "HELP");
+						drawButton(103, 17, "ABOUT");
+						drawButton(103, 20, "SOUND");
+						drawButton(103, 23, "RANKING");
+						drawButton(103, 26, "EXIT");
 						ShowCur(0);
 					}
 					if (y == 22)
 					{
 						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
+						drawButton(103, 5, "PLAYER VS PLAYER");
+						drawButton(103, 8, "PLAYER VS COMPUTER");
 						SetColor(4);
-						drawButton(100, 11, "LOAD GAME");
+						drawSelectedButton(103, 11, "LOAD GAME");
 						SetColor(0);
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
+						drawButton(103, 14, "HELP");
+						drawButton(103, 17, "ABOUT");
+						drawButton(103, 20, "SOUND");
+						drawButton(103, 23, "RANKING");
+						drawButton(103, 26, "EXIT");
 						ShowCur(0);
 					}
 					if (y == 23)
 					{
 						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
+						drawButton(103, 5, "PLAYER VS PLAYER");
+						drawButton(103, 8, "PLAYER VS COMPUTER");
+						drawButton(103, 11, "LOAD GAME");
 						SetColor(4);
-						drawButton(100, 14, "HELP");
+						drawSelectedButton(103, 14, "HELP");
 						SetColor(0);
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
+						drawButton(103, 17, "ABOUT");
+						drawButton(103, 20, "SOUND");
+						drawButton(103, 23, "RANKING");
+						drawButton(103, 26, "EXIT");
 						ShowCur(0);
 					}
 					if (y == 24)
 					{
 						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
+						drawButton(103, 5, "PLAYER VS PLAYER");
+						drawButton(103, 8, "PLAYER VS COMPUTER");
+						drawButton(103, 11, "LOAD GAME");
+						drawButton(103, 14, "HELP");
 						SetColor(4);
-						drawButton(100, 17, "ABOUT");
+						drawSelectedButton(103, 17, "ABOUT");
 						SetColor(0);
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
+						drawButton(103, 20, "SOUND");
+						drawButton(103, 23, "RANKING");
+						drawButton(103, 26, "EXIT");
 						ShowCur(0);
 					}
 					if (y == 25)
 					{
 						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
+						drawButton(103, 5, "PLAYER VS PLAYER");
+						drawButton(103, 8, "PLAYER VS COMPUTER");
+						drawButton(103, 11, "LOAD GAME");
+						drawButton(103, 14, "HELP");
+						drawButton(103, 17, "ABOUT");
 						SetColor(4);
-						drawButton(100, 20, "SOUND");
+						drawSelectedButton(103, 20, "SOUND");
 						SetColor(0);
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
+						drawButton(103, 23, "RANKING");
+						drawButton(103, 26, "EXIT");
 						ShowCur(0);
 					}
 					if (y == 26)
 					{
 						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						
-						drawButton(100, 20, "SOUND");
+						drawButton(103, 5, "PLAYER VS PLAYER");
+						drawButton(103, 8, "PLAYER VS COMPUTER");
+						drawButton(103, 11, "LOAD GAME");
+						drawButton(103, 14, "HELP");
+						drawButton(103, 17, "ABOUT");
+						drawButton(103, 20, "SOUND");
 						SetColor(4);
-						drawButton(100, 23, "RANKING");
+						drawSelectedButton(103, 23, "RANKING");
 						SetColor(0);
-						drawButton(100, 26, "EXIT");
+						drawButton(103, 26, "EXIT");
 						ShowCur(0);
 					}
 					if (y == 27)
 					{
 						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
+						drawButton(103, 5, "PLAYER VS PLAYER");
+						drawButton(103, 8, "PLAYER VS COMPUTER");
+						drawButton(103, 11, "LOAD GAME");
+						drawButton(103, 14, "HELP");
+						drawButton(103, 17, "ABOUT");
+						drawButton(103, 20, "SOUND");
 						SetColor(4);
-						drawButton(100, 23, "RANKING");
+						drawButton(103, 23, "RANKING");
 						SetColor(0);
-						drawButton(100, 26, "EXIT");
+						drawSelectedButton(103, 26, "EXIT");
 						ShowCur(0);
 					}
 					break;
+				case KEY_ARROW_DOWN:
 				case 's':
 					if (y < 27)
 					{
@@ -563,373 +564,119 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					if (y == 20)
 					{
 						SetColor(4);
-						drawButton(100, 5, "PLAYER VS PLAYER");
+						drawSelectedButton(103, 5, "PLAYER VS PLAYER");
 						SetColor(0);
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
+						drawButton(103, 8, "PLAYER VS COMPUTER");
+						drawButton(103, 11, "LOAD GAME");
+						drawButton(103, 14, "HELP");
+						drawButton(103, 17, "ABOUT");
+						drawButton(103, 20, "SOUND");
+						drawButton(103, 23, "RANKING");
+						drawButton(103, 26, "EXIT");
 						ShowCur(0);
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
+						drawButton(103, 5, "PLAYER VS PLAYER");
 						SetColor(4);
-						drawButton(100, 8, "PLAYER VS COMPUTER");
+						drawSelectedButton(103, 8, "PLAYER VS COMPUTER");
 						SetColor(0);
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
+						drawButton(103, 11, "LOAD GAME");
+						drawButton(103, 14, "HELP");
+						drawButton(103, 17, "ABOUT");
+						drawButton(103, 20, "SOUND");
+						drawButton(103, 23, "RANKING");
+						drawButton(103, 26, "EXIT");
 						ShowCur(0);
 					}
 					if (y == 22)
 					{
 						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
+						drawButton(103, 5, "PLAYER VS PLAYER");
+						drawButton(103, 8, "PLAYER VS COMPUTER");
 						SetColor(4);
-						drawButton(100, 11, "LOAD GAME");
+						drawSelectedButton(103, 11, "LOAD GAME");
 						SetColor(0);
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
+						drawButton(103, 14, "HELP");
+						drawButton(103, 17, "ABOUT");
+						drawButton(103, 20, "SOUND");
+						drawButton(103, 23, "RANKING");
+						drawButton(103, 26, "EXIT");
 						ShowCur(0);
 					}
 					if (y == 23)
 					{
 						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
+						drawButton(103, 5, "PLAYER VS PLAYER");
+						drawButton(103, 8, "PLAYER VS COMPUTER");
+						drawButton(103, 11, "LOAD GAME");
 						SetColor(4);
-						drawButton(100, 14, "HELP");
+						drawSelectedButton(103, 14, "HELP");
 						SetColor(0);
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
+						drawButton(103, 17, "ABOUT");
+						drawButton(103, 20, "SOUND");
+						drawButton(103, 23, "RANKING");
+						drawButton(103, 26, "EXIT");
 						ShowCur(0);
 					}
 					if (y == 24)
 					{
 						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
+						drawButton(103, 5, "PLAYER VS PLAYER");
+						drawButton(103, 8, "PLAYER VS COMPUTER");
+						drawButton(103, 11, "LOAD GAME");
+						drawButton(103, 14, "HELP");
 						SetColor(4);
-						drawButton(100, 17, "ABOUT");
+						drawSelectedButton(103, 17, "ABOUT");
 						SetColor(0);
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
+						drawButton(103, 20, "SOUND");
+						drawButton(103, 23, "RANKING");
+						drawButton(103, 26, "EXIT");
 						ShowCur(0);
 					}
 					if (y == 25)
 					{
 						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
+						drawButton(103, 5, "PLAYER VS PLAYER");
+						drawButton(103, 8, "PLAYER VS COMPUTER");
+						drawButton(103, 11, "LOAD GAME");
+						drawButton(103, 14, "HELP");
+						drawButton(103, 17, "ABOUT");
 						SetColor(4);
-						drawButton(100, 20, "SOUND");
+						drawSelectedButton(103, 20, "SOUND");
 						SetColor(0);
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
+						drawButton(103, 23, "RANKING");
+						drawButton(103, 26, "EXIT");
 						ShowCur(0);
 					}
 					if (y == 26)
 					{
 						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						
-						drawButton(100, 20, "SOUND");
+						drawButton(103, 5, "PLAYER VS PLAYER");
+						drawButton(103, 8, "PLAYER VS COMPUTER");
+						drawButton(103, 11, "LOAD GAME");
+						drawButton(103, 14, "HELP");
+						drawButton(103, 17, "ABOUT");	
+						drawButton(103, 20, "SOUND");
 						SetColor(4);
-						drawButton(100, 23, "RANKING");
+						drawSelectedButton(103, 23, "RANKING");
 						SetColor(0);
-						drawButton(100, 26, "EXIT");
+						drawButton(103, 26, "EXIT");
 						ShowCur(0);
 					}
 					if (y == 27)
 					{
 						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
+						drawButton(103, 5, "PLAYER VS PLAYER");
+						drawButton(103, 8, "PLAYER VS COMPUTER");
+						drawButton(103, 11, "LOAD GAME");
+						drawButton(103, 14, "HELP");
+						drawButton(103, 17, "ABOUT");
+						drawButton(103, 20, "SOUND");
+						drawButton(103, 23, "RANKING");
 						SetColor(4);
-						drawButton(100, 26, "EXIT");
-						ShowCur(0);
-					}
-					break;
-				case KEY_ARROW_UP:
-					if (y > 20)
-					{
-						y--;
-						GotoXY(x, y);
-					}
-					if (y == 20)
-					{
-						SetColor(4);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						SetColor(0);
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 21)
-					{
-						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						SetColor(4);
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						SetColor(0);
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 22)
-					{
-						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						SetColor(4);
-						drawButton(100, 11, "LOAD GAME");
-						SetColor(0);
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 23)
-					{
-						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						SetColor(4);
-						drawButton(100, 14, "HELP");
-						SetColor(0);
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 24)
-					{
-						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						SetColor(4);
-						drawButton(100, 17, "ABOUT");
-						SetColor(0);
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 25)
-					{
-						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						SetColor(4);
-						drawButton(100, 20, "SOUND");
-						SetColor(0);
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 26)
-					{
-						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-
-						drawButton(100, 20, "SOUND");
-						SetColor(4);
-						drawButton(100, 23, "RANKING");
-						SetColor(0);
-						drawButton(100, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 27)
-					{
-						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						SetColor(4);
-						drawButton(100, 23, "RANKING");
-						SetColor(0);
-						drawButton(100, 26, "EXIT");
-						ShowCur(0);
-					}
-					break;
-				case KEY_ARROW_DOWN:
-					if (y < 27)
-					{
-						y++;
-						GotoXY(x, y);
-					}
-					if (y == 20)
-					{
-						SetColor(4);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						SetColor(0);
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 21)
-					{
-						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						SetColor(4);
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						SetColor(0);
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 22)
-					{
-						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						SetColor(4);
-						drawButton(100, 11, "LOAD GAME");
-						SetColor(0);
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 23)
-					{
-						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						SetColor(4);
-						drawButton(100, 14, "HELP");
-						SetColor(0);
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 24)
-					{
-						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						SetColor(4);
-						drawButton(100, 17, "ABOUT");
-						SetColor(0);
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 25)
-					{
-						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						SetColor(4);
-						drawButton(100, 20, "SOUND");
-						SetColor(0);
-						drawButton(100, 23, "RANKING");
-						drawButton(100, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 26)
-					{
-						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-
-						drawButton(100, 20, "SOUND");
-						SetColor(4);
-						drawButton(100, 23, "RANKING");
-						SetColor(0);
-						drawButton(100, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 27)
-					{
-						SetColor(0);
-						drawButton(100, 5, "PLAYER VS PLAYER");
-						drawButton(100, 8, "PLAYER VS COMPUTER");
-						drawButton(100, 11, "LOAD GAME");
-						drawButton(100, 14, "HELP");
-						drawButton(100, 17, "ABOUT");
-						drawButton(100, 20, "SOUND");
-						drawButton(100, 23, "RANKING");
-						SetColor(4);
-						drawButton(100, 26, "EXIT");
+						drawSelectedButton(103, 26, "EXIT");
 						ShowCur(0);
 					}
 					break;
@@ -945,7 +692,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						TextColor(255);
 						PlaySoundEffect("choose", SoundEffects);
 						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
-						RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, SoundEffects, chedo);
+						RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, SoundEffects, chedo, song, songtemp);
 						afterPlay = true;
 					}
 					if (y == 21) //Danh voi may
@@ -956,14 +703,14 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						TextColor(255);
 						PlaySoundEffect("choose", SoundEffects);
 						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
-						PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, SoundEffects, chedo);
+						PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, SoundEffects, chedo, song, songtemp);
 						afterPlay = true;
 					}
 					if (y == 22)//Loading();
 					{
 						for (int i = 6; i < 28; i++)
 						{
-							for (int j = 6; j < 80; j++)
+							for (int j = 6; j < 81; j++)
 							{
 								GotoXY(j, i);
 								cout << " ";
@@ -971,7 +718,6 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 							}
 						}
 						SetColor(0);
-						printCaro(6, 4);
 						GotoXY(10, 10);
 						TextColor(255);
 						ShowCur(1);
@@ -985,9 +731,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 							LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, chedo);
 							PlaySoundEffect("choose", SoundEffects);
 							if (chedo == 2)
-								RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, SoundEffects, chedo);
+								RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, SoundEffects, chedo, song, songtemp);
 							if(chedo == 3)
-								PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, SoundEffects, chedo);
+								PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, SoundEffects, chedo, song, songtemp);
 							break;
 						}
 						afterPlay = true;
@@ -1060,7 +806,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						//Loading();
 						TextColor(255);
 						system("cls");
-						Sleep(100);
+						Sleep(103);
 						PostMessage(GetConsoleWindow(), WM_CLOSE, 0, 0); // Câu lệnh này dùng để tắt màn hình game ngay lập tức
 					}
 					break;
@@ -1186,7 +932,6 @@ _MENU LoadingMenu()
 	menu.x = X_CENTER - 13;
 	menu.y = Y_CENTER + 11 - files.size() / 2;
 	menu.cursorColor = 1;
-	system("cls");
 	drawFrame(5, 3, 80, 28);
 	SetColor(0);
 	printCaro(27, 7);
@@ -1205,7 +950,7 @@ _MENU LoadingMenu()
 	GotoXY(38, 27);
 	return menu;
 }
-int EscMenu(_POINT _A[][BOARD_SIZE])
+int EscMenu(_POINT _A[][BOARD_SIZE], bool& SoundEffects, int& song, int& songtemp)
 {
 	_MENU menu;
 	menu.options = 3;
@@ -1226,22 +971,23 @@ int EscMenu(_POINT _A[][BOARD_SIZE])
 	//DrawBoard(1, 1, 62, 25, menu.x - 23, menu.y - 19);
 	//DrawBox(75, 63, 25, menu.x - 23, menu.y - 19);
 	//DrawBigText("EscLogo.txt", 75, menu.x - 22, menu.y - 17);
-	drawButton((menu.x-23), (menu.y-9), "Continue");
+	//drawButton((menu.x-23), (menu.y-9), "Continue");
 	//PrintText("    Continue    ", 0, menu.x-22, menu.y-9);
 	//PrintText("    Save game   ", 0, menu.x-22, menu.y -8);
-	drawButton((menu.x - 23), (menu.y - 6), "Save game");
+	//drawButton((menu.x - 23), (menu.y - 8), "Save game");
 	//PrintText("    Sound       ", 0, menu.x - 22, menu.y - 7);
 	//PrintText("    Exit game   ", 0, menu.x-22, menu.y -7);
-	drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+	//drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
 	int x = 0, y = 0;
 	while (true)
 	{
 		x = 100, y = 20;
 		SetColor(4);
-		drawButton((menu.x - 23), (menu.y - 9), "Continue");
+		drawSelectedButton((menu.x - 23), (menu.y - 11), "Continue");
 		SetColor(0);
-		drawButton((menu.x - 23), (menu.y - 6), "Save game");
-		drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+		drawButton((menu.x - 23), (menu.y - 8), "Save game");
+		drawButton((menu.x - 23), (menu.y - 5), "Sound");
+		drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
 		ShowCur(0);
 		while (true)
 		{
@@ -1250,74 +996,6 @@ int EscMenu(_POINT _A[][BOARD_SIZE])
 				switch (_getch())
 				{
 				case 'w':
-					if (y > 20)
-					{
-						y--;
-					}
-					if (y == 20)
-					{
-						SetColor(4);
-						drawButton((menu.x - 23), (menu.y - 9), "Continue");
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 6), "Save game");
-						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
-						ShowCur(0);
-					}
-					if (y == 21)
-					{
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 9), "Continue");
-						SetColor(4);
-						drawButton((menu.x - 23), (menu.y - 6), "Save game");
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
-						ShowCur(0);
-					}
-					if (y == 22)
-					{
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 9), "Continue");
-						SetColor(4);
-						drawButton((menu.x - 23), (menu.y - 6), "Save game");
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
-						ShowCur(0);
-					}
-					break;
-				case 's':
-					if (y < 22)
-					{
-						y++;
-					}
-					if (y == 20)
-					{
-						SetColor(4);
-						drawButton((menu.x - 23), (menu.y - 9), "Continue");
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 6), "Save game");
-						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
-						ShowCur(0);
-					}
-					if (y == 21)
-					{
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 9), "Continue");
-						SetColor(4);
-						drawButton((menu.x - 23), (menu.y - 6), "Save game");
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
-						ShowCur(0);
-					}
-					if (y == 22)
-					{
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 9), "Continue");
-						drawButton((menu.x - 23), (menu.y - 6), "Save game");
-						SetColor(4);
-						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
-						ShowCur(0);
-					}
-					break;
 				case KEY_ARROW_UP:
 					if (y > 20)
 					{
@@ -1325,65 +1003,73 @@ int EscMenu(_POINT _A[][BOARD_SIZE])
 					}
 					if (y == 20)
 					{
-						SetColor(4);
-						drawButton((menu.x - 23), (menu.y - 9), "Continue");
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 6), "Save game");
-						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						drawSelectedButton((menu.x - 23), (menu.y - 11), "Continue");
+						drawButton((menu.x - 23), (menu.y - 8), "Save game");
+						drawButton((menu.x - 23), (menu.y - 5), "Sound");
+						drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
 						ShowCur(0);
 					}
 					if (y == 21)
 					{
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 9), "Continue");
-						SetColor(4);
-						drawButton((menu.x - 23), (menu.y - 6), "Save game");
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						drawButton((menu.x - 23), (menu.y - 11), "Continue");
+						drawSelectedButton((menu.x - 23), (menu.y - 8), "Save game");
+						drawButton((menu.x - 23), (menu.y - 5), "Sound");
+						drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
 						ShowCur(0);
 					}
 					if (y == 22)
 					{
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 9), "Continue");
-						SetColor(4);
-						drawButton((menu.x - 23), (menu.y - 6), "Save game");
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						drawButton((menu.x - 23), (menu.y - 11), "Continue");
+						drawButton((menu.x - 23), (menu.y - 8), "Save game");
+						drawSelectedButton((menu.x - 23), (menu.y - 5), "Sound");
+						drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
+						ShowCur(0);
+					}
+					if (y == 23)
+					{
+						drawButton((menu.x - 23), (menu.y - 11), "Continue");
+						drawButton((menu.x - 23), (menu.y - 8), "Save game");
+						drawButton((menu.x - 23), (menu.y - 5), "Sound");
+						drawSelectedButton((menu.x - 23), (menu.y - 2), "Back to Menu");
 						ShowCur(0);
 					}
 					break;
+				case 's':
 				case KEY_ARROW_DOWN:
-					if (y < 22)
+					if (y < 23)
 					{
 						y++;
 					}
 					if (y == 20)
 					{
-						SetColor(4);
-						drawButton((menu.x - 23), (menu.y - 9), "Continue");
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 6), "Save game");
-						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						drawSelectedButton((menu.x - 23), (menu.y - 11), "Continue");
+						drawButton((menu.x - 23), (menu.y - 8), "Save game");
+						drawButton((menu.x - 23), (menu.y - 5), "Sound");
+						drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
 						ShowCur(0);
 					}
 					if (y == 21)
 					{
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 9), "Continue");
-						SetColor(4);
-						drawButton((menu.x - 23), (menu.y - 6), "Save game");
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						drawButton((menu.x - 23), (menu.y - 11), "Continue");
+						drawSelectedButton((menu.x - 23), (menu.y - 8), "Save game");
+						drawButton((menu.x - 23), (menu.y - 5), "Sound");
+						drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
 						ShowCur(0);
 					}
 					if (y == 22)
 					{
-						SetColor(0);
-						drawButton((menu.x - 23), (menu.y - 9), "Continue");
-						drawButton((menu.x - 23), (menu.y - 6), "Save game");
-						SetColor(4);
-						drawButton((menu.x - 23), (menu.y - 3), "Back to Menu");
+						drawButton((menu.x - 23), (menu.y - 11), "Continue");
+						drawButton((menu.x - 23), (menu.y - 8), "Save game");
+						drawSelectedButton((menu.x - 23), (menu.y - 5), "Sound");
+						drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
+						ShowCur(0);
+					}
+					if (y == 23)
+					{
+						drawButton((menu.x - 23), (menu.y - 11), "Continue");
+						drawButton((menu.x - 23), (menu.y - 8), "Save game");
+						drawButton((menu.x - 23), (menu.y - 5), "Sound");
+						drawSelectedButton((menu.x - 23), (menu.y - 2), "Back to Menu");
 						ShowCur(0);
 					}
 					break;
@@ -1400,6 +1086,16 @@ int EscMenu(_POINT _A[][BOARD_SIZE])
 						return 2; 
 					}
 					if (y == 22)
+					{
+						SoundInGame(SoundEffects, song, songtemp);
+						drawButton((menu.x - 23), (menu.y - 11), "Continue");
+						drawButton((menu.x - 23), (menu.y - 8), "Save game");
+						drawSelectedButton((menu.x - 23), (menu.y - 5), "Sound");
+						drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
+						ShowCur(0);
+						break;
+					}
+					if (y == 23)
 					{
 						// Back to menu
 						return 3;
@@ -1509,7 +1205,7 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 		backToOriginalMenu = false;
 		x = 50, y = 20;
 		SetColor(4);
-		if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+		if (song != -1) drawSelectedButton(100, 8, "Music:  ON"); else drawSelectedButton(100, 8, "Music: OFF");
 		SetColor(0);
 		drawButton(100, 11, "Change song");
 		if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
@@ -1533,6 +1229,7 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 				switch (_getch())
 				{
 				case 'w':
+				case KEY_ARROW_UP:
 					if (y > 20)
 					{
 						y--;
@@ -1541,7 +1238,7 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 					if (y == 20)
 					{
 						SetColor(4);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+						if (song != -1) drawSelectedButton(100, 8, "Music:  ON"); else drawSelectedButton(100, 8, "Music: OFF");
 						SetColor(0);
 						drawButton(100, 11, "Change song");
 						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
@@ -1552,7 +1249,7 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 						SetColor(0);
 						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
 						SetColor(4);
-						drawButton(100, 11, "Change song");
+						drawSelectedButton(100, 11, "Change song");
 						SetColor(0);
 						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
 						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
@@ -1563,7 +1260,7 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
 						drawButton(100, 11, "Change song");
 						SetColor(4);
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
+						if (SoundEffects) drawSelectedButton(100, 14, "Sound effects:  ON"); else drawSelectedButton(100, 14, "Sound effects: OFF");
 						SetColor(0);
 						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
@@ -1574,10 +1271,11 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 						drawButton(100, 11, "Change song");
 						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
 						SetColor(0);
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawSelectedButton(100, 17, "Back"); GotoXY(100, 25); SetColor(0); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					break;
 				case 's':
+				case KEY_ARROW_DOWN:
 					if (y < 23)
 					{
 						y++;
@@ -1586,7 +1284,7 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 					if (y == 20)
 					{
 						SetColor(4);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+						if (song != -1) drawSelectedButton(100, 8, "Music:  ON"); else drawSelectedButton(100, 8, "Music: OFF");
 						SetColor(0);
 						drawButton(100, 11, "Change song");
 						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
@@ -1597,7 +1295,7 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 						SetColor(0);
 						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
 						SetColor(4);
-						drawButton(100, 11, "Change song");
+						drawSelectedButton(100, 11, "Change song");
 						SetColor(0);
 						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
 						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
@@ -1609,7 +1307,7 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 						
 						drawButton(100, 11, "Change song");
 						SetColor(4);
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
+						if (SoundEffects) drawSelectedButton(100, 14, "Sound effects:  ON"); else drawSelectedButton(100, 14, "Sound effects: OFF");
 						SetColor(0);
 						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
@@ -1620,98 +1318,7 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 						drawButton(100, 11, "Change song");
 						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
 						SetColor(4);
-						drawButton(100, 17, "Back"); GotoXY(100, 25); SetColor(0); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					break;
-				case KEY_ARROW_UP:
-					if (y > 20)
-					{
-						y--;
-						GotoXY(x, y);
-					}
-					if (y == 20)
-					{
-						SetColor(4);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-						SetColor(0);
-						drawButton(100, 11, "Change song");
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					if (y == 21)
-					{
-						SetColor(0);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-						SetColor(4);
-						drawButton(100, 11, "Change song");
-						SetColor(0);
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					if (y == 22)
-					{
-						SetColor(0);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-						drawButton(100, 11, "Change song");
-						SetColor(4);
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						SetColor(0);
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					if (y == 23)
-					{
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-						SetColor(4);
-						drawButton(100, 11, "Change song");
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						SetColor(0);
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					break;
-				case KEY_ARROW_DOWN:
-					if (y < 23)
-					{
-						y++;
-						GotoXY(x, y);
-					}
-					if (y == 20)
-					{
-						SetColor(4);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-						SetColor(0);
-						drawButton(100, 11, "Change song");
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					if (y == 21)
-					{
-						SetColor(0);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-						SetColor(4);
-						drawButton(100, 11, "Change song");
-						SetColor(0);
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					if (y == 22)
-					{
-						SetColor(0);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-
-						drawButton(100, 11, "Change song");
-						SetColor(4);
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						SetColor(0);
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					if (y == 23)
-					{
-						SetColor(0);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-						drawButton(100, 11, "Change song");
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						SetColor(4);
-						drawButton(100, 17, "Back"); GotoXY(100, 25); SetColor(0); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawSelectedButton(100, 17, "Back"); GotoXY(100, 25); SetColor(0); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
 					}
 					break;
 				case 13:
@@ -1730,7 +1337,7 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 							PlayBackGroundMusic(song);
 						}
 						SetColor(4);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+						if (song != -1) drawSelectedButton(100, 8, "Music:  ON"); else drawSelectedButton(100, 8, "Music: OFF");
 						SetColor(0);
 						// Tat/Bat nhac nen
 					}
@@ -1748,7 +1355,7 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 						else
 							SoundEffects = true;
 						SetColor(4);
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
+						if (SoundEffects) drawSelectedButton(100, 14, "Sound effects:  ON"); else drawSelectedButton(100, 14, "Sound effects: OFF");
 						SetColor(0);
 						//Doi bai
 					}
@@ -1771,13 +1378,9 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 
 void SoundInGame(bool& SoundEffects, int& song, int& songtemp)
 {
-	system("cls");
-	drawFrame(5, 3, 80, 28);
 	SetColor(0);
-	printCaro(27, 7);
 	GotoXY(10, 10);
-	drawFrame(0, 0, 145, 33);
-	SetColor(100);
+	SetColor(94);
 	int x = 0, y = 0;
 	int i;
 	bool backToOriginalMenu = false;
@@ -1786,23 +1389,12 @@ void SoundInGame(bool& SoundEffects, int& song, int& songtemp)
 		backToOriginalMenu = false;
 		x = 50, y = 20;
 		SetColor(4);
-		if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+		if (song != -1) drawSelectedButton(94, 19, "Music:  ON"); else drawSelectedButton(94, 19, "Music: OFF");
 		SetColor(0);
-		drawButton(100, 11, "Change song");
-		if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-		drawButton(100, 17, "Back");
-		GotoXY(100, 25);
-		if (song % 4 == 0)
-			cout << "Song: Wallpaper";
-		else if (song % 4 == 1)
-			cout << "Song: Sport Racing Car | DRIVE";
-		else if (song % 4 == 2)
-			cout << "Song: Sneaky Snitch";
-		else if (song % 4 == 3)
-			cout << "Song: Aggressive Computer Gaming | ENIGMA";
+		drawButton(94, 22, "Change song");
+		if (SoundEffects) drawButton(94, 25, "Sound effects:  ON"); else drawButton(94, 25, "Sound effects: OFF");
+		drawButton(94, 28, "Back");
 		SetColor(8);
-		GotoXY(98, 29); cout << "_____ W A S D: MOVE _____";
-		GotoXY(98, 30); cout << "_____ Enter: Select _____"; ShowCur(0);
 		while (true)
 		{
 			if (_kbhit())
@@ -1810,96 +1402,6 @@ void SoundInGame(bool& SoundEffects, int& song, int& songtemp)
 				switch (_getch())
 				{
 				case 'w':
-					if (y > 20)
-					{
-						y--;
-						GotoXY(x, y);
-					}
-					if (y == 20)
-					{
-						SetColor(4);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-						SetColor(0);
-						drawButton(100, 11, "Change song");
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					if (y == 21)
-					{
-						SetColor(0);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-						SetColor(4);
-						drawButton(100, 11, "Change song");
-						SetColor(0);
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					if (y == 22)
-					{
-						SetColor(0);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-						drawButton(100, 11, "Change song");
-						SetColor(4);
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						SetColor(0);
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					if (y == 23)
-					{
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-						SetColor(4);
-						drawButton(100, 11, "Change song");
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						SetColor(0);
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					break;
-				case 's':
-					if (y < 23)
-					{
-						y++;
-						GotoXY(x, y);
-					}
-					if (y == 20)
-					{
-						SetColor(4);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-						SetColor(0);
-						drawButton(100, 11, "Change song");
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					if (y == 21)
-					{
-						SetColor(0);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-						SetColor(4);
-						drawButton(100, 11, "Change song");
-						SetColor(0);
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					if (y == 22)
-					{
-						SetColor(0);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-
-						drawButton(100, 11, "Change song");
-						SetColor(4);
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						SetColor(0);
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					if (y == 23)
-					{
-						SetColor(0);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-						drawButton(100, 11, "Change song");
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						SetColor(4);
-						drawButton(100, 17, "Back"); GotoXY(100, 25); SetColor(0); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-					}
-					break;
 				case KEY_ARROW_UP:
 					if (y > 20)
 					{
@@ -1909,42 +1411,43 @@ void SoundInGame(bool& SoundEffects, int& song, int& songtemp)
 					if (y == 20)
 					{
 						SetColor(4);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+						if (song != -1) drawSelectedButton(94, 19, "Music:  ON"); else drawSelectedButton(94, 19, "Music: OFF");
 						SetColor(0);
-						drawButton(100, 11, "Change song");
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawButton(94, 22, "Change song");
+						if (SoundEffects) drawButton(94, 25, "Sound effects:  ON"); else drawButton(94, 25, "Sound effects: OFF");
+						drawButton(94, 28, "Back");
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+						if (song != -1) drawButton(94, 19, "Music:  ON"); else drawButton(94, 19, "Music: OFF");
 						SetColor(4);
-						drawButton(100, 11, "Change song");
+						drawSelectedButton(94, 22, "Change song");
 						SetColor(0);
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						if (SoundEffects) drawButton(94, 25, "Sound effects:  ON"); else drawButton(94, 25, "Sound effects: OFF");
+						drawButton(94, 28, "Back");
 					}
 					if (y == 22)
 					{
 						SetColor(0);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-						drawButton(100, 11, "Change song");
+						if (song != -1) drawButton(94, 19, "Music:  ON"); else drawButton(94, 19, "Music: OFF");
+						drawButton(94, 22, "Change song");
 						SetColor(4);
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
+						if (SoundEffects) drawSelectedButton(94, 25, "Sound effects:  ON"); else drawSelectedButton(94, 25, "Sound effects: OFF");
 						SetColor(0);
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawButton(94, 28, "Back"); GotoXY(94, 28);
 					}
 					if (y == 23)
 					{
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+						if (song != -1) drawButton(94, 19, "Music:  ON"); else drawButton(94, 19, "Music: OFF");
 						SetColor(4);
-						drawButton(100, 11, "Change song");
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
+						drawButton(94, 22, "Change song");
+						if (SoundEffects) drawButton(94, 25, "Sound effects:  ON"); else drawButton(94, 25, "Sound effects: OFF");
 						SetColor(0);
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawSelectedButton(94, 28, "Back");  
 					}
 					break;
+				case 's':
 				case KEY_ARROW_DOWN:
 					if (y < 23)
 					{
@@ -1954,41 +1457,41 @@ void SoundInGame(bool& SoundEffects, int& song, int& songtemp)
 					if (y == 20)
 					{
 						SetColor(4);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+						if (song != -1) drawSelectedButton(94, 19, "Music:  ON"); else drawSelectedButton(94, 19, "Music: OFF");
 						SetColor(0);
-						drawButton(100, 11, "Change song");
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawButton(94, 22, "Change song");
+						if (SoundEffects) drawButton(94, 25, "Sound effects:  ON"); else drawButton(94, 25, "Sound effects: OFF");
+						drawButton(94, 28, "Back");
 					}
 					if (y == 21)
 					{
 						SetColor(0);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+						if (song != -1) drawButton(94, 19, "Music:  ON"); else drawButton(94, 19, "Music: OFF");
 						SetColor(4);
-						drawButton(100, 11, "Change song");
+						drawSelectedButton(94, 22, "Change song");
 						SetColor(0);
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						if (SoundEffects) drawButton(94, 25, "Sound effects:  ON"); else drawButton(94, 25, "Sound effects: OFF");
+						drawButton(94, 28, "Back");
 					}
 					if (y == 22)
 					{
 						SetColor(0);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+						if (song != -1) drawButton(94, 19, "Music:  ON"); else drawButton(94, 19, "Music: OFF");
 
-						drawButton(100, 11, "Change song");
+						drawButton(94, 22, "Change song");
 						SetColor(4);
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
+						if (SoundEffects) drawSelectedButton(94, 25, "Sound effects:  ON"); else drawSelectedButton(94, 25, "Sound effects: OFF");
 						SetColor(0);
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawButton(94, 28, "Back");
 					}
 					if (y == 23)
 					{
 						SetColor(0);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
-						drawButton(100, 11, "Change song");
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
+						if (song != -1) drawButton(94, 19, "Music:  ON"); else drawButton(94, 19, "Music: OFF");
+						drawButton(94, 22, "Change song");
+						if (SoundEffects) drawButton(94, 25, "Sound effects:  ON"); else drawButton(94, 25, "Sound effects: OFF");
 						SetColor(4);
-						drawButton(100, 17, "Back"); GotoXY(100, 25); SetColor(0); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
+						drawSelectedButton(94, 28, "Back");
 					}
 					break;
 				case 13:
@@ -2007,16 +1510,13 @@ void SoundInGame(bool& SoundEffects, int& song, int& songtemp)
 							PlayBackGroundMusic(song);
 						}
 						SetColor(4);
-						if (song != -1) drawButton(100, 8, "Music:  ON"); else drawButton(100, 8, "Music: OFF");
+						if (song != -1) drawSelectedButton(94, 19, "Music:  ON"); else drawSelectedButton(94, 19, "Music: OFF");
 						SetColor(0);
 						// Tat/Bat nhac nen
 					}
 					if (y == 21)
 					{
 						song++;
-						PlayBackGroundMusic(song);
-						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-						//Doi bai
 					}
 					if (y == 22)
 					{
@@ -2025,7 +1525,7 @@ void SoundInGame(bool& SoundEffects, int& song, int& songtemp)
 						else
 							SoundEffects = true;
 						SetColor(4);
-						if (SoundEffects) drawButton(100, 14, "Sound effects:  ON"); else drawButton(100, 14, "Sound effects: OFF");
+						if (SoundEffects) drawSelectedButton(94, 25, "Sound effects:  ON"); else drawSelectedButton(94, 25, "Sound effects: OFF");
 						SetColor(0);
 						//Doi bai
 					}
@@ -2038,7 +1538,6 @@ void SoundInGame(bool& SoundEffects, int& song, int& songtemp)
 				}
 				if (backToOriginalMenu)
 				{
-					system("cls");
 					break;
 				}
 			}
@@ -2227,6 +1726,22 @@ void drawButton(int x, int y, string text)
 	GotoXY(x, y + 2); cout << char(192);
 	for (int i = 0; i < width; i++) cout << char(196);
 	cout << char(217);
+}
+
+void drawSelectedButton(int x, int y, string text)
+{
+	TextColor(79);
+	int width = 21; // length of "PLAYER VS COMPUTER" + 2
+	GotoXY(x, y); cout << char(218);
+	for (int i = 0; i < width; i++) cout << char(196);
+	cout << char(191);
+	GotoXY(x, y + 1); cout << char(179) << setw((width - text.length()) / 2 + text.length()) << right << text;
+	if (text.length() % 2 == 0) cout << setw((width - text.length()) / 2 + 1) << right << " " << char(179);
+	else cout << setw((width - text.length()) / 2) << "" << right << char(179);
+	GotoXY(x, y + 2); cout << char(192);
+	for (int i = 0; i < width; i++) cout << char(196);
+	cout << char(217);
+	TextColor(240);
 }
 void printCaro(int x, int y) {
 	SetColor(1);
