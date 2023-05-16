@@ -637,9 +637,9 @@ MOVE timkiemnuocdi(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, in
 				double diemtancong = tancongdoc(_A, x, y) + tancongngang(_A, x, y) + tancongcheoxuoi(_A, x, y) + tancongcheonguoc(_A, x, y);
 				double diemphongngu = phongngudoc(_A, x, y) + phongngungang(_A, x, y) + phongngucheoxuoi(_A, x, y) + phongngucheonguoc(_A, x, y);
 
-				if (diemtancong > diemphongngu)
+				if (diemtancong >= diemphongngu)
 				{
-					if (diem < diemtancong)
+					if (diem <= diemtancong)
 					{
 						diem = diemtancong;
 						wayresult.x = x;
@@ -648,7 +648,7 @@ MOVE timkiemnuocdi(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, in
 				}
 				else
 				{
-					if (diem < diemphongngu)
+					if (diem <= diemphongngu)
 					{
 						diem = diemphongngu;
 						wayresult.x = x;
@@ -660,8 +660,8 @@ MOVE timkiemnuocdi(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, in
 	}
 	return wayresult;
 }
-double mangdiemtancong[7] = { 0,8, 16, 128,1024,8192,65536};
-double mangdiemphongngu[7] = { 0, 1, 8, 64, 512, 4096, 32768 };
+double mangdiemtancong[7] = { 0,8, 64, 512,4096,32768,262144 };
+double mangdiemphongngu[7] = { 0, 1, 16, 128,1024,8192,65536 };
 double tancongdoc(_POINT _A[][BOARD_SIZE], int x, int y) {
 	int soquanta = 0;
 	int soquandich = 0;
@@ -719,7 +719,7 @@ double tancongdoc(_POINT _A[][BOARD_SIZE], int x, int y) {
 	}
 	if (soquandich == 2)
 		return 0;
-	diemtong -= mangdiemphongngu[soquandich + 1];
+	diemtong -= mangdiemphongngu[soquandich ];
 	diemtong += mangdiemtancong[soquanta];
 	return diemtong;
 }
@@ -779,7 +779,7 @@ double tancongngang(_POINT _A[][BOARD_SIZE], int x, int y) {
 	}
 	if (soquandich == 2)
 		return 0;
-	diemtong -= mangdiemphongngu[soquandich + 1];
+	diemtong -= mangdiemphongngu[soquandich ];
 	diemtong += mangdiemtancong[soquanta];
 	return diemtong;
 }
@@ -837,7 +837,7 @@ double tancongcheoxuoi(_POINT _A[][BOARD_SIZE], int x, int y) {
 	}
 	if (soquandich == 2)
 		return 0;
-	diemtong -= mangdiemphongngu[soquandich + 1];
+	diemtong -= mangdiemphongngu[soquandich ];
 	diemtong += mangdiemtancong[soquanta];
 	return diemtong;
 }
@@ -895,7 +895,7 @@ double tancongcheonguoc(_POINT _A[][BOARD_SIZE], int x, int y) {
 	}
 	if (soquandich == 2)
 		return 0;
-	diemtong -= mangdiemphongngu[soquandich + 1];
+	diemtong -= mangdiemphongngu[soquandich ];
 	diemtong += mangdiemtancong[soquanta];
 	return diemtong;
 }
