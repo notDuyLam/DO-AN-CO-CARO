@@ -448,34 +448,167 @@ void SaveGame(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 	char key;
 	int option;
 	int x = 53;
+	int exceed = 0;
+	std::ifstream file(SAVED_LIST);  // Thay thế "filename.txt" bằng đường dẫn tới file thực tế
+
+	if (!file) {
+		//std::cout << "Không thể mở file." << std::endl;
+		return;
+	}
+
+	std::string line;
+	int count = 0;
+
+	while (std::getline(file, line)) {
+		count++;
+	}
+
+	file.close();
 	do
 	{
 		/*GotoXY(x, 10+3); SetColor(3); for (int i = x; i <= x + 50; i++) cout << (char)178;
-		GotoXY(x, 11 + 3); cout << (char)178 << "                                                 " << (char)178;
-		GotoXY(x, 12+3); cout << (char)178 << "                                                 " << (char)178;
-		GotoXY(x, 13 + 3); cout << (char)178 << "   Enter the name for your board:                " << (char)178;
-		GotoXY(x, 14 + 3); cout << (char)178 << "                                                 " << (char)178;
-		GotoXY(x, 15+3); cout << (char)178 << "                                                 " << (char)178;
-		GotoXY(x, 16+3); SetColor(3); for (int i = x; i <= x + 50; i++) cout << (char)178;
-		GotoXY(x + 35, 13 + 3);*/
+GotoXY(x, 11 + 3); cout << (char)178 << "                                                 " << (char)178;
+GotoXY(x, 12+3); cout << (char)178 << "                                                 " << (char)178;
+GotoXY(x, 13 + 3); cout << (char)178 << "   Enter the name for your board:                " << (char)178;
+GotoXY(x, 14 + 3); cout << (char)178 << "                                                 " << (char)178;
+GotoXY(x, 15+3); cout << (char)178 << "                                                 " << (char)178;
+GotoXY(x, 16+3); SetColor(3); for (int i = x; i <= x + 50; i++) cout << (char)178;
+GotoXY(x + 35, 13 + 3);*/
 		GotoXY(x, 10 + 3); TextColor(176); for (int i = x; i <= x + 50; i++) cout << " ";
-		GotoXY(x, 11 + 3); cout << " ";TextColor(240);cout << "                                                 ";TextColor(176);cout << " ";
-		GotoXY(x, 12 + 3); cout << " ";TextColor(240);cout << "                                                 ";TextColor(176);cout << " ";
-		GotoXY(x, 13 + 3); cout << " "; TextColor(240); SetColor(77); cout << "   Enter the name for your board:                "; SetColor(0); TextColor(176); cout << " ";
-		GotoXY(x, 14 + 3); cout << " ";TextColor(240);cout << "                                                 ";TextColor(176);cout << " ";
-		GotoXY(x, 15 + 3); cout << " ";TextColor(240);cout << "                                                 ";TextColor(176);cout << " ";
+		GotoXY(x, 11 + 3); cout << " "; TextColor(240); cout << "                                                                 "; TextColor(176); cout << " ";
+		GotoXY(x, 12 + 3); cout << " "; TextColor(240); cout << "                                                                 "; TextColor(176); cout << " ";
+		GotoXY(x, 13 + 3); cout << " "; TextColor(240); SetColor(77); cout << "   Enter the name for your board(2-10 characters):                "; SetColor(0); TextColor(176); cout << " ";
+		GotoXY(x, 14 + 3); cout << " "; TextColor(240); cout << "                                                                 "; TextColor(176); cout << " ";
+		GotoXY(x, 15 + 3); cout << " "; TextColor(240); cout << "                                                                 "; TextColor(176); cout << " ";
 		GotoXY(x, 16 + 3); for (int i = x; i <= x + 50; i++) cout << " ";
 		TextColor(240);
 		GotoXY(x + 35, 13 + 3);
 		SetColor(0);
 		ShowCur(1);
 		std::getline(cin, filename);
+		while (filename.length() < 2 || filename.length() > 10) {
+			/*GotoXY(x, 10+3); SetColor(3); for (int i = x; i <= x + 50; i++) cout << (char)178;
+GotoXY(x, 11 + 3); cout << (char)178 << "                                                 " << (char)178;
+GotoXY(x, 12+3); cout << (char)178 << "                                                 " << (char)178;
+GotoXY(x, 13 + 3); cout << (char)178 << "   Enter the name for your board:                " << (char)178;
+GotoXY(x, 14 + 3); cout << (char)178 << "                                                 " << (char)178;
+GotoXY(x, 15+3); cout << (char)178 << "                                                 " << (char)178;
+GotoXY(x, 16+3); SetColor(3); for (int i = x; i <= x + 50; i++) cout << (char)178;
+GotoXY(x + 35, 13 + 3);*/
+			GotoXY(x, 10 + 3); TextColor(176); for (int i = x; i <= x + 50; i++) cout << " ";
+			GotoXY(x, 11 + 3); cout << " "; TextColor(240); cout << "                                                 "; TextColor(176); cout << " ";
+			GotoXY(x, 12 + 3); cout << " "; TextColor(240); cout << "                                                 "; TextColor(176); cout << " ";
+			GotoXY(x, 13 + 3); cout << " "; TextColor(240); SetColor(77); cout << "   Enter the name for your board(2-10 characters):                "; SetColor(0); TextColor(176); cout << " ";
+			GotoXY(x, 14 + 3); cout << " "; TextColor(240); cout << "                                                 "; TextColor(176); cout << " ";
+			GotoXY(x, 15 + 3); cout << " "; TextColor(240); cout << "                                                 "; TextColor(176); cout << " ";
+			GotoXY(x, 16 + 3); for (int i = x; i <= x + 50; i++) cout << " ";
+			TextColor(240);
+			GotoXY(x + 35, 13 + 3);
+			SetColor(0);
+			ShowCur(1);
+			std::getline(cin, filename);
+			//filename += ".txt";
+		}
+		while (count >= 10) {
+			GotoXY(x, 12 + 3); TextColor(176); cout << " "; TextColor(240); cout << "                                                 ";; TextColor(176); cout << " ";
+			GotoXY(x + 4, 13 + 3); cout << " "; TextColor(240); SetColor(77); cout << "File limit exceeded!Do you want to save it?(file 1st will be deleted)"; SetColor(0); TextColor(176); cout << " ";
+			int choice = 0;
+			int currentPos = 0;
+			GotoXY(x + 18, 14 + 3);
+			SetColor(4);
+			cout << "Yes";
+			SetColor(7);
+			GotoXY(x + 30, 14 + 3);
+			cout << "No";
+			ShowCur(0);
+			while (true)
+			{
+				// Lấy phím người dùng ấn
+				char key = _getch();
+
+				// Kiểm tra phím người dùng ấn
+				if (key == 'A' || key == 'a' || key == KEY_ARROW_LEFT) {
+					choice = 0;
+				}
+				else if (key == 'D' || key == 'd' || key == KEY_ARROW_RIGHT) {
+					choice = 1;
+				}
+				else if (key == '\r' || key == SPACE) {
+					break;
+				}
+
+				// Đổi màu chữ tùy theo lựa chọn
+				if (choice != currentPos) {
+					if (choice == 0) {
+						GotoXY(x + 18, 14 + 3);
+						SetColor(4);
+						cout << "Yes";
+						SetColor(7);
+						GotoXY(x + 30, 14 + 3);
+						cout << "No";
+						ShowCur(0);
+					}
+					else {
+						GotoXY(x + 18, 14 + 3);
+						cout << "Yes";
+						GotoXY(x + 30, 14 + 3);
+						SetColor(4);
+						cout << "No";
+						SetColor(7);
+						ShowCur(0);
+					}
+					currentPos = choice;
+				}
+			}
+			if (choice == 0) {
+				std::ifstream inputFile(SAVED_LIST);  // Thay thế "filename.txt" bằng đường dẫn tới file thực tế
+				std::vector<std::string> lines;
+
+				if (!inputFile) {
+					//std::cout << "Không thể mở file." << std::endl;
+					return;
+				}
+
+				std::string line;
+				while (std::getline(inputFile, line)) {
+					lines.push_back(line);
+				}
+
+				inputFile.close();
+
+				if (lines.empty()) {
+					//std::cout << "File rỗng." << std::endl;
+					return;
+				}
+
+				lines.erase(lines.begin());  // Xóa dòng đầu tiên
+
+				std::ofstream outputFile(SAVED_LIST);  // Mở file ở chế độ ghi
+				if (!outputFile) {
+					//std::cout << "Không thể mở file." << std::endl;
+					return;
+				}
+
+				for (const auto& line : lines) {
+					outputFile << line << std::endl;
+				}
+				outputFile.close();
+				//return;
+				//save = false;
+				TextColor(255);
+				break;
+			}
+			else if (choice == 1){
+				TextColor(255);
+				return;
+			}
+		}
 		filename += ".txt";
 		if (CheckFileExistence(filename))
 		{
 			SetColor(3);
 			GotoXY(x, 12 + 3); TextColor(176);cout << " ";TextColor(240);cout << "                                                 ";;TextColor(176);cout << " ";
-			GotoXY(x + 4, 13 + 3); TextColor(240); SetColor(77); cout << "Already exist. Do you want to overwrite it?"; SetColor(0);
+			GotoXY(x + 4, 13 + 3); TextColor(240); SetColor(77); cout << "Already exist. Do you want to overwrite that file?"; SetColor(0);
 			/*PrintText("Ten da ton tai", 0, X_CENTER - 40, Y_CENTER -8);
 			PrintText("Ban co muon luu de?", 0, X_CENTER - 40, Y_CENTER -7);*/
 			//option = SelectMenu(YesNoMenu(X_CENTER-15, Y_CENTER+3));
@@ -535,7 +668,7 @@ void SaveGame(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 			}
 			if (choice == 0)
 			{
-				overwrite = true;
+				exceed = 1;
 				save = false;
 			}
 		}
@@ -545,7 +678,7 @@ void SaveGame(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 
 	SaveData(filename, _A, _PLAYER1, _PLAYER2, _TURN, chedo);
 
-	if (!overwrite)
+	if (!overwrite && !exceed)
 	{
 		std::fstream saveFile;
 		saveFile.open(SAVED_LIST, std::fstream::app);
@@ -571,29 +704,29 @@ int SelectMenu(_MENU menu)
 	int cursor = 1;
 	char key;
 
-	PrintText("", menu.cursorColor, menu.x - 18, menu.y-7);
-
+	PrintText("--->", 4, menu.x - 22, menu.y-7);
+	ShowCur(0);
 	do
 	{
 		key = _getch();
 		if ((key == 'w'||key== ARROW_UP)&& cursor > 1)
 		{
-			PrintText("", menu.cursorColor, menu.x - 18, menu.y + cursor - 8);
+			PrintText("    ",4, menu.x - 22, menu.y + cursor - 8);
 			cursor--;
-			PrintText("", menu.cursorColor, menu.x - 18, menu.y + cursor - 8);
+			PrintText("--->", 4, menu.x - 22, menu.y + cursor - 8);
 		}
 		else if ((key == 's'||key==ARROW_DOWN) && cursor < menu.options)
 		{
-			PrintText("", menu.cursorColor, menu.x - 18, menu.y + cursor - 8);
+			PrintText("    ", 4, menu.x - 22, menu.y + cursor - 8);
 			cursor++;
-			PrintText("", menu.cursorColor, menu.x - 18, menu.y + cursor - 8);
+			PrintText("--->", 4, menu.x - 22, menu.y + cursor - 8);
 		}
 		else if (key == ESC)
 		{
 			return -1;
 		}
 	} while (key != ENTER && key != 32);
-
+	ShowCur(1);
 	return cursor;
 }
 int SelectMenu1(_MENU menu)
