@@ -20,6 +20,8 @@ who
 2
 as
 2
+CARO_AI
+2
 huhu
 1
 thachotoi
@@ -46,7 +48,7 @@ ad
 1
 phuga
 1
-CARO_AI
+llml
 1
 conga
 0
@@ -105,4 +107,6 @@ lan
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 0
 phu
+0
+lkj
 0
