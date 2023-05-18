@@ -723,6 +723,16 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						ShowCur(1);
 						int loadOption;
 						loadOption = SelectMenu(LoadingMenu());
+						/*
+						Phần xóa file đã lưu hoạt động bằng cách trong hàm SelectMenu khi mà bấm D để xóa thì thay vì hàm sẽ trả về loadOption là lựa chọn thứ mấy
+						thì nó sẽ trả về số lựa chọn + 1000, ở dưới vòng lặp while kiểm tra điều kiện loadOption > 1000 tức là nếu người chơi vẫn muốn tiếp tục xóa
+						thì tiếp tục lấy loadOption và in ra các file đã lưu. 
+						Trong vòng lặp while đầu tiên mở savedList lên và lấy các tên file trong đó đưa vào vector lines, nếu người dùng chọn xóa lựa chọn số mấy
+						thì sẽ lấy loadOption - 1000 = số thứ tự của file mà người dùng xóa, sau đó xóa phần tử đó bằng erase với vector lines rồi lại mở file 
+						savedList nhưng bằng chế độ trunc, tức là sau khi mở thì xóa toàn bộ nội dung của file và ghi lại từng phần tử của vector lines lại vào trong
+						file savedList và in lại ra màn hình danh sách các ván đấu đã lưu. (Tuy nhiên file mà người chơi đã lưu ko thật sự xóa (tại ko biết xóa) mà
+						chỉ xóa tên của file đó trong danh sách các file.
+						*/
 						while(loadOption > 1000)
 						{
 							std::ifstream inputFile(SAVED_LIST);  // Thay thế "filename.txt" bằng đường dẫn tới file thực tế
