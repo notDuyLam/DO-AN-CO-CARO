@@ -1,6 +1,10 @@
-who.txt
-nguoi1.txt
 may1.txt
 draw.txt
 saphoa.txt
 test.txt
+lam.txt
+la.txt
+test1.txt
+test2.txt
+test3.txt
+test7.txt
