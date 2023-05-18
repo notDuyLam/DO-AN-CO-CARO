@@ -709,13 +709,13 @@ int SelectMenu(_MENU menu)
 	do
 	{
 		key = _getch();
-		if ((key == 'w'||key== ARROW_UP)&& cursor > 1)
+		if ((key == 'w' || key == ARROW_UP) && cursor > 1)
 		{
-			PrintText("    ",4, menu.x - 22, menu.y + cursor - 8);
+			PrintText("    ", 4, menu.x - 22, menu.y + cursor - 8);
 			cursor--;
 			PrintText("--->", 4, menu.x - 22, menu.y + cursor - 8);
 		}
-		else if ((key == 's'||key==ARROW_DOWN) && cursor < menu.options)
+		else if ((key == 's' || key == ARROW_DOWN) && cursor < menu.options)
 		{
 			PrintText("    ", 4, menu.x - 22, menu.y + cursor - 8);
 			cursor++;
@@ -724,6 +724,10 @@ int SelectMenu(_MENU menu)
 		else if (key == ESC)
 		{
 			return -1;
+		}
+		else if (key == 100) // An phim D tren ban phim
+		{
+			return cursor + 1000;
 		}
 	} while (key != ENTER && key != 32);
 	ShowCur(1);

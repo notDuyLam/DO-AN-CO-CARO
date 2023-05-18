@@ -723,6 +723,43 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						ShowCur(1);
 						int loadOption;
 						loadOption = SelectMenu(LoadingMenu());
+						while(loadOption > 1000)
+						{
+							std::ifstream inputFile(SAVED_LIST);  // Thay thế "filename.txt" bằng đường dẫn tới file thực tế
+							std::vector<std::string> lines;
+							loadOption -= 1000;
+							if (!inputFile) {
+								//std::cout << "Không thể mở file." << std::endl;
+								break;
+							}
+
+							std::string line;
+							while (std::getline(inputFile, line)) {
+								lines.push_back(line);
+							}
+
+							inputFile.close();
+
+							if (lines.empty()) {
+								//std::cout << "File rỗng." << std::endl;
+								break;
+							}
+
+							lines.erase(lines.begin() + loadOption - 1);  // Xóa dong thu i
+							fstream outFile;
+							outFile.open(SAVED_LIST, std::ofstream::out | std::ofstream::trunc);
+							for (int j = 0; j < lines.size(); j++)
+							{
+								outFile << lines[j] << endl;
+							}
+							TextColor(255);
+							outFile.close();
+							for (int j = 14; j <= 26; j++)
+							{
+								GotoXY(30, j); cout << "                          ";
+							}
+							loadOption = SelectMenu(LoadingMenu());
+						}
 						if (loadOption == -1) break;
 						else
 						{
@@ -937,11 +974,11 @@ _MENU LoadingMenu()
 	printCaro(27, 7);
 	GotoXY(10, 10);
 	drawFrame(0, 0, 145, 33);
-	PrintText("Press ESC to return to MENU...", 8, 30, 28);
-	//DrawBox(221, 100, menu.options + 10, X_CENTER - 50, Y_CENTER - 5);
-	//PrintText("[==========Saved Games===========]", 0, menu.x-30, menu.y - 10);
+	PrintText("Press D to delete a file", 0, 30, 28);
+	PrintText("Press ESC to return to MENU...", 8, 30, 29);
 	SetColor(252);
 	drawButton(menu.x - 25, menu.y - 10, "Saved Games");
+	//drawButton(31, 14, "Saved Games");
 	for (int i = 0; i < files.size(); i++)
 	{
 		name = "         " + files.at(i);
