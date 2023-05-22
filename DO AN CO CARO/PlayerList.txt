@@ -1,5 +1,5 @@
 CARO_AI
-19
+20
 MinhAnh
 17
 DuyLam
@@ -26,7 +26,7 @@ noname5
 2
 noname6
 1
-who
-0
 lam
+1
+who
 0
