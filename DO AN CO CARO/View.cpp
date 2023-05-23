@@ -722,68 +722,142 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						TextColor(255);
 						ShowCur(1);
 						int loadOption;
-						loadOption = SelectMenu(LoadingMenu());
-						/*
-						Phần xóa file đã lưu hoạt động bằng cách trong hàm SelectMenu khi mà bấm D để xóa thì thay vì hàm sẽ trả về loadOption là lựa chọn thứ mấy
-						thì nó sẽ trả về số lựa chọn + 1000, ở dưới vòng lặp while kiểm tra điều kiện loadOption > 1000 tức là nếu người chơi vẫn muốn tiếp tục xóa
-						thì tiếp tục lấy loadOption và in ra các file đã lưu. 
-						Trong vòng lặp while đầu tiên mở savedList lên và lấy các tên file trong đó đưa vào vector lines, nếu người dùng chọn xóa lựa chọn số mấy
-						thì sẽ lấy loadOption - 1000 = số thứ tự của file mà người dùng xóa, sau đó xóa phần tử đó bằng erase với vector lines rồi lại mở file 
-						savedList nhưng bằng chế độ trunc, tức là sau khi mở thì xóa toàn bộ nội dung của file và ghi lại từng phần tử của vector lines lại vào trong
-						file savedList và in lại ra màn hình danh sách các ván đấu đã lưu. (Tuy nhiên file mà người chơi đã lưu ko thật sự xóa (tại ko biết xóa) mà
-						chỉ xóa tên của file đó trong danh sách các file.
-						*/
-						while(loadOption > 1000)
+						afterPlay = false;
+						while(!afterPlay)
 						{
-							std::ifstream inputFile(SAVED_LIST);  // Thay thế "filename.txt" bằng đường dẫn tới file thực tế
-							std::vector<std::string> lines;
-							loadOption -= 1000;
-							if (!inputFile) {
-								//std::cout << "Không thể mở file." << std::endl;
-								break;
-							}
 
-							std::string line;
-							while (std::getline(inputFile, line)) {
-								lines.push_back(line);
-							}
-
-							inputFile.close();
-
-							if (lines.empty()) {
-								//std::cout << "File rỗng." << std::endl;
-								break;
-							}
-
-							lines.erase(lines.begin() + loadOption - 1);  // Xóa dong thu i
-							fstream outFile;
-							outFile.open(SAVED_LIST, std::ofstream::out | std::ofstream::trunc);
-							for (int j = 0; j < lines.size(); j++)
-							{
-								outFile << lines[j] << endl;
-							}
-							TextColor(255);
-							outFile.close();
-							for (int j = 14; j <= 26; j++)
-							{
-								GotoXY(30, j); cout << "                          ";
-							}
 							loadOption = SelectMenu(LoadingMenu());
+							/*
+							Phần xóa file đã lưu hoạt động bằng cách trong hàm SelectMenu khi mà bấm D để xóa thì thay vì hàm sẽ trả về loadOption là lựa chọn thứ mấy
+							thì nó sẽ trả về số lựa chọn + 1000, ở dưới vòng lặp while kiểm tra điều kiện loadOption > 1000 tức là nếu người chơi vẫn muốn tiếp tục xóa
+							thì tiếp tục lấy loadOption và in ra các file đã lưu.
+							Trong vòng lặp while đầu tiên mở savedList lên và lấy các tên file trong đó đưa vào vector lines, nếu người dùng chọn xóa lựa chọn số mấy
+							thì sẽ lấy loadOption - 1000 = số thứ tự của file mà người dùng xóa, sau đó xóa phần tử đó bằng erase với vector lines rồi lại mở file
+							savedList nhưng bằng chế độ trunc, tức là sau khi mở thì xóa toàn bộ nội dung của file và ghi lại từng phần tử của vector lines lại vào trong
+							file savedList và in lại ra màn hình danh sách các ván đấu đã lưu. (Tuy nhiên file mà người chơi đã lưu ko thật sự xóa (tại ko biết xóa) mà
+							chỉ xóa tên của file đó trong danh sách các file.
+							*/
+
+							while (loadOption > 1000)
+							{
+								int choice = 0;
+								int currentPos = 0;
+								GotoXY(20 + 36, 10 + 3); TextColor(176); for (int i = 20 + 36; i <= 20 + 36 + 41; i++) cout << " ";
+								GotoXY(20 + 36, 11 + 3); cout << " "; TextColor(240); cout << "                                        "; TextColor(176); cout << " ";
+								GotoXY(20 + 36, 12 + 3); cout << " "; TextColor(240); cout << "                                        "; TextColor(176); cout << " ";
+								GotoXY(20 + 36, 13 + 3); cout << " "; TextColor(240); SetColor(77); cout << "    Do you want to delete that save?    "; SetColor(0); TextColor(176); cout << " ";
+								GotoXY(20 + 36, 14 + 3); cout << " "; TextColor(240); cout << "                                        "; TextColor(176); cout << " ";
+								GotoXY(20 + 36, 15 + 3); cout << " "; TextColor(240); cout << "                                        "; TextColor(176); cout << " ";
+								GotoXY(20 + 36, 16 + 3); for (int i = 20 + 36; i <= 20 + 36 + 41; i++) cout << " ";
+								GotoXY(32+36, 14 + 3);
+								TextColor(240);
+								SetColor(4);
+								cout << "Yes";
+								SetColor(7);
+								GotoXY(47 + 36 , 14 + 3);
+								cout << "No";
+								ShowCur(0);
+								while (true)
+								{
+									// Lấy phím người dùng ấn
+									char key = _getch();
+
+									// Kiểm tra phím người dùng ấn
+									if (key == 'A' || key == 'a' || key == KEY_ARROW_LEFT) {
+										choice = 0;
+									}
+									else if (key == 'D' || key == 'd' || key == KEY_ARROW_RIGHT) {
+										choice = 1;
+									}
+									else if (key == '\r' || key == SPACE) {
+										break;
+									}
+
+									// Đổi màu chữ tùy theo lựa chọn
+									if (choice != currentPos) {
+										if (choice == 0) {
+											GotoXY(32+36, 14 + 3);
+											SetColor(4);
+											cout << "Yes";
+											SetColor(7);
+											GotoXY(47 + 36 , 14 + 3);
+											cout << "No";
+											ShowCur(0);
+										}
+										else {
+											GotoXY(32+36, 14 + 3);
+											cout << "Yes";
+											GotoXY(47 + 36 , 14 + 3);
+											SetColor(4);
+											cout << "No";
+											SetColor(7);
+											ShowCur(0);
+										}
+										currentPos = choice;
+									}
+								}
+								if (choice == 1)
+								{
+									for (int i = 20 + 36; i <= 20 + 36 + 41; i++)
+									{
+										for (int j = 10 + 3; j <= 16 + 3; j++)
+										{
+											GotoXY(i, j); cout << " ";
+										}
+									}
+									loadOption = SelectMenu(LoadingMenu());
+									continue;
+								}
+								std::ifstream inputFile(SAVED_LIST);  // Thay thế "filename.txt" bằng đường dẫn tới file thực tế
+								std::vector<std::string> lines;
+								loadOption -= 1000;
+								if (!inputFile) {
+									//std::cout << "Không thể mở file." << std::endl;
+									break;
+								}
+
+								std::string line;
+								while (std::getline(inputFile, line)) {
+									lines.push_back(line);
+								}
+
+								inputFile.close();
+
+								if (lines.empty()) {
+									//std::cout << "File rỗng." << std::endl;
+									break;
+								}
+
+								lines.erase(lines.begin() + loadOption - 1);  // Xóa dong thu i
+								fstream outFile;
+								outFile.open(SAVED_LIST, std::ofstream::out | std::ofstream::trunc);
+								for (int j = 0; j < lines.size(); j++)
+								{
+									outFile << lines[j] << endl;
+								}
+								TextColor(255);
+								outFile.close();
+								for (int j = 14; j <= 26; j++)
+								{
+									GotoXY(30, j); cout << "                          ";
+								}
+								loadOption = SelectMenu(LoadingMenu());
+							}
+							if (loadOption == -1) break;
+							else
+							{
+								Loading();
+								TextColor(255);
+								LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, chedo);
+								PlaySoundEffect("choose", SoundEffects);
+								if (chedo == 2)
+									RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, SoundEffects, chedo, song, songtemp);
+								if (chedo == 3)
+									PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, SoundEffects, chedo, song, songtemp);
+								afterPlay = true;
+								break;
+							}
 						}
-						if (loadOption == -1) break;
-						else
-						{
-							Loading();
-							TextColor(255);
-							LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, chedo);
-							PlaySoundEffect("choose", SoundEffects);
-							if (chedo == 2)
-								RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, SoundEffects, chedo, song, songtemp);
-							if(chedo == 3)
-								PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, SoundEffects, chedo, song, songtemp);
-							break;
-						}
-						afterPlay = true;
 					}
 					if (y == 23)
 					{

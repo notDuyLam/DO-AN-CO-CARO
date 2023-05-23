@@ -501,7 +501,7 @@ GotoXY(x + 35, 13 + 3);*/
 			GotoXY(x, 13 + 3); cout << " "; TextColor(240); SetColor(77); cout << "   Enter the name for your board (2-10 characters):               "; SetColor(0); TextColor(176); cout << " ";
 			GotoXY(x, 14 + 3); cout << " "; TextColor(240); cout << "                                                  "; TextColor(176); cout << " ";
 			GotoXY(x, 15 + 3); cout << " "; TextColor(240); cout << "                                                  "; TextColor(176); cout << " ";
-			GotoXY(x, 16 + 3); for (int i = x; i <= x + 50; i++) cout << " ";
+			GotoXY(x, 16 + 3); for (int i = x; i <= x + 67; i++) cout << " ";
 			TextColor(240);
 			GotoXY(x + 53, 13 + 3);
 			SetColor(0);
