@@ -841,6 +841,13 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 								{
 									GotoXY(30, j); cout << "                          ";
 								}
+								for (int i = 20 + 36; i <= 20 + 36 + 41; i++)
+								{
+									for (int j = 10 + 3; j <= 16 + 3; j++)
+									{
+										GotoXY(i, j); cout << " ";
+									}
+								}
 								loadOption = SelectMenu(LoadingMenu());
 							}
 							if (loadOption == -1) break;

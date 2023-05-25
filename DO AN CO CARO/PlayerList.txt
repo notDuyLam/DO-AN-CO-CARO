@@ -24,9 +24,9 @@ noname4
 3
 noname5
 2
-noname6
-1
 lam
+2
+noname6
 1
 who
 0
