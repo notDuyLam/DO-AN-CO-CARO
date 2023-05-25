@@ -4,4 +4,3 @@ lam.txt
 may1.txt
 nguoi1.txt
 who.txt
-test3.txt
