@@ -16,19 +16,14 @@ using std::string;
 using namespace std;
 
 //Hằng số
-#define BOARD_SIZE 16 // Kích thức ma trận bàn cờ
+#define BOARD_SIZE 16 // Kích thước ma trận bàn cờ
 #define LEFT 0 // Tọa độ trái màn hình bàn cờ
 #define TOP 0 // Tọa độ trên màn hình bàn cờ
 #define MIDDLESCREEN 540 //Tọa độ giữa màn hình hiển thị game theo trục x
-struct _POINT { 
-	int x, 
-		y, 
-		c; 
-}; // x: tọa độ dòng, y: tọa độ cột, c: đánh dấu
-struct MOVE {
-	int x;
-	int y;
-};
+#define WIDTH 1080
+#define HEIGHT 580
+#define X_CENTER WIDTH / 16 + 2
+#define Y_CENTER HEIGHT / 32
 #define FIRST true
 #define SECOND false
 #define P_X -1
@@ -64,38 +59,34 @@ const int KEY_ARROW_UP = 72;
 const int KEY_ARROW_DOWN = 80;
 const int KEY_ARROW_LEFT = 75;
 const int KEY_ARROW_RIGHT = 77;
-struct toado {
-	short int x, y;
-	char data;
+
+struct _POINT {
+	int x,
+		y,
+		c;
+}; // x: tọa độ dòng, y: tọa độ cột, c: đánh dấu
+struct MOVE {
+	int x;
+	int y;
 };
-typedef struct toado Toado;
 struct _MENU
 {
-	int options;	 //So chuc nang cua Menu
-	int x;			 // Toa do cua diem bat 
-	int y;			 //dau cua chuc nang dau tien
-	int cursorColor; //Mau con tro chon menu
+	int options;	 //Số chức năng của Menu
+	int x;			 // Tọa độ của điểm bắt
+	int y;			 //đầu của chức năng đầu tiên
+	int cursorColor; //Màu của con trỏ chọn Menu
 };
 struct _PLAYER
 {
-	string name; //Ten nguoi choi
-	int wins = 0;	 //Dem so tran thang
-	int rank; //Xep hang cua nguoi choi
+	string name; //Tên người chơi
+	int wins = 0;	 //Đếm số trận thắng
+	int rank; //Xếp hạng của người chơi
 
 	bool operator>(_PLAYER other);
 	bool operator<(_PLAYER other);
 	bool operator==(_PLAYER other);
 };
-struct Hour {
-	int hour;
-	int minute;
-	int second;
-};
 //File stuffs
-#define SAVED_LIST "savedlist.txt" //Ten cac file game duoc save
-#define PLAYER_LIST "PlayerList.txt" //Thong tin cac player da choi game
-#define WIDTH 1080
-#define HEIGHT 580
-#define X_CENTER WIDTH / 16 + 2
-#define Y_CENTER HEIGHT / 32	
-#pragma comment (lib,"winmm.lib") //dung cho PlaySoundA()
+#define SAVED_LIST "savedlist.txt" //Tên các file game đã được lưu
+#define PLAYER_LIST "PlayerList.txt" //Thông tin các người chơi đã chơi game	
+#pragma comment (lib,"winmm.lib") //dùng cho PlaySoundA()
