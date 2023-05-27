@@ -7,16 +7,6 @@ void resizeConsole(int width, int height)
 	GetWindowRect(console, &r);
 	MoveWindow(console, r.left, r.top, width, height, TRUE);
 }
-void CreateConsoleWindow(int pWidth, int pHeight)
-{
-	HWND consoleWindow = GetConsoleWindow();
-	RECT r;
-	HANDLE hConsole;
-	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, 240);
-	GetWindowRect(consoleWindow, &r);
-	MoveWindow(consoleWindow, 0, 0, pWidth, pHeight, TRUE);
-}
 
 void FixConsoleWindow()
 {
@@ -39,7 +29,6 @@ void DrawBoard(int pSize) {
 			GotoXY(LEFT + 4 * i, TOP + 2 * j);
 		}
 	}
-	//DrawBoardGiaoDien(1, BOARD_SIZE + 40, BOARD_SIZE + 70);
 }
 //void DrawBoard_1(int m, int n)
 //{
@@ -96,47 +85,6 @@ void DrawBoard_1(int m, int n)
 		printf("%c%c%c%c", 205, 205, 205, 202);
 	printf("%c%c%c", 205, 205, 205);
 	printf("%c", 188);
-}
-int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, int& _Y,short int toadothang[24], bool& SoundEffects, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
-{
-	switch (pWhoWin) {
-	case -1:
-		_PLAYER1.wins++;
-		PlaySoundEffect("win", SoundEffects);
-		NhapNhayQuanCo(_A, toadothang, pWhoWin);
-		ThongBaoWin(pWhoWin, _A);
-		//GotoXY(78,18); // Nhảy tới vị trí 
-		//// thích hợp để in chuỗi thắng/thua/hòa
-		////printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", true, false);
-		//cout << "Nguoi choi " << _PLAYER1.name << " da thang va nguoi choi " << _PLAYER2.name << " da thua.";
-		SavePlayer(_PLAYER1);
-		break;
-	case 1:
-		_PLAYER2.wins++;
-		PlaySoundEffect("win", SoundEffects);
-		NhapNhayQuanCo(_A, toadothang, pWhoWin);
-		ThongBaoWin(pWhoWin, _A);
-		//GotoXY(78,18); // Nhảy tới vị trí 
-		//// thích hợp để in chuỗi thắng/thua/hòa
-		////printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", false, true);
-		//cout << "Nguoi choi " << _PLAYER2.name << " da thang va nguoi choi " << _PLAYER1.name << " da thua.";
-		SavePlayer(_PLAYER2);
-		break;
-	case 0:
-		//printf("Nguoi choi %d da hoa nguoi choi %d\n", false, true);
-		PlaySoundEffect("draw", SoundEffects);
-		ThongBaoWin(pWhoWin, _A);
-		/*GotoXY(78,18);
-		cout << "Nguoi choi " << _PLAYER2.name << " da hoa nguoi choi " << _PLAYER1.name;*/
-		break;
-	case 2:
-		_TURN = !_TURN; // Đổi lượt nếu không có gì xảy ra
-		ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
-		ShowCur(1);
-		break;
-	}
-	GotoXY(_X, _Y); // Trả về vị trí hiện hành của con trỏ màn hình bàn cờ
-	return pWhoWin;
 }
 
 void XWin(_POINT _A[][BOARD_SIZE])
@@ -316,638 +264,83 @@ void ThongBaoWin(int pWhoWin, _POINT _A[][BOARD_SIZE])
 //  8888888888P"   8888    T888b   d888P       8888  8888P       Y8888
 //  88888888P"     8888     T888b d888P        8888  888P         Y888
 
-int AskContinue(_POINT _A[][BOARD_SIZE])
+void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothang[24], int pWhoWin)
 {
-	int x = 53;
-	//printf("Nhan 'y/n' de tiep tuc/dung: ");
-	/*GotoXY(x, 10+3); SetColor(3); for (int i = x; i <= x + 29; i++) cout << (char)178;
-	GotoXY(x, 11+3); cout << (char)178 << "                            " << (char)178;
-	GotoXY(x, 12 + 3); cout << (char)178; SetColor(7); cout << "   Play again        Quit   ";
-	SetColor(3);cout << (char)178;
-	GotoXY(x, 13+3); cout << (char)178 << "                            " << (char)178;
-	GotoXY(x, 14+3); SetColor(3); for (int i = x; i <= x + 29; i++) cout << (char)178;*/
-	GotoXY(x, 10 + 3); TextColor(176); for (int i = x; i <= x + 29; i++) cout << " ";
-	GotoXY(x, 11 + 3); cout << " "; TextColor(240);cout << "                            "; TextColor(176);cout << " ";
-	GotoXY(x, 12 + 3); cout << " "; TextColor(240); SetColor(7); cout << "   Play again        Quit   ";
-	TextColor(176);cout << " ";
-	GotoXY(x, 13 + 3); cout << " ";TextColor(240);cout << "                            ";TextColor(176);cout << " ";
-	GotoXY(x, 14 + 3); TextColor(176); for (int i = x; i <= x + 29; i++) cout << " ";
-	TextColor(240);
-	int choice = 0;
-	int currentPos = 0;
-	GotoXY(x + 4, 12+3);
-	SetColor(4);
-	cout << "Play again";
-	SetColor(7);
+	short int x, y;
 	ShowCur(0);
-	while (true) 
-	{
-		// Lấy phím người dùng ấn
-		char key = _getch();
 
-		// Kiểm tra phím người dùng ấn
-		if (key == 'A' || key == 'a' || key == KEY_ARROW_LEFT) {
-			choice = 0;
-		}
-		else if (key == 'D' || key == 'd' || key == KEY_ARROW_RIGHT) {
-			choice = 1;
-		}
-		else if (key == '\r' || key == SPACE) {
-			break;
-		}
-
-		// Đổi màu chữ tùy theo lựa chọn
-		if (choice != currentPos) {
-			if (choice == 0) {
-				GotoXY(x + 4, 12+3);
-				SetColor(4);
-				cout << "Play again";
-				SetColor(7);
-				GotoXY(x + 22, 12+3);
-				cout << "Quit";
-				ShowCur(0);
-			}
-			else {
-				GotoXY(x + 4, 12+3);
-				cout << "Play again";
-				GotoXY(x + 22, 12+3);
-				SetColor(4);
-				cout << "Quit";
-				SetColor(7);
-				ShowCur(0);
-			}
-			currentPos = choice;
-		}
-	}
-	if (choice == 0)
-		return 'Y';
-	else
-		return 'N';
-}
-void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& SoundEffects, int& chedo, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, int& song, int& songtemp)
-{
-	int x = 0, y = 0;
-	drawFrame(0, 0, 145, 33);
-	drawFrame(5, 3, 80, 28);
-	int i;
-	bool backToOriginalMenu = false;
-	bool afterPlay = true; // Biến này để phục vụ cho âm thanh, kiểm tra xem người chơi có vừa chơi xong không
-	while (true)
+	for (unsigned short int j = 1; j < 11; ++j)
 	{
-		drawFrame(0, 0, 145, 33);
-		drawFrame(5, 3, 80, 28);
-		TextColor(255);
-		printBigCaro(10, 10);
-		//printCaro(29,14);
-		backToOriginalMenu = false;
-		x = 103, y = 20;
-		// color, width, height, x, y
-		//SetColor(4);
-		//GotoXY(103, 3); cout << "PLAYER VS PLAYER";
-		if(afterPlay)
-			PlayBackGroundMusic(song);
-		drawSelectedButton(103, 5, "PLAYER VS PLAYER");
-		//SetColor(0);
-		drawButton(103, 8, "PLAYER VS COMPUTER");
-		drawButton(103, 11, "LOAD GAME");
-		drawButton(103, 14, "HELP");
-		drawButton(103, 17, "ABOUT");
-		drawButton(103, 20, "SOUND");
-		drawButton(103, 23, "RANKING");
-		drawButton(103, 26, "EXIT");
-		SetColor(8);
-		GotoXY(88, 29); cout << "___ W A S D: MOVE ___";
-		GotoXY(88, 30); cout << "___ Space: Select ___" ;
-		GotoXY(115, 29); cout << "___ ^ < v >: MOVE ___";
-		GotoXY(115, 30); cout << "___ Enter: Select ___";
-		ShowCur(0);
-		while (true)
+		SetColor(2 + rand() % 14);
+		for (int i = 0; i < 10; i += 2)
 		{
-			if (_kbhit())
+			x = toadothang[i];
+			y = toadothang[i + 1];
+
+			int x2, y2;
+			x2 = 4 * y + 2;
+			y2 = 2 * x + 1;
+			GotoXY(x2, y2);
+
+			if (pWhoWin == -1)
 			{
-				switch (_getch())
-				{
-				case KEY_ARROW_UP:
-				case 'w':
-					if (y > 20)
-					{
-						y--;
-						GotoXY(x, y);
-					}
-					if (y == 20)
-					{
-						SetColor(4);
-						drawSelectedButton(103, 5, "PLAYER VS PLAYER");
-						SetColor(0);
-						drawButton(103, 8, "PLAYER VS COMPUTER");
-						drawButton(103, 11, "LOAD GAME");
-						drawButton(103, 14, "HELP");
-						drawButton(103, 17, "ABOUT");
-						drawButton(103, 20, "SOUND");
-						drawButton(103, 23, "RANKING");
-						drawButton(103, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 21)
-					{
-						SetColor(0);
-						drawButton(103, 5, "PLAYER VS PLAYER");
-						SetColor(4);
-						drawSelectedButton(103, 8, "PLAYER VS COMPUTER");
-						SetColor(0);
-						drawButton(103, 11, "LOAD GAME");
-						drawButton(103, 14, "HELP");
-						drawButton(103, 17, "ABOUT");
-						drawButton(103, 20, "SOUND");
-						drawButton(103, 23, "RANKING");
-						drawButton(103, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 22)
-					{
-						SetColor(0);
-						drawButton(103, 5, "PLAYER VS PLAYER");
-						drawButton(103, 8, "PLAYER VS COMPUTER");
-						SetColor(4);
-						drawSelectedButton(103, 11, "LOAD GAME");
-						SetColor(0);
-						drawButton(103, 14, "HELP");
-						drawButton(103, 17, "ABOUT");
-						drawButton(103, 20, "SOUND");
-						drawButton(103, 23, "RANKING");
-						drawButton(103, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 23)
-					{
-						SetColor(0);
-						drawButton(103, 5, "PLAYER VS PLAYER");
-						drawButton(103, 8, "PLAYER VS COMPUTER");
-						drawButton(103, 11, "LOAD GAME");
-						SetColor(4);
-						drawSelectedButton(103, 14, "HELP");
-						SetColor(0);
-						drawButton(103, 17, "ABOUT");
-						drawButton(103, 20, "SOUND");
-						drawButton(103, 23, "RANKING");
-						drawButton(103, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 24)
-					{
-						SetColor(0);
-						drawButton(103, 5, "PLAYER VS PLAYER");
-						drawButton(103, 8, "PLAYER VS COMPUTER");
-						drawButton(103, 11, "LOAD GAME");
-						drawButton(103, 14, "HELP");
-						SetColor(4);
-						drawSelectedButton(103, 17, "ABOUT");
-						SetColor(0);
-						drawButton(103, 20, "SOUND");
-						drawButton(103, 23, "RANKING");
-						drawButton(103, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 25)
-					{
-						SetColor(0);
-						drawButton(103, 5, "PLAYER VS PLAYER");
-						drawButton(103, 8, "PLAYER VS COMPUTER");
-						drawButton(103, 11, "LOAD GAME");
-						drawButton(103, 14, "HELP");
-						drawButton(103, 17, "ABOUT");
-						SetColor(4);
-						drawSelectedButton(103, 20, "SOUND");
-						SetColor(0);
-						drawButton(103, 23, "RANKING");
-						drawButton(103, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 26)
-					{
-						SetColor(0);
-						drawButton(103, 5, "PLAYER VS PLAYER");
-						drawButton(103, 8, "PLAYER VS COMPUTER");
-						drawButton(103, 11, "LOAD GAME");
-						drawButton(103, 14, "HELP");
-						drawButton(103, 17, "ABOUT");
-						drawButton(103, 20, "SOUND");
-						SetColor(4);
-						drawSelectedButton(103, 23, "RANKING");
-						SetColor(0);
-						drawButton(103, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 27)
-					{
-						SetColor(0);
-						drawButton(103, 5, "PLAYER VS PLAYER");
-						drawButton(103, 8, "PLAYER VS COMPUTER");
-						drawButton(103, 11, "LOAD GAME");
-						drawButton(103, 14, "HELP");
-						drawButton(103, 17, "ABOUT");
-						drawButton(103, 20, "SOUND");
-						SetColor(4);
-						drawButton(103, 23, "RANKING");
-						SetColor(0);
-						drawSelectedButton(103, 26, "EXIT");
-						ShowCur(0);
-					}
-					break;
-				case KEY_ARROW_DOWN:
-				case 's':
-					if (y < 27)
-					{
-						y++;
-						GotoXY(x, y);
-					}
-					if (y == 20)
-					{
-						SetColor(4);
-						drawSelectedButton(103, 5, "PLAYER VS PLAYER");
-						SetColor(0);
-						drawButton(103, 8, "PLAYER VS COMPUTER");
-						drawButton(103, 11, "LOAD GAME");
-						drawButton(103, 14, "HELP");
-						drawButton(103, 17, "ABOUT");
-						drawButton(103, 20, "SOUND");
-						drawButton(103, 23, "RANKING");
-						drawButton(103, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 21)
-					{
-						SetColor(0);
-						drawButton(103, 5, "PLAYER VS PLAYER");
-						SetColor(4);
-						drawSelectedButton(103, 8, "PLAYER VS COMPUTER");
-						SetColor(0);
-						drawButton(103, 11, "LOAD GAME");
-						drawButton(103, 14, "HELP");
-						drawButton(103, 17, "ABOUT");
-						drawButton(103, 20, "SOUND");
-						drawButton(103, 23, "RANKING");
-						drawButton(103, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 22)
-					{
-						SetColor(0);
-						drawButton(103, 5, "PLAYER VS PLAYER");
-						drawButton(103, 8, "PLAYER VS COMPUTER");
-						SetColor(4);
-						drawSelectedButton(103, 11, "LOAD GAME");
-						SetColor(0);
-						drawButton(103, 14, "HELP");
-						drawButton(103, 17, "ABOUT");
-						drawButton(103, 20, "SOUND");
-						drawButton(103, 23, "RANKING");
-						drawButton(103, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 23)
-					{
-						SetColor(0);
-						drawButton(103, 5, "PLAYER VS PLAYER");
-						drawButton(103, 8, "PLAYER VS COMPUTER");
-						drawButton(103, 11, "LOAD GAME");
-						SetColor(4);
-						drawSelectedButton(103, 14, "HELP");
-						SetColor(0);
-						drawButton(103, 17, "ABOUT");
-						drawButton(103, 20, "SOUND");
-						drawButton(103, 23, "RANKING");
-						drawButton(103, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 24)
-					{
-						SetColor(0);
-						drawButton(103, 5, "PLAYER VS PLAYER");
-						drawButton(103, 8, "PLAYER VS COMPUTER");
-						drawButton(103, 11, "LOAD GAME");
-						drawButton(103, 14, "HELP");
-						SetColor(4);
-						drawSelectedButton(103, 17, "ABOUT");
-						SetColor(0);
-						drawButton(103, 20, "SOUND");
-						drawButton(103, 23, "RANKING");
-						drawButton(103, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 25)
-					{
-						SetColor(0);
-						drawButton(103, 5, "PLAYER VS PLAYER");
-						drawButton(103, 8, "PLAYER VS COMPUTER");
-						drawButton(103, 11, "LOAD GAME");
-						drawButton(103, 14, "HELP");
-						drawButton(103, 17, "ABOUT");
-						SetColor(4);
-						drawSelectedButton(103, 20, "SOUND");
-						SetColor(0);
-						drawButton(103, 23, "RANKING");
-						drawButton(103, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 26)
-					{
-						SetColor(0);
-						drawButton(103, 5, "PLAYER VS PLAYER");
-						drawButton(103, 8, "PLAYER VS COMPUTER");
-						drawButton(103, 11, "LOAD GAME");
-						drawButton(103, 14, "HELP");
-						drawButton(103, 17, "ABOUT");	
-						drawButton(103, 20, "SOUND");
-						SetColor(4);
-						drawSelectedButton(103, 23, "RANKING");
-						SetColor(0);
-						drawButton(103, 26, "EXIT");
-						ShowCur(0);
-					}
-					if (y == 27)
-					{
-						SetColor(0);
-						drawButton(103, 5, "PLAYER VS PLAYER");
-						drawButton(103, 8, "PLAYER VS COMPUTER");
-						drawButton(103, 11, "LOAD GAME");
-						drawButton(103, 14, "HELP");
-						drawButton(103, 17, "ABOUT");
-						drawButton(103, 20, "SOUND");
-						drawButton(103, 23, "RANKING");
-						SetColor(4);
-						drawSelectedButton(103, 26, "EXIT");
-						ShowCur(0);
-					}
-					break;
-				case SPACE:
-				case ENTER:
-					backToOriginalMenu = true;
-					//PlaySOUNDEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
-					if (y == 20) // Danh voi nguoi
-					{
-						ShowCur(1);
-						SetPlayer(_PLAYER1, _PLAYER2);
-						Loading();
-						TextColor(255);
-						PlaySoundEffect("choose", SoundEffects);
-						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
-						RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, SoundEffects, chedo, song, songtemp);
-						afterPlay = true;
-					}
-					if (y == 21) //Danh voi may
-					{
-						ShowCur(1);
-						SetPlayerVsComputer(_PLAYER1, _PLAYER2);
-						Loading();
-						TextColor(255);
-						PlaySoundEffect("choose", SoundEffects);
-						StartGame(_A, _TURN, _COMMAND, _X, _Y, _PLAYER1, _PLAYER2);
-						PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, SoundEffects, chedo, song, songtemp);
-						afterPlay = true;
-					}
-					if (y == 22)//Loading();
-					{
-						for (int i = 6; i < 28; i++)
-						{
-							for (int j = 6; j < 81; j++)
-							{
-								GotoXY(j, i);
-								cout << " ";
+				cout << " ";
+				Sleep(40);
 
-							}
-						}
-						SetColor(0);
-						GotoXY(10, 10);
-						TextColor(255);
-						ShowCur(1);
-						int loadOption;
-						afterPlay = false;
-						while(!afterPlay)
-						{
-
-							loadOption = SelectMenu(LoadingMenu());
-							/*
-							Phần xóa file đã lưu hoạt động bằng cách trong hàm SelectMenu khi mà bấm D để xóa thì thay vì hàm sẽ trả về loadOption là lựa chọn thứ mấy
-							thì nó sẽ trả về số lựa chọn + 1000, ở dưới vòng lặp while kiểm tra điều kiện loadOption > 1000 tức là nếu người chơi vẫn muốn tiếp tục xóa
-							thì tiếp tục lấy loadOption và in ra các file đã lưu.
-							Trong vòng lặp while đầu tiên mở savedList lên và lấy các tên file trong đó đưa vào vector lines, nếu người dùng chọn xóa lựa chọn số mấy
-							thì sẽ lấy loadOption - 1000 = số thứ tự của file mà người dùng xóa, sau đó xóa phần tử đó bằng erase với vector lines rồi lại mở file
-							savedList nhưng bằng chế độ trunc, tức là sau khi mở thì xóa toàn bộ nội dung của file và ghi lại từng phần tử của vector lines lại vào trong
-							file savedList và in lại ra màn hình danh sách các ván đấu đã lưu. (Tuy nhiên file mà người chơi đã lưu ko thật sự xóa (tại ko biết xóa) mà
-							chỉ xóa tên của file đó trong danh sách các file.
-							*/
-
-							while (loadOption > 1000)
-							{
-								int choice = 0;
-								int currentPos = 0;
-								GotoXY(20 + 36, 10 + 3); TextColor(176); for (int i = 20 + 36; i <= 20 + 36 + 41; i++) cout << " ";
-								GotoXY(20 + 36, 11 + 3); cout << " "; TextColor(240); cout << "                                        "; TextColor(176); cout << " ";
-								GotoXY(20 + 36, 12 + 3); cout << " "; TextColor(240); cout << "                                        "; TextColor(176); cout << " ";
-								GotoXY(20 + 36, 13 + 3); cout << " "; TextColor(240); SetColor(77); cout << "    Do you want to delete that save?    "; SetColor(0); TextColor(176); cout << " ";
-								GotoXY(20 + 36, 14 + 3); cout << " "; TextColor(240); cout << "                                        "; TextColor(176); cout << " ";
-								GotoXY(20 + 36, 15 + 3); cout << " "; TextColor(240); cout << "                                        "; TextColor(176); cout << " ";
-								GotoXY(20 + 36, 16 + 3); for (int i = 20 + 36; i <= 20 + 36 + 41; i++) cout << " ";
-								GotoXY(32+36, 14 + 3);
-								TextColor(240);
-								SetColor(4);
-								cout << "Yes";
-								SetColor(7);
-								GotoXY(47 + 36 , 14 + 3);
-								cout << "No";
-								ShowCur(0);
-								while (true)
-								{
-									// Lấy phím người dùng ấn
-									char key = _getch();
-
-									// Kiểm tra phím người dùng ấn
-									if (key == 'A' || key == 'a' || key == KEY_ARROW_LEFT) {
-										choice = 0;
-									}
-									else if (key == 'D' || key == 'd' || key == KEY_ARROW_RIGHT) {
-										choice = 1;
-									}
-									else if (key == '\r' || key == SPACE) {
-										break;
-									}
-
-									// Đổi màu chữ tùy theo lựa chọn
-									if (choice != currentPos) {
-										if (choice == 0) {
-											GotoXY(32+36, 14 + 3);
-											SetColor(4);
-											cout << "Yes";
-											SetColor(7);
-											GotoXY(47 + 36 , 14 + 3);
-											cout << "No";
-											ShowCur(0);
-										}
-										else {
-											GotoXY(32+36, 14 + 3);
-											cout << "Yes";
-											GotoXY(47 + 36 , 14 + 3);
-											SetColor(4);
-											cout << "No";
-											SetColor(7);
-											ShowCur(0);
-										}
-										currentPos = choice;
-									}
-								}
-								if (choice == 1)
-								{
-									for (int i = 20 + 36; i <= 20 + 36 + 41; i++)
-									{
-										for (int j = 10 + 3; j <= 16 + 3; j++)
-										{
-											GotoXY(i, j); cout << " ";
-										}
-									}
-									loadOption = SelectMenu(LoadingMenu());
-									continue;
-								}
-								std::ifstream inputFile(SAVED_LIST);  // Thay thế "filename.txt" bằng đường dẫn tới file thực tế
-								std::vector<std::string> lines;
-								loadOption -= 1000;
-								if (!inputFile) {
-									//std::cout << "Không thể mở file." << std::endl;
-									break;
-								}
-
-								std::string line;
-								while (std::getline(inputFile, line)) {
-									lines.push_back(line);
-								}
-
-								inputFile.close();
-
-								if (lines.empty()) {
-									//std::cout << "File rỗng." << std::endl;
-									break;
-								}
-
-								lines.erase(lines.begin() + loadOption - 1);  // Xóa dong thu i
-								fstream outFile;
-								outFile.open(SAVED_LIST, std::ofstream::out | std::ofstream::trunc);
-								for (int j = 0; j < lines.size(); j++)
-								{
-									outFile << lines[j] << endl;
-								}
-								TextColor(255);
-								outFile.close();
-								for (int j = 14; j <= 26; j++)
-								{
-									GotoXY(30, j); cout << "                          ";
-								}
-								for (int i = 20 + 36; i <= 20 + 36 + 41; i++)
-								{
-									for (int j = 10 + 3; j <= 16 + 3; j++)
-									{
-										GotoXY(i, j); cout << " ";
-									}
-								}
-								loadOption = SelectMenu(LoadingMenu());
-							}
-							if (loadOption == -1) break;
-							else
-							{
-								Loading();
-								TextColor(255);
-								LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, chedo);
-								PlaySoundEffect("choose", SoundEffects);
-								if (chedo == 2)
-									RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, SoundEffects, chedo, song, songtemp);
-								if (chedo == 3)
-									PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, SoundEffects, chedo, song, songtemp);
-								afterPlay = true;
-								break;
-							}
-						}
-					}
-					if (y == 23)
-					{
-						//Menu Help trong game
-						for (int i = 6; i < 28; i++)
-						{
-							for (int j = 6; j < 80; j++)
-							{
-								GotoXY(j, i);
-								cout << " ";
-
-							}
-						}
-						SetColor(0);
-						printCaro(27, 7);
-						GotoXY(10, 10);
-						//Loading();
-						TextColor(255);
-						HELP();
-						afterPlay = false;
-					}
-					if (y == 24)
-					{
-						//About
-						for (int i = 6; i < 28; i++)
-						{
-							for (int j = 6; j < 80; j++)
-							{
-								GotoXY(j, i);
-								cout << " ";
-
-							}
-						}
-						SetColor(0);
-						printCaro(27,7);
-						GotoXY(10, 10);
-						About();
-						afterPlay = false;
-					}
-					if (y == 25)
-					{
-						//SOUND
-						//Loading();
-						TextColor(255);
-						Sound(SoundEffects, song, songtemp);
-						afterPlay = false;
-					}
-					if (y == 26)
-					{
-						for (int i = 6; i < 28; i++)
-						{
-							for (int j = 6; j < 83; j++)
-							{
-								GotoXY(j, i);
-								cout << " ";
-
-							}
-						}
-						SetColor(0);
-						printCaro(27, 7);
-						// Hiện ranking ở đây
-						ShowRank();
-						afterPlay = false;
-					}
-					if (y == 27)
-					{
-						//Loading();
-						TextColor(255);
-						system("cls");
-						Sleep(103);
-						PostMessage(GetConsoleWindow(), WM_CLOSE, 0, 0); // Câu lệnh này dùng để tắt màn hình game ngay lập tức
-					}
-					break;
-				}
-				if (backToOriginalMenu)
-				{
-					system("cls");
-					break;
-				}
+				GotoXY(x2, y2);
+				cout << "X";
+				cout << " ";
+			}
+			else if (pWhoWin == 1)
+			{
+				cout << " ";
+				Sleep(40);
+				GotoXY(x2, y2);
+				cout << "O";
+				cout << " ";
 			}
 		}
 	}
+	Sleep(300);
+	ShowCur(0);
+	for (unsigned short int i = 0; i < 10; i += 2)
+	{
+		x = toadothang[i];
+		y = toadothang[i + 1];
+
+		int x2, y2;
+		x2 = 4 * y + 2;
+		y2 = 2 * x + 1;
+		GotoXY(x2, y2);
+
+		if (pWhoWin == -1)
+		{
+			TextColor(228);
+			cout << " ";
+			Sleep(40);
+
+			GotoXY(x2, y2);
+			cout << "X";
+			cout << " ";
+		}
+		else if (pWhoWin == 1)
+		{
+			TextColor(228);
+			cout << " ";
+			Sleep(40);
+
+			GotoXY(x2, y2);
+			cout << "O";
+			cout << " ";
+		}
+
+	}
+	TextColor(240);
+	Sleep(500);
+	ShowCur(1);
 }
+
+
 void TextColor(int color)
 {
 	HANDLE hConsole;
@@ -1033,208 +426,7 @@ void DrawLoaded(_POINT _A[][BOARD_SIZE])
 			}
 	}
 }
-_MENU YesNoMenu(int x, int y)
-{
-	_MENU menu;
 
-	menu.options = 2;
-	menu.x = x;
-	menu.y = y;
-	menu.cursorColor = 0;
-
-	PrintText("Yes", 0, menu.x-18, menu.y-9);
-	PrintText("No", 0, menu.x-18, menu.y -8);
-
-	return menu;
-}
-_MENU LoadingMenu()
-{
-	_MENU menu;
-	string name;
-
-
-	std::vector<string> files;
-	files = LoadFiles();
-
-	menu.options = files.size();
-	menu.x = X_CENTER - 13;
-	menu.y = Y_CENTER + 11 - files.size() / 2;
-	menu.cursorColor = 1;
-	drawFrame(5, 3, 80, 28);
-	SetColor(0);
-	printCaro(27, 7);
-	GotoXY(10, 10);
-	drawFrame(0, 0, 145, 33);
-	PrintText("Press D to delete a file", 0, 30, 28);
-	PrintText("Press ESC to return to MENU...", 8, 30, 29);
-	SetColor(252);
-	drawButton(menu.x - 25, menu.y - 10, "Saved Games");
-	//drawButton(31, 14, "Saved Games");
-	for (int i = 0; i < files.size(); i++)
-	{
-		name = "         " + files.at(i);
-		PrintText(name, 0, menu.x-27, menu.y + i-7);
-	}
-	GotoXY(38, 27);
-	return menu;
-}
-int EscMenu(_POINT _A[][BOARD_SIZE], bool& SoundEffects, int& song, int& songtemp)
-{
-	_MENU menu;
-	menu.options = 3;
-	//menu.x = _A[0][BOARD_SIZE - 1].x +40;
-	//menu.y = Y_CENTER;
-	menu.x = 117;
-	menu.y = 30;
-	// x = 74, y = 16 la toa do goc cua menu esc
-	// 60 la do rong, 17 la do dai menu
-	for (int i = 18; i <= 32; i++)
-	{
-		GotoXY(75, i);
-		cout << "                                                       ";
-	}
-	drawFrame(74, 18,60, 15);
-	/*drawBox(74, 18, 60, 15);*/
-	menu.cursorColor = 75;
-	//DrawBoard(1, 1, 62, 25, menu.x - 23, menu.y - 19);
-	//DrawBox(75, 63, 25, menu.x - 23, menu.y - 19);
-	//DrawBigText("EscLogo.txt", 75, menu.x - 22, menu.y - 17);
-	//drawButton((menu.x-23), (menu.y-9), "Continue");
-	//PrintText("    Continue    ", 0, menu.x-22, menu.y-9);
-	//PrintText("    Save game   ", 0, menu.x-22, menu.y -8);
-	//drawButton((menu.x - 23), (menu.y - 8), "Save game");
-	//PrintText("    Sound       ", 0, menu.x - 22, menu.y - 7);
-	//PrintText("    Exit game   ", 0, menu.x-22, menu.y -7);
-	//drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
-	int x = 0, y = 0;
-	while (true)
-	{
-		x = 100, y = 20;
-		SetColor(4);
-		drawSelectedButton((menu.x - 23), (menu.y - 11), "Continue");
-		SetColor(0);
-		drawButton((menu.x - 23), (menu.y - 8), "Save game");
-		drawButton((menu.x - 23), (menu.y - 5), "Sound");
-		drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
-		ShowCur(0);
-		while (true)
-		{
-			if (_kbhit())
-			{
-				switch (_getch())
-				{
-				case 'w':
-				case KEY_ARROW_UP:
-					if (y > 20)
-					{
-						y--;
-					}
-					if (y == 20)
-					{
-						drawSelectedButton((menu.x - 23), (menu.y - 11), "Continue");
-						drawButton((menu.x - 23), (menu.y - 8), "Save game");
-						drawButton((menu.x - 23), (menu.y - 5), "Sound");
-						drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
-						ShowCur(0);
-					}
-					if (y == 21)
-					{
-						drawButton((menu.x - 23), (menu.y - 11), "Continue");
-						drawSelectedButton((menu.x - 23), (menu.y - 8), "Save game");
-						drawButton((menu.x - 23), (menu.y - 5), "Sound");
-						drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
-						ShowCur(0);
-					}
-					if (y == 22)
-					{
-						drawButton((menu.x - 23), (menu.y - 11), "Continue");
-						drawButton((menu.x - 23), (menu.y - 8), "Save game");
-						drawSelectedButton((menu.x - 23), (menu.y - 5), "Sound");
-						drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
-						ShowCur(0);
-					}
-					if (y == 23)
-					{
-						drawButton((menu.x - 23), (menu.y - 11), "Continue");
-						drawButton((menu.x - 23), (menu.y - 8), "Save game");
-						drawButton((menu.x - 23), (menu.y - 5), "Sound");
-						drawSelectedButton((menu.x - 23), (menu.y - 2), "Back to Menu");
-						ShowCur(0);
-					}
-					break;
-				case 's':
-				case KEY_ARROW_DOWN:
-					if (y < 23)
-					{
-						y++;
-					}
-					if (y == 20)
-					{
-						drawSelectedButton((menu.x - 23), (menu.y - 11), "Continue");
-						drawButton((menu.x - 23), (menu.y - 8), "Save game");
-						drawButton((menu.x - 23), (menu.y - 5), "Sound");
-						drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
-						ShowCur(0);
-					}
-					if (y == 21)
-					{
-						drawButton((menu.x - 23), (menu.y - 11), "Continue");
-						drawSelectedButton((menu.x - 23), (menu.y - 8), "Save game");
-						drawButton((menu.x - 23), (menu.y - 5), "Sound");
-						drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
-						ShowCur(0);
-					}
-					if (y == 22)
-					{
-						drawButton((menu.x - 23), (menu.y - 11), "Continue");
-						drawButton((menu.x - 23), (menu.y - 8), "Save game");
-						drawSelectedButton((menu.x - 23), (menu.y - 5), "Sound");
-						drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
-						ShowCur(0);
-					}
-					if (y == 23)
-					{
-						drawButton((menu.x - 23), (menu.y - 11), "Continue");
-						drawButton((menu.x - 23), (menu.y - 8), "Save game");
-						drawButton((menu.x - 23), (menu.y - 5), "Sound");
-						drawSelectedButton((menu.x - 23), (menu.y - 2), "Back to Menu");
-						ShowCur(0);
-					}
-					break;
-				case SPACE:
-				case ENTER:
-					if (y == 20)
-					{
-						//Continue
-						return 1; 
-					}
-					if (y == 21)
-					{
-						// Save 
-						return 2; 
-					}
-					if (y == 22)
-					{
-						SoundInGame(SoundEffects, song, songtemp);
-						drawButton((menu.x - 23), (menu.y - 11), "Continue");
-						drawButton((menu.x - 23), (menu.y - 8), "Save game");
-						drawSelectedButton((menu.x - 23), (menu.y - 5), "Sound");
-						drawButton((menu.x - 23), (menu.y - 2), "Back to Menu");
-						ShowCur(0);
-						break;
-					}
-					if (y == 23)
-					{
-						// Back to menu
-						return 3;
-					}
-					break;
-				}
-			}
-		}
-	}
-	return -1;
-}
 void HELP()
 {
 	GotoXY(80, 11);

@@ -18,8 +18,6 @@ int GetColIndex(int pX);
 int GetRowIndex(int pY);
 void PlayBackGroundMusic(int song);
 void StopMusic();
-//void PlaySoundEffect(string s);
-void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothang[24], int pWhoWin);
 void LoadData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, int& chedo);
 std::vector<string> LoadFiles();
 bool CheckFileExistence(string filename);

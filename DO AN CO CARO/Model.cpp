@@ -13,11 +13,13 @@ void ResetData(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int
 	_TURN = true; _COMMAND = -1; // Gán lượt và phím mặc định
 	_X = _A[0][0].x; _Y = _A[0][0].y; // Thiết lập lại tọa độ hiện hành ban đầu
 }
+
 //Hàm dọn dẹp tài nguyên
 //void GabageCollect()
 //{
 //	// Dọn dẹp tài nguyên nếu có khai báo con trỏ
 //}
+
 bool CheckTie(_POINT _A[][BOARD_SIZE])
 {
 	int dem = 0;
@@ -358,81 +360,7 @@ void PlaySoundEffect(string s, bool SoundEffects)
 		PlaySound(TEXT("choose.wav"), NULL, SND_FILENAME | SND_ASYNC); // Bat nhac khi lua chon
 }
 
-void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothang[24], int pWhoWin)
-{
-	short int x, y;
-	ShowCur(0);
 
-	for (unsigned short int j = 1; j < 11; ++j)
-	{
-		SetColor(2 + rand() % 14);
-		for (int i = 0; i < 10; i += 2)
-		{
-			x = toadothang[i];
-			y = toadothang[i + 1];
-
-			int x2, y2;
-			x2 = 4 * y + 2;
-			y2 = 2 * x + 1;
-			GotoXY(x2, y2);
-
-			if (pWhoWin == -1)
-			{
-				cout << " ";
-				Sleep(40);
-				
-				GotoXY(x2, y2);
-				cout << "X";
-				cout << " ";
-			}
-			else if (pWhoWin == 1)
-			{
-				cout << " ";
-				Sleep(40);
-				GotoXY(x2, y2);
-				cout << "O";
-				cout << " ";
-			}
-		}
-	}
-	Sleep(300);
-	ShowCur(0);
-	for (unsigned short int i = 0; i < 10; i += 2)
-	{
-		x = toadothang[i];
-		y = toadothang[i + 1];
-
-		int x2, y2;
-		x2 = 4 * y + 2;
-		y2 = 2 * x + 1;
-		GotoXY(x2, y2);
-
-		if (pWhoWin == -1)
-		{
-			TextColor(228);
-			cout << " ";
-			Sleep(40);
-
-			GotoXY(x2, y2);
-			cout << "X";
-			cout << " ";
-		}
-		else if (pWhoWin == 1)
-		{
-			TextColor(228);
-			cout << " ";
-			Sleep(40);
-
-			GotoXY(x2, y2);
-			cout << "O";
-			cout << " ";
-		}
-		
-	}
-	TextColor(240);
-	Sleep(500);
-	ShowCur(1);
-}
 void LoadData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, int& chedo)
 {
 	std::ifstream loadFile;
