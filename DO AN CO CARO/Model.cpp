@@ -449,7 +449,7 @@ void SaveData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYE
 
 void SavePlayer(_PLAYER player)
 {
-	int exist = CheckPlayerExistence(player);
+	int exist = CheckPlayerExistence(player); // Kiểm tra xem người chơi đã tồn tại chưa
 	std::vector<_PLAYER> players = GetPlayerList();
 	std::fstream playerList;
 	playerList.open(PLAYER_LIST, std::fstream::out);
@@ -463,7 +463,7 @@ void SavePlayer(_PLAYER player)
 	{
 		playerList << players.at(i).name << "\n" << players.at(i).wins << "\n";
 	}
-
+	// Sắp xếp danh sách người chơi và in lại vào file
 	playerList.close();
 
 }

@@ -516,10 +516,11 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 	printCaro(27,7);
 	GotoXY(10, 10);
 	drawFrame(0, 0, 145, 33);
+	// Các dòng trên để vẽ lại các khung và chữ Caro do đã xóa hết màn hình
 	SetColor(100);
 	int x = 0, y = 0;
 	int i;
-	bool backToOriginalMenu = false;
+	bool backToOriginalMenu = false; // Hàm này khi thành true thì sẽ kết thúc hàm và trở về menu chính
 	while (!backToOriginalMenu)
 	{
 		backToOriginalMenu = false;
@@ -642,14 +643,15 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 					}
 					break;
 				case 13:
-					//PlaySoundEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
-					if (y == 20)
+					if (y == 20) // Tắt bật nhạc nền
 					{
 						if (song != -1)
 						{
 							songtemp = song;
 							song = -1;
 							StopMusic();
+							// Nếu như nhạc đang bật tức là biến song khác -1 thì sẽ lưu giá trị biến song vào songtemp và chuyển song thành -1 và tắt nhạc
+							// chuyển song thành -1 là để khi gọi hàm PlayBackGroundMusic thì nhạc sẽ không bật
 						}
 						else
 						{
@@ -659,16 +661,18 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 						SetColor(4);
 						if (song != -1) drawSelectedButton(100, 8, "Music:  ON"); else drawSelectedButton(100, 8, "Music: OFF");
 						SetColor(0);
-						// Tat/Bat nhac nen
+						// Biến songtemp có tác dụng để ghi nhớ bài hát trước đó của người dùng là gì sau khi đã tắt nhạc. Sau khi bật nhạc lại thì 
+						// bài nhạc người dùng đang nghe vẫn sẽ được phát tiếp do trước đó đã có lưu trong biến songtemp
+						// nếu không có songtemp thì sau khi bật nhạc lại người dùng sẽ luôn nghe bài đầu tiên
 					}
-					if (y == 21)
+					if (y == 21) // Đổi bài
 					{
 						song++;
 						PlayBackGroundMusic(song);
 						drawButton(100, 17, "Back"); GotoXY(100, 25); cout << "                                         "; GotoXY(100, 25); if (song % 4 == 0) cout << "Song: Wallpaper"; else if (song % 4 == 1) cout << "Song: Sport Racing Car | DRIVE"; else if (song % 4 == 2) cout << "Song: Sneaky Snitch"; else if (song % 4 == 3) cout << "Song: Aggressive Computer Gaming | ENIGMA"; ShowCur(0);
-						//Doi bai
+						// Tăng giá trị của biến song lên 1, sau đó in lại tên bài hát xuống dưới để người dùng biết là đã đổi bài
 					}
-					if (y == 22)
+					if (y == 22) // Tắt bật hiệu ứng âm thanh
 					{
 						if (SoundEffects)
 							SoundEffects = false;
@@ -677,11 +681,10 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 						SetColor(4);
 						if (SoundEffects) drawSelectedButton(100, 14, "Sound effects:  ON"); else drawSelectedButton(100, 14, "Sound effects: OFF");
 						SetColor(0);
-						//Doi bai
+						// Nếu như biến SoundEffects là false thì sẽ chuyển thành true và ngược lại, sau đó in ra nút ấn để thay đổi hiệ ứng cho người dùng biết là đã bật/tắt thành công
 					}
-					if (y == 23)
+					if (y == 23) // Chuyển biến đó thành true để thoát khỏi vòng lặp while và quay về menu gốc
 					{
-						//Quay ve
 						backToOriginalMenu = true;
 					}
 					break;
@@ -698,6 +701,7 @@ void Sound(bool& SoundEffects, int& song, int& songtemp)
 
 void SoundInGame(bool& SoundEffects, int& song, int& songtemp)
 {
+	// Mọi thứ trong hàm này hầu như tương tự hàm sound chỉ khác là nhạc nền dù bật tắt cũng sẽ không bật trong khi chơi game 
 	SetColor(0);
 	GotoXY(10, 10);
 	SetColor(94);
@@ -815,7 +819,6 @@ void SoundInGame(bool& SoundEffects, int& song, int& songtemp)
 					}
 					break;
 				case 13:
-					//PlaySoundEffect("tick"); // khong biet truyen tham so gi nen truyen dai, sau nay sua
 					if (y == 20)
 					{
 						if (song != -1)
@@ -832,7 +835,6 @@ void SoundInGame(bool& SoundEffects, int& song, int& songtemp)
 						SetColor(4);
 						if (song != -1) drawSelectedButton(94, 19, "Music:  ON"); else drawSelectedButton(94, 19, "Music: OFF");
 						SetColor(0);
-						// Tat/Bat nhac nen
 					}
 					if (y == 21)
 					{
@@ -847,11 +849,9 @@ void SoundInGame(bool& SoundEffects, int& song, int& songtemp)
 						SetColor(4);
 						if (SoundEffects) drawSelectedButton(94, 25, "Sound effects:  ON"); else drawSelectedButton(94, 25, "Sound effects: OFF");
 						SetColor(0);
-						//Doi bai
 					}
 					if (y == 23)
 					{
-						//Quay ve
 						backToOriginalMenu = true;
 					}
 					break;

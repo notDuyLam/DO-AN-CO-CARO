@@ -118,7 +118,6 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 	bool runGame = true;
 	int escOption;
 	short int toadothang[24];
-	//PlaySoundA("NhacGame.wav", NULL, SND_ASYNC | SND_LOOP);
 	while (runGame)
 	{
 		ShowPlayerInfo(_A, _PLAYER1, _PLAYER2);
@@ -131,6 +130,7 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 		}
 		else
 		{
+			// Phần này dùng để làm hiệu ứng nháy đen khi ấn một trong các nút trong các ô hướng dẫn của game khi đang chơi
 			if (_COMMAND == 'W' || _COMMAND == ARROW_UP) 
 			{
 				TextColor(2);
@@ -891,6 +891,10 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 
 							while (loadOption > 1000)
 							{
+								// Vòng while này có tác dụng hỏi người dùng trước khi xóa file
+								// Nếu người dùng chọn No thì sẽ in ra lại các lựa chọn file để người chơi lựa chọn chơi hoặc thoát
+								// ra ngoài. Nếu người dùng chọn Yes thì file người dùng muốn xóa sẽ bị xóa và màn hình sẽ lại
+								// in ra danh sách các file để người dùng có thể xóa hoặc chơi hoặc thoát ra ngoài
 								int choice = 0;
 								int currentPos = 0;
 								GotoXY(20 + 36, 10 + 3); TextColor(176); for (int i = 20 + 36; i <= 20 + 36 + 41; i++) cout << " ";
@@ -1032,7 +1036,6 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 						SetColor(0);
 						printCaro(27, 7);
 						GotoXY(10, 10);
-						//Loading();
 						TextColor(255);
 						HELP();
 						afterPlay = false;
@@ -1058,7 +1061,6 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 					if (y == 25)
 					{
 						//SOUND
-						//Loading();
 						TextColor(255);
 						Sound(SoundEffects, song, songtemp);
 						afterPlay = false;
@@ -1098,20 +1100,6 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 			}
 		}
 	}
-}
-_MENU YesNoMenu(int x, int y)
-{
-	_MENU menu;
-
-	menu.options = 2;
-	menu.x = x;
-	menu.y = y;
-	menu.cursorColor = 0;
-
-	PrintText("Yes", 0, menu.x - 18, menu.y - 9);
-	PrintText("No", 0, menu.x - 18, menu.y - 8);
-
-	return menu;
 }
 _MENU LoadingMenu()
 {

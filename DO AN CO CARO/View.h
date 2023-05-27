@@ -34,9 +34,12 @@ void drawFrame(int x, int y, int width, int height);
 void DrawBigText(string filename, int color, int x, int y);
 void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE], int color);
 void drawButton(int x, int y, string text);
+// Vẽ 1 khung nhỏ cho text được truyền vào để cho thành 1 nút
 void drawSelectedButton(int x, int y, string text);
+// Tương tự trên nhưng khung sẽ to hơn và có màu đỏ để làm nổi bật để cho biết đây là nút đang được chọn
 void printCaro(int x, int y);
 void Loading();
+// Màn hình Loading của game 
 void DrawPhimTat(_POINT _A[][BOARD_SIZE]);
 void printBigCaro(int x, int y);
 void ShowRank();
