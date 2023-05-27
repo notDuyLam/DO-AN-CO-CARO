@@ -1551,17 +1551,6 @@ GotoXY(x + 35, 13 + 3);*/
 		saveFile.close();
 	}
 }
-char RunYesNoMenu(int option)
-{
-	switch (option)
-	{
-	case 1:
-		return 'Y';
-	case 2:
-		return 'N';
-	}
-}
-// Hàm này giờ không cần nữa (hàm runyesnomenu)
 int SelectMenu(_MENU menu)
 {
 	int cursor = 1;
