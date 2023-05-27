@@ -16,8 +16,10 @@ void OWin(_POINT _A[][BOARD_SIZE]);
 void Draw(_POINT _A[][BOARD_SIZE]);
 void ThongBaoWin(int pWhoWin, _POINT _A[][BOARD_SIZE]);
 void SetColor(WORD color);
+// Thay đổi màu chữ
 void DrawBoard_1(int m, int n);
 void TextColor(int color);
+// Thay đổi màu chữ và màu nền của console window
 void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& SoundEffects, int& chedo, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, int& song, int& songtemp);
 void ShowCur(bool CursorVisibility);
 void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN);
@@ -26,10 +28,15 @@ void DrawLoaded(_POINT _A[][BOARD_SIZE]);
 _MENU YesNoMenu(int x, int y);
 _MENU LoadingMenu();
 int EscMenu(_POINT _A[][BOARD_SIZE], bool& SoundEffects, int& song, int& songtemp);
+// Menu khi nhấn nút ESC khi chơi
 void HELP();
+// hiện menu hướng dẫn
 void About();
+// menu các thành viên nhóm
 void Sound(bool& SoundEffects, int& song, int& songtemp);
+//Hàm này hiện menu điều chỉnh âm thanh ở ngoài
 void SoundInGame(bool& SoundEffects, int& song, int& songtemp);
+// Hàm này hiện menu điều chỉnh âm thanh khi đang chơi
 void drawFrame(int x, int y, int width, int height);
 // Hàm này nhận vào x, y là tọa độ tại vị trí bắt đầu vẽ khung, width và height là độ dài và chiều cao của khung
 // (độ dài và chiều nó vẽ hên xui nên cứ nhập đại số nào vô rồi canh điều chỉnh cho nó hợp lý là được)
@@ -43,5 +50,7 @@ void Loading();
 void DrawPhimTat(_POINT _A[][BOARD_SIZE]);
 void printBigCaro(int x, int y);
 void ShowRank();
+// Hàm này sẽ hiện xếp hạng của người chơi
 void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2);
 void drawBox(int x, int y, int width, int height);
+
