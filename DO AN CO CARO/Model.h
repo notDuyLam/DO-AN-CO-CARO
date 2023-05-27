@@ -36,17 +36,29 @@ void SortPlayerList(std::vector<_PLAYER>& playerList);
 // Sắp xếp danh sách những người chơi theo số thắng và ghi lại vào file
 void PlaySoundEffect(string s, bool SoundEffects);
 int getX(_POINT _A[][BOARD_SIZE], int i, int j);
+// Luu gia tri cua X
 int getY(_POINT _A[][BOARD_SIZE], int i, int j);
+// Luu gia tri Y
 int getCheck(_POINT _A[][BOARD_SIZE], int i, int j);
+// Luu gia tri cua o trong
 MOVE timkiemnuocdi(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& SoundEffects);
+//Tim nuoc di cho may 
 double tancongdoc(_POINT _A[][BOARD_SIZE], int x, int y);
+// Tinh diem tan cong cho o trong theo hang doc
 double tancongngang(_POINT _A[][BOARD_SIZE], int x, int y);
+// Tinh diem tan cong cho o trong theo hang ngang
 double tancongcheoxuoi(_POINT _A[][BOARD_SIZE], int x, int y);
+// Tinh diem tan cong cho o trong theo duong cheo xuoi
 double tancongcheonguoc(_POINT _A[][BOARD_SIZE], int x, int y);
+// Tinh diem tan cong cho o trong theo duong cheo nguoc 
 double phongngudoc(_POINT _A[][BOARD_SIZE], int x, int y);
+// Tinh diem phong thu cho o trong theo hang doc
 double phongngungang(_POINT _A[][BOARD_SIZE], int x, int y);
+// Tinh diem phong thu cho o trong theo hang ngang
 double phongngucheoxuoi(_POINT _A[][BOARD_SIZE], int x, int y);
+// Tinh diem phong thu cho o trong theo duong cheo xuoi
 double phongngucheonguoc(_POINT _A[][BOARD_SIZE], int x, int y);
+// Tinh diem phong thu cho o trong theo duong cheo nguoc
 void SetPlayer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2);
 // Khi bắt đầu chơi gọi hàm này để người dùng nhập tên đồng thời lấy tên đó để xử lý ở các hàm khác
 void SetPlayerVsComputer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2);
