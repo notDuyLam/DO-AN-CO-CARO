@@ -3,13 +3,12 @@
 #include "Model.h"
 #include "Control.h"
 
-void resizeConsole(int width, int height);
-void CreateConsoleWindow(int pWidth, int pHeight); //Tao console voi kich thuoc cho truoc
-void FixConsoleWindow(); //Co dinh console khong cho ng dung thay doi
-void SetColor(WORD color);
-void TextColor(int color);
-void ShowCur(bool CursorVisibility);
-void GotoXY(int x, int y);
+void resizeConsole(int width, int height); //Tạo màn hình console với kích thước cho trước
+void FixConsoleWindow(); //Cố định màn hình console, không cho người dùng thay đổi
+void SetColor(WORD color); //Thay đổi màu chữ
+void TextColor(int color); //Thay đổi màu nền và màu chữ
+void ShowCur(bool CursorVisibility); //Hiển thị con trỏ chuột hay không
+void GotoXY(int x, int y); //Di chuyển đến tọa độ (x,y) trên màn hình console
 void DrawBoard(int pSize);
 void XWin(_POINT _A[][BOARD_SIZE]);
 void OWin(_POINT _A[][BOARD_SIZE]);

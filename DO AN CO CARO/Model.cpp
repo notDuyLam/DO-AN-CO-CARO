@@ -13,11 +13,13 @@ void ResetData(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int
 	_TURN = true; _COMMAND = -1; // Gán lượt và phím mặc định
 	_X = _A[0][0].x; _Y = _A[0][0].y; // Thiết lập lại tọa độ hiện hành ban đầu
 }
+
 //Hàm dọn dẹp tài nguyên
 //void GabageCollect()
 //{
 //	// Dọn dẹp tài nguyên nếu có khai báo con trỏ
 //}
+
 bool CheckTie(_POINT _A[][BOARD_SIZE])
 {
 	int dem = 0;

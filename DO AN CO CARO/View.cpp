@@ -7,16 +7,6 @@ void resizeConsole(int width, int height)
 	GetWindowRect(console, &r);
 	MoveWindow(console, r.left, r.top, width, height, TRUE);
 }
-void CreateConsoleWindow(int pWidth, int pHeight)
-{
-	HWND consoleWindow = GetConsoleWindow();
-	RECT r;
-	HANDLE hConsole;
-	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, 240);
-	GetWindowRect(consoleWindow, &r);
-	MoveWindow(consoleWindow, 0, 0, pWidth, pHeight, TRUE);
-}
 
 void FixConsoleWindow()
 {
@@ -39,7 +29,6 @@ void DrawBoard(int pSize) {
 			GotoXY(LEFT + 4 * i, TOP + 2 * j);
 		}
 	}
-	//DrawBoardGiaoDien(1, BOARD_SIZE + 40, BOARD_SIZE + 70);
 }
 //void DrawBoard_1(int m, int n)
 //{
