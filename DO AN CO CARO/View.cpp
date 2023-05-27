@@ -1902,7 +1902,7 @@ void printCaro(int x, int y) {
 	cout << char(SPACE) << char(DOUBLE_BOTTOM_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(DOUBLE_BOTTOM_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(SPACE) << char(SPACE) << char(DOUBLE_BOTTOM_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(DOUBLE_BOTTOM_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(SPACE) << char(SPACE) << char(DOUBLE_BOTTOM_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(SPACE) << char(DOUBLE_BOTTOM_LEFT) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_HORIZONTAL) << char(DOUBLE_BOTTOM_RIGHT) << char(SPACE);
 	SetColor(1);
 	GotoXY(x, y+6);
-	cout << "     ----  By Team 15  ----      ";
+	cout << "     ----  By Group 15  ----      ";
 }               
 
 void printBigCaro(int x, int y)
@@ -2187,7 +2187,7 @@ void printBigCaro(int x, int y)
 	cout << char(188);
 	SetColor(1);
 	GotoXY(x, y + 11);
-	cout << "                        ----  By Team 15  ----";
+	cout << "                        ----  By Group 15  ----";
 }
 
 // ██████╗ █████╗ ██████╗  ██████╗ 
