@@ -1399,11 +1399,11 @@ void Loading()
 		GotoXY(x+7, y+1);
 		cout << i * 10 << "%";
 
-		Sleep(10 + rand() % 500);
+		Sleep(100);
 		GotoXY(x+7, y+1);
 		cout << "       ";
 	}
-	Sleep(10);
+	Sleep(50);
 	system("cls");
 }
 void ShowRank()
