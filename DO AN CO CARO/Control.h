@@ -25,13 +25,14 @@ int AskContinue(_POINT _A[][BOARD_SIZE]);
 void SaveGame(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN, int chedo);
 // Chức năng lưu game khi đang chơi, giới hạn lưu tối đa là 10 file nếu vượt quá thì sẽ hỏi người dùng ghi đè lên file cũ
 void LoadGame(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, int& chedo);
+// Hàm này được gọi khi người dùng yêu cầu tải lại 1 ván game đã lưu
 int SelectMenu(_MENU menu);
 string RunLoadingMenu(int option);
 void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN, int option, bool& runGame, int chedo, int& song, int& songtemp);
 void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, bool& SoundEffects, int& chedo, int& song, int& songtemp);
 void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, int& _X, int& _Y, bool validEnter, bool& SoundEffects, int& chedo, int& song, int& songtemp);
-// Choi voi may 
+// Chức năng chơi với máy
 int SelectMenu1(_MENU menu);
 _MENU LoadingMenu();
 int EscMenu(_POINT _A[][BOARD_SIZE], bool& SoundEffects, int& song, int& songtemp);
-// Đây là hàm sẽ hiện menu khi người chơi ấn ESC khi đang chơi
+// Đây là hàm sẽ hiện menu phụ khi người chơi ấn ESC khi đang chơi

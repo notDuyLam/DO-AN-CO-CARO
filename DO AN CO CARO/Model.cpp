@@ -14,12 +14,6 @@ void ResetData(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int
 	_X = _A[0][0].x; _Y = _A[0][0].y; // Thiết lập lại tọa độ hiện hành ban đầu
 }
 
-//Hàm dọn dẹp tài nguyên
-//void GabageCollect()
-//{
-//	// Dọn dẹp tài nguyên nếu có khai báo con trỏ
-//}
-
 bool CheckTie(_POINT _A[][BOARD_SIZE])
 {
 	int dem = 0;
@@ -351,13 +345,13 @@ void PlaySoundEffect(string s, bool SoundEffects)
 	if (!SoundEffects)
 		return;
 	if (s == "move")
-		PlaySound(TEXT("move.wav"), NULL, SND_FILENAME | SND_ASYNC); // Dung de bat nhac khi di
+		PlaySound(TEXT("move.wav"), NULL, SND_FILENAME | SND_ASYNC); // Bật âm thanh khi di chuyển
 	else if (s == "win")
-		PlaySound(TEXT("win1.wav"), NULL, SND_FILENAME | SND_ASYNC); // Bat nhac khi thang
+		PlaySound(TEXT("win1.wav"), NULL, SND_FILENAME | SND_ASYNC); // Bật âm thanh thắng
 	else if (s == "draw")
-		PlaySound(TEXT("draw.wav"), NULL, SND_FILENAME | SND_ASYNC); // Bat nhac hoa
+		PlaySound(TEXT("draw.wav"), NULL, SND_FILENAME | SND_ASYNC); // Bật âm thanh hòa
 	else if (s == "choose")
-		PlaySound(TEXT("choose.wav"), NULL, SND_FILENAME | SND_ASYNC); // Bat nhac khi lua chon
+		PlaySound(TEXT("choose.wav"), NULL, SND_FILENAME | SND_ASYNC); // Bật âm thanh khi lựa chọn
 }
 
 
@@ -549,6 +543,7 @@ void SortPlayerList(std::vector<_PLAYER>& playerList)
 		playerList.at(j + 1) = key;
 	}
 }
+
 int getX(_POINT _A[][BOARD_SIZE], int i, int j)
 {
 	return _A[i][j].x;
