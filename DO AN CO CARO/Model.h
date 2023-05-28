@@ -29,14 +29,18 @@ void PlayBackGroundMusic(int song);
 void StopMusic();
 // Dừng tất cả nhạc đang mở
 void LoadData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, int& chedo);
+// Đọc dữ liệu ván cờ từ file
 std::vector<string> LoadFiles();
 bool CheckFileExistence(string filename);
 // Kiểm tra file có tồn tại trong danh sách các file đã lưu hay không
 void SaveData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN, int chedo);
+// Lưu dữ liệu ván cờ vào file
 void SavePlayer(_PLAYER player);
 // Lưu một tên người chơi vào file playerList và sắp xếp danh sách người chơi theo số thắng (nếu người chơi đã xuất hiện thì không lưu mới)
 _PLAYER LoadPlayer(_PLAYER player);
+// Cập nhập thông tin người chơi
 void SetPlayerRank(_PLAYER& player);
+// Thiết lập thứ hạng của người chơi theo tên
 int CheckPlayerExistence(_PLAYER player);
 // Kiểm tra xem người chơi có trong danh sách những người chơi trước đó không
 std::vector<_PLAYER> GetPlayerList();

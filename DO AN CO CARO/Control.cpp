@@ -1537,39 +1537,6 @@ int SelectMenu(_MENU menu)
 	ShowCur(1);
 	return cursor;
 }
-int SelectMenu1(_MENU menu)
-{
-	int cursor1 = 1;
-	int cursor2 = 1;
-	char key;
-
-	PrintText("", 4, menu.x - 18, menu.y - 8);
-
-	do
-	{
-		key = _getch();
-		if ((key == 'w' || key == ARROW_UP) && cursor2 > 1)
-		{
-			PrintText("", 4, menu.x - 18, menu.y + cursor1 - 9);
-			cursor1 = cursor1-3;
-			cursor2--;
-			PrintText("", 4, menu.x - 18, menu.y + cursor1 - 9);
-		}
-		else if ((key == 's' || key == ARROW_DOWN) && cursor2 < menu.options)
-		{
-			PrintText("", 4, menu.x - 18, menu.y + cursor1 - 9);
-			cursor1 = cursor1+3;
-			cursor2++;
-			PrintText("", 4, menu.x - 18, menu.y + cursor1 - 9);
-		}
-		else if (key == ESC)
-		{
-			return -1;
-		}
-	} while (key != ENTER && key != 32);
-
-	return cursor2;
-}
 void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN, int option, bool& runGame, int chedo, int& song, int& songtemp)
 {
 	switch (option)

@@ -360,17 +360,23 @@ void PlaySoundEffect(string s, bool SoundEffects)
 		PlaySound(TEXT("choose.wav"), NULL, SND_FILENAME | SND_ASYNC); // Bat nhac khi lua chon
 }
 
-
+//Đọc dữ liệu từ file
 void LoadData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, int& chedo)
 {
 	std::ifstream loadFile;
+	//Mở file mà người chơi yêu cầu
 	loadFile.open(filename.c_str());
+	//Đọc tên người chơi X
 	getline(loadFile, _PLAYER1.name);
 	_PLAYER1 = LoadPlayer(_PLAYER1);
+	//Đọc tên người chơi O
 	getline(loadFile, _PLAYER2.name);
 	_PLAYER2 = LoadPlayer(_PLAYER2);
+	//Đọc chế độ
 	loadFile >> chedo;
+	//Đọc lượt chơi hiện tại
 	loadFile >> _TURN;
+	//Đọc bàn cờ
 	for (int i = 0; i < BOARD_SIZE; i++)
 	{
 		for (int j = 0; j < BOARD_SIZE; j++)
@@ -1081,7 +1087,7 @@ double phongngucheonguoc(_POINT _A[][BOARD_SIZE], int x, int y) {
 	return diemtong;
 }
 
-//Thiết lập người chơi khi vào game
+//Thiết lập người chơi khi vào game, tiến hành nhập tên người chơi X, O
 void SetPlayer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -1163,7 +1169,7 @@ void SetPlayer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 		SetColor(0);
 		std::getline(cin, _PLAYER1.name);
 		// ve khung o day
-	} while (_PLAYER1.name.length() < 2 || _PLAYER1.name.length() > 10);
+	} while (_PLAYER1.name.length() < 2 || _PLAYER1.name.length() > 10);//Nếu tên người chơi nhỏ hơn 2 hoặc lớn hơn 10 sẽ yêu cầu người chơi nhập lại tên cho đến khi hợp lệ
 	do
 	{
 		//PrintText("Enter Player2's name (2-10 characters): ", 250, X_CENTER - 24, Y_CENTER);
@@ -1244,6 +1250,7 @@ void SetPlayer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 	_PLAYER2 = LoadPlayer(_PLAYER2);
 }
 
+//Thiết lập người chơi khi vào game, tiến hành nhập tên người chơi X, người chơi O sẽ mặc định là CARO_AI
 void SetPlayerVsComputer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
