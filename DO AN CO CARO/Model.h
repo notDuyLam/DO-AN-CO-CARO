@@ -59,7 +59,8 @@ int getY(_POINT _A[][BOARD_SIZE], int i, int j);
 int getCheck(_POINT _A[][BOARD_SIZE], int i, int j);
 // Lưu giá trị ô trống (0 là chưa đánh dấu, -1 là X đánh, 1 là O đánh)
 MOVE timkiemnuocdi(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& SoundEffects);
-// Tìm kiếm nước đi cho máy
+// Tìm kiếm nước đi cho máy dựa vào các hàm tính điểm tấn công và phòng thủ cho từng ô còn trống
+//và mảng điểm tấn công, phòng thủ đã được thiết lập sẵn
 double tancongdoc(_POINT _A[][BOARD_SIZE], int x, int y);
 // Tính điểm tấn công cho ô trống theo hàng dọc
 double tancongngang(_POINT _A[][BOARD_SIZE], int x, int y);

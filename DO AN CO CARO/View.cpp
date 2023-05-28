@@ -64,7 +64,8 @@ void DrawBoard_1(int m, int n)
 
 void XWin(_POINT _A[][BOARD_SIZE])
 {
-	ShowCur(0);
+	ShowCur(0); //Ẩn con trỏ chuột
+	//Đi đến tọa độ thích hợp để in chữ
 	GotoXY(72, 1);
 	cout << "                                                                    ";
 	GotoXY(72, 2);
@@ -103,7 +104,8 @@ void XWin(_POINT _A[][BOARD_SIZE])
 
 void OWin(_POINT _A[][BOARD_SIZE])
 {
-	ShowCur(0);
+	ShowCur(0); //Ẩn con trỏ chuột
+	// Đi đến tọa độ thích hợp để in chữ
 	GotoXY(70, 1);
 	cout << "                                                                    ";
 	GotoXY(70, 2);
@@ -142,7 +144,8 @@ void OWin(_POINT _A[][BOARD_SIZE])
 
 void Draw(_POINT _A[][BOARD_SIZE])
 {
-	ShowCur(0);
+	ShowCur(0); //Ẩn con trỏ chuột
+	// Đi đến tọa độ thích hợp để in chữ
 	GotoXY(70, 1);
 	cout << "                                                                      ";
 	GotoXY(70, 2);
@@ -182,7 +185,7 @@ void Draw(_POINT _A[][BOARD_SIZE])
 void ThongBaoWin(int pWhoWin, _POINT _A[][BOARD_SIZE])
 {
 	if (pWhoWin == -1) //X win
-	{
+	{// Nhấp nháy dòng chữ
 		for(int i=0;i<5;i++)
 		{
 			SetColor(252);
@@ -196,7 +199,7 @@ void ThongBaoWin(int pWhoWin, _POINT _A[][BOARD_SIZE])
 		XWin(_A);
 	}
 	else if (pWhoWin == 1) //O win
-	{
+	{// Nhấp nháy dòng chữ
 		for (int i = 0;i < 5;i++)
 		{
 			SetColor(252);
@@ -209,8 +212,8 @@ void ThongBaoWin(int pWhoWin, _POINT _A[][BOARD_SIZE])
 		SetColor(252);
 		OWin(_A);
 	}
-	else if (pWhoWin == 0)
-	{
+	else if (pWhoWin == 0) //Draw
+	{// Nhấp nháy dòng chữ
 		for (int i = 0;i < 5;i++)
 		{
 			SetColor(252);
@@ -229,8 +232,8 @@ void ThongBaoWin(int pWhoWin, _POINT _A[][BOARD_SIZE])
 void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothang[24], int pWhoWin)
 {
 	short int x, y;
-	ShowCur(0);
-
+	ShowCur(0); //Ẩn con trỏ chuột
+	// Nhấp nháy nước đi thắng
 	for (unsigned short int j = 1; j < 11; ++j)
 	{
 		SetColor(2 + rand() % 14);
@@ -265,6 +268,7 @@ void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothan
 	}
 	Sleep(300);
 	ShowCur(0);
+	// Tô đậm nước đi thắng
 	for (unsigned short int i = 0; i < 10; i += 2)
 	{
 		x = toadothang[i];
@@ -873,26 +877,6 @@ void DrawBigText(string filename, int color, int x, int y)
 	std::vector<std::string> line1;
 	int tempY = y;
 	while (getline(textFile, line)) line1.push_back(line);
-	if (filename == "XWin.txt" || filename == "OWin.txt" || filename == "Draw.txt")
-	{
-		int count = 0;
-		while (count <= 48)
-		{
-			for (int i = 0; i < line1.size(); i++)
-				PrintText(line1[i], color + count % 10, x, y++);
-			y = tempY;
-			Sleep(100);
-			for (int i = 0; i < line1.size(); i++)
-			{
-				string templine = "";
-				for (int j = 0; j < line1[i].length(); j++) templine += ' ';
-				PrintText(templine, 240, x, y++);
-			}
-			Sleep(100);
-			y = tempY;
-			count++;
-		}
-	}
 	for (int i = 0;i < line1.size();i++)
 		PrintText(line1[i], color, x, y++);
 	textFile.close();
@@ -902,6 +886,7 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 {
 	int x = _A[0][BOARD_SIZE].x + 72;
 	int y = _A[0][BOARD_SIZE].y + 13;
+	// Đi đến vị trí thích hợp để vẽ khung
 	GotoXY(x, y);
 	SetColor(color);
 	drawFrame(74, 18, 60, 15);
@@ -1314,8 +1299,8 @@ void printBigCaro(int x, int y)
 
 void Loading()
 {
-	int a[10] = { 17,17,17,17,153,153,153,51,51,187 };
-	int b[10] = { 31,31,31,31,159,159,159,63,63,191 };
+	int a[10] = { 17,17,17,17,153,153,153,51,51,187 }; //Mảng màu
+	int b[10] = { 31,31,31,31,159,159,159,63,63,191 }; //Mảng màu
 	system("cls");
 	printBigCaro(35, 3);
 	int x = 25;
@@ -1365,7 +1350,6 @@ void Loading()
 	system("cls");
 }
 
-//Thiết lập giao diện Ranking khi người chơi có nhu cầu xem danh sách thứ hạng của trò chơi
 void ShowRank()
 {
 	int x = 35;
@@ -1391,7 +1375,6 @@ void ShowRank()
 	command = _getch();
 }
 
-//Thiết lập giao diện thông tin người chơi khi vào game như số ván đã thắng, thứ hạng hiện tại
 void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2)
 {
 	int start = _A[0][BOARD_SIZE - 1].x + 4;

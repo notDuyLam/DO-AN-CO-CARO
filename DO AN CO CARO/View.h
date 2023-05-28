@@ -39,6 +39,7 @@ void drawFrame(int x, int y, int width, int height);
 // Hàm này nhận vào x, y là tọa độ tại vị trí bắt đầu vẽ khung, width và height là độ dài và chiều cao của khung
 // có thể thay đổi các giá trị topleft... để vẽ loại khung khác nếu cần
 void DrawBigText(string filename, int color, int x, int y);
+// Hàm này dùng để in chữ từ file txt với tham số là màu chữ và tọa độ x, y cần in
 void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE], int color);
 // Vẽ khung nhỏ góc dưới bên phải màn hình để hiển thị các phím tắt hay menu phụ
 void drawButton(int x, int y, string text);
@@ -54,7 +55,7 @@ void Loading();
 void DrawPhimTat(_POINT _A[][BOARD_SIZE]);
 // Hàm này vẽ các phím lên màn hình khi chơi để người dùng biết nhấn nút nào để chơi
 void ShowRank();
-// Hàm này sẽ hiện xếp hạng của người chơi trong phần Ranking
+// Thiết lập giao diện Ranking khi người chơi có nhu cầu xem danh sách thứ hạng của trò chơi
 void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2);
-// Hàm này in ra số ván thắng và xếp hạng của người chơi trong khi chơi game
+// Thiết lập giao diện thông tin người chơi khi vào game như số ván đã thắng, thứ hạng hiện tại
 

@@ -16,7 +16,8 @@ void ResetData(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int
 
 bool CheckTie(_POINT _A[][BOARD_SIZE])
 {
-	int dem = 0;
+	int dem = 0; // Khai báo biến đếm ô trống
+	// Đếm trên bàn cờ còn bao nhiêu ô trống
 	for (int i = 0; i < BOARD_SIZE; i++)
 	{
 		for (int j = 0; j < BOARD_SIZE; j++)
@@ -27,7 +28,7 @@ bool CheckTie(_POINT _A[][BOARD_SIZE])
 			}
 		}
 	}
-	if (dem <= 51)
+	if (dem <= 51) // Nếu ít hơn 52 ô trống tức là số ô trống còn khoảng 20% thì trả về true - hòa
 		return true;
 	return false;
 }
@@ -66,11 +67,11 @@ int CountO(_POINT _A[][BOARD_SIZE])
 
 int TestBoard(_POINT _A[][BOARD_SIZE], bool _TURN, int cRow, int cCol,short int toadothang[24])
 {
-	if (CheckTie(_A)) return 0; //Hoa
+	if (CheckTie(_A)) return 0; //Hòa
 	else
 	{
 		if (CheckWin(_A, cRow, cCol,toadothang))
-			return (_TURN == FIRST ? P_X : P_O); //-1 nghia la luot 'true' thang
+			return (_TURN == FIRST ? P_X : P_O); //-1 nghĩa là lượt 'true' thắng
 		else
 			return 2;
 	}
@@ -91,6 +92,8 @@ int CheckBoard(int pX, int pY, _POINT _A[][BOARD_SIZE], bool& _TURN) {
 
 bool HorizontalCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, short int toadothang[24])
 {
+	// Kiểm tra xem có nhiều hơn 5 quân cờ hàng ngang giống nhau liền kề không
+	// Lưu lại tọa độ của các vị trí vào mảng toadothang để dùng cho việc thông báo nước đi thắng
 	int countWin = 1;
 	int count = 1;
 	unsigned short int id = 0;
@@ -144,6 +147,8 @@ bool HorizontalCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, sh
 
 bool VerticalCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, short int toadothang[24])
 {
+	// Kiểm tra xem có nhiều hơn 5 quân cờ hàng dọc giống nhau liền kề không
+	// Lưu lại tọa độ của các vị trí vào mảng toadothang để dùng cho việc thông báo nước đi thắng
 	int countWin = 1;
 	int count = 1;
 	unsigned short int id = 0;
@@ -195,6 +200,8 @@ bool VerticalCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, shor
 
 bool ForwardSlashCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, short int toadothang[24])
 {
+	// Kiểm tra xem có nhiều hơn 5 quân cờ đường chéo xuôi giống nhau liền kề không
+	// Lưu lại tọa độ của các vị trí vào mảng toadothang để dùng cho việc thông báo nước đi thắng
 	int countWin = 1;
 	int count = 1;
 
@@ -247,6 +254,8 @@ bool ForwardSlashCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, 
 
 bool BackwardSlashCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, short int toadothang[24])
 {
+	// Kiểm tra xem có nhiều hơn 5 quân cờ đường chéo ngược giống nhau liền kề không
+	// Lưu lại tọa độ của các vị trí vào mảng toadothang để dùng cho việc thông báo nước đi thắng
 	int countWin = 1;
 	int count = 1;
 	unsigned short int id = 0;
@@ -298,6 +307,7 @@ bool BackwardSlashCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol,
 
 bool CheckWin(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, short int toadothang[24])
 {
+	// Kiểm tra xem có người chơi nào thắng chưa bằng việc gọi các hàm kiểm tra ngang, dọc, chéo xuôi, chéo ngược ở trên
 	if (HorizontalCheck(_A, currentRow, currentCol,toadothang) || VerticalCheck(_A, currentRow, currentCol,toadothang) || BackwardSlashCheck(_A, currentRow, currentCol,toadothang) || ForwardSlashCheck(_A, currentRow, currentCol,toadothang))
 		return true;
 	else return false;
@@ -337,7 +347,7 @@ void PlayBackGroundMusic(int song)
 
 void StopMusic()
 {
-	PlaySound(0, 0, 0); // Tat nhac
+	PlaySound(0, 0, 0); // Tắt nhạc
 }
 
 void PlaySoundEffect(string s, bool SoundEffects)
@@ -375,8 +385,8 @@ void LoadData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAY
 	{
 		for (int j = 0; j < BOARD_SIZE; j++)
 		{
-			_A[i][j].x = HORIZONTAL_DISTANCE * j + LEFT + 2; //Trung voi hoanh do ban co
-			_A[i][j].y = VERTICAL_DISTANCE * i + TOP + 1; //Trung voi tung do ban co
+			_A[i][j].x = HORIZONTAL_DISTANCE * j + LEFT + 2; //Trùng với hoành độ bàn cờ
+			_A[i][j].y = VERTICAL_DISTANCE * i + TOP + 1; //Trùng với tung độ bàn cờ
 			loadFile >> _A[i][j].c;
 		}
 	}
@@ -384,7 +394,7 @@ void LoadData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAY
 
 	_COMMAND = -1;
 
-	//Thiet lap lai toa do ban dau
+	//Thiết lập lại tọa độ ban đầu
 	_X = _A[0][0].x;
 	_Y = _A[0][0].y;
 }
@@ -408,7 +418,7 @@ std::vector<string> LoadFiles()
 
 bool CheckFileExistence(string filename)
 {
-	string name; // filename cua cac file da luu trong savedlist.txt
+	string name; // filename của các file đã lưu trong savedlist.txt
 	std::fstream savedFile;
 	savedFile.open(SAVED_LIST, std::fstream::in);
 
@@ -567,9 +577,9 @@ MOVE timkiemnuocdi(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, in
 	MOVE wayresult;
 	wayresult.x = -1;
 	wayresult.y = 1;
-	// Tao bien wayresult de chua toa do cua may
+	// Tạo biến wayresult để nhận tọa độ điểm máy đánh
 	double diem = 0;
-	// Duyet qua tat ca o trong
+	// Duyệt qua tất cả ô trống
 	for (int i = 0; i < BOARD_SIZE; i++)
 	{
 		for (int j = 0; j < BOARD_SIZE; j++)
@@ -578,10 +588,10 @@ MOVE timkiemnuocdi(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, in
 
 				int x = getX(_A, i, j);
 				int y = getY(_A, i, j);
-				// Tinh diem cho tung o trong
+				// Tính điểm cho từng ô trống
 				double diemtancong = tancongdoc(_A, x, y) + tancongngang(_A, x, y) + tancongcheoxuoi(_A, x, y) + tancongcheonguoc(_A, x, y);
 				double diemphongngu = phongngudoc(_A, x, y) + phongngungang(_A, x, y) + phongngucheoxuoi(_A, x, y) + phongngucheonguoc(_A, x, y);
-				// Lay o trong co diem cao nhat
+				// Lấy ô trống có điểm cao nhất
 				if (diemtancong >= diemphongngu)
 				{
 					if (diem <= diemtancong)
@@ -603,37 +613,38 @@ MOVE timkiemnuocdi(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, in
 			}
 		}
 	}
-	// Tra ve nuoc di cua may
+	// Trả về nước đi của máy
 	return wayresult;
 }
 double mangdiemtancong[7] = { 0,8, 64, 512,4096,32768,262144 };
-// Ung voi moi quan co lien tiep se co gia tri diem tan cong tuong ung. Vi du co 2 quan co lien tiep thi gia tri diem tan cong la 64.
+// Ứng với mỗi quân cờ liên tiếp sẽ có giá trị điểm tấn công tương ứng. 
+//Ví dụ có 2 quân cờ liên tiếp thì giá trị điểm tấn công là 64.
 double mangdiemphongngu[7] = { 0, 1, 16, 128,1024,8192,65536 };
-// Ung voi moi quan co lien tiep se co gia tri diem phong thu tuong ung 
+// Ứng với mỗi quân cờ liên tiếp sẽ có giá trị điểm phòng thủ tương ứng. 
 double tancongdoc(_POINT _A[][BOARD_SIZE], int x, int y) {
 	int soquanta = 0;
 	int soquandich = 0;
 	double diemtong = 0;
 	int flag = 0;
-	// Bien de ket thuc
+	// Biến để kết thúc
 	for (int i = 0; i < BOARD_SIZE; i++) {
 		for (int j = 0; j < BOARD_SIZE; j++)
 		{
-			//Tim vi tri cua o trong
+			// Tìm vị trí của ô trống
 			if (getX(_A, i, j) == x && getY(_A, i, j) == y)
 			{
-				//Duyet cac o o phia tren o trong
+				//Duyệt các ô ở phía trên ô trống
 				for (int t = 1; t < 7 && i - t >= 0; t++) {
-					// Neu o hien tai = -1 thi tang so quan ta len
+					// Nếu ô hiện tại có c=-1 thì tăng số quân ta lên
 					if (getCheck(_A, i - t, j) == -1) {
 						soquanta++;
-						// Neu so quan ta nho hon 4 va o trong dang nam o dau ban co thi thoat khoi vong lap
+						// Nếu số quân ta nhỏ hơn 4 và ô trống đang nằm ở đầu bàn cờ thì thoát khỏi vòng lặp
 						if (soquanta < 4 && i - t - 1 == 0) {
 							soquanta = 0;
 							break;
 						}
 					}
-					// Neu o hien tai = 1 thi tang so quan dich len va ket thuc vong lap
+					// Nếu ô hiện tại có c=1 thì tăng số quân địch lên và kết thúc vòng lặp
 					else if (getCheck(_A, i - t, j) == 1)
 					{
 						soquandich++;
@@ -644,18 +655,18 @@ double tancongdoc(_POINT _A[][BOARD_SIZE], int x, int y) {
 						break;
 					}
 				}
-				//Duyet cac o o phia duoi o trong
+				// Duyệt các ô ở phía dưới ô trống
 				for (int t = 1; t < 7 && i + t < BOARD_SIZE; t++) {
-					// Neu o hien tai = -1 thi tang so quan ta len
+					// Nếu ô hiện tại có c=-1 thì tăng số quân ta lên
 					if (getCheck(_A, i + t, j) == -1) {
 						soquanta++;
-						// Neu so quan ta nho hon 4 va o trong dang nam o cuoi ban co thi thoat khoi vong lap
+						// Nếu số quân ta nhỏ hơn 4 và ô trống đang nằm ở cuối bàn cờ thì thoát khỏi vòng lặp
 						if (soquanta < 4 && i + t + 1 == BOARD_SIZE - 1) {
 							soquanta = 0;
 							break;
 						}
 					}
-					// Neu o hien tai = -1 thi tang so quan dich len va ket thuc vong lap
+					// Nếu ô hiện tại có c=1 thì tăng số quân địch lên và kết thúc vòng lặp
 					else if (getCheck(_A, i + t, j) == 1)
 					{
 						soquandich++;
@@ -670,13 +681,14 @@ double tancongdoc(_POINT _A[][BOARD_SIZE], int x, int y) {
 				break;
 			}
 		}
-		// Neu tim thay o trong thi dung lai
+		// Nếu tìm thấy ô trống thích hợp thì dừng lại
 		if (flag == 1) break;
 	}
-	// Neu co 2 quan dich lien tiep thi khong tinh diem
+	// Nếu có 2 quân địch liên tiếp thì không tính điểm
 	if (soquandich == 2)
 		return 0;
-	// Tinh diem tan cong doc bang cach cong mang diem tan cong va tru mang diem phong thu
+	// Tính điểm tấn công dọc bằng cách cộng giá trị lấy từ mảng điểm tấn công tương ứng với
+	//số quân ta và trừ giá trị lấy từ mảng điểm phòng thủ tương ứng với số quân địch
 	diemtong -= mangdiemphongngu[soquandich];
 	diemtong += mangdiemtancong[soquanta];
 	return diemtong;
