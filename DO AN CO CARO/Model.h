@@ -6,14 +6,22 @@ void ResetData(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int
 //void GabageCollect(); // Chi viet ham nay khi nao co dung con tro
 int TestBoard(_POINT _A[][BOARD_SIZE], bool _TURN, int cRow, int cCol,short int toadothang[24]);
 int CountX(_POINT _A[][BOARD_SIZE]);
+// Đếm số lượng quân X có trên bàn cờ
 int CountO(_POINT _A[][BOARD_SIZE]);
+// Đếm số lượng quân O có trên bàn cờ
 int CheckBoard(int pX, int pY, _POINT _A[][BOARD_SIZE], bool& _TURN);
 bool CheckTie(_POINT _A[][BOARD_SIZE]);
+// Kiểm tra hòa
 bool HorizontalCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, short int toadothang[24]);
+// Kiểm tra thắng theo đường ngang
 bool VerticalCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, short int toadothang[24]);
+// Kiểm tra thắng theo đường dọc
 bool ForwardSlashCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, short int toadothang[24]);
+// Kiểm tra thắng theo đường chéo tới
 bool BackwardSlashCheck(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, short int toadothang[24]);
+// Kiểm tra thắng theo đường chéo ngược
 bool CheckWin(_POINT _A[][BOARD_SIZE], int currentRow, int currentCol, short int toadothang[24]);
+// Hàm kiểm tra thắng, hàm này gọi tất cả các hàm trên để kiểm tra có thắng chưa
 int GetColIndex(int pX);
 int GetRowIndex(int pY);
 void PlayBackGroundMusic(int song);

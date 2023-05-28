@@ -830,7 +830,7 @@ void SoundInGame(bool& SoundEffects, int& song, int& songtemp)
 						else
 						{
 							song = songtemp;
-							PlayBackGroundMusic(song);
+							// Không có mở nhạc ở đây vì đang trong trận đấu
 						}
 						SetColor(4);
 						if (song != -1) drawSelectedButton(94, 19, "Music:  ON"); else drawSelectedButton(94, 19, "Music: OFF");
@@ -898,41 +898,6 @@ void drawFrame(int x, int y, int width, int height)
 		GotoXY(x + width - 1, i);
 		cout << verticalLine;
 	}
-}
-
-void drawBox(int x, int y, int width, int height)
-{
-	/*const char topLeftCorner = 201;
-	const char topRightCorner = 187;
-	const char bottomLeftCorner = 200;
-	const char bottomRightCorner = 188;
-	const char horizontalLine = 205;
-	const char verticalLine = 186;*/
-	TextColor(176);
-	// Draw the top border
-	GotoXY(x, y);
-	cout << " ";
-	for (int i = 1; i < width - 1; i++) {
-		cout << " ";
-	}
-	cout << " ";
-
-	// Draw the bottom border
-	GotoXY(x, y + height - 1);
-	cout << " ";
-	for (int i = 1; i < width - 1; i++) {
-		cout << " ";
-	}
-	cout << " ";
-
-	// Draw the left and right borders
-	for (int i = y + 1; i < y + height - 1; i++) {
-		GotoXY(x, i);
-		cout << " ";
-		GotoXY(x + width - 1, i);
-		cout << " ";
-	}
-	TextColor(240);
 }
 
 void DrawBigText(string filename, int color, int x, int y)

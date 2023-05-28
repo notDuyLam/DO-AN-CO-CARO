@@ -30,3 +30,9 @@ noname6
 1
 who
 0
+test
+0
+test1
+0
+test2
+0

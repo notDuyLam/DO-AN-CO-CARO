@@ -3,14 +3,11 @@
 
 void StartGame(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int& _Y, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 {
-	SetPlayerRank(_PLAYER1);
-	SetPlayerRank(_PLAYER2);
+	SetPlayerRank(_PLAYER1); // Khi bắt đầu chơi hàm này kiểm tra người chơi tồn tại chưa và gán cho mức xếp hạng tương ứng
+	SetPlayerRank(_PLAYER2); // Tương tự nhưng cho người chơi 2
 	system("cls");
 	ResetData(_A, _TURN, _COMMAND, _X, _Y); // Khởi tạo dữ liệu gốc
 	DrawBoard(BOARD_SIZE); // Vẽ màn hình game
-	/*int x = _A[0][0].x;
-	int y = _A[0][0].y;
-	GotoXY(x, y);*/
 	ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
 	GotoXY(_X, _Y);
 	ShowCur(0);
@@ -429,36 +426,25 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, int& _Y, short int toadothang[24], bool& SoundEffects, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 {
 	switch (pWhoWin) {
-	case -1:
-		_PLAYER1.wins++;
-		PlaySoundEffect("win", SoundEffects);
-		NhapNhayQuanCo(_A, toadothang, pWhoWin);
-		ThongBaoWin(pWhoWin, _A);
-		//GotoXY(78,18); // Nhảy tới vị trí 
-		//// thích hợp để in chuỗi thắng/thua/hòa
-		////printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", true, false);
-		//cout << "Nguoi choi " << _PLAYER1.name << " da thang va nguoi choi " << _PLAYER2.name << " da thua.";
-		SavePlayer(_PLAYER1);
+	case -1: // Người chơi 1 chiến thắng
+		_PLAYER1.wins++; // Tăng số win của người chơi đó
+		PlaySoundEffect("win", SoundEffects); // Mở nhạc thắng
+		NhapNhayQuanCo(_A, toadothang, pWhoWin); // Làm nổi bật quân cờ chiến thắng
+		ThongBaoWin(pWhoWin, _A); // Thông báo X hoặc O đã win
+		SavePlayer(_PLAYER1); // Lưu thông tin người chơi vào playerList
 		break;
-	case 1:
+	case 1: // Người chơi 2 chiến thắng
 		_PLAYER2.wins++;
 		PlaySoundEffect("win", SoundEffects);
 		NhapNhayQuanCo(_A, toadothang, pWhoWin);
 		ThongBaoWin(pWhoWin, _A);
-		//GotoXY(78,18); // Nhảy tới vị trí 
-		//// thích hợp để in chuỗi thắng/thua/hòa
-		////printf("Nguoi choi %d da thang va nguoi choi %d da thua\n", false, true);
-		//cout << "Nguoi choi " << _PLAYER2.name << " da thang va nguoi choi " << _PLAYER1.name << " da thua.";
 		SavePlayer(_PLAYER2);
 		break;
-	case 0:
-		//printf("Nguoi choi %d da hoa nguoi choi %d\n", false, true);
+	case 0: // Hòa
 		PlaySoundEffect("draw", SoundEffects);
 		ThongBaoWin(pWhoWin, _A);
-		/*GotoXY(78,18);
-		cout << "Nguoi choi " << _PLAYER2.name << " da hoa nguoi choi " << _PLAYER1.name;*/
 		break;
-	case 2:
+	case 2: // Trường hợp nếu chưa ai thắng hoặc hòa
 		_TURN = !_TURN; // Đổi lượt nếu không có gì xảy ra
 		ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
 		ShowCur(1);
@@ -470,13 +456,6 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 int AskContinue(_POINT _A[][BOARD_SIZE])
 {
 	int x = 53;
-	//printf("Nhan 'y/n' de tiep tuc/dung: ");
-	/*GotoXY(x, 10+3); SetColor(3); for (int i = x; i <= x + 29; i++) cout << (char)178;
-	GotoXY(x, 11+3); cout << (char)178 << "                            " << (char)178;
-	GotoXY(x, 12 + 3); cout << (char)178; SetColor(7); cout << "   Play again        Quit   ";
-	SetColor(3);cout << (char)178;
-	GotoXY(x, 13+3); cout << (char)178 << "                            " << (char)178;
-	GotoXY(x, 14+3); SetColor(3); for (int i = x; i <= x + 29; i++) cout << (char)178;*/
 	GotoXY(x, 10 + 3); TextColor(176); for (int i = x; i <= x + 29; i++) cout << " ";
 	GotoXY(x, 11 + 3); cout << " "; TextColor(240);cout << "                            "; TextColor(176);cout << " ";
 	GotoXY(x, 12 + 3); cout << " "; TextColor(240); SetColor(7); cout << "   Play again        Quit   ";
@@ -549,16 +528,11 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		drawFrame(5, 3, 80, 28);
 		TextColor(255);
 		printBigCaro(10, 10);
-		//printCaro(29,14);
 		backToOriginalMenu = false;
 		x = 103, y = 20;
-		// color, width, height, x, y
-		//SetColor(4);
-		//GotoXY(103, 3); cout << "PLAYER VS PLAYER";
 		if (afterPlay)
 			PlayBackGroundMusic(song);
 		drawSelectedButton(103, 5, "PLAYER VS PLAYER");
-		//SetColor(0);
 		drawButton(103, 8, "PLAYER VS COMPUTER");
 		drawButton(103, 11, "LOAD GAME");
 		drawButton(103, 14, "HELP");
@@ -1329,14 +1303,6 @@ void SaveGame(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 	file.close();
 	do
 	{
-		/*GotoXY(x, 10+3); SetColor(3); for (int i = x; i <= x + 50; i++) cout << (char)178;
-GotoXY(x, 11 + 3); cout << (char)178 << "                                                 " << (char)178;
-GotoXY(x, 12+3); cout << (char)178 << "                                                 " << (char)178;
-GotoXY(x, 13 + 3); cout << (char)178 << "   Enter the name for your board:                " << (char)178;
-GotoXY(x, 14 + 3); cout << (char)178 << "                                                 " << (char)178;
-GotoXY(x, 15+3); cout << (char)178 << "                                                 " << (char)178;
-GotoXY(x, 16+3); SetColor(3); for (int i = x; i <= x + 50; i++) cout << (char)178;
-GotoXY(x + 35, 13 + 3);*/
 		GotoXY(x, 10 + 3); TextColor(176); for (int i = x; i <= x + 67; i++) cout << " ";
 		GotoXY(x, 11 + 3); cout << " "; TextColor(240); cout << "                                                                  "; TextColor(176); cout << " ";
 		GotoXY(x, 12 + 3); cout << " "; TextColor(240); cout << "                                                                  "; TextColor(176); cout << " ";
@@ -1344,20 +1310,13 @@ GotoXY(x + 35, 13 + 3);*/
 		GotoXY(x, 14 + 3); cout << " "; TextColor(240); cout << "                                                                  "; TextColor(176); cout << " ";
 		GotoXY(x, 15 + 3); cout << " "; TextColor(240); cout << "                                                                  "; TextColor(176); cout << " ";
 		GotoXY(x, 16 + 3); for (int i = x; i <= x + 67; i++) cout << " ";
+		// Yếu cầu người dùng nhập tên cho file
 		TextColor(240);
 		GotoXY(x + 53, 13 + 3);
 		SetColor(0);
 		ShowCur(1);
 		std::getline(cin, filename);
 		while (filename.length() < 2 || filename.length() > 10) {
-			/*GotoXY(x, 10+3); SetColor(3); for (int i = x; i <= x + 50; i++) cout << (char)178;
-GotoXY(x, 11 + 3); cout << (char)178 << "                                                 " << (char)178;
-GotoXY(x, 12+3); cout << (char)178 << "                                                 " << (char)178;
-GotoXY(x, 13 + 3); cout << (char)178 << "   Enter the name for your board:                " << (char)178;
-GotoXY(x, 14 + 3); cout << (char)178 << "                                                 " << (char)178;
-GotoXY(x, 15+3); cout << (char)178 << "                                                 " << (char)178;
-GotoXY(x, 16+3); SetColor(3); for (int i = x; i <= x + 50; i++) cout << (char)178;
-GotoXY(x + 35, 13 + 3);*/
 			GotoXY(x, 10 + 3); TextColor(176); for (int i = x; i <= x + 67; i++) cout << " ";
 			GotoXY(x, 11 + 3); cout << " "; TextColor(240); cout << "                                                  "; TextColor(176); cout << " ";
 			GotoXY(x, 12 + 3); cout << " "; TextColor(240); cout << "                                                  "; TextColor(176); cout << " ";
@@ -1365,6 +1324,7 @@ GotoXY(x + 35, 13 + 3);*/
 			GotoXY(x, 14 + 3); cout << " "; TextColor(240); cout << "                                                  "; TextColor(176); cout << " ";
 			GotoXY(x, 15 + 3); cout << " "; TextColor(240); cout << "                                                  "; TextColor(176); cout << " ";
 			GotoXY(x, 16 + 3); for (int i = x; i <= x + 67; i++) cout << " ";
+			// Nếu tên không nằm trong khoảng kí tự cho phép thì nhập lại
 			TextColor(240);
 			GotoXY(x + 53, 13 + 3);
 			SetColor(0);
@@ -1373,7 +1333,7 @@ GotoXY(x + 35, 13 + 3);*/
 			//filename += ".txt";
 		}
 		while (count >= 10) {
-			//GotoXY(x, 12 + 3); TextColor(176); cout << " "; TextColor(240); cout << "                                                 ";; TextColor(176); cout << " ";
+			// Nếu số file đã là 10 rồi thì sẽ hiện lựa chọn hỏi có muốn ghi đè lên file đầu tiên không
 			GotoXY(x + 4, 13 + 3); cout << " "; TextColor(240); SetColor(77); cout << "     Saves limit exceeded! Overwrite first save?            "; SetColor(0); //TextColor(176); cout << " ";
 			int choice = 0;
 			int currentPos = 0;
@@ -1469,18 +1429,9 @@ GotoXY(x + 35, 13 + 3);*/
 		filename += ".txt";
 		if (CheckFileExistence(filename))
 		{
+			// Trường hợp file đã tồn tại trước đó, sẽ hiện thông báo hỏi có muốn ghi đè lên file trước đó không
 			SetColor(3);
-			//GotoXY(x, 12 + 3); TextColor(176);cout << " ";TextColor(240);cout << "                                                 ";TextColor(176);cout << " ";
 			GotoXY(x + 4, 13 + 3); TextColor(240); SetColor(77); cout << "     Already exist. Do you want to overwrite that file?"; SetColor(0);
-			/*PrintText("Ten da ton tai", 0, X_CENTER - 40, Y_CENTER -8);
-			PrintText("Ban co muon luu de?", 0, X_CENTER - 40, Y_CENTER -7);*/
-			//option = SelectMenu(YesNoMenu(X_CENTER-15, Y_CENTER+3));
-			//key = RunYesNoMenu(option);
-			//if (key == 'Y')
-			//{
-			//	overwrite = true;
-			//	save = false;
-			//}
 			int choice = 0;
 			int currentPos = 0;
 			GotoXY(x + 18 + 4, 14 + 3);
@@ -1540,6 +1491,7 @@ GotoXY(x + 35, 13 + 3);*/
 	} while (save);
 
 	SaveData(filename, _A, _PLAYER1, _PLAYER2, _TURN, chedo);
+	// Lưu dữ liệu của 2 người chơi và chế độ chơi (với người hoặc máy)
 
 	if (!overwrite && !exceed)
 	{
@@ -1623,11 +1575,8 @@ void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, boo
 	switch (option)
 	{
 	case 1: case -1:
-		//system("cls");
-		//DrawBoard(BOARD_SIZE);
-		//DrawLoaded(_A);  // Hàm này vẽ lại chữ X O nên không cần
-		//ShowTurn(_A, _PLAYER1, _PLAYER2, _TURN);
-		//ShowCur(1);
+		// Nếu người dùng chọn Continue (trường hợp option==1) hoặc bấm ESC (optione == -1) thì sẽ xóa các nút menu và vẽ lại giao
+		// diện khi đang chơi để tiếp tục chơi
 		for (int i = 70; i < 120; i++)
 		{
 			for (int j = 19; j <= 30; j++)
@@ -1641,14 +1590,12 @@ void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, boo
 		DrawPhimTat(_A);
 		break;
 	case 2:
+		// Người dùng chọn lưu game
 		SaveGame(_A, _PLAYER1, _PLAYER2, _TURN, chedo);
 		runGame = false;
 		break;
-	/*case 3:
-		bool SoundEffects;
-		Sound(SoundEffects);
-		break;*/
 	case 3:
+		// Người dùng chọn thoát game
 		runGame = false;
 		break;
 	}
@@ -1666,7 +1613,6 @@ string RunLoadingMenu(int option)
 
 void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool &_TURN, int &_COMMAND, _PLAYER &_PLAYER1, _PLAYER &_PLAYER2, int &_X, int &_Y, bool validEnter, bool& SoundEffects, int& chedo, int& song, int& songtemp) {
 	FixConsoleWindow();
-	//StartGame(_A, _TURN, _COMMAND, _X, _Y);
 	chedo = 3;
 	int escOption;
 	short int toadothang[24];
