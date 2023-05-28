@@ -15,6 +15,7 @@ void FixConsoleWindow()
 	style = style & ~(WS_MAXIMIZEBOX) & ~(WS_THICKFRAME);
 	SetWindowLong(consoleWindow, GWL_STYLE, style);
 }
+
 void GotoXY(int x, int y) 
 {
 	COORD coord;
@@ -22,6 +23,7 @@ void GotoXY(int x, int y)
 	coord.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
+
 void DrawBoard(int pSize) {
 	DrawBoard_1(BOARD_SIZE, BOARD_SIZE);
 	for (int i = 0; i <= pSize; i++) {
@@ -30,34 +32,7 @@ void DrawBoard(int pSize) {
 		}
 	}
 }
-//void DrawBoard_1(int m, int n)
-//{
-//	int i, j;
-//	SetColor(0);
-//	printf("%c", 218);
-//	for (i = 0; i < n - 1; i++)
-//		printf("%c%c%c%c",196,196, 196, 194);
-//	printf("%c%c%c",196, 196, 196);
-//	printf("%c", 191);
-//	printf("\n");
-//	for (i = 0; i < m - 1; i++)
-//	{
-//		for (j = 0; j < n+ 1; j++)
-//			printf("%c   ", 179);
-//		printf("\n%c", 195);
-//		for (j = 0; j < n - 1; j++)
-//			printf("%c%c%c%c",196,196, 196, 197);
-//		printf("%c%c%c",196,196, 196);
-//		printf("%c\n", 180);
-//	}
-//	for (j = 0; j < n + 1; j++)
-//		printf("%c   ", 179);
-//	printf("\n%c", 192);
-//	for (i = 0; i < n - 1; i++)
-//		printf("%c%c%c%c",196,196, 196, 193);
-//	printf("%c%c%c",196,196, 196);
-//	printf("%c", 217);
-//}
+
 void DrawBoard_1(int m, int n)
 {
 	int i, j;
@@ -251,19 +226,6 @@ void ThongBaoWin(int pWhoWin, _POINT _A[][BOARD_SIZE])
 	SetColor(240);
 }
 
-
-
-//  88888888b.     88888888b.              d8888888  8888         8888
-//  8888888888b.   88888888888b           d88888888  8888         8888
-//  8888   'Y888b  8888    Y888b         d888P 8888  8888         8888
-//  8888   'Y888b  8888    Y888b         d888P 8888  8888         8888
-//  8888     8888  8888    d888P       d888P   8888  8888   d8b   8888
-//  8888     8888  8888888888P'       d888P    8888  8888  d888b  8888
-//  8888     8888  8888  T888b       d8888888888888  8888 d8   8b 8888
-//  8888   .d888P  8888   T888b     d888P      8888  88888d     b88888
-//  8888888888P"   8888    T888b   d888P       8888  8888P       Y8888
-//  88888888P"     8888     T888b d888P        8888  888P         Y888
-
 void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothang[24], int pWhoWin)
 {
 	short int x, y;
@@ -340,13 +302,13 @@ void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothan
 	ShowCur(1);
 }
 
-
 void TextColor(int color)
 {
 	HANDLE hConsole;
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, color);
 }
+
 void SetColor(WORD color)
 {
 	HANDLE hConsoleOutput;
@@ -366,6 +328,7 @@ void ShowCur(bool CursorVisibility)
 	CONSOLE_CURSOR_INFO cursor = { 1, CursorVisibility };
 	SetConsoleCursorInfo(handle, &cursor);
 }
+
 void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN)
 {
 	int start = _A[0][BOARD_SIZE - 1].x + 12;
@@ -404,6 +367,7 @@ void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 	//DrawBox(255, 20, 1, start - 2, 14);
 	//PrintText(((_TURN) ? _PLAYER1.name : _PLAYER2.name) + "'s turn!", (_TURN) ? 252 : 250, start - 2, 14);
 }
+
 void PrintText(string text, int color, int x, int y)
 {
 	GotoXY(x, y);
@@ -411,6 +375,7 @@ void PrintText(string text, int color, int x, int y)
 	cout << text;
 	SetColor(240);
 }
+
 void DrawLoaded(_POINT _A[][BOARD_SIZE])
 {
 	for (int i = 0; i < BOARD_SIZE; i++)
@@ -470,6 +435,7 @@ void HELP()
 	char command = ' ';
 	command = _getch();
 }
+
 void About()
 {
 	GotoXY(80, 11);
@@ -865,7 +831,6 @@ void SoundInGame(bool& SoundEffects, int& song, int& songtemp)
 	}
 }
 
-
 void drawFrame(int x, int y, int width, int height) 
 {
 	const char topLeftCorner = 201;
@@ -940,7 +905,6 @@ void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE],int color)
 	GotoXY(x, y);
 	SetColor(color);
 	drawFrame(74, 18, 60, 15);
-	/*drawBox(74, 18, 60, 15);*/
 	GotoXY(x + 10, y + 15);
 	SetColor(8);
 	cout << "Press Esc to Save game or Back to menu...";
@@ -1040,6 +1004,7 @@ void drawSelectedButton(int x, int y, string text)
 	cout << char(217);
 	TextColor(240);
 }
+
 void printCaro(int x, int y) {
 	SetColor(1);
 	GotoXY(x, y);
@@ -1346,13 +1311,6 @@ void printBigCaro(int x, int y)
 	GotoXY(x, y + 11);
 	cout << "                        ----  By Team 15  ----";
 }
-
-// ██████╗ █████╗ ██████╗  ██████╗ 
-//██╔════╝██╔══██╗██╔══██╗██╔═══██╗
-//██║     ███████║██████╔╝██║   ██║
-//██║     ██╔══██║██╔══██╗██║   ██║
-//╚██████╗██║  ██║██║  ██║╚██████╔╝
-// ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ 
 
 void Loading()
 {

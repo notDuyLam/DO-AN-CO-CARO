@@ -39,4 +39,4 @@ void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, _PLAY
 _MENU LoadingMenu();
 //Hàm này dùng để hiện danh sách các file đã lưu trong game
 int EscMenu(_POINT _A[][BOARD_SIZE], bool& SoundEffects, int& song, int& songtemp);
-// Đây là hàm sẽ hiện menu khi người chơi ấn ESC khi đang chơi
+// Đây là hàm sẽ hiện menu phụ khi người chơi ấn ESC khi đang chơi
