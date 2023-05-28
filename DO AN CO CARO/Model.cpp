@@ -424,17 +424,25 @@ bool CheckFileExistence(string filename)
 	savedFile.close();
 	return false;
 }
+
+//Lưu dữ liệu
 void SaveData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN, int chedo)
 {
 	std::fstream saveFile;
 	saveFile.open(filename, std::fstream::out);
+	//Lưu người chơi X
 	SavePlayer(_PLAYER1);
+	//Lưu người chơi O
 	SavePlayer(_PLAYER2);
+	//Lưu tên người chơi X
 	saveFile << _PLAYER1.name << "\n";
+	//Lưu tên người chơi O
 	saveFile << _PLAYER2.name << "\n";
+	//Lưu chế độ chơi (2 là chơi với người, 3 là chơi với máy)
 	saveFile << chedo << "\n";
+	//Lưu lượt chơi hiện tại(1 là X, 0 là O)
 	saveFile << _TURN << "\n";
-
+	//Tiến hành lưu bàn cờ hiện có(-1 là X, 1 là O, 0 là ô còn trống)
 	for (int i = 0; i < BOARD_SIZE; i++)
 	{
 		for (int j = 0; j < BOARD_SIZE; j++)
@@ -447,6 +455,7 @@ void SaveData(string filename, _POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYE
 	saveFile.close();
 }
 
+//Lưu người chơi
 void SavePlayer(_PLAYER player)
 {
 	int exist = CheckPlayerExistence(player); // Kiểm tra xem người chơi đã tồn tại chưa
@@ -483,11 +492,13 @@ _PLAYER LoadPlayer(_PLAYER player)
 	else return players.at(exist);
 }
 
+//Tiến hành sắp xếp thứ hạng của người chơi theo danh sách PlayerList
 void SetPlayerRank(_PLAYER& player)
 {
 	int exist = CheckPlayerExistence(player);
 	player.rank = exist + 1;
 }
+
 int CheckPlayerExistence(_PLAYER player)
 {
 	std::vector<_PLAYER> players = GetPlayerList();
@@ -519,6 +530,8 @@ std::vector<_PLAYER> GetPlayerList()
 
 	return players;
 }
+
+//Sắp xếp thứ hạng trong danh sách theo thứ tự giảm dần số ván thắng
 void SortPlayerList(std::vector<_PLAYER>& playerList)
 {
 	_PLAYER key;
@@ -1067,6 +1080,8 @@ double phongngucheonguoc(_POINT _A[][BOARD_SIZE], int x, int y) {
 	diemtong += mangdiemphongngu[soquandich];
 	return diemtong;
 }
+
+//Thiết lập người chơi khi vào game
 void SetPlayer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);

@@ -986,9 +986,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 								TextColor(255);
 								LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, chedo);
 								PlaySoundEffect("choose", SoundEffects);
-								if (chedo == 2)
+								if (chedo == 2)//chơi với người
 									RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, SoundEffects, chedo, song, songtemp);
-								if (chedo == 3)
+								if (chedo == 3)//chơi với máy
 									PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, SoundEffects, chedo, song, songtemp);
 								afterPlay = true;
 								break;
@@ -1600,6 +1600,7 @@ void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, boo
 		break;
 	}
 }
+
 string RunLoadingMenu(int option)
 {
 	string filename;

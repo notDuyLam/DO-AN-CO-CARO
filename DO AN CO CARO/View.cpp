@@ -1406,6 +1406,8 @@ void Loading()
 	Sleep(50);
 	system("cls");
 }
+
+//Thiết lập giao diện Ranking khi người chơi có nhu cầu xem danh sách thứ hạng của trò chơi
 void ShowRank()
 {
 	int x = 35;
@@ -1430,6 +1432,8 @@ void ShowRank()
 	char command = ' ';
 	command = _getch();
 }
+
+//Thiết lập giao diện thông tin người chơi khi vào game như số ván đã thắng, thứ hạng hiện tại
 void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2)
 {
 	int start = _A[0][BOARD_SIZE - 1].x + 4;
