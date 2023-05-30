@@ -1164,7 +1164,6 @@ void SetPlayer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 		GotoXY(X_CENTER - 30, Y_CENTER + 5); cout << " " << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " ''" << char(92) << " " << "" << "'''/";
 		GotoXY(X_CENTER - 30, Y_CENTER + 6); cout << "  '..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..''..'";
 		SetColor(0);
-		//PrintText("Enter Player1's name (2-10 characters): ", 252, X_CENTER - 24, Y_CENTER);
 		GotoXY(X_CENTER - 14, Y_CENTER - 4); cout << "Enter PlayerX's name (2-10 characters): ";
 		SetConsoleTextAttribute(hConsole, saved_attributes);
 		for (int i = 53; i < 98; i++)
@@ -1179,7 +1178,6 @@ void SetPlayer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 	} while (_PLAYER1.name.length() < 2 || _PLAYER1.name.length() > 10);//Nếu tên người chơi nhỏ hơn 2 hoặc lớn hơn 10 sẽ yêu cầu người chơi nhập lại tên cho đến khi hợp lệ
 	do
 	{
-		//PrintText("Enter Player2's name (2-10 characters): ", 250, X_CENTER - 24, Y_CENTER);
 		SetConsoleTextAttribute(hConsole, 48 | BACKGROUND_INTENSITY);
 		SetColor(15);
 		for (int i = 7; i < 17; i++)
@@ -1268,7 +1266,6 @@ void SetPlayerVsComputer(_PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 	do
 	{
 		
-		//PrintText("Enter Player1's name (2-10 characters): ", 252, X_CENTER - 24, Y_CENTER);
 		SetConsoleTextAttribute(hConsole, 48 | BACKGROUND_INTENSITY);
 		SetColor(15);
 		for (int i = 7; i < 17; i++)

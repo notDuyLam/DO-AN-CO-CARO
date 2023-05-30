@@ -412,7 +412,7 @@ void HELP()
 	cout << "   ";
 	GotoXY(80, 19);
 	cout << "   ";
-	SetColor(252); //Day la mot mau ngau nhien, can chinh lai mau khac dep hon
+	SetColor(252); 
 	GotoXY(10, 15);
 	cout << "	";
 	GotoXY(10, 16);
@@ -1101,7 +1101,6 @@ void printBigCaro(int x, int y)
 	cout << char(186);
 	SetColor(249);
 	GotoXY(x, y + 4);
-	//cout << char(32) << char(32);
 	for (int i = 0;i < 5;i++)
 		cout << (char)219;
 	cout << char(186);
@@ -1132,7 +1131,6 @@ void printBigCaro(int x, int y)
 		cout << (char)219;
 	cout << char(186);
 	GotoXY(x, y + 5);
-	//cout << char(32) << char(32);
 	for (int i = 0;i < 5;i++)
 		cout << (char)219;
 	cout << char(186);
@@ -1153,7 +1151,6 @@ void printBigCaro(int x, int y)
 		cout << (char)219;
 	cout << char(186);
 	GotoXY(x, y + 6);
-	//cout << char(32) << char(32);
 	for (int i = 0;i < 5;i++)
 		cout << (char)219;
 	cout << char(186);
@@ -1175,7 +1172,6 @@ void printBigCaro(int x, int y)
 	cout << char(186);
 	SetColor(243);
 	GotoXY(x, y + 7);
-	//cout << char(32) << char(32);
 	for (int i = 0;i < 5;i++)
 		cout << (char)219;
 	cout << char(186);
@@ -1206,7 +1202,6 @@ void printBigCaro(int x, int y)
 		cout << (char)219;
 	cout << char(186);
 	GotoXY(x, y + 8);
-	//cout << char(32) << char(32);
 	for (int i = 0;i < 16;i++)
 		cout << char(219);
 	cout << char(187) << char(32);
@@ -1324,13 +1319,7 @@ void Loading()
 	TextColor(255);
 	for (unsigned short int i = 1; i <= 10; ++i)
 	{
-		//textcolor(111);
-		//SetColor(9);
 		PrintText("        ", a[i-1], x += 8, y + 1);
-		//TextColor(0 +rand() % 100);
-		//textcolor(111);
-		//GotoXY(x+=8, y +1);
-		//cout << "     ";
 		TextColor(b[i-1]);
 		GotoXY(x+7, y+1);
 		cout << i * 10 << "%";
@@ -1371,12 +1360,10 @@ void ShowRank()
 void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2)
 {
 	int start = _A[0][BOARD_SIZE - 1].x + 4;
-	//PrintText(_PLAYER1.name, 253, start + 12, 18);
 	PrintText("Wins:", 1, start + 14, 16);
 	PrintText(std::to_string(_PLAYER1.wins), 1, start + 21, 16);
 	PrintText("Rank:", 1, start + 14, 17);
 	PrintText(std::to_string(_PLAYER1.rank), 1, start + 21, 17);
-	//PrintText(_PLAYER2.name, 253, start + 23, 18);
 	PrintText("Wins:", 2, start + 23 + 32 + 8 - 7, 16);
 	PrintText("Rank:", 2, start + 23 + 32 + 8 - 7, 17);
 	PrintText(std::to_string(_PLAYER2.wins), 2, start + 23 + 32 + 8, 16);
