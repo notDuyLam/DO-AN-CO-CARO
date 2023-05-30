@@ -253,16 +253,6 @@ void ThongBaoWin(int pWhoWin, _POINT _A[][BOARD_SIZE])
 
 
 
-//  88888888b.     88888888b.              d8888888  8888         8888
-//  8888888888b.   88888888888b           d88888888  8888         8888
-//  8888   'Y888b  8888    Y888b         d888P 8888  8888         8888
-//  8888   'Y888b  8888    Y888b         d888P 8888  8888         8888
-//  8888     8888  8888    d888P       d888P   8888  8888   d8b   8888
-//  8888     8888  8888888888P'       d888P    8888  8888  d888b  8888
-//  8888     8888  8888  T888b       d8888888888888  8888 d8   8b 8888
-//  8888   .d888P  8888   T888b     d888P      8888  88888d     b88888
-//  8888888888P"   8888    T888b   d888P       8888  8888P       Y8888
-//  88888888P"     8888     T888b d888P        8888  888P         Y888
 
 void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothang[24], int pWhoWin)
 {
@@ -370,7 +360,6 @@ void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 {
 	int start = _A[0][BOARD_SIZE - 1].x + 12;
 
-	//DrawBox(255, 30, 10, start, 2);
 	if ((_TURN) == 1)
 	{
 		SetColor(1);
@@ -400,9 +389,6 @@ void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool 
 		PrintText("PLAYER X: " + _PLAYER1.name, 247, start, 1);
 		PrintText("PLAYER O: " + _PLAYER2.name, 2, start +42, 1);
 	}
-	//DrawBigText((_TURN) ? "X.txt" : "O.txt", (_TURN) ? 1 : 2, start, 2);
-	//DrawBox(255, 20, 1, start - 2, 14);
-	//PrintText(((_TURN) ? _PLAYER1.name : _PLAYER2.name) + "'s turn!", (_TURN) ? 252 : 250, start - 2, 14);
 }
 void PrintText(string text, int color, int x, int y)
 {
@@ -1080,7 +1066,6 @@ void printBigCaro(int x, int y)
 		cout << (char)219;
 	cout << char(187);
 	GotoXY(x, y + 1);
-	//cout << char(32) << char(32);
 	for (int i = 0;i < 16;i++)
 		cout << (char)219;
 	cout << char(186) << char(32);
@@ -1094,7 +1079,6 @@ void printBigCaro(int x, int y)
 		cout << (char)219;
 	cout << char(187);
 	GotoXY(x, y + 2);
-	//cout << char(32) << char(32);
 	for (int i = 0;i < 5;i++)
 		cout << (char)219;
 	cout << char(201);
@@ -1126,7 +1110,6 @@ void printBigCaro(int x, int y)
 		cout << (char)219;
 	cout << char(186) << char(32);
 	GotoXY(x, y + 3);
-	//cout << char(32) << char(32);
 	for (int i = 0;i < 5;i++)
 		cout << (char)219;
 	cout << char(186);
