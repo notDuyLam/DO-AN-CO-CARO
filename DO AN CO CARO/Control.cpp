@@ -15,6 +15,7 @@ void StartGame(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, int& _X, int
 	ShowCur(1);
 	DrawPhimTat(_A);
 }
+
 void MoveRight(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
 	if (_X < _A[BOARD_SIZE - 1][BOARD_SIZE - 1].x)
 	{
@@ -42,72 +43,6 @@ void MoveUp(_POINT _A[][BOARD_SIZE], int& _X, int& _Y) {
 	}
 }
 
-/*void GamePlay(_POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& SoundEffects)
-{
-	_PLAYER _PLAYER1, _PLAYER2;
-	FixConsoleWindow();
-	bool runGame = true;
-	int escOption;
-	StartGame(_A, _TURN, _COMMAND, _X, _Y);
-	StopMusic();
-	short int toadothang[24];
-	while (1)
-	{
-		_COMMAND = toupper(_getch());
-		if (_COMMAND == ESC)
-		{
-			escOption = SelectMenu(EscMenu(_A));
-			RunEscMenu(_A, _PLAYER1, _PLAYER2, _TURN, escOption, runGame);
-		}
-		if (_COMMAND == 'O')
-			StopMusic();
-		else if (_COMMAND == 'P')
-			PlayBackGroundMusic(0);
-		if (_COMMAND == 27)
-		{
-			system("cls");
-			return;
-		}
-		else {
-			if (_COMMAND == 'A' || _COMMAND == ARROW_LEFT) MoveLeft(_A, _X, _Y);
-			else if (_COMMAND == 'W'||_COMMAND == ARROW_UP) MoveUp(_A, _X, _Y);
-			else if (_COMMAND == 'S' || _COMMAND == ARROW_DOWN) MoveDown(_A, _X, _Y);
-			else if (_COMMAND == 'D' || _COMMAND == ARROW_RIGHT) MoveRight(_A, _X, _Y);
-			else if (_COMMAND == 13 || _COMMAND == SPACE) {// Người dùng đánh dấu trên màn hình bàn cờ
-				PlaySoundEffect("move", SoundEffects);
-				switch (CheckBoard(_X, _Y, _A, _TURN)) {
-				case -1:
-				{
-					SetColor(1);
-					printf("X"); 
-					break;
-				}
-				case 1:
-				{
-					SetColor(2);
-					printf("O"); 
-					break;
-				}
-				case 0: validEnter = false; // Khi đánh vào ô đã đánh rồi
-				}
-				// Tiếp theo là kiểm tra và xử lý thắng/thua/hòa/tiếp tục
-				if (validEnter == true) {
-					switch (ProcessFinish(TestBoard(_A, _TURN, GetRowIndex(_Y), GetColIndex(_X),toadothang), _A, _TURN, _X, _Y,toadothang, SoundEffects)) {
-					case -1: case 1: case 0:
-						if (AskContinue(_A) != 'Y') {
-							StopMusic();
-							system("cls");
-							return;
-						}
-						else StartGame(_A, _TURN, _COMMAND, _X, _Y);
-					}
-				}
-				validEnter = true; // Mở khóa
-			}
-		}
-	}
-}
-*/
 void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, bool& SoundEffects, int& chedo, int& song, int& songtemp)
 {
 	chedo = 2;
@@ -423,6 +358,7 @@ void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool
 	}
 	//PlaySoundA("NoSound.wav", NULL, SND_ASYNC);
 }
+
 int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, int& _Y, short int toadothang[24], bool& SoundEffects, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2)
 {
 	switch (pWhoWin) {
@@ -453,6 +389,7 @@ int ProcessFinish(int pWhoWin, _POINT _A[][BOARD_SIZE], bool& _TURN, int& _X, in
 	GotoXY(_X, _Y); // Trả về vị trí hiện hành của con trỏ màn hình bàn cờ
 	return pWhoWin;
 }
+
 int AskContinue(_POINT _A[][BOARD_SIZE])
 {
 	int x = 53;
@@ -514,6 +451,7 @@ int AskContinue(_POINT _A[][BOARD_SIZE])
 	else
 		return 'N';
 }
+
 void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, int _X, int _Y, bool validEnter, bool& SoundEffects, int& chedo, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, int& song, int& songtemp)
 {
 	int x = 0, y = 0;
@@ -986,9 +924,9 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 								TextColor(255);
 								LoadGame(RunLoadingMenu(loadOption), _A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, chedo);
 								PlaySoundEffect("choose", SoundEffects);
-								if (chedo == 2)
+								if (chedo == 2)//chơi với người
 									RunGame(_A, _PLAYER1, _PLAYER2, _TURN, _COMMAND, _X, _Y, SoundEffects, chedo, song, songtemp);
-								if (chedo == 3)
+								if (chedo == 3)//chơi với máy
 									PlayWithComputer(_A, _TURN, _COMMAND, _PLAYER1, _PLAYER2, _X, _Y, validEnter, SoundEffects, chedo, song, songtemp);
 								afterPlay = true;
 								break;
@@ -1075,6 +1013,7 @@ void ScreenStartGame(int n, _POINT _A[][BOARD_SIZE], bool _TURN, int _COMMAND, i
 		}
 	}
 }
+
 _MENU LoadingMenu()
 {
 	_MENU menu;
@@ -1106,6 +1045,7 @@ _MENU LoadingMenu()
 	GotoXY(38, 27);
 	return menu;
 }
+
 int EscMenu(_POINT _A[][BOARD_SIZE], bool& SoundEffects, int& song, int& songtemp)
 {
 	_MENU menu;
@@ -1537,39 +1477,6 @@ int SelectMenu(_MENU menu)
 	ShowCur(1);
 	return cursor;
 }
-int SelectMenu1(_MENU menu)
-{
-	int cursor1 = 1;
-	int cursor2 = 1;
-	char key;
-
-	PrintText("", 4, menu.x - 18, menu.y - 8);
-
-	do
-	{
-		key = _getch();
-		if ((key == 'w' || key == ARROW_UP) && cursor2 > 1)
-		{
-			PrintText("", 4, menu.x - 18, menu.y + cursor1 - 9);
-			cursor1 = cursor1-3;
-			cursor2--;
-			PrintText("", 4, menu.x - 18, menu.y + cursor1 - 9);
-		}
-		else if ((key == 's' || key == ARROW_DOWN) && cursor2 < menu.options)
-		{
-			PrintText("", 4, menu.x - 18, menu.y + cursor1 - 9);
-			cursor1 = cursor1+3;
-			cursor2++;
-			PrintText("", 4, menu.x - 18, menu.y + cursor1 - 9);
-		}
-		else if (key == ESC)
-		{
-			return -1;
-		}
-	} while (key != ENTER && key != 32);
-
-	return cursor2;
-}
 void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN, int option, bool& runGame, int chedo, int& song, int& songtemp)
 {
 	switch (option)
@@ -1600,6 +1507,7 @@ void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, boo
 		break;
 	}
 }
+
 string RunLoadingMenu(int option)
 {
 	string filename;

@@ -25,13 +25,19 @@ int AskContinue(_POINT _A[][BOARD_SIZE]);
 void SaveGame(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN, int chedo);
 // Chức năng lưu game khi đang chơi, giới hạn lưu tối đa là 10 file nếu vượt quá thì sẽ hỏi người dùng ghi đè lên file cũ
 void LoadGame(string filename, _POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, int& chedo);
+// Hàm sử dụng để xử lý các dữ liệu của ván chơi đã lưu, đầu tiên là đọc dữ liệu từ file của ván chơi mà người chơi
+// yêu cầu, sau đó từ các dữ liệu đã đọc cập nhập lại ván chơi trước đó 
 int SelectMenu(_MENU menu);
+// Hàm này giúp người chơi di chuyển được con trỏ tới dữ liệu mà mình muốn, sau đó sẽ trả về lựa chọn của người chơi để phục vụ cho các tác vụ của Load Game
 string RunLoadingMenu(int option);
+// Hàm này dùng để khởi chạy LoadingMenu khi người dùng nhấn chọn tên ván chơi đã lưu
 void RunEscMenu(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN, int option, bool& runGame, int chedo, int& song, int& songtemp);
+//Hàm này dùng để khởi chạy EscMenu giúp các tác vụ trong menu mà người chơi chọn lựa được chính xác
 void RunGame(_POINT _A[][BOARD_SIZE], _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, bool& _TURN, int& _COMMAND, int& _X, int& _Y, bool& SoundEffects, int& chedo, int& song, int& songtemp);
+// Chơi giữa người với người
 void PlayWithComputer(_POINT _A[][BOARD_SIZE], bool& _TURN, int& _COMMAND, _PLAYER& _PLAYER1, _PLAYER& _PLAYER2, int& _X, int& _Y, bool validEnter, bool& SoundEffects, int& chedo, int& song, int& songtemp);
-// Choi voi may 
-int SelectMenu1(_MENU menu);
+// Chơi với máy
 _MENU LoadingMenu();
+//Hàm này dùng để hiện danh sách các file đã lưu trong game
 int EscMenu(_POINT _A[][BOARD_SIZE], bool& SoundEffects, int& song, int& songtemp);
-// Đây là hàm sẽ hiện menu khi người chơi ấn ESC khi đang chơi
+// Đây là hàm sẽ hiện menu phụ khi người chơi ấn ESC khi đang chơi

@@ -9,37 +9,39 @@ void SetColor(WORD color); //Thay đổi màu chữ
 void TextColor(int color); //Thay đổi màu nền và màu chữ
 void ShowCur(bool CursorVisibility); //Hiển thị con trỏ chuột hay không
 void GotoXY(int x, int y); //Di chuyển đến tọa độ (x,y) trên màn hình console
-void DrawBoard(int pSize);
+void DrawBoard(int pSize); //Vẽ bàn cờ
+void DrawBoard_1(int m, int n); // Hàm hỗ trợ việc vẽ bàn cờ
 void XWin(_POINT _A[][BOARD_SIZE]);
-// Vẽ thông báo X chiến thắng
+// In thông báo X chiến thắng
 void OWin(_POINT _A[][BOARD_SIZE]);
-// Vẽ thông báo O chiến thắng
+// In thông báo O chiến thắng
 void Draw(_POINT _A[][BOARD_SIZE]);
-// Vẽ thông báo hòa
+// In thông báo hòa
 void NhapNhayQuanCo(_POINT _A[BOARD_SIZE][BOARD_SIZE], const short int toadothang[24], int pWhoWin);
 // Làm cho quân cờ mà xếp đủ 5 quân thẳng hàng nhấp nháy khi chiến thắng
 void ThongBaoWin(int pWhoWin, _POINT _A[][BOARD_SIZE]);
-// Hàm này gọi 2 hàm XWin OWin tùy theo người chơi nào thắng để thông báo thắng
-void DrawBoard_1(int m, int n);
+// Hàm này gọi ra các hàm XWin, OWin hay Draw để thông báo thắng/hòa
 void ShowTurn(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2, bool _TURN);
 // Làm mờ hoặc làm nổi chữ X O khi đang chơi để biết là đang tới lượt của người chơi nào
 void PrintText(string text, int color, int x, int y);
 // In ra đoạn text với màu là color tại vị trí x y của màn hình
 void DrawLoaded(_POINT _A[][BOARD_SIZE]);
+// Hàm này để đánh dấu X và O trên bàn cờ với dữ liệu đã được lưu, dùng trong Load game
 void HELP();
-// hiện menu hướng dẫn
+// Hiện hướng dẫn cho game
 void About();
-// menu các thành viên nhóm
+// Hiện thông tin các thành viên nhóm
 void Sound(bool& SoundEffects, int& song, int& songtemp);
 //Hàm này hiện menu điều chỉnh âm thanh ở ngoài
 void SoundInGame(bool& SoundEffects, int& song, int& songtemp);
 // Hàm này hiện menu điều chỉnh âm thanh khi đang chơi
 void drawFrame(int x, int y, int width, int height);
 // Hàm này nhận vào x, y là tọa độ tại vị trí bắt đầu vẽ khung, width và height là độ dài và chiều cao của khung
-// (độ dài và chiều nó vẽ hên xui nên cứ nhập đại số nào vô rồi canh điều chỉnh cho nó hợp lý là được)
 // có thể thay đổi các giá trị topleft... để vẽ loại khung khác nếu cần
 void DrawBigText(string filename, int color, int x, int y);
+// Hàm này dùng để in chữ từ file txt với tham số là màu chữ và tọa độ x, y cần in
 void DrawBoardGiaoDien(_POINT _A[][BOARD_SIZE], int color);
+// Vẽ khung nhỏ góc dưới bên phải màn hình để hiển thị các phím tắt hay menu phụ
 void drawButton(int x, int y, string text);
 // Vẽ 1 khung nhỏ cho text được truyền vào để cho thành 1 nút
 void drawSelectedButton(int x, int y, string text);
@@ -53,7 +55,7 @@ void Loading();
 void DrawPhimTat(_POINT _A[][BOARD_SIZE]);
 // Hàm này vẽ các phím lên màn hình khi chơi để người dùng biết nhấn nút nào để chơi
 void ShowRank();
-// Hàm này sẽ hiện xếp hạng của người chơi
+// Thiết lập giao diện Ranking khi người chơi có nhu cầu xem danh sách thứ hạng của trò chơi
 void ShowPlayerInfo(_POINT _A[][BOARD_SIZE], _PLAYER _PLAYER1, _PLAYER _PLAYER2);
-// Hàm này khi vào đầu mỗi trận đấu in ra số thắng và xếp hạng của người chơi
+// Thiết lập giao diện thông tin người chơi khi vào game như số ván đã thắng, thứ hạng hiện tại
 

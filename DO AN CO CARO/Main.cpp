@@ -35,5 +35,4 @@ int main() {
 	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &cfi);
 	ShowCur(0);
 	ScreenStartGame(n, _A, _TURN, _COMMAND, _X, _Y, validEnter, SoundEffects, chedo, _PLAYER1, _PLAYER2, song, songtemp);
-
 }
