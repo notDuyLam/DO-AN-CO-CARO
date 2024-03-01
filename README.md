@@ -3,5 +3,7 @@ Member of the group:
  - Nguyen Duy Lam
  - Doan Thi Minh Anh
  - Tang Senh Manh
- - Nguyen Thi Tu Ngoc\n
+ - Nguyen Thi Tu Ngoc
+
+
 If you have any intend of using this game for your project, please credit the source. Thank you.
